@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<typeAliases>
+		<!-- food -->
+		<typeAlias type="com.dosirak31.food.basic.vo.FoodBasicVO" alias="foodBasic"/>
+		<!-- order -->
+		<typeAlias type="com.dosirak31.food.order.vo.OrderDetailVO" alias="orderDetail"/>
+		<!-- health -->
+		<typeAlias type="com.dosirak31.health.board.vo.HealthBoardVO" alias="healthBoard"/>
+		<!-- login -->
+		<typeAlias type="com.dosirak31.login.client.vo.ClientLoginVO" alias="clientLogin"/>
+		<!-- 리뷰 관련-->
+		<typeAlias type="com.dosirak31.food.review.vo.FoodReviewVO" alias="review" />
+		<typeAlias type="com.dosirak31.food.page.vo.PageVO" alias="page" />
+		<!-- 현규님파트 -->
+		<typeAlias type="com.dosirak31.client.signup.vo.ClientVO" alias="client"/>
+		<typeAlias type="com.dosirak31.client.community.vo.CommunityVO" alias="community"/>
+		<typeAlias type="com.dosirak31.client.reply.vo.ReplyVO" alias="reply"/>
+		
+	</typeAliases>
+</configuration>

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dosirak31.food.order.dao.FoodOrderDao">
+	
+
+	<!-- 장바구니에 insert -->
+	<insert id="bagInsert" parameterType="orderDetail">
+		<selectKey keyProperty="order_no" resultType="int" order="BEFORE">
+			SELECT ORDER_NO FROM ORDERS WHERE CLIENT_NO=#{client_no} AND ORDER_STATUS_NO=1 UNION ALL SELECT 0 AS ORDER_NO FROM DUAL
+			 WHERE NOT EXISTS(SELECT ORDER_NO FROM ORDERS WHERE CLIENT_NO=#{client_no} AND ORDER_STATUS_NO=1 )
+		</selectKey>
+		<choose>
+		<when test="order_no!=0">
+			INSERT ALL
+		    into dosirak(dosirak_no, dosirak_name, food_name1,food_name2,food_name3,food_name4,food_name5)
+		    values((select NVL(MAX(DOSIRAK_NO),0)+1 FROM DOSIRAK),#{dosirak_name},#{food_name1},#{food_name2}, #{food_name3}, #{food_name4}, #{food_name5})
+		    into order_detail(order_no, order_quantity,order_price,dosirak_no)
+		    values(#{order_no},#{order_quantity},#{order_price},(select NVL(MAX(DOSIRAK_NO),0)+1 FROM DOSIRAK))
+		    SELECT * FROM DUAL
+	    </when>
+	    <otherwise>
+	    	INSERT ALL
+		    into dosirak(dosirak_no, dosirak_name, food_name1,food_name2,food_name3,food_name4,food_name5)
+		    values((select NVL(MAX(DOSIRAK_NO),0)+1 FROM DOSIRAK),#{dosirak_name},#{food_name1},#{food_name2}, #{food_name3}, #{food_name4}, #{food_name5})
+		    into orders(order_no,client_no,order_status_no)
+    		values((SELECT NVL(MAX(ORDER_NO),0)+1 FROM ORDERS),#{client_no},1)
+		    into order_detail(order_no, order_quantity,order_price,dosirak_no)
+		    values((SELECT NVL(MAX(ORDER_NO),0)+1 FROM ORDERS),#{order_quantity},#{order_price},(select NVL(MAX(DOSIRAK_NO),0)+1 FROM DOSIRAK))
+		    SELECT * FROM DUAL
+	    </otherwise>
+	    </choose>
+	</insert>
+	
+	<select id="bagList" parameterType="int" resultType="orderDetail">
+	    SELECT D.DOSIRAK_NO DOSIRAK_NO,DOSIRAK_NAME,FOOD_NAME1,FOOD_NAME2,FOOD_NAME3,FOOD_NAME4,FOOD_NAME5,
+		OD.ORDER_NO ORDER_NO,ORDER_QUANTITY,ORDER_PRICE, ORDER_DATE,ORDER_ADDRESS,CLIENT_NO,ORDER_STATUS_NO
+		FROM DOSIRAK D JOIN ORDER_DETAIL OD 
+		ON D.DOSIRAK_NO=OD.DOSIRAK_NO
+		JOIN ORDERS O
+		ON OD.ORDER_NO=O.ORDER_NO
+		WHERE CLIENT_NO=#{client_no} AND ORDER_STATUS_NO=1
+   </select>
+	
+	<!-- (장바구니에서 삭제 클릭 시)도시락 및 주문 상세 삭제 -->
+	<delete id="bagDelete1" parameterType="orderDetail">
+		delete from dosirak where dosirak_no=#{dosirak_no}
+	</delete>
+	
+	<!-- (장바구니에서 삭제 클릭 시)주문상세 몇개인지 조회 -->
+	<select id="bagOrderNo" parameterType="orderDetail" resultType="Integer">
+		select count(od.order_no) from order_detail od join orders o on od.order_no=o.order_no where od.order_no=#{order_no} and o.order_status_no=1
+	</select>
+	
+	<!-- (장바구니에서 삭제 클릭 시)주문테이블 삭제 -->
+	<delete id="bagDelete2" parameterType="orderDetail">
+			delete orders where order_no=#{order_no}
+	</delete>
+	
+	<update id="bagUpdate" parameterType="orderDetail">
+		update order_detail set order_quantity=#{order_quantity},order_price=#{order_price} where dosirak_no=#{dosirak_no}
+	</update>
+	
+	
+	<!-- 주문에 insert -->
+	<insert id="orderInsert" parameterType="orderDetail">
+	    	INSERT ALL
+		    into dosirak(dosirak_no, dosirak_name, food_name1,food_name2,food_name3,food_name4,food_name5)
+		    values((select NVL(MAX(DOSIRAK_NO),0)+1 FROM DOSIRAK),#{dosirak_name},#{food_name1},#{food_name2}, #{food_name3}, #{food_name4}, #{food_name5})
+		    into orders(order_no,client_no,order_status_no)
+    		values((SELECT NVL(MAX(ORDER_NO),0)+1 FROM ORDERS),#{client_no},2)
+		    into order_detail(order_no, order_quantity,order_price,dosirak_no)
+		    values((SELECT NVL(MAX(ORDER_NO),0)+1 FROM ORDERS),#{order_quantity},#{order_price},(select NVL(MAX(DOSIRAK_NO),0)+1 FROM DOSIRAK))
+		    SELECT * FROM DUAL
+	</insert>
+	
+	<select id="orderList" parameterType="orderDetail" resultType="orderDetail">
+		select o.order_no,dosirak_no from orders o join order_detail od on o.order_no=od.order_no where order_status_no=2 and client_no=#{client_no}
+   </select>
+</mapper>
