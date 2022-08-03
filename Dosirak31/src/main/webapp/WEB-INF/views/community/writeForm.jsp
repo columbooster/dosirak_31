@@ -41,6 +41,7 @@
 			</script>
       
 </head>
+
 	<body>
 		<div class="contentContainer container">
 				<div class="contentTit page-header"><h3 class="text-center">게시판 글작성</h3></div>
@@ -54,8 +55,11 @@
 							</colgroup>
 							<tbody>
 								<tr>
-									<td>작성자</td>
-									<td class="text-left"><input type="text" name="client_id" id="client_id" class="form-control" value="<c:out value='${clientLogin.client_id}'/>" readonly="readonly" /></td>
+									<td>작성자ㄴㄴㄴ</td>
+									
+									<td>${sessionScope.client_info.client_no }</td>
+									<td>나나나</td>
+									<td class="text-left"><input type="text" name="client_id" id="client_id" class="form-control" value="${sessionScope.client_info.client_no }" readonly="readonly" /></td>
 								</tr>
 								<tr>
 									<td>글제목</td>

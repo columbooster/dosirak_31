@@ -76,5 +76,14 @@ public class FoodOrderServiceImpl implements FoodOrderService {
 	public int orderUpdate(OrderDetailVO odv) {
 		return foodOrderDao.orderUpdate(odv);
 	}
+	@Override
+	public List<OrderDetailVO> orderhistory(OrderDetailVO odv) {
+		List<OrderDetailVO> orderhistory=foodOrderDao.orderhistory(odv);
+		return orderhistory;
+	}
+	@Override
+	public int orderListCnt(OrderDetailVO odv) {
+		return foodOrderDao.orderListCnt(odv);
+	}
 
 }

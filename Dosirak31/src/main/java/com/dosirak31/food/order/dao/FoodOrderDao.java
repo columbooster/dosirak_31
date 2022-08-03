@@ -15,4 +15,7 @@ public interface FoodOrderDao {
 	public OrderDetailVO orderList(OrderDetailVO odv);//주문번호 select
 	public int paymentInsert(OrderDetailVO odv);//결제테이블 insert
 	public int orderUpdate(OrderDetailVO odv);//주문 상태 및 배달 정보 update);//결제테이블 insert
+	
+	public List<OrderDetailVO> orderhistory(OrderDetailVO odv);//주문내역 관리자페이지에 조회
+	public int orderListCnt(OrderDetailVO odv);//페이징처리를 위한 list개수 
 }
