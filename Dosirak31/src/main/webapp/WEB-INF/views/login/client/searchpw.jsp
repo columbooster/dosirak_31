@@ -4,8 +4,8 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
 
-		<link rel="shortcut icon" href="/resources/images/common/icon.png"/>
-		<link rel="apple-touch-icon" href="/resources/images/common/icon.png"/>
+		<link rel="shortcut icon" href="/resources/img/common/icon.png"/>
+		<link rel="apple-touch-icon" href="/resources/img/common/icon.png"/>
 		
 		<title>login.jsp</title>
 
@@ -64,7 +64,7 @@
                 outline:none;
             }
             input[type=submit]{
-                background-color: #8aa1a1;
+                background-color: gray;
                 border:none;
                 color:white;
                 border-radius: 5px;
@@ -74,6 +74,7 @@
                 font-weight:bold;
                 margin-top:40px;
                 text-align: center;
+                display :inline-block;
             }
             .return{
                 text-align: center;
@@ -96,7 +97,7 @@
 
 		<script type="text/javascript">
 		$(function(){
-			$("#pwSearchForm").submit(function(){
+			$("#pwFindBtn").click(function(){
 				
 				if($("#client_id").val().replace(/\s/g, "") == ""){
 					
@@ -114,9 +115,7 @@
 					
 					return false;
 					
-				}
-				
-				if($("#client_name").val().replace(/\s/g, "") == ""){
+				}else if($("#client_name").val().replace(/\s/g, "") == ""){
 					
 					let result = "이름은 필수 입력 항목 입니다.";
 					$("#error").show();
@@ -132,9 +131,7 @@
 					
 					return false;
 					
-				}
-				
-				if($("#client_email").val().replace(/\s/g, "") == ""){
+				}else if($("#client_email").val().replace(/\s/g, "") == ""){
 					let result = "이메일은 필수 입력 항목 입니다.";
 					$("#error").show();
 					$("#error").html(result);
@@ -148,10 +145,13 @@
 					
 					
 					return false;
+				
+				}else{
+				
+					
+					$("#pwSearchForm").submit();
 					
 				}
-				
-				$("#pwSearchForm").submit();
 			});
 		});
 		 
@@ -166,7 +166,7 @@
         	</header><br/>
         	<p id = "error"></p>
 	
-        <form action="/userlogin" method="POST" id="pwSearchForm">
+         <form action="/client/pwform" method="POST" id="pwSearchForm">
 
 
             <div class="input-box">
@@ -175,12 +175,12 @@
             </div>
 
             <div class="input-box">
-                <input id="client_name" type="password" name="client_name" placeholder="이름">
+                <input id="client_name" type="text" name="client_name" placeholder="이름">
                 <label for="client_name">이름</label>
             </div>
             
             <div class="input-box">
-                <input id="client_email" type="password" name="client_email" placeholder="이메일">
+                <input id="client_email" type="text" name="client_email" placeholder="이메일">
                 <label for="client_email">이메일</label>
             </div><br/><br/>
             
@@ -189,10 +189,10 @@
             </div>
             
             <div id="btn"> 
-            <input type="submit" value="비밀번호 찾기">
+            <input type="submit" id="pwFindBtn" value="비밀번호 찾기">
 			</div>
 			
         </form>
-        </div>
+        </div><br/><br/><br/><br/><br/>
 </body>
 </html>

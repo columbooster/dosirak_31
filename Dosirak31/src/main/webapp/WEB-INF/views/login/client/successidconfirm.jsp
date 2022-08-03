@@ -27,11 +27,11 @@
                 margin:10px 500px;
             }
 			#emphasize{
-				color: #058f25;
+				color: gray;
 			}
 			
 			 input[type=button]{
-                background-color: #8aa1a1;
+                background-color: gray;
                 border:none;
                 color:white;
                 border-radius: 5px;
@@ -41,6 +41,7 @@
                 font-weight:bold;
                 margin-top:40px;
                 text-align: center;
+                display :inline-block;
             }
             
             .loginmain{
@@ -75,7 +76,7 @@
    
         <div id="btn"> 
             <input type="button" id="searchPw" value="비밀번호 찾기" onClick="location.href='/client/searchpw'">
-		</div>
+		</div><br/><br/><br/><br/><br/>
 		
 	
 </body>

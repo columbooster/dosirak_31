@@ -66,7 +66,7 @@
             }
             
             input[type=submit]{
-                background-color: #8aa1a1;
+                background-color: gray;
                 border:none;
                 color:white;
                 border-radius: 5px;
@@ -75,16 +75,15 @@
                 font-size: 16pt;
                 font-weight:bold;
                 margin-top:40px;
-                text-align: center;
+                text-align:center;
+                display :inline-block;
+                
             }
             .forgot{
                 text-align: center;
                 font-size:12pt;
                 color:rgb(164, 164, 164);
                 margin:10px 0px;
-            }
-            #btn{
-            	text-align: center
             }
             #error{ color : red; font-size: 3px; text-align:center;}
             
@@ -124,7 +123,7 @@
             <div class ="forgot">
             	<span><a href="/client/searchid">아이디 찾기</a> | </span><span><a href="/client/searchpw">비밀번호 찾기</a></span>
             </div>
-            <div id="btn"> 
+            <div style= "text-align: center;"> 
             <input type="submit" id="loginBtn" value="로그인">
 			</div><br/>
 			
@@ -147,7 +146,7 @@
 			</div>
 		</div>
         
-        </form>
+        </form><br/><br/><br/><br/><br/><br/>
         
 	</div>
 	
