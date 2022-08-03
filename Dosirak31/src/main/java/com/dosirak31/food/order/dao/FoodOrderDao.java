@@ -13,4 +13,6 @@ public interface FoodOrderDao {
 	public int bagDelete2(int order_no);////주문상세없으면 주문테이블도 삭제
 	public int orderInsert(OrderDetailVO odv);//주문에 insert
 	public OrderDetailVO orderList(OrderDetailVO odv);//주문번호 select
+	public int paymentInsert(OrderDetailVO odv);//결제테이블 insert
+	public int orderUpdate(OrderDetailVO odv);//주문 상태 및 배달 정보 update);//결제테이블 insert
 }

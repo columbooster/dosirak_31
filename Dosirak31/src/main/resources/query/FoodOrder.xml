@@ -76,4 +76,14 @@
 	<select id="orderList" parameterType="orderDetail" resultType="orderDetail">
 		select o.order_no,dosirak_no from orders o join order_detail od on o.order_no=od.order_no where order_status_no=2 and client_no=#{client_no}
    </select>
+   <!-- 결제 후 결제 테이블 insert -->
+   <insert id="paymentInsert" parameterType="orderDetail">
+   		insert into payment(payment_no,order_no,payment_method,client_no)
+   		values((select NVL(MAX(PAYMENT_NO),0)+1 FROM PAYMENT),#{order_no},'카카오페이',#{client_no})
+   </insert>
+   
+   <update id="orderUpdate" parameterType="orderDetail">
+   		update orders set order_date=sysdate,order_client_name=#{order_client_name}, order_client_phone=#{order_client_phone},
+   		order_address=${order_address},order_status_no=3 where order_no=#{order_no}
+   </update>
 </mapper>

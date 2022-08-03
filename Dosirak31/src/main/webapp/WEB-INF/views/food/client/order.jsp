@@ -49,7 +49,22 @@
 	    	/*결제하기*/
     		  
 		      $("#iampayment").click(function() {
+		    	  if(!chkData("#order_client_name","배달받을 고객의 이름을")) return;
+	  				else if(!chkData("#order_client_phone","배달받을 고객의 번호를")) return;
+	  				else if(!chkData("#order_address","배달받을 주소를")) return; 
+	  			
+		    	  //주문 번호, 상품명, 가격, 회원 이름, 이메일, 연락처
+			    	 let name=$("#cn").html();
+			    	 let phone=$("#cp").html();
+			    	 let email=$("#ce").html();
+			    	 let address=$("#ca").html();
+			    	 
+			    	 let order_name="";
+			    	 let price=0;
+		    		 let order_no=0; 
+		    	  
 		    	if($("#isForm").val()!=null){
+		    		//원래 있던것 delete하고 실행
 		    	  $.ajax({
 			            url:"/order/orderInsert",
 			            type: "get",
@@ -62,50 +77,43 @@
 			            success: function(data){//객체 타입이니까/////고민해보기
 			            	
 			            		let please=JSON.parse(data);
-			            		$("#on").val(please.order_no);
-			               		$("#don").val(please.dosirak_no);
-			            	
+			            		order_no=please.order_no;
+			            		dosirak_no=please.dosirak_no;
+			            		$("#on").val(order_no);
+			               		$("#don").val(dosirak_no);
+			            		console.log(order_no);
+			            		
+		            		 console.log(order_no);
+				    		 //order_name=$("#dn").html();
+				    		 order_name="도시락";
+				    		 price=parseInt($("#totalPrice").html());
+				    		 order_no2=order_no;
+				    		 console.log(name,phone,email,address,order_name,price,order_no2);
+				    		 payment(name,phone,email,address,order_name,price,order_no); //버튼클릭하면 호출.
 			            }
 		    	  	 
 			     	});
-		    	 } 
-		    	 
-		    	 //주문 번호, 상품명, 가격, 회원 이름, 이메일, 연락처
-		    	 let name=$("#cn").html();
-		    	 let phone=$("#cp").html();
-		    	 let email=$("#ce").html();
-		    	 let address=$("#ca").html();
-		    	 
-		    	 let order_name="";
-		    	 let price=0;
-		    	 let order_no=0;
-		    	 if($("#totalPrice").html()!=null){
-		    		 //order_name=$("#dn").html();
-		    		 order_name="도시락";
-		    		 price=parseInt($("#totalPrice").html());
-		    		 order_no=parseInt($("#on").val());
-		    		 console.log(name,phone,email,address,order_name,price,order_no);
-		    		 payment(name,phone,email,address,order_name,price,order_no); //버튼클릭하면 호출.
-		    	 }else{
+		    	  	
+		    	 } else{
 		    		 order_name="도시락";
 		    		 //order_name=$("#comments>ul:nth-child(2)>.order2name").html();
 		    		 price=parseInt($("#totalPrice2").html());
-		    		 order_no=parseInt($("#comments ul:eq(1)").find(".order2no:eq(0)").val());
-		    		 console.log(name,phone,email,address,order_name,price,order_no);
-		    		 payment(name,phone,email,address,order_name,price,order_no); //버튼클릭하면 호출.
+		    		 order_no2=parseInt($("#comments ul:eq(1)").find(".order2no:eq(0)").val());
+		    		 console.log(name,phone,email,address,order_name,price,order_no2);
+		    		payment(name,phone,email,address,order_name,price,order_no2); //버튼클릭하면 호출.
 		    	 }
-		         
+	  			
 		    	 
-		      });
+		      });//결제버튼 눌렀을 때
    			  
-		      function payment(name,phone,email,address,order_name,price,order_no) {
+		      function payment(name,phone,email,address,order_name,price,order_no2) {
 			    	 
-			      IMP.init("imp33141155");
+			      IMP.init("imp21367780");
 			      // IMP.request_pay(param, callback) 결제창 호출
 			      IMP.request_pay({ // param
 			         pg : "kakaopay.TC0ONETIME", // 결제
 			         pay_method: "card",
-			         merchant_uid : order_no, // 주문 번호
+			         merchant_uid : order_no2, // 주문 번호
 			         name : order_name, //상품명
 			         amount : price, //가격
 			         buyer_email : email, //이메일
@@ -116,10 +124,52 @@
 			      }, function(rsp) { // callback
 			         if (rsp.success) {
 			            console.log(rsp);
-			            /*결제 성공하는경우, update 주문 후 인 3번으로 바꾸기*/
+	            
+			            let client_no=parseInt($("#client_no").val());
+			            console.log(order_no2,client_no);
+			          	  let jdata={
+				            	"order_no":order_no2,
+				            	"client_no":client_no
+				            	
+				           }
+			            $.ajax({
+			            	
+				            url:"/order/paymentInsert",
+				            type: "post",
+				            contentType: 'application/json',
+				            data: JSON.stringify(jdata),
+				            dataType:"text",
+				            
+				            error:function(xhr,textStatus,errorThrown){//실행시 오류가 발생하였을 경우
+			    				 
+				            	alert("결제 테이블 생성에 실패하였습니다.");
+				            }, 
+				            success: function(data){
+				   
+				            }
+			    	  	 
+				     	});	
 			            
-			            /*결제취소 가능하게하려면 저장해야하는 부분이 있음,*/
-			            /*결제테이블 수정 또는 현재 그대로 insert*/
+			            /*결제 성공하는경우,  주문 후인 3번, 회원 이름, 번호, 주소 update바꾸기 후 마이페이지로 이동*/
+			           
+			            /*결제취소 가능하게하려면 저장해야하는 부분이 있음, insert ajax로*/
+			            /*CREATE TABLE payment (
+							payment_no NUMBER(5) NOT NULL,	--결제일련번호(시퀀스)
+							order_no NUMBER(5) NOT NULL,	--주문일련번호(주문fk)
+							payment_method VARCHAR2(100) NOT NULL,	--결제방법
+							payment_delete NUMBER default 0,	--결제취소여부
+							payment_date DATE default sysdate,	--결제일시
+							client_no NUMBER(5) NOT NULL		--회원일련번호(회원테이블 fk)
+						);*/
+			            /*
+			          	if($("#totalPrice").html()!=null){		
+				    		 $("#order_no1")=parseInt($("#on").val());
+				    	 }else{
+				    		 $("#order_no2")=parseInt($("#comments ul:eq(1)").find(".order2no:eq(0)").val());
+				    	 }
+			            $("#orderAfterBtn").submit();
+			    	  	 */
+		
 			            
 			         } else {
 			        	 /*주문 취소하는 경우, 2번으로 담았던 바로구매 삭제하기*/
@@ -129,7 +179,6 @@
 			            let jdata={
 			            	"order_no":order_no,
 			            	"dosirak_no":dosirak_no
-			            	
 			            }
 			            $.ajax({
 				            url:"/order/delete",
@@ -157,6 +206,13 @@
 		});//최상위
 	 
 	 
+		
+		
+		
+		     
+		
+		
+
 			
 	
 	</script>
@@ -235,31 +291,38 @@
 			               	<input type="checkbox" id="same"/>주문자 정보와 같음
 			                </address>
 			              </header>
-			              <div class="comcont">
-			             
-			            	<table id="delivery">
-			            	
-			        
-			            		<tr>
-			            			<td>이름</td>
-									<td><input type="text" id="order_client_name" name="order_client_name"/></td>
-			            		</tr>
-			            		<tr>
-			            			<td>연락처</td>
-									<td><input type="text" id="order_client_phone" name="order_client_phone"/></td>
-			            		</tr>
-			            		<tr>
-			            			<td>주소</td>
-			            			<td>
-									<input type="text" id="order_address" name="order_address" class="postcodify_address" value="" /><br />
-									<button id="postcodify_search_button" class="btn btn-default">주소 검색</button><br />
-			            		</tr>
-			            		
-			            		
-			            		
-			            	</table>
-						
-			              </div>
+			              <form id="orderAfterBtn" action="/food/orderConfirmation" method="get">
+				              <div class="comcont">
+				             
+				            	<table id="delivery">
+				            	
+				        
+				            		<tr>
+				            			<td>이름</td>
+										<td><input type="text" id="order_client_name" name="order_client_name"/></td>
+				            		</tr>
+				            		<tr>
+				            			<td>연락처</td>
+										<td><input type="text" id="order_client_phone" name="order_client_phone"/></td>
+				            		</tr>
+				            		<tr>
+				            			<td>주소</td>
+				            			<td>
+										<input type="text" id="order_address" name="order_address" class="postcodify_address" value="" /><br />
+										<button id="postcodify_search_button" class="btn btn-default">주소 검색</button><br />
+				            		</tr>
+				            		<c:choose>
+					            		<c:when test="${not empty order1 }">
+					            			<input type="hidden" name="order_no" id="order_no1" />
+					            		</c:when>	
+				            			<c:when test="${not empty order2 }">	
+				            				<input type="hidden" name="order_no" id="order_no2"/>
+				            			</c:when>
+				            		</c:choose>	
+				            	</table>
+							
+				              </div>
+			              </form>
 			            </article>
 		          </li>
 		          <!-- ========배송지 정보 끝======================-->
