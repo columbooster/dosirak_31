@@ -33,7 +33,7 @@
 			
 			// 로그인 화면으로 클릭 시 처리 이벤트
 			$("#loginBtn").click(function() {
-				location.href = "/login/client/loginForm";
+				location.href = "/client/loginmain";
 			});
 		});
 	</script>

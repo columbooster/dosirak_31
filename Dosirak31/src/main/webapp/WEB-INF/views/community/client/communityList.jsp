@@ -72,6 +72,12 @@
 						$("#detailForm").submit();
 					});
 					
+					$(".paginate_button a").click(function(e) {
+						e.preventDefault();
+						$("#f_search").find("input[name='pageNum']").val($(this).attr("href"));
+						goPage();
+					});
+					
 				});
 				
 				// 검색을 위한 실질적인 처리 함수
@@ -98,8 +104,11 @@
 				</form>
 				
 					<%-- ==================== 검색 기능 시작 ========================= --%>
-				<div class="contentBtn text-right">
+				<div id="communitySearch" class="contentBtn text-right">
 					<form id="f_search" name="f_search" class="form-inline">
+						<%-- 페이징 처리를 위한 파라미터 --%>
+						<input type="hidden" name="pageNum" value="${pageMaker.cvo.pageNum}">
+						<input type="hidden" name="amount" value="${pageMaker.cvo.amount}">
 						<div class="form-group">
 							<label>검색조건</label>
 							<select id="search" name="search" class="form-control">
@@ -135,7 +144,7 @@
 									<c:forEach var="community" items="${communityList}" varStatus="status">
 										<tr class="text-center" data-num="${community.community_no}">
 											<td>${community.community_no}</td>
-											<td class="goDetail text-left">${community.community_title}
+											<td class="goDetail text-left">
 												${community.community_title}
 												<c:if test="${community.reply_cnt > 0}"><span class="reply_count">[${community.reply_cnt}]</span></c:if>
 											</td>
@@ -163,6 +172,10 @@
 					</table>
 				</div>
 					<%-- ==================== 리스트 종료 ========================= --%>
+					
+				<%-- ======== 페이징 처리를 커스텀태그(pagination)를 정의============ --%>
+				<tag:pagination endPage="${pageMaker.endPage}" startPage="${pageMaker.startPage}" amount="${pageMaker.cvo.amount}" 
+				prev="${pageMaker.prev}" pageNum="${pageMaker.cvo.pageNum}" next="${pageMaker.next}" />		
 					
 					<%-- ==================== 글쓰기 버튼 출력 시작 ========================= --%>
 				<div class="contentBtn text-right">
