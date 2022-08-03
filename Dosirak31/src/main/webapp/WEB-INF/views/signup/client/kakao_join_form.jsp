@@ -113,11 +113,11 @@
 								</tr>
 								<tr>
 									<td>이름</td>
-									<td class="text-left"><input type="text" name="client_name" id="client_name" value="<c:out value='${sessionScope.kakaoclient.kakaoname}'/>" readonly="readonly" class="form-control" /></td>
+									<td class="text-left"><input type="text" name="client_name" id="client_name" value="<c:out value='${kakaoclient.client_name}'/>" readonly="readonly" class="form-control" /></td>
 								</tr>
 								<tr>
 									<td>이메일</td>
-									<td class="text-left"><input type="text" name="client_email" id="client_email" value="<c:out value='${sessionScope.kakaoclient.kakaoemail}'/>" readonly="readonly" class="form-control" /></td>
+									<td class="text-left"><input type="text" name="client_email" id="client_email" value="<c:out value='${kakaoclient.client_email}'/>" readonly="readonly" class="form-control" /></td>
 								</tr>
 								<tr>
 									<td>핸드폰번호</td>

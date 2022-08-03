@@ -48,7 +48,7 @@ public class ClientSignupController {
 			
 			result = clientService.clientSignup(cvo);
 			if(result == 1) {
-				url = "/login/client/loginmain";
+				url = "/client/loginmain";
 			} else {
 				url = "/signup/client/signupForm";
 			}
