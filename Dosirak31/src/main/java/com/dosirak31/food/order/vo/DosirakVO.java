@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class DosirakVO {//도시락
+public class DosirakVO extends ClientVO{//도시락
 	private int dosirak_no; 	//도시락번호
 	private String dosirak_name;	//도시락명
 	private String food_name1;	//식품명1

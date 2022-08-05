@@ -33,9 +33,7 @@
     <div class="clear"></div>
   </main>
 </div>
-
-
-<a id="backtotop" href="#top"><i class="fa fa-chevron-up"></i></a> 
+ 
 <!-- JAVASCRIPTS -->
 <script src="/resources/layout/scripts/jquery.min.js"></script>
 <script src="/resources/layout/scripts/jquery.backtotop.js"></script>

@@ -36,7 +36,7 @@ public class CommunityMapperTest {
 		for(CommunityVO vo : list) {
 			log.info(vo);
 		}
-		log.info("레코드 수: " + communityDao.communityListCnt(cvo));
+	
 	}
 
 }
