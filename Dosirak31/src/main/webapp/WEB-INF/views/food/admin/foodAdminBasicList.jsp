@@ -60,6 +60,9 @@
 	#comments input[type='radio']{width:7%;}
 	#add{display:none;}
 	#update{display:none;}
+	div.panel{width:750px;}
+	table.table{width:750px;}
+	.form
 	</style>
 	<script type="text/javascript">
 	<!--===================도시락 메뉴 탭 기능 =========================== -->
@@ -266,7 +269,6 @@
 </head>
 	
 <div class="wrapper row3">
-  <main class="container clear"> 
     <form id="selectForm">
     	<input type="hidden" name="food_no" id="food_nowhat2" />
      	<input type="hidden" name="food_img" id="food_imgwhat2"/>
@@ -310,7 +312,7 @@
      	
       <div class="scrollable">
       	
-      	<div class="text-right">
+      	<div >
 			<button type="button" class="btn btn-default" id="foodAddBtn">식품 추가 양식</button>
 		</div>
 		<%--==============식품 추가 화면 =========================--%>
@@ -456,7 +458,6 @@
   <!-- ################################################################################################ --> 
     <!-- / main body -->
     <div class="clear"></div>
-  </main>
 </div>
 
 
