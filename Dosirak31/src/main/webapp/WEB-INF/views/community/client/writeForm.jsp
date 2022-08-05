@@ -55,7 +55,7 @@
 							<tbody>
 								<tr>
 									<td>작성자</td>
-									<td class="text-left"><input type="text" name="client_id" id="client_id" class="form-control" value="<c:out value='${clientLogin.client_id}'/>" readonly="readonly" /></td>
+									<td class="text-left"><input type="text" name="client_id" id="client_id" class="form-control" value="<c:out value='${sessionScope.client_info.client_id}'/>" readonly="readonly" /></td>
 								</tr>
 								<tr>
 									<td>글제목</td>

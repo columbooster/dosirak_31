@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.dosirak31.login.client.service.ClientLoginService;
@@ -17,6 +18,7 @@ import com.dosirak31.login.client.vo.ClientLoginVO;
 import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j;
 
+@SessionAttributes("client_info")
 @Controller
 @AllArgsConstructor
 @RequestMapping("/client/*")
@@ -133,7 +135,7 @@ private ClientLoginService clientLoginService;
 													//카카오 로그인 한 적이 없다면, 
 			model.addAttribute("kakaoclient", cvo); //카카오 기본정보(이름, 이메일)이 담긴 객체를 카카오 회원가입 페이지로 넘겨준다.
 			
-			return "login/client/kakao_join_form"; //카카오 회원가입 페이지로 맵핑
+			return "/signup/client/kakao_join_form"; //카카오 회원가입 페이지로 맵핑
 			
 		}else {
 			

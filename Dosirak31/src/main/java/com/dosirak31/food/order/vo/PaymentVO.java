@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class PaymentVO extends OrderDetailVO{
+public class PaymentVO extends OrdersVO{
 	/*CREATE TABLE payment (
 	payment_no NUMBER(5) NOT NULL,	--결제일련번호(시퀀스)
 	order_no NUMBER(5) NOT NULL,	--주문일련번호(주문fk)

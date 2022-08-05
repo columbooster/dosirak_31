@@ -31,6 +31,16 @@ public class CommunityServiceImpl implements CommunityService {
 		return list;
 	}
 	
+
+	// 전체 레코드 수 구현
+	@Override
+	public int communityListCnt(CommunityVO cvo) {
+		return communityDao.communityListCnt(cvo);
+	}
+	
+	
+	
+	
 	// 커뮤니티 게시판 글 입력 구현
 	
 	@Override
@@ -129,6 +139,11 @@ public class CommunityServiceImpl implements CommunityService {
 			result = replyDao.replyCnt(community_no);
 			return result;
 		}
+
+
+
+
+
 		
 	
 		

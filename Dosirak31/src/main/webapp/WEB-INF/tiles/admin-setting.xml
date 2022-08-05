@@ -12,4 +12,5 @@
  		<put-attribute name="main" value="/WEB-INF/views/food/admin/{1}.jsp"/>
  	</definition>
  	
+ 	
  </tiles-definitions> 

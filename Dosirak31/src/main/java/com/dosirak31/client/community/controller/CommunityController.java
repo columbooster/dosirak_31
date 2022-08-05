@@ -17,6 +17,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.dosirak31.client.community.service.CommunityService;
 import com.dosirak31.client.community.vo.CommunityVO;
 import com.dosirak31.client.signup.vo.ClientVO;
+import com.dosirak31.common.vo.PageDTO;
 
 import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j;
@@ -31,16 +32,12 @@ public class CommunityController {
 	// service를 의존
 	private CommunityService communityService;
 	
-	@ModelAttribute("clientLogin")
-	public ClientVO client() {
-		return new ClientVO ();
-	}
 	
 	
 	/*************************************************
-	 * 글 목록 구현하기(페이징 처리 목록 조회) 
+	 * 글 목록 구현하기 
 	 * 요청 URL: http://localhost:8080/community/communityList
-	 *************************************************/
+	 ************************************************
 	@GetMapping("/communityList")
 	public String communityList(@ModelAttribute CommunityVO cvo, Model model) {
 		log.info("communityList 호출 성공");
@@ -49,7 +46,34 @@ public class CommunityController {
 		model.addAttribute("communityList", communityList);
 		
 		return "community/client/communityList";  // /WEB-INF/views/community/communityList.jsp
+	} */
+	
+	/*************************************************
+	 * 글 목록 구현하기(페이징 처리 목록 조회) 
+	 * 요청 URL: http://localhost:8080/community/communityList
+	 ************************************************/
+	@GetMapping("/communityList")
+	public String communityList(@ModelAttribute CommunityVO cvo, Model model) {
+		log.info("communityList 호출 성공");
+		// 전체 레코드 조회
+		List<CommunityVO> communityList = communityService.communityList(cvo);
+		model.addAttribute("communityList", communityList);
+		
+		// 전체 레코드 수 반환
+		int total = communityService.communityListCnt(cvo);
+		//페이징 처리
+		model.addAttribute("pageMaker", new PageDTO(cvo, total)); //new PageDTO(CommonVO 또는 CommonVO 하위 클래스의 인스턴스(BoardVO), 총 레코드수)
+		
+		return "community/client/communityList";  // /WEB-INF/views/community/communityList.jsp
 	}
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	/*************************************************
 	 * 글쓰기 폼 출력하기

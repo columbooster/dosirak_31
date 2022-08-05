@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -21,7 +22,7 @@ public class FoodAdminPageController {
 	FoodOrderService foodOrderService;
 	/*장바구니에 식품 추가 후 장바구니 페이지로 이동하면서 select*/
 	@RequestMapping(value="/orderhistory",method=RequestMethod.GET)
-	public String orderhistory(OrderDetailVO odv, Model model){
+	public String orderhistory(@ModelAttribute("data") OrderDetailVO odv, Model model){
 		List<OrderDetailVO> orderhistory=foodOrderService.orderhistory(odv);
 		model.addAttribute("orderhistory",orderhistory);
 		
@@ -31,6 +32,12 @@ public class FoodAdminPageController {
 		model.addAttribute("pageMaker",new PageDTO(odv,total));
 				
 		
-		return "/food/admin/orderhistory"; 
+		return "food/admin/orderhistory"; 
+	}
+	
+	@RequestMapping(value="/orderDetail",method=RequestMethod.GET)
+	public String orderDetail(@ModelAttribute("data") OrderDetailVO odv, Model model){
+		
+		return "food/admin/orderDetail"; 
 	}
 }
