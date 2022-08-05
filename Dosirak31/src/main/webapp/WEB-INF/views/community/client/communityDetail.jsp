@@ -117,6 +117,23 @@
       
 </head>
 	<body>
+	<div class="wrapper row2 bgded"
+	style="background-image: url('/resources/images/demo/backgrounds/01.png');">
+	<div class="overlay">
+		<div id="breadcrumb" class="clear">
+			
+			<ul>
+				<li><a href="/resources/index.html">Home</a></li>
+				<li><a href="/community/client/communityList">Community</a></li>
+			</ul>
+			
+		</div>
+	</div>
+</div>
+
+<div class="wrapper row3">
+	<main class="container clear"> 
+	
 		<div class="contentContainer container">
 			<!-- 	<div class="contentTit page-header"><h3 class="text-center">게시판 상세보기</h3></div>  -->
 				
@@ -186,5 +203,7 @@
 				<%-- 상세 정보 보여주기 종료 --%>
 				<jsp:include page="reply.jsp" />
 			</div>
+		</main>
+	</div>		
 	</body>
 </html>

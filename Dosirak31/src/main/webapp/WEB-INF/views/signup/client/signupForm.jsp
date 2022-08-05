@@ -8,6 +8,17 @@
 		$(function() {
 			// 저장 버튼 클릭 시 처리 이벤트
 			$("#signupBtn").click(function() {
+				
+				
+				// 비밀번호 일치 체크
+				var client_pw=$('input[name=client_pw]').val();
+				var client_pw_re=$('input[name=client_pw_re]').val();
+				
+				if(client_pw!=client_pw_re){
+					alert('비밀번호와 비밀번호 재입력 값이 같아야 합니다.');
+					return false;
+				}
+				
 				// 입력값 체크
 				if(!chkData("#client_id","아이디를")) return;
 				else if(!chkData("#client_pw","비밀번호를")) return;
@@ -24,6 +35,7 @@
 				}
 			});
 			
+			
 			// 취소 버튼 클릭 시 처리 이벤트
 			$("#cancleBtn").click(function() {
 				$("#signupForm").each(function() {
@@ -33,13 +45,26 @@
 			
 			// 로그인 화면으로 클릭 시 처리 이벤트
 			$("#loginBtn").click(function() {
-				location.href = "/login/client/loginForm";
+				location.href = "/client/loginmain";
+			});
+			
+		});
+		
+		
+		$(document).ready(function(){  //한글입력 안되게 처리 
+			$("input[name=client_id]").keyup(function(event){    
+			if (!(event.keyCode >=37 && event.keyCode<=40)) {    
+				var inputVal = $(this).val();   
+				$(this).val(inputVal.replace(/[^a-z0-9]/gi,''));   
+				}  
 			});
 		});
+		
+	 		
 	</script>
 	
 	<script>
-										    function execDaumPostcode() {
+										    function execDaumPostcode() {	// 주소 API function
 										        new daum.Postcode({
 										            oncomplete: function(data) {
 										                // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
@@ -67,24 +92,14 @@
 										                    if(data.buildingName !== '' && data.apartment === 'Y'){
 										                        extraAddr += (extraAddr !== '' ? ', ' + data.buildingName : data.buildingName);
 										                    }
-										                    // 표시할 참고항목이 있을 경우, 괄호까지 추가한 최종 문자열을 만든다.
-										                    if(extraAddr !== ''){
-										                        extraAddr = ' (' + extraAddr + ')';
-										                    }
-										                    // 조합된 참고항목을 해당 필드에 넣는다.
-										                    document.getElementById("sample6_extraAddress").value = extraAddr;
 										                
-										                } else {
-										                    document.getElementById("sample6_extraAddress").value = '';
-										                }
+										                } 
 										
 										                // 우편번호와 주소 정보를 해당 필드에 넣는다.
 										                document.getElementById('sample6_postcode').value = data.zonecode;
 										                document.getElementById("sample6_address").value = addr;
-										                // 커서를 상세주소 필드로 이동한다.
-										                document.getElementById("sample6_detailAddress").focus();
 										                
-										                let client_addr = data.zonecode + addr + extraAddr;
+										                let client_addr = data.zonecode + addr;
 										                
 										                $("#client_address").val(client_addr);
 										            }
@@ -95,45 +110,64 @@
       
 </head>
 	<body>
+	<div class="wrapper row2 bgded"
+	style="background-image: url('/resources/images/demo/backgrounds/01.png');">
+	<div class="overlay">
+		<div id="breadcrumb" class="clear">
+			
+			<ul>
+				<li><a href="/resources/index.html">Home</a></li>
+				<li><a href="/signup/client/signupForm">SignUp</a></li>
+			</ul>
+			
+		</div>
+	</div>
+</div>
+
+	<div class="wrapper row3">
+	<main class="container clear"> 
 		<section id="container">
 			<form id="signupForm" name="signupForm" class="form-horizontal">
 				<table class="table table-bordered">
 							<colgroup>
 								<col width="20%" />
-								<col width="80%" />
+								<col width="70%" />
+								<col width="10"  />
 							</colgroup>
 							<tbody>
 								<tr>
 									<td>아이디</td>
 									<td class="text-left"><input type="text" name="client_id" id="client_id" class="form-control" /></td>
+									<td><button type="button" id="id_overlap_button" class="id_overlap_button">중복검사</button></td>
 								</tr>
 								<tr>
 									<td>패스워드</td>
-									<td class="text-left"><input type="text" name="client_pw" id="client_pw" class="form-control" /></td>
+									<td class="text-left" colspan="2"><input type="password" name="client_pw" id="client_pw" class="form-control" /></td>
+								</tr>
+								<tr>
+									<td>패스워드 확인</td>
+									<td class="text-left" colspan="2"><input type="password" name="client_pw_re" id="client_pw_re" class="form-control" /></td>
 								</tr>
 								<tr>
 									<td>이름</td>
-									<td class="text-left"><input type="text" name="client_name" id="client_name" class="form-control" /></td>
+									<td class="text-left" colspan="2"><input type="text" name="client_name" id="client_name" class="form-control" /></td>
 								</tr>
 								<tr>
 									<td>이메일</td>
-									<td class="text-left"><input type="text" name="client_email" id="client_email" class="form-control" /></td>
+									<td class="text-left" colspan="2"><input type="text" name="client_email" id="client_email" class="form-control" /></td>
 								</tr>
 								<tr>
 									<td>핸드폰번호</td>
-									<td class="text-left"><input type="text" name="client_phone" id="client_phone" class="form-control" /></td>
+									<td class="text-left" colspan="2"><input type="text" name="client_phone" id="client_phone" class="form-control" /></td>
 								</tr>
 								<tr>
 									<td>주소</td>
-									<td class="text-left"><input type="button" id="addBtn" class="form-control" value="주소검색" onclick="execDaumPostcode()"/>
+									<td class="text-left" colspan="2"><input type="button" id="addBtn" class="form-control" value="주소검색" onclick="execDaumPostcode()"/>
 										<input type="text" id="sample6_postcode" placeholder="우편번호">
 										<input type="button" onclick="sample6_execDaumPostcode()" value="우편번호 찾기"><br>
 										<input type="text" id="sample6_address" placeholder="주소"><br>
-										<input type="text" id="sample6_detailAddress" placeholder="상세주소">
-										<input type="text" id="sample6_extraAddress" placeholder="참고항목">
-										<input type="text" name="client_address" id="client_address" class="form-control" readonly="readonly" />
+										<input type="text" name="client_address" id="client_address" class="form-control" />
 										<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-										
 									</td>
 								</tr>
 							</tbody>
@@ -146,5 +180,7 @@
 			
 			</form>
 		</section>
+		</main>
+	</div>
 	</body>
 </html>
