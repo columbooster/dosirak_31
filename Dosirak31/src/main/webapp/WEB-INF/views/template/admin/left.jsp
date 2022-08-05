@@ -19,7 +19,7 @@
           </li>
           <li><a href="#">회원 관리</a>
             <ul>
-              <li><a href="/food/admin/orderhistory">회원 주문 내역</a></li>
+              <li><a href="/food/admin/orderhistory?order_status_no=3">회원 주문 내역</a></li>
               <li><a href="#">회원 목록</a></li>
             </ul>
           </li>

@@ -88,16 +88,6 @@
    </update>
    
    
-   <!-- 주문내역 관리자페이지에 조회 -->
-   
-   <sql id="orderSearch">
-   	<if test="search=='4'">
-		<![CDATA[order_status_no=4]]>
-	</if>	
-		<if test="search=='5'">
-		<![CDATA[order_status_no=5]]>
-	</if>	
-   </sql>
 
 	<!-- 게시판 리스트 조회(페이징 처리와 검색 처리) 및 댓글 갯수 구하기 -->
 	<select id="orderhistory" parameterType="orderDetail" resultType="orderDetail">
@@ -112,9 +102,9 @@
             join dosirak d on d.dosirak_no=od.dosirak_no 
             join payment p on p.order_no=o.order_no 
             join client c on c.client_no=o.client_no where]]>
-            <trim prefix="(" suffix=") AND" prefixOverrides="AND">
-	        	<include refid="orderSearch"></include>
-	        </trim>
+            	 <if test="order_status_no != ''"> <!-- 비어있지 않다면 -->
+		            order_status_no=#{order_status_no} and
+		         </if>
 	        <![CDATA[ rownum<=#{pageNum} *#{amount}
         ) orderList
         where rnum>(#{pageNum}-1)*#{amount}
@@ -132,9 +122,9 @@
 	 <!-- 페이징처리를 위한 list개수  -->
 	<select id="orderListCnt" parameterType="orderDetail" resultType="int">
 		select count(*) from orders
-		<trim prefix="(" suffix=") AND" prefixOverrides="AND">
-	        	<include refid="orderSearch"></include>
-	        </trim>
+		<if test="order_status_no != ''"> <!-- 비어있지 않다면 -->
+		      where order_status_no=#{order_status_no} 
+		</if>
 	
 	</select>
    
