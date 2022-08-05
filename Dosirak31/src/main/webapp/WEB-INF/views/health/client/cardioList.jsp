@@ -142,19 +142,20 @@
 											</tr>
 											<table>
 											<tr>
-                     <th data-value="health_no" class="order text-center col-md-1">글번호</th>
-                     <th class="text-left col-md-4">글제목</th>
-                     <th data-value="health_date" class="order col-md-1">작성일</th>
-                     <th class="text-center col-md-2">작성자</th>
-                     <th class="text-center col-md-1">조회수</th>
-                     
-                  </tr>
+							                     <th data-value="health_no" class="order text-center col-md-1">글번호</th>
+							                     <th class="text-left col-md-4">글제목</th>
+							                     <th data-value="health_date" class="order col-md-1">작성일</th>
+							                     <th class="text-center col-md-2">작성자</th>
+							                     <th class="text-center col-md-1">조회수</th>
+							                     
+							                </tr>
 											<tr class="text-center" data-num="${imgBoard.health_no }">
 												<td>${imgBoard.health_no }</td>
 												<td class="goImgNameDetail">${imgBoard.health_img_name }</td>
 								                <td class="text-left">${imgBoard.health_date }</td>
+								                <td class="name">${imgBoard.admin_id }</td>
 								                <td class="read">${imgBoard.health_hits }</td>
-								                <td>
+								                
 											</tr>
 											</table>
 										</c:forEach>
