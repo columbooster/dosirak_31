@@ -2,7 +2,8 @@
     pageEncoding="UTF-8"%>
 <%@ include file="/WEB-INF/views/common/common.jspf" %> 
  
-      <style type="text/css"></style>
+      <style type="text/css">
+      </style>
       <script type="text/javascript">
 				$(function() {
 					
@@ -95,7 +96,23 @@
 			</script>
       
 </head>
-	<body>
+<body>
+<div class="wrapper row2 bgded"
+	style="background-image: url('/resources/images/demo/backgrounds/01.png');">
+	<div class="overlay">
+		<div id="breadcrumb" class="clear">
+			
+			<ul>
+				<li><a href="/resources/index.html">Home</a></li>
+				<li><a href="/community/client/communityList">Community</a></li>
+			</ul>
+			
+		</div>
+	</div>
+</div>
+
+<div class="wrapper row3">
+	<main class="container clear"> 	
 		<div class="contentContainer container">
 				<!-- <div class="contentTit page-header"><h3 class="text-center">게시판 리스트</h3></div>  -->
 				
@@ -183,5 +200,7 @@
 				</div>	
 					<%-- ==================== 글쓰기 버튼 출력 종료 ========================= --%>
 			</div>
+	</main>		
+</div>
 	</body>
 </html>

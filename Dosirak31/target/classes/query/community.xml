@@ -44,11 +44,11 @@
 	<select id="communityList" parameterType="community" resultType="community">
 		<![CDATA[
 		SELECT 
-				community_no, client_id, community_title, to_char(community_date, 'YYYY-MM-DD') as community_date, file_thumb, file_name,
+				community_no, client_id, community_title, to_char(community_date, 'YYYY-MM-DD') as community_date, community_hits, file_thumb, file_name,
 				(select count(reply_no) from reply where community_no = communitylist.community_no) as reply_cnt
 		FROM(
 				 select /*+ index_desc(community PK_community_no) */
-             	  	rownum as rnum, community_no, client_id, community_title, community_date, file_thumb, file_name
+             	  	rownum as rnum, community_no, client_id, community_title, community_date, community_hits, file_thumb, file_name
         		 from community 
         		 where ]]>
         		 <trim prefix="(" suffix=") AND " prefixOverrides="AND">
