@@ -4,6 +4,8 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import com.dosirak31.common.file.FileUploadUtil;
 import com.dosirak31.health.board.dao.HealthBoardDao;
 import com.dosirak31.health.board.vo.HealthBoardVO;
 
@@ -26,22 +28,6 @@ public class HealthBoardServiceImpl implements HealthBoardService {
 		healthList = hBoardDao.healthList(hbvo);
 		return healthList;
 	}
-
-	/****************************************************************************
-	 * 공지사항 게시글 상세 조회 구현
-	 ***************************************************************************/
-	@Override
-	public HealthBoardVO noticeDetail(HealthBoardVO hbvo) {
-		HealthBoardVO noticeDetail = null;
-		
-		hBoardDao.healthHitUpdate(hbvo); //조회수 증가 메서드 호출.
-		
-		noticeDetail = hBoardDao.noticeDetail(hbvo);
-		if(noticeDetail!=null) {
-			noticeDetail.setHealth_contents(noticeDetail.getHealth_contents().toString().replace("\n", "<br />"));
-		}
-		return noticeDetail;
-	}
 	
 	/****************************************************************************
 	 * 웨이트 & 유산소 동영상 상세 조회 구현
@@ -50,9 +36,13 @@ public class HealthBoardServiceImpl implements HealthBoardService {
 	public HealthBoardVO healthDetail(HealthBoardVO hbvo) {
 	HealthBoardVO weightDetail = null;
 		
-		hBoardDao.healthHitUpdate(hbvo); //조회수 증가 메서드 호출.
-		
+		// 조회수 증가 메서드 호출.
+		hBoardDao.boardListCnt(hbvo); 	
 		weightDetail = hBoardDao.healthDetail(hbvo);
+		if(weightDetail!=null) {
+	           weightDetail.setHealth_contents(weightDetail.getHealth_contents().toString().replaceAll("\n", "<br/>"));
+	        }
+		// 동영상 url 메서드
 		if(weightDetail!=null) {
 			weightDetail.setHealth_url(weightDetail.getHealth_url());
 		}
@@ -84,11 +74,57 @@ public class HealthBoardServiceImpl implements HealthBoardService {
 		result = hBoardDao.healthBoardInsert(hbvo);
 		return result;
 	}
+	
+	/****************************************************************************
+	 * 글 수정 등록
+	 ***************************************************************************/
+	@Override
+	 public int healthBoardUpdate(HealthBoardVO hbvo) throws Exception {
+        int result = 0;
+        if(!hbvo.getFile().isEmpty()) {
+           if(!hbvo.getHealth_img().isEmpty()) {
+        	   FileUploadUtil.fileDelete(hbvo.getHealth_img());
+         
+           }
+           
+           String fileName = FileUploadUtil.fileUpload(hbvo.getFile(), "health");
+           hbvo.setHealth_img(fileName);
+        }
+        result = hBoardDao.healthBoardUpdate(hbvo);
+        return result;
+     }
 
+	/****************************************************************************
+	 * 글 삭제 구현
+	 * @throws Exception 
+	 ***************************************************************************/
+	@Override
+	public int healthBoardDelete(HealthBoardVO hbvo) throws Exception {
+		int result=0;
+	      if(!hbvo.getHealth_img().isEmpty()) {
+	         FileUploadUtil.fileDelete(hbvo.getHealth_img());
+	      }
+	      result=hBoardDao.healthBoardDelete(hbvo.getHealth_no());
+	      return result;
+	}
+
+	/****************************************************************************
+	 * 페이징 처리 위한 전체 목록 수 조회
+	 ***************************************************************************/
 	@Override
 	public int boardListCnt(HealthBoardVO hbvo) {
 		return  hBoardDao.boardListCnt(hbvo);
-	}   
+	}
+
+	@Override
+	public int healthHitUpdate(HealthBoardVO hbvo) {
+		int result=0;
+	    result = hBoardDao.healthHitUpdate(hbvo);
+	    return result;
+		
+	}
+
+
 
 
 }

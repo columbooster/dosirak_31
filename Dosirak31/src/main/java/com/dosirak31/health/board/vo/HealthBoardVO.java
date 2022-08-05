@@ -30,6 +30,4 @@ public class HealthBoardVO extends CommonVO {
 	private String admin_id;			// 관리자 아이디
 	
 	private MultipartFile file;			// 파일 업로드를 위한 필드
-	private String health_thumb = "";	// 실제 서버에 저장할 썸네일 이미지 파일명 
-	private String health_file = "";	// 실제서버에 저장할 파일명
 }
