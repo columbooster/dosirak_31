@@ -23,7 +23,7 @@
         <li><a class="drop" href="/client/loginmain">LOGIN</a>
        	 <ul>
             <li><a href="/client/loginmain">CLIENT LOGIN</a></li>
-            <li><a href="#">ADMIN LOGIN</a></li>
+            <li><a href="/food/foodAdminBasicList">ADMIN LOGIN</a></li>
           </ul>
         </li>
         <li><a href="/signup/client/signupForm">SIGN UP</a></li>

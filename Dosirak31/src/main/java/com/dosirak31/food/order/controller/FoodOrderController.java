@@ -75,7 +75,12 @@ public class FoodOrderController {
 		
 		return "/food/client/order";
 	}
-	
-	
+	//결제 후 배달 정보와 주문상태 3으로 update
+	@RequestMapping(value="/orderConfirmation",method=RequestMethod.GET)
+	public String orderConfirmation(@ModelAttribute("order2") OrderDetailVO odv, RedirectAttributes ras) {
+		foodOrderService.orderUpdate(odv);//주문 상태 및 배달 정보 update
+		
+		return "main"; //나중에 마이페이지로 이동 "/client/mypage"
+	}
 	
 }

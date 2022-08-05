@@ -76,4 +76,67 @@
 	<select id="orderList" parameterType="orderDetail" resultType="orderDetail">
 		select o.order_no,dosirak_no from orders o join order_detail od on o.order_no=od.order_no where order_status_no=2 and client_no=#{client_no}
    </select>
+   <!-- 결제 후 결제 테이블 insert -->
+   <insert id="paymentInsert" parameterType="orderDetail">
+   		insert into payment(payment_no,order_no,payment_method,client_no)
+   		values((select NVL(MAX(PAYMENT_NO),0)+1 FROM PAYMENT),#{order_no},'카카오페이',#{client_no})
+   </insert>
+   
+   <update id="orderUpdate" parameterType="orderDetail">
+   		update orders set order_date=sysdate,order_client_name=#{order_client_name}, order_client_phone=#{order_client_phone},
+   		order_address=#{order_address},order_status_no=3 where order_no=#{order_no}
+   </update>
+   
+   
+   <!-- 주문내역 관리자페이지에 조회 -->
+   
+   <sql id="orderSearch">
+   	<if test="search=='4'">
+		<![CDATA[order_status_no=4]]>
+	</if>	
+		<if test="search=='5'">
+		<![CDATA[order_status_no=5]]>
+	</if>	
+   </sql>
+
+	<!-- 게시판 리스트 조회(페이징 처리와 검색 처리) 및 댓글 갯수 구하기 -->
+	<select id="orderhistory" parameterType="orderDetail" resultType="orderDetail">
+
+	<![CDATA[		
+			select order_no, to_char(order_date,'YYYY-MM-DD HH24:MM:SS') as order_date, order_client_name, order_client_phone,order_address,
+			order_quantity, order_price, dosirak_name, payment_method,payment_delete,client_name,client_phone,order_status_no
+			from ( select /*+index_desc(orders pk_order)*/
+            rownum as rnum,o.order_no as order_no, order_date, order_client_name, order_client_phone,order_address,
+            order_quantity, order_price, dosirak_name, payment_method,payment_delete,client_name,client_phone,order_status_no
+            from orders o join order_detail od  on o.order_no=od.order_no 
+            join dosirak d on d.dosirak_no=od.dosirak_no 
+            join payment p on p.order_no=o.order_no 
+            join client c on c.client_no=o.client_no where]]>
+            <trim prefix="(" suffix=") AND" prefixOverrides="AND">
+	        	<include refid="orderSearch"></include>
+	        </trim>
+	        <![CDATA[ rownum<=#{pageNum} *#{amount}
+        ) orderList
+        where rnum>(#{pageNum}-1)*#{amount}
+	   	]]>
+
+
+	</select>
+	
+	<!-- where 밑 select밑
+	<trim prefix="(" suffix=") AND" prefixOverrides="AND">
+	        	<include refid="orderSearch"></include>
+	        </trim>
+	 -->
+	
+	 <!-- 페이징처리를 위한 list개수  -->
+	<select id="orderListCnt" parameterType="orderDetail" resultType="int">
+		select count(*) from orders
+		<trim prefix="(" suffix=") AND" prefixOverrides="AND">
+	        	<include refid="orderSearch"></include>
+	        </trim>
+	
+	</select>
+   
+   
 </mapper>

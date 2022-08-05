@@ -17,6 +17,8 @@ import org.springframework.web.bind.annotation.SessionAttribute;
 
 import com.dosirak31.food.order.service.FoodOrderService;
 import com.dosirak31.food.order.vo.OrderDetailVO;
+import com.dosirak31.food.order.vo.PaymentVO;
+
 import lombok.AllArgsConstructor;
 
 @RestController
@@ -70,5 +72,10 @@ public class FoodOrderRestController {
 			foodOrderService.bagDelete2(odv.getOrder_no());
 			return (result==1)?"SUCCESS":"FAILURE";
 		}
-	
+	//결제테이블 insert
+	@RequestMapping(value="/paymentInsert",consumes="application/json",produces=MediaType.TEXT_PLAIN_VALUE,method=RequestMethod.POST)
+	public String paymentInsert(@RequestBody OrderDetailVO odv){
+		int result=foodOrderService.paymentInsert(odv);//도시락만 삭제
+		return (result==1)?"SUCCESS":"FAILURE";
+	}
 }
