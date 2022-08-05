@@ -1,17 +1,20 @@
 package com.dosirak31.food.review.vo;
 
+import com.dosirak31.common.vo.CommonVO;
+
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 @Data
-public class FoodReviewVO {
+@EqualsAndHashCode(callSuper=false)
+public class FoodReviewVO extends CommonVO {
 	
-	private int review_no				=0;		//¸®ºä ÀÏ·Ã¹øÈ£
-	private String review_contents		="";	//¸®ºä ³»¿ë
-	private int	review_score			=0;		//¸®ºä Á¡¼ö
-	private String review_date			="";	//¸®ºä ÀÛ¼ºÀÏ½Ã
-	private int client_no				=0;		//È¸¿øÀÏ·Ã¹øÈ£
-	private int order_no				=0;		//ÁÖ¹®ÀÏ·Ã¹øÈ£
-	private String review_name			="";	//¸®ºä ÀÛ¼ºÀÚ
-	private int page_no					=0;		//ÆäÀÌÁö ¹øÈ£
+	private int review_no				=0;		// ë¦¬ë·° ì¼ë ¨ë²ˆí˜¸
+	private String review_contents		="";	// ë¦¬ë·° ë‚´ìš©
+	private int review_score			=0;		// ë¦¬ë·° ì ìˆ˜
+	private String review_date			="";	// ë¦¬ë·° ì‘ì„±ì¼ì
+	private int client_no				=0;		// íšŒì› ì¼ë ¨ë²ˆí˜¸
+	private int order_no				=0;		// ì£¼ë¬¸ ì¼ë ¨ë²ˆí˜¸
+	private String review_name			="";	// ë¦¬ë·° ì‘ì„±ì
 	
 }

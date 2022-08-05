@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dosirak31.mypage.complex.dao.MypageComplexDao">
+	
+	<select id="mypageList" parameterType="mypage" resultType="mypage">
+		SELECT client_no, client_id, client_name
+		FROM client
+		WHERE client_no = ${client_no}
+	</select>
+</mapper>

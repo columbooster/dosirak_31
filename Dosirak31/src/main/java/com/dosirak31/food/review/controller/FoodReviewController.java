@@ -2,15 +2,12 @@ package com.dosirak31.food.review.controller;
 
 import java.util.List;
 
-import org.springframework.http.MediaType;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.dosirak31.food.review.service.FoodReviewService;
 import com.dosirak31.food.review.vo.FoodReviewVO;
@@ -18,70 +15,118 @@ import com.dosirak31.food.review.vo.FoodReviewVO;
 import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j;
 
-@RestController
-@Log4j
-@RequestMapping(value="/reviews")
 @AllArgsConstructor
+@Log4j
+@RequestMapping(value="/foodReview/client/*")
+@Controller
 public class FoodReviewController {
 	
 	private FoodReviewService foodReviewService;
 	
-	/*************************************************************
-	 * ∏Æ∫‰ ∏Ò∑œ ±∏«ˆ
-	 *************************************************************/
-	@GetMapping(value = "/all/{page_no}", produces = MediaType.APPLICATION_JSON_VALUE)
-	public List<FoodReviewVO> foodReviewList(@PathVariable("page_no") Integer page_no) {
-		log.info("list »£√‚ º∫∞¯");
+	/**************************************************
+	 * Î¶¨Î∑∞ Î™©Î°ù 
+	 **************************************************/
+	@RequestMapping(value = "/foodReviewList", method = RequestMethod.GET)
+	public String foodReviewList(@ModelAttribute FoodReviewVO rvo, Model model) {
+		log.info("foodReviewList Ìò∏Ï∂ú ÏÑ±Í≥µ");
+		List<FoodReviewVO> foodReviewList = foodReviewService.foodReviewList(rvo);
+		model.addAttribute("foodReviewList", foodReviewList);
 		
-		List<FoodReviewVO> entity = null;
-		entity = foodReviewService.foodReviewList(page_no);
-		return entity;
+		return "foodReview/client/foodReviewList";
 	}
 	
+	/**************************************************
+	 * Î¶¨Î∑∞ Í∏ÄÏì∞Í∏∞ Ìèº
+	 **************************************************/
+	@RequestMapping(value = "/writeForm")
+	public String writeForm() {
+		log.info("writeForm Ìò∏Ï∂ú ÏÑ±Í≥µ");
+		return "foodReview/client/writeForm";
+	}
 	
-	/*************************************************************
-	 * ∏Æ∫‰ ±€æ≤±‚ ±∏«ˆ
-	 *************************************************************/
-	@PostMapping(value = "/foodReviewInsert", consumes = "application/json", produces = MediaType.TEXT_PLAIN_VALUE)
-	public String foodReviewInsert(@RequestBody FoodReviewVO rvo) {
-		log.info("foodReviewInsert »£√‚ º∫∞¯");
+	/**************************************************
+	 * Î¶¨Î∑∞ Í∏ÄÏì∞Í∏∞ Íµ¨ÌòÑ 
+	 **************************************************/
+	@RequestMapping(value = "/foodReviewInsert", method=RequestMethod.POST)
+	public String foodReviewInsert(FoodReviewVO rvo, Model model) {
+		log.info("foodReviewInsert Ìò∏Ï∂ú ÏÑ±Í≥µ");
+		int result=0;
+		String url ="";
 		
-		int result = 0;
 		result = foodReviewService.foodReviewInsert(rvo);
-		return (result==1) ? "SUCCESS" : "FAILURE";
+		if(result == 1) {
+			url = "/foodReview/client/foodReviewList";
+		} else {
+			url = "/foodReview/client/foodReviewInsert";
+		}
+		return "redirect:"+url;
 	}
 	
-	
-	/*************************************************************
-	 * ∏Æ∫‰ ªË¡¶ ±∏«ˆ
-	 *************************************************************/
-	@DeleteMapping(value = "/{review_no}", produces = MediaType.TEXT_PLAIN_VALUE) 
-	public String foodReviewDelete(@PathVariable("review_no") int review_no) {
-		log.info("foodReviewDelete »£√‚ º∫∞¯");
+	/**************************************************
+	 * Î¶¨Î∑∞ ÏàòÏ†ï Ìèº
+	 **************************************************/
+	@RequestMapping(value="/updateForm")
+	public String updateForm(@ModelAttribute("data") FoodReviewVO rvo, Model model) {
+		log.info("updateForm Ìò∏Ï∂ú ÏÑ±Í≥µ");
+		log.info("review_no = " + rvo.getReview_no());
 		
-		int result = foodReviewService.foodReviewDelete(review_no);
-		return (result ==1) ? "SUCCESS" : "FAILURE";
+		FoodReviewVO updateData = foodReviewService.updateForm(rvo);
+		model.addAttribute("updateData", updateData);
+		return "foodReview/client/updateForm";
 	}
 	
-	
-	/*************************************************************
-	 * ∏Æ∫‰ ºˆ¡§ ±∏«ˆ
-	 *************************************************************/
-	@PutMapping(value= "/{review_no}", consumes = "application/json", produces = MediaType.TEXT_PLAIN_VALUE)
-	public String foodReviewUpdate(@PathVariable("review_no") Integer review_no, @RequestBody FoodReviewVO rvo) {
-		log.info("foodReviewUpdate »£√‚ º∫∞¯");
+	/**************************************************
+	 * Î¶¨Î∑∞ ÏàòÏ†ï Íµ¨ÌòÑ
+	 **************************************************/
+	@RequestMapping(value="/foodReviewUpdate", method=RequestMethod.POST)
+	public String foodReviewUpdate(@ModelAttribute FoodReviewVO rvo, RedirectAttributes ras) {
+		log.info("foodReviewUpdate Ìò∏Ï∂ú ÏÑ±Í≥µ");
+		int result = 0;
+		String url ="";
 		
-		rvo.setReview_no(review_no);
-		int result = foodReviewService.foodReviewUpdate(rvo);
-		return (result==1) ? "SUCCESS" : "FAILURE";
+		result = foodReviewService.foodReviewUpdate(rvo);
+		ras.addFlashAttribute("data", rvo);
+		
+		if(result ==1) {
+			url = "/foodReview/client/foodReviewList";
+		} else {
+			url = "/foodReview/client/updateForm"; 
+		}
+		return "redirect:"+url;
+	}
+	
+	/**************************************************
+	 * Î¶¨Î∑∞ ÏÇ≠Ï†ú Íµ¨ÌòÑ
+	 **************************************************/
+	@RequestMapping(value = "/foodReviewDelete")
+	public String foodReviewDelete(@ModelAttribute FoodReviewVO rvo, RedirectAttributes ras) {
+		log.info("foodReviewDelete Ìò∏Ï∂ú ÏÑ±Í≥µ");
+		int result = 0;
+		String url = "";
+		
+		result = foodReviewService.foodReviewDelete(rvo);
+		ras.addFlashAttribute("foodReviewVO", rvo);
+		
+		if(result ==1) {
+			url="/foodReview/client/foodReviewList";
+		} else {
+			url ="/foodReview/client/foodReviewList";
+		}
+		return "redirect:"+url;
 	}
 	
 	
-	
-	
-	
-	
-	
+	/**************************************************
+	 * Î¶¨Î∑∞ ÏÉÅÏÑ∏ ÌéòÏù¥ÏßÄ
+	 **************************************************/
+	@RequestMapping(value = "/foodReviewDetail", method=RequestMethod.GET)
+	public String foodReviewDetail(@ModelAttribute("data") FoodReviewVO rvo, Model model) {
+		log.info("foodReviewDetail Ìò∏Ï∂ú ÏÑ±Í≥µ");
+		
+		FoodReviewVO detail = foodReviewService.foodReviewDetail(rvo);
+		model.addAttribute("detail", detail);
+		return "foodReview/client/foodReviewDetail";
+	}
 	
 	
 	

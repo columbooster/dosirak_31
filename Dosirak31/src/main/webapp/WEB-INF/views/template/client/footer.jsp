@@ -23,7 +23,7 @@
         <li class="active"><a href="/resources/index.html">Home</a></li>
         <li><a href="/health/hBoardList">WORKOUT</a>  
         <li><a class="drop" href="/food/foodClientBasicList">FOOD</a>
-        <li><a href="/foodReview/pageList">FOOD REVIEW</a>
+        <li><a href="/foodReview/client/foodReviewList">FOOD REVIEW</a>
         <li><a href="/community/communityList">COMMUNITY</a></li>
       </ul>
     </div>
