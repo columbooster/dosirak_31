@@ -30,6 +30,14 @@ public class ClientSignupController {
 			return "signup/client/signupForm";
 		}
 		
+		// 회원가입 화면 get
+			@GetMapping(value = "/kakao_join_form")
+			public String getKakaoClientSignup() throws Exception {
+				log.info("client 회원가입 화면 호출 성공");
+					
+				return "signup/client/kakao_join_form";
+			}
+		
 		// 회원가입 post
 		@PostMapping(value = "/signup")
 		public String postClientSignup(ClientVO cvo) throws Exception {
@@ -40,7 +48,7 @@ public class ClientSignupController {
 			
 			result = clientService.clientSignup(cvo);
 			if(result == 1) {
-				url = "/login/client/loginForm";
+				url = "/client/loginmain";
 			} else {
 				url = "/signup/client/signupForm";
 			}

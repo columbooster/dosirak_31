@@ -6,6 +6,7 @@ import com.dosirak31.client.community.vo.CommunityVO;
 
 public interface CommunityService {
 	public List<CommunityVO> communityList(CommunityVO cvo);
+	public int communityListCnt(CommunityVO cvo);
 	public int communityInsert(CommunityVO cvo) throws Exception;
 	public CommunityVO communityDetail(CommunityVO cvo);
 	public int pwdConfirm(CommunityVO cvo);

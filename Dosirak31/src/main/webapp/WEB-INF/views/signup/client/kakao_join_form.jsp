@@ -9,7 +9,6 @@
 			// 저장 버튼 클릭 시 처리 이벤트
 			$("#signupBtn").click(function() {
 				
-				
 				// 비밀번호 일치 체크
 				var client_pw=$('input[name=client_pw]').val();
 				var client_pw_re=$('input[name=client_pw_re]').val();
@@ -18,6 +17,7 @@
 					alert('비밀번호와 비밀번호 재입력 값이 같아야 합니다.');
 					return false;
 				}
+				
 				
 				// 입력값 체크
 				if(!chkData("#client_id","아이디를")) return;
@@ -35,7 +35,6 @@
 				}
 			});
 			
-			
 			// 취소 버튼 클릭 시 처리 이벤트
 			$("#cancleBtn").click(function() {
 				$("#signupForm").each(function() {
@@ -47,24 +46,11 @@
 			$("#loginBtn").click(function() {
 				location.href = "/client/loginmain";
 			});
-			
 		});
-		
-		
-		$(document).ready(function(){  //한글입력 안되게 처리 
-			$("input[name=client_id]").keyup(function(event){    
-			if (!(event.keyCode >=37 && event.keyCode<=40)) {    
-				var inputVal = $(this).val();   
-				$(this).val(inputVal.replace(/[^a-z0-9]/gi,''));   
-				}  
-			});
-		});
-		
-	 		
 	</script>
 	
 	<script>
-										    function execDaumPostcode() {	// 주소 API function
+										    function execDaumPostcode() {
 										        new daum.Postcode({
 										            oncomplete: function(data) {
 										                // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
@@ -92,7 +78,6 @@
 										                    if(data.buildingName !== '' && data.apartment === 'Y'){
 										                        extraAddr += (extraAddr !== '' ? ', ' + data.buildingName : data.buildingName);
 										                    }
-										                
 										                } 
 										
 										                // 우편번호와 주소 정보를 해당 필드에 넣는다.
@@ -117,14 +102,14 @@
 			
 			<ul>
 				<li><a href="/resources/index.html">Home</a></li>
-				<li><a href="/signup/client/signupForm">SignUp</a></li>
+				<li><a href="/signup/client/kakao_join_form">Social-SignUp</a></li>
 			</ul>
 			
 		</div>
 	</div>
 </div>
 
-	<div class="wrapper row3">
+<div class="wrapper row3">
 	<main class="container clear"> 
 		<section id="container">
 			<form id="signupForm" name="signupForm" class="form-horizontal">
@@ -138,7 +123,7 @@
 								<tr>
 									<td>아이디</td>
 									<td class="text-left"><input type="text" name="client_id" id="client_id" class="form-control" /></td>
-									<td><button type="button" id="id_overlap_button" class="id_overlap_button">중복검사</button></td>
+									<td><button type="button" class="id_overlap_button" onclick="id_overlap_check()">중복검사</button></td>
 								</tr>
 								<tr>
 									<td>패스워드</td>
@@ -150,11 +135,11 @@
 								</tr>
 								<tr>
 									<td>이름</td>
-									<td class="text-left" colspan="2"><input type="text" name="client_name" id="client_name" class="form-control" /></td>
+									<td class="text-left" colspan="2"><input type="text" name="client_name" id="client_name" value="<c:out value='${kakaoclient.client_name}'/>" readonly="readonly" class="form-control" /></td>
 								</tr>
 								<tr>
 									<td>이메일</td>
-									<td class="text-left" colspan="2"><input type="text" name="client_email" id="client_email" class="form-control" /></td>
+									<td class="text-left" colspan="2"><input type="text" name="client_email" id="client_email" value="<c:out value='${kakaoclient.client_email}'/>" readonly="readonly" class="form-control" /></td>
 								</tr>
 								<tr>
 									<td>핸드폰번호</td>
@@ -168,6 +153,7 @@
 										<input type="text" id="sample6_address" placeholder="주소"><br>
 										<input type="text" name="client_address" id="client_address" class="form-control" />
 										<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+										
 									</td>
 								</tr>
 							</tbody>
@@ -180,7 +166,7 @@
 			
 			</form>
 		</section>
-		</main>
-	</div>
+	</main>
+</div>
 	</body>
 </html>

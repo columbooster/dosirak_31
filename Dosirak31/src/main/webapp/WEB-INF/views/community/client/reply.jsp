@@ -201,7 +201,7 @@
 							<tr>
 								<td class="col-md-1">작성자</td>
 								<td class="col-md-3 text-left">
-									<input type="text" name="client_id" id="client_id" value="<c:out value='${clientLogin.client_id}'/>" readonly="readonly" />
+									<input type="text" name="client_id" id="client_id" value="<c:out value='${sessionScope.client_info.client_id}'/>" readonly="readonly" />
 								</td>
 								<td class="col-md-1">비밀번호</td>
 								<td class="col-md-3 text-left">
