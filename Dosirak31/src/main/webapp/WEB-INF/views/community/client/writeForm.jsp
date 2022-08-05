@@ -42,6 +42,23 @@
       
 </head>
 	<body>
+<div class="wrapper row2 bgded"
+	style="background-image: url('/resources/images/demo/backgrounds/01.png');">
+	<div class="overlay">
+		<div id="breadcrumb" class="clear">
+			
+			<ul>
+				<li><a href="/resources/index.html">Home</a></li>
+				<li><a href="/community/client/communityList">Community</a></li>
+			</ul>
+			
+		</div>
+	</div>
+</div>
+
+<div class="wrapper row3">
+	<main class="container clear"> 		
+	
 		<div class="contentContainer container">
 				<div class="contentTit page-header"><h3 class="text-center">게시판 글작성</h3></div>
 				
@@ -55,7 +72,7 @@
 							<tbody>
 								<tr>
 									<td>작성자</td>
-									<td class="text-left"><input type="text" name="client_id" id="client_id" class="form-control" value="<c:out value='${clientLogin.client_id}'/>" readonly="readonly" /></td>
+									<td class="text-left"><input type="text" name="client_id" id="client_id" class="form-control" value="<c:out value='${sessionScope.client_info.client_id}'/>" readonly="readonly" /></td>
 								</tr>
 								<tr>
 									<td>글제목</td>
@@ -84,5 +101,7 @@
 					</form>
 				</div>
 			</div>
+		</main>
+	</div>		
 	</body>
 </html>

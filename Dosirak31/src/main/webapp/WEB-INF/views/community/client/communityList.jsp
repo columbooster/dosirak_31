@@ -2,7 +2,8 @@
     pageEncoding="UTF-8"%>
 <%@ include file="/WEB-INF/views/common/common.jspf" %> 
  
-      <style type="text/css"></style>
+      <style type="text/css">
+      </style>
       <script type="text/javascript">
 				$(function() {
 					
@@ -72,6 +73,12 @@
 						$("#detailForm").submit();
 					});
 					
+					$(".paginate_button a").click(function(e) {
+						e.preventDefault();
+						$("#f_search").find("input[name='pageNum']").val($(this).attr("href"));
+						goPage();
+					});
+					
 				});
 				
 				// 검색을 위한 실질적인 처리 함수
@@ -89,7 +96,23 @@
 			</script>
       
 </head>
-	<body>
+<body>
+<div class="wrapper row2 bgded"
+	style="background-image: url('/resources/images/demo/backgrounds/01.png');">
+	<div class="overlay">
+		<div id="breadcrumb" class="clear">
+			
+			<ul>
+				<li><a href="/resources/index.html">Home</a></li>
+				<li><a href="/community/client/communityList">Community</a></li>
+			</ul>
+			
+		</div>
+	</div>
+</div>
+
+<div class="wrapper row3">
+	<main class="container clear"> 	
 		<div class="contentContainer container">
 				<!-- <div class="contentTit page-header"><h3 class="text-center">게시판 리스트</h3></div>  -->
 				
@@ -98,8 +121,11 @@
 				</form>
 				
 					<%-- ==================== 검색 기능 시작 ========================= --%>
-				<div class="contentBtn text-right">
+				<div id="communitySearch" class="contentBtn text-right">
 					<form id="f_search" name="f_search" class="form-inline">
+						<%-- 페이징 처리를 위한 파라미터 --%>
+						<input type="hidden" name="pageNum" value="${pageMaker.cvo.pageNum}">
+						<input type="hidden" name="amount" value="${pageMaker.cvo.amount}">
 						<div class="form-group">
 							<label>검색조건</label>
 							<select id="search" name="search" class="form-control">
@@ -135,7 +161,7 @@
 									<c:forEach var="community" items="${communityList}" varStatus="status">
 										<tr class="text-center" data-num="${community.community_no}">
 											<td>${community.community_no}</td>
-											<td class="goDetail text-left">${community.community_title}
+											<td class="goDetail text-left">
 												${community.community_title}
 												<c:if test="${community.reply_cnt > 0}"><span class="reply_count">[${community.reply_cnt}]</span></c:if>
 											</td>
@@ -164,11 +190,17 @@
 				</div>
 					<%-- ==================== 리스트 종료 ========================= --%>
 					
+				<%-- ======== 페이징 처리를 커스텀태그(pagination)를 정의============ --%>
+				<tag:pagination endPage="${pageMaker.endPage}" startPage="${pageMaker.startPage}" amount="${pageMaker.cvo.amount}" 
+				prev="${pageMaker.prev}" pageNum="${pageMaker.cvo.pageNum}" next="${pageMaker.next}" />		
+					
 					<%-- ==================== 글쓰기 버튼 출력 시작 ========================= --%>
 				<div class="contentBtn text-right">
 					<input type="button" value="글쓰기" id="insertFormBtn" class="btn btn-success">
 				</div>	
 					<%-- ==================== 글쓰기 버튼 출력 종료 ========================= --%>
 			</div>
+	</main>		
+</div>
 	</body>
 </html>
