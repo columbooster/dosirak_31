@@ -35,9 +35,18 @@ public class FoodAdminPageController {
 		return "food/admin/orderhistory"; 
 	}
 	
-	@RequestMapping(value="/orderDetail",method=RequestMethod.GET)
-	public String orderDetail(@ModelAttribute("data") OrderDetailVO odv, Model model){
-		
-		return "food/admin/orderDetail"; 
+	//배달발송버튼
+	@RequestMapping(value="/delivery",method=RequestMethod.GET)
+	public String orderDelivery(@ModelAttribute("data") OrderDetailVO odv, Model model){
+		foodOrderService.orderDelivery(odv);
+		return "redirect:/food/admin/orderhistory?pageNum=1&amount=10&order_status_no=5"; 
 	}
+	
+	//결제취소버튼
+	//배달발송버튼
+		@RequestMapping(value="/paymentDelete",method=RequestMethod.GET)
+		public String paymentDelete(@ModelAttribute("data") OrderDetailVO odv, Model model){
+			foodOrderService.paymentDelete(odv);
+			return "redirect:/food/admin/orderhistory?pageNum=1&amount=10&order_status_no=4"; 
+		}
 }
