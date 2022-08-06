@@ -104,10 +104,7 @@
 						<form id="detailForm">
 							<input type="hidden" id="health_no" name="health_no" />
 						</form>
-						
-						<div id="cardioList" class="table-height">
-						
-								<!-------------------------------------------------- 유산소 게시판 운동 리스트(이미지) 시작 ---------------------------------------------------->
+							<!-------------------------------------------------- 유산소 게시판 운동 리스트(이미지) 시작 ---------------------------------------------------->
 						<div id="cardioList" class="table-height">
 							<table summary="헬스 게시판 리스트" class="table table-striped">
 							<tbody id="list" class="table-striped text-center">
