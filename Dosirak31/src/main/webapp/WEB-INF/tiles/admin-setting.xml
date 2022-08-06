@@ -12,5 +12,9 @@
  		<put-attribute name="main" value="/WEB-INF/views/food/admin/{1}.jsp"/>
  	</definition>
  	
+ 	<definition name="health/admin/*" extends="basic">
+ 		<put-attribute name="main" value="/WEB-INF/views/health/admin/{1}.jsp"/>
+ 	</definition>
+ 	
  	
  </tiles-definitions> 

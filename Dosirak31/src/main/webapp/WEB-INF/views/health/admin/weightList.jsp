@@ -3,118 +3,111 @@
 <%@ include file="/WEB-INF/views/common/common.jspf"%>
 
 <script type="text/javascript">
+
+<!-- 이미지 클릭 시 운동 동영상 상세 페이지 이동을 위한 처리 이벤트 -->
 	$(function() {
-		<!-- 이미지 클릭 시 운동 동영상 상세 페이지 이동을 위한 처리 이벤트 -->
 		$(".goImgDetail").click(function() {
 			let health_no = $(this).parents("tr").attr("data-num");
 			$("#health_no").val(health_no);
 			console.log("헬스번호 : " + health_no);
 			$("#detailForm").attr({
 				"meothd" : "get",
-				"action" : "/health/weightDetail"
+				"action" : "/health/admin/weightDetail"
 			});
 			$("#detailForm").submit();
 		});
-		
-	            //검색 후 검색 대상과 검색 단어 출력
-	            let word="<c:out value='${data.keyword}'/>";
-	            let value="";
-	            if(word!=""){
-	               $("#keyword").val("<c:out value='${data.keyword}'/>");
-	               $("#search").val("<c:out value='${data.search}'/>");
-	               
-	               if($("#search").val()!='health_contents'){
-	                  //:contains()는 특정텍스트를 포함한 요소반환
-	                  
-	                     if($("#search").val()=='health_title') value="#list tr td.goDetail";
-	                     //$("#list tr td.name:cotains('용기')").html()=>용기에 대한 제목 또는 작성자
-	                     console.log($(value+":contains('"+word+"')").html());
-	                     //검색단어 빨간색으로 바꾸기
-	                     $(value+":contains('"+word+"')").each(function(){
-	                        let regex=new RegExp(word,'gi');
-	                        $(this).html($(this).html().replace(regex,"<span class='required'>"+word+"</span>"));
-	                     });
-	               
-	               }
-	            }
-	          
-	             //입력 양식 enter제거
-	             $("#keyword").bind("keydown",function(event){
-	                if(event.keyCode==13){
-	                   event.preventDefault();
-	                }
-	             });
-	             
-	             //검색대상이 변경될 때마다 처리 이벤트
-	             $("#search").change(function(){
-	                if($("#search").val()=="all"){
-	                   $("#keyword").val("전체 데이터 조회합니다.");
-	                }else if($("#search").val()!="all"){
-	                   $("#keyword").val("");
-	                   $("#keyword").focus();
-	                }
-	             });
-	             
-	             //검색버튼 클릭 시 처리이벤트
-	             $("#searchData").click(function(){
-	                if($("#search").val()!="all"){
-	                   if(!chkData("#keyword","검색어를")) return;
-	                }
-	                $("#pageNum").val(1);
-	                goPage();
-	             })
-    
-	             // 페이징 처리 이벤트
-	            $(".paginate_button a").click(function(e){
-	               e.preventDefault();
-	               $("#f_search").find("input[name='pageNum']").val($(this).attr("href"));
+	});
 	
-	               goPage();
-	            })
-	         });//최상위함수
-	         
-	         //검색을 위한 실질적인 처리 함수
-	         function goPage(){
-	            if($("#search").val()=="all"){
-	               $("#keyword").val("");
-	            }
-	            $("#f_search").attr({
-	               "method":"get",
-	               "action":"/health/weightList"
-	            })
-	            $("#f_search").submit();
-	         }
+	/*글쓰기 버튼 클릭 시 처리 이벤트*/
+	$(function(){
+		 $("#insertFormBtn").click(function(){
+             location.href="/health/admin/healthWriteForm";
+          });
+		//검색 후 검색 대상과 검색 단어 출력
+         let word="<c:out value='${data.keyword}'/>";
+         let value="";
+         if(word!=""){
+            $("#keyword").val("<c:out value='${data.keyword}'/>");
+            $("#search").val("<c:out value='${data.search}'/>");
+            
+            if($("#search").val()!='health_contents'){
+               //:contains()는 특정텍스트를 포함한 요소반환
+               
+                  if($("#search").val()=='health_title') value="#list tr td.goDetail";
+                  //$("#list tr td.name:cotains('용기')").html()=>용기에 대한 제목 또는 작성자
+                  console.log($(value+":contains('"+word+"')").html());
+                  //검색단어 빨간색으로 바꾸기
+                  $(value+":contains('"+word+"')").each(function(){
+                     let regex=new RegExp(word,'gi');
+                     $(this).html($(this).html().replace(regex,"<span class='required'>"+word+"</span>"));
+                  });
+            
+            }
+         }
+       
+          //입력 양식 enter제거
+          $("#keyword").bind("keydown",function(event){
+             if(event.keyCode==13){
+                event.preventDefault();
+             }
+          });
+          
+          //검색대상이 변경될 때마다 처리 이벤트
+          $("#search").change(function(){
+             if($("#search").val()=="all"){
+                $("#keyword").val("전체 데이터 조회합니다.");
+             }else if($("#search").val()!="all"){
+                $("#keyword").val("");
+                $("#keyword").focus();
+             }
+          });
+          
+          //검색버튼 클릭 시 처리이벤트
+          $("#searchData").click(function(){
+             if($("#search").val()!="all"){
+                if(!chkData("#keyword","검색어를")) return;
+             }
+             $("#pageNum").val(1);
+             goPage();
+          })
+
+          // 페이징 처리 이벤트
+         $(".paginate_button a").click(function(e){
+            e.preventDefault();
+            $("#f_search").find("input[name='pageNum']").val($(this).attr("href"));
+
+            goPage();
+         })
+      });//최상위함수
+      
+      //검색을 위한 실질적인 처리 함수
+      function goPage(){
+         if($("#search").val()=="all"){
+            $("#keyword").val("");
+         }
+         $("#f_search").attr({
+            "method":"get",
+            "action":"/health/weightList"
+         })
+         $("#f_search").submit();
+      }
 </script>
 
 </head>
 
-	<div class="wrapper row2 bgded"
-		style="background-image: url('/resources/images/demo/backgrounds/01.png');">
-		<div class="overlay">
-			<div id="breadcrumb" class="clear">
-				<ul>
-					<li><a href="#">Home</a></li>
-					<li><a href="#">Lorem</a></li>
-					<li><a href="#">Ipsum</a></li>
-					<li><a href="/health/hBoardList">WORKOUTS</a></li>
-				</ul>
-			</div>
-		</div>
-	</div>
 	<div class="wrapper row3">
-		<main class="container clear">
-			<!-- main body -->
 			<div class="content">
 				<div id="gallery">
 					<figure>
 						<header class="heading">weight Exercise</header>
-						
 						<!-- 히든 상세 게시판 -->
 						<form id="detailForm">
 							<input type="hidden" id="health_no" name="health_no" />
 						</form>
 						
-						<!-------------------------------------------------- 웨이트 게시판 운동 리스트(이미지) 시작 ---------------------------------------------------->
+						<div id="weightList" class="table-height">
+						
+								<!-------------------------------------------------- 웨이트 게시판 운동 리스트(이미지) 시작 ---------------------------------------------------->
 						<div id="weightList" class="table-height">
 							<table summary="헬스 게시판 리스트" class="table table-striped">
 							<tbody id="list" class="table-striped text-center">
@@ -160,10 +153,16 @@
 					</figure>
 				</div>
 				<!-------------------------------------------------- 웨이트 게시판 운동 리스트(이미지) 끝 ---------------------------------------------------->
-
+				
+				<!-------------------------------------------------- 글 쓰가 버튼 시작 ---------------------------------------------------->
+				<div class="text-right">
+					<button type="button" id="insertFormBtn" class="btn btn-primary">글쓰기</button>
+				</div>
+				<!-------------------------------------------------- 글 쓰가 버튼 끝 ---------------------------------------------------->
+				
 				<!-------------------------------------------------- 게시판 페이지 바 시작 ---------------------------------------------------->
 					<tag:pagination pageNum="${pageMaker.cvo.pageNum }" amount="${pageMaker.cvo.amount }"
-				startPage="${pageMaker.startPage }" endPage="${pageMaker.endPage }" prev="${pageMaker.prev }" next="${pageMaker.next }"/>
+				startPage="${pageMaker.startPage }" endPage="${pageMaker.endPage }" prev="${pageMaker.prev }" next="${pageMaker.next  }"/>
 				
 				<!-------------------------------------------------- 게시판 페이지 바 끝 ---------------------------------------------------->
 				
@@ -186,15 +185,10 @@
 		            </form>
 		         </div>
          		<!-------------------------------------------------- 검색 기능 끝 ---------------------------------------------------->         		
-			</div>
+				</div>
+				
 			<div class="clear"></div>
-		</main>
 	</div>
 
-	<a id="backtotop" href="#top"><i class="fa fa-chevron-up"></i></a>
-	<!-- JAVASCRIPTS -->
-	<script src="/resources/layout/scripts/jquery.min.js"></script>
-	<script src="/resources/layout/scripts/jquery.backtotop.js"></script>
-	<script src="/resources/layout/scripts/jquery.mobilemenu.js"></script>
 </body>
 </html>

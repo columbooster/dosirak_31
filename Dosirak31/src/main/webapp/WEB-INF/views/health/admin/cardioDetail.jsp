@@ -22,39 +22,21 @@
     <![endif]-->
 
 </head>
-	<div class="wrapper row2 bgded"
-		style="background-image: url('/resources/images/demo/backgrounds/01.png');">
-		<div class="overlay">
-			<div id="breadcrumb" class="clear">
-				<!-- ################################################################################################ -->
-				<ul>
-					<li><a href="#">Home</a></li>
-					<li><a href="#">Lorem</a></li>
-					<li><a href="#">Ipsum</a></li>
-					<li><a href="/health/hBoardList">WORKOUTS</a></li>
-				</ul>
-				<!-- ################################################################################################ -->
-			</div>
-		</div>
-	</div>
-	<!-- ################################################################################################ -->
-	<!-- ################################################################################################ -->
-	<!-- ################################################################################################ -->
 	<div class="wrapper row3">
-		<main class="container clear">
+		
 			<!-- main body -->
 			<!-- ################################################################################################ -->
 			<div class="content">
 				<!-- ################################################################################################ -->
 				<div id="gallery">
 					<figure>
-						<header class="heading">${weightDetail.health_title }</header>
+						<header class="heading">${cardioDetail.health_title }</header>
 						<!-------------------------------------------------- 동영상 & 소개 공간 ---------------------------------------------------->
 						<div class="jumbotron">
 
 							<section>
 								<iframe width="560" height="315"
-									src="https://www.youtube.com/embed/${weightDetail.health_url }?mute=1&autoplay=1"></iframe>
+									src="https://www.youtube.com/embed/${cardioDetail.health_url }?mute=1&autoplay=1"></iframe>
 							</section>
 						</div>
 
@@ -75,12 +57,8 @@
 			<!-- ################################################################################################ -->
 			<!-- / main body -->
 			<div class="clear"></div>
-		</main>
 
 	</div>
-
-	<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-	<script
-		src="/resources/include/dist/assets/js/ie10-viewport-bug-workaround.js"></script>
+	
 </body>
 </html>
