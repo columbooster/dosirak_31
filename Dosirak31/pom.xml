@@ -34,6 +34,18 @@
 			<version>${org.springframework-version}</version>
 		</dependency>
 		
+		<!--인터셉터위한 
+		<dependency>
+		    <groupId>org.springframework</groupId>
+		    <artifactId>spring-web</artifactId>
+		    <version>5.2.8.RELEASE</version>
+		</dependency>
+		<dependency>
+		   <groupId>org.apache.httpcomponents</groupId>
+		   <artifactId>httpclient</artifactId>
+		   <version>4.5.2</version>
+		   <scope>runtime</scope>
+		 </dependency>-->
 		<!--트랜잭션 설정을 위한 설정 -->	
 		<dependency>
 			<groupId>org.springframework</groupId>

@@ -85,14 +85,20 @@
 			
 			//배달발송버튼
 			$(document).on("click",".deliveryBtn",function(){
-				let order_no=$(this).attr("data-num");
-				location.href="/food/admin/delivery?order_no="+order_no;
+				let result=confirm("배달발송하시겠습니까?");
+				if(result){
+					let order_no=$(this).attr("data-num");
+					location.href="/food/admin/delivery?order_no="+order_no;
+				}
 			})
 			
 			//결제취소버튼
 			$(document).on("click",".paymentDelete",function(){
-				let order_no=$(this).attr("data-num");
-				location.href="/food/admin/paymentDelete?order_no="+order_no;
+				let result=confirm("결제 취소하시겠습니까?");
+				if(result){
+					let order_no=$(this).attr("data-num");
+					location.href="/food/admin/paymentDelete?order_no="+order_no;
+				}
 			})
 			
 		});//최상위함수
@@ -227,42 +233,24 @@
 					   	 
 					   </p>
 					   
-					  <%--=======주문내역테이블 끝============ --%>
+					 
      		
 					   <p><span>주문자 정보</span>${order.order_client_name} / ${order.client_phone}</p>
 					   <p><span>수령인 정보</span>${order.client_name} / ${order.order_client_phone}</p>
 					   <p><span>주소</span>${order.order_address }
 					   <c:if test="${order.order_status_no eq 3}">
-					   	<button type="button" class="btn btn-default deliveryBtn" data-num="${order.order_no }">배달 발송</button>
-					   
-					   </c:if></p>
-					   
-					  </div>
-					  
+					   	<button type="button" class="btn btn-default deliveryBtn" data-num="${order.order_no }">배달 발송</button>				   
+					   </c:if></p>				   
+					  </div>				  
 					  </li>
-					  
-     		
-					  
-					 </ul>
-					
-					</section>
-			      
-			      
-			      
-			    </c:if>
-				
+					 </ul>				
+					</section>		      
+			    </c:if>			
 			    <c:set var="previousCol1" value="${order.order_no }"/>
 			</c:forEach>
-     		
-     		
-     		
-     		
-     	
-     		
-  
-     		
-     		
+
      		 </div>
+     		  <%--=======주문내역테이블 끝============ --%>
     		<%--===================페이징 출력 시작============== --%>
     		<tag:pagination pageNum="${pageMaker.cvo.pageNum }" amount="${pageMaker.cvo.amount }"
 			startPage="${pageMaker.startPage }" endPage="${pageMaker.endPage }" prev="${pageMaker.prev }" next="${pageMaker.next }"/>
