@@ -2,11 +2,24 @@
     pageEncoding="UTF-8"%>
  <%@ page trimDirectiveWhitespaces="true" %>
  <script>
- 	$(function(){
- 		$("#logout").click(function(){
- 			location.href="/client/logout";
- 		})
- 	})
+ $(function(){
+	 $("#loginBtn").click(function(){
+		if($("#client_id").val().replace(/\s/g, "") == ""){ //아이디 값이 공백일 때	
+			alert("아이디는 필수 입력 항목 입니다.");
+			
+			return false;
+			
+		}else if($("#client_pw").val().replace(/\s/g, "") == ""){
+			
+			alert("비밀번호는 필수 입력 항목 입니다.");
+			return false;
+			
+		}else{
+			$("#loginForm").submit();
+		}
+		
+	});
+})
  </script>
  <div class="wrapper row5">
   <footer id="footer" class="clear"> 
@@ -27,9 +40,9 @@
     <div class="one_quarter">
       <h6 class="title">Quick Links</h6>
       <ul class="nospace linklist">
-        <li class="active"><a href="/client/successlogin">HOME</a></li>
+        <li class="active"><a href="/">HOME</a></li>
         <li><a href="/health/hBoardList">WORKOUT</a>  
-        <li><a class="drop" href="/food/foodClientBasicList">FOOD</a>
+        <li><a class="drop" href="/food/foodNoClientBasicList">FOOD</a>
         <li><a href="/foodReview/pageList">FOOD REVIEW</a>
         <li><a href="/community/communityList">COMMUNITY</a></li>
       </ul>
@@ -41,7 +54,7 @@
         또한 OECD의 개인정보 보호 가이드라인 등 국제 기준을 준수하여 서비스를 제공합니다.</p>
       </article>
     </div>
-    <div class="one_quarter">
+     <div class="one_quarter">
       <h6 class="title">고객센터</h6>
       <article>
       <ul class="nospace">
@@ -53,17 +66,16 @@
       </address>
       </article>
     </div>
-    <%-- <div class="one_quarter">
-      <h6 class="title">LOGOUT</h6> 
+    <!-- <div class="one_quarter">
+      <h6 class="title">LOGIN</h6>
+      <form id="loginForm" method="post" action="/client/userlogin">
         <fieldset>
-        	<h2 class="nospace">
-        	<!-- 아이디: {sessionScope.client_info.client_id}<br/>
-        	이름: {sessionScope.client_info.client_id} -->
-        	 <input class="btmspace-15" id="client_id" type="text" name="client_id" placeholder="아이디: ${sessionScope.client_info.client_id }" readonly="readonly">
-           <input class="btmspace-15" id="client_name" type="text" name="client_name" placeholder="이름: ${sessionScope.client_info.client_name }" readonly="readonly">
-        	</h2>
-          <button type="button" value="logout" id="logout">logout</button>
+          <legend>Newsletter:</legend>
+          <input class="btmspace-15" id="client_id" type="text" name="client_id" placeholder="아이디">
+           <input class="btmspace-15" id="client_pw" type="password" name="client_pw" placeholder="비밀번호">
+           <input type="submit" id="loginBtn" value="로그인">
         </fieldset>
-    </div> --%>
+      </form>
+    </div> -->
   </footer>
 </div>

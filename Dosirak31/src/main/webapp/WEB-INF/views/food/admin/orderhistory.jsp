@@ -101,6 +101,10 @@
 				}
 			})
 			
+			$("#orderGraphBtn").click(function(){
+				location.href="/food/admin/orderGraph";
+			})
+			
 		});//최상위함수
 		
 		//검색을 위한 실질적인 처리 함수
@@ -197,6 +201,7 @@
 							<option value="4">주문취소내역</option>
 							<option value="5">배송완료내역</option>
 						</select>
+						<button type="button" class="btn btn-default text-right" id="orderGraphBtn">매출관리</button>
 					</div>
 				</form>
 			</div>

@@ -12,18 +12,20 @@
 		<link rel="stylesheet" type="text/css" href="/resources/include/dist/css/bootstrap.min.css"/>
 		<link rel="stylesheet" type="text/css" href="/resources/include/dist/css/bootstrap-theme.min.css"/>
 		<link rel="stylesheet" type="text/css" href="/resources/include/css/default.css"/>
-		<script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+		
 		
 		<style type="text/css">
-			header{
+header{
                 display:flex;
                 justify-content: center;
+                margin-top: 50px;
             }
             h2{
-            	font-weight: bold;
-            	text-align:center;
+               font-weight: bold;
+               text-align:center;
+               color: black;
             }
-            form{
+            form{ 
                 padding:10px;
             }
             .input-box{
@@ -41,6 +43,7 @@
             input::placeholder{
                 color:transparent;
             }
+
             input:placeholder-shown + label{
                 color:#aaa;
                 font-size:14pt;
@@ -48,7 +51,7 @@
 
             }
             input:focus + label, label{
-                color:#8aa1a1;
+                color:#f89b00;
                 font-size:10pt;
                 pointer-events: none;
                 position: absolute;
@@ -64,9 +67,8 @@
                 border-bottom: solid 1px #8aa1a1;
                 outline:none;
             }
-            
             input[type=submit]{
-                background-color: #8aa1a1;
+                background-color: gray;
                 border:none;
                 color:white;
                 border-radius: 5px;
@@ -75,8 +77,10 @@
                 font-size: 16pt;
                 font-weight:bold;
                 margin-top:40px;
-                text-align: center;
+                display:inline-block;
+                text-align:center;
             }
+            
             .forgot{
                 text-align: center;
                 font-size:12pt;
@@ -84,21 +88,25 @@
                 margin:10px 0px;
             }
             #btn{
-            	text-align: center
+               text-align: center
             }
             #error{ color : red; font-size: 3px; text-align:center;}
             
-            #kakao {display: block; margin: 0px auto;width:250px; height: 40px;}
+            #kakao {display: block; margin: 0px auto;width:250px; height: 40px; margin-bottom: 50px;}
             
-            .or-seperator{text-align:center;  }
+            .or-seperator{text-align:center; }
             
             hr{border: 0; background: #d3d3d3; height: 3px; width: 550px;}
+         
+         body{background-color:white;}
+
 		</style>
 		
 		
 		<script type="text/javascript" src="/resources/include/js/jquery-1.12.4.min.js"></script>
 		<script type="text/javascript" src="/resources/include/js/common.js"></script>
 		<script type="text/javascript" src="/resources/include/dist/js/bootstrap.min.js"></script>
+		<script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
 		
 	</head>
 	<body> 

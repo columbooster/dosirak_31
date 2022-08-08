@@ -72,7 +72,7 @@
 					 
 					  <li>		
 					  <div>
-					   <p><span>회원번호</span><a href="javascript:popup(${order.order_no })" class="popUpBtn">${member.client_no }</a></p>
+					   <p><span>회원번호</span>${member.client_no }</p>
 					   <p><span>이름</span>${member.client_name }</p>
 					   <p><span>아이디</span>${member.client_id}</p>
 					   <p><span>이메일</span>${member.client_email}</p>

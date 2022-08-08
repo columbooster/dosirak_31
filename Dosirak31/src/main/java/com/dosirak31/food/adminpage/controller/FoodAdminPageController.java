@@ -49,4 +49,11 @@ public class FoodAdminPageController {
 			foodOrderService.paymentDelete(odv);
 			return "redirect:/food/admin/orderhistory?pageNum=1&amount=10&order_status_no=4"; 
 		}
+		
+	/*주문매출로 이동*/
+	@RequestMapping(value="/orderGraph",method=RequestMethod.GET)
+	public String bagList(){
+		return "food/admin/orderGraph";  
+	}
+			
 }
