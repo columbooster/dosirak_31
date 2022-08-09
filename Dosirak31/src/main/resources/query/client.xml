@@ -10,10 +10,17 @@
 			select client_seq.nextval from dual
 		</selectKey>
 		
-		INSERT INTO client(client_no, client_id, client_pw, client_name, client_email, client_phone, client_address)
-		VALUES(#{client_no}, #{client_id}, #{client_pw}, #{client_name}, #{client_email}, #{client_phone}, #{client_address})	
+		INSERT INTO client(client_no, client_id, client_pw, client_name, client_email, client_phone, client_address, client_rrn)
+		VALUES(#{client_no}, #{client_id}, #{client_pw}, #{client_name}, #{client_email}, #{client_phone}, #{client_address}, #{client_rrn})	
 	</insert>
 	
+	
+	<!-- 아이디 중복검사 -->
+  	<select id="idCheck" resultType="int">
+  	
+  		select count(*) from client where client_id = #{client_id}
+  	
+  	</select>
 	
 
 

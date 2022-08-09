@@ -4,37 +4,73 @@
 <mapper namespace="com.dosirak31.food.review.dao.FoodReviewDao">
 	
 	<!-- 리뷰 게시판 기본 조회 -->
-	<select id="foodReviewList" parameterType="review" resultType="review">
+	<!-- <select id="foodReviewList" parameterType="review" resultType="review">
 		SELECT review_no, review_contents, review_score, r.client_no, r.order_no,
-      	review_name, to_char(review_date, 'YYYY-MM-DD HH24:MI:ss') as review_date, page_no
+      	review_name, to_char(review_date, 'YYYY-MM-DD HH24:MI:ss') as review_date
      	 FROM review r
      	 INNER JOIN orders o
      	 on r.order_no=o.order_no
-     	 WHERE o.order_status_no = 3 and page_no = #{page_no}
-	</select>
+     	 WHERE o.order_status_no = 3
+     	 ORDER BY review_no desc
+	</select> -->
 	
-	<!-- 댓글 등록 -->
+	<!-- 리뷰 등록 --> 
 	<insert id="foodReviewInsert" parameterType="review">
 		<selectKey keyProperty="review_no" resultType="int" order="BEFORE">
-			select Review_seq.nextval from dual	
-		</selectKey> 
-		insert into Review(review_no, review_name, review_contents, review_score,)
-		values(#{review_no}, #{review_name}, #{review_contents}, #{review_score})
+			select Review_seq.nextval from dual
+		</selectKey>
+		insert into Review(review_no, review_name, review_contents, review_score, client_no, order_no)
+		values(#{review_no}, #{review_name}, #{review_contents}, #{review_score}, #{client_no}, #{order_no})
 	</insert>
 	
 	<!-- 리뷰 게시판 삭제 -->
 	<delete id= "foodReviewDelete" parameterType="review">
-		delete from review where review_no = #{review_no}
+		DELETE from review where review_no = #{review_no}
 	</delete>
 	
 	<!-- 리뷰 게시판 수정 -->
 	<update id= "foodReviewUpdate" parameterType="review">
 		UPDATE review
-		SET review_name = #{review_name}
-			review_score = #{review_score}
-			review_contents = #{review_contents}
+		SET 
+			review_score = #{review_score},
+			review_contents = #{review_contents},
 			review_date = sysdate
 		WHERE review_no = #{review_no}	
 	</update>
 	
+	<!-- 리뷰 게시판 리스트 조회 (페이징 처리) -->
+	<select id="foodReviewList" parameterType="review" resultType="review">
+	     <![CDATA[	 
+     	 SELECT review_no, review_contents, review_score, client_no, order_no,
+   		 review_name, to_char(review_date, 'YYYY-MM-DD HH24:MI:ss') as review_date
+		 FROM ( SELECT /*+ INDEX_DESC(review review_pk) */
+		 		       rownum as rnum, review_no, review_contents, review_score,
+		 		       r.client_no as client_no, r.order_no as order_no, review_name,
+		 		       review_date
+		 FROM review r 
+		 INNER JOIN orders o 
+		 on r.order_no=o.order_no WHERE ]]>
+		 <![CDATA[ o.order_status_no = 3 and rownum <= #{pageNum} * #{amount}    
+                ) reviewList
+     	 WHERE rnum >(#{pageNum} - 1) * #{amount}
+     	 ]]>
+     	 
+    </select>
+    
+    
+    <!-- 전체 레코드 수 조회 -->
+    <select id="foodReviewListCnt" parameterType="review" resultType="int">
+    	SELECT count(*) FROM review
+    </select>
+	
+	
+	<!-- 상세 페이지를 위한 리뷰 조회 -->
+	<select id="foodReviewDetail" parameterType="review" resultType="review">
+		SELECT review_no, review_contents, review_score, r.client_no, r.order_no,
+      	review_name, to_char(review_date, 'YYYY-MM-DD HH24:MI:ss') as review_date
+     	 FROM review r
+     	 INNER JOIN orders o
+     	 on r.order_no=o.order_no
+     	 WHERE o.order_status_no = 3 and review_no = #{review_no}
+	</select>
 </mapper>

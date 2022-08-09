@@ -1,26 +1,18 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
-
-		<link rel="shortcut icon" href="/resources/images/common/icon.png"/>
-		<link rel="apple-touch-icon" href="/resources/images/common/icon.png"/>
-		
-		<title>login.jsp</title>
-
-		<link rel="stylesheet" type="text/css" href="/resources/include/dist/css/bootstrap.min.css"/>
-		<link rel="stylesheet" type="text/css" href="/resources/include/dist/css/bootstrap-theme.min.css"/>
-		<link rel="stylesheet" type="text/css" href="/resources/include/css/default.css"/>
-		
+ <%@ include file="/WEB-INF/views/common/common.jspf" %> 
+ 
 		<style type="text/css">
 		
 			header{
                 display:flex;
                 justify-content: center;
+                margin-top: 50px;
             }
             h2{
             	font-weight: bold;
+            	color: black;
+            	font-weight: bolder;
             }
             form{
                 padding:10px;
@@ -47,7 +39,7 @@
 
             }
             input:focus + label, label{
-                color:#8aa1a1;
+                color:#f89b00;
                 font-size:10pt;
                 pointer-events: none;
                 position: absolute;
@@ -64,7 +56,7 @@
                 outline:none;
             }
             input[type=submit]{
-                background-color: #8aa1a1;
+                background-color: gray;
                 border:none;
                 color:white;
                 border-radius: 5px;
@@ -73,7 +65,9 @@
                 font-size: 16pt;
                 font-weight:bold;
                 margin-top:40px;
-                text-align: center;
+                display:inline-block;
+                text-align:center;
+                margin-bottom: 50px;
             }
             .return{
                 text-align: center;
@@ -85,6 +79,8 @@
             	text-align: center
             }
              #error{ color : red; font-size: 3px; text-align:center;}
+             
+              body{background-color:white;}
 			
 			
 		</style>
@@ -96,7 +92,7 @@
 
 		<script type="text/javascript">
 		$(function(){
-			$("#pwSearchForm").submit(function(){
+			$("#searchPwBtn").click(function(){
 				
 				if($("#client_id").val().replace(/\s/g, "") == ""){
 					
@@ -166,8 +162,7 @@
         	</header><br/>
         	<p id = "error"></p>
 	
-        <form action="/userlogin" method="POST" id="pwSearchForm">
-
+        <form action="/client/pwconfirm" method="POST" id="pwSearchForm">
 
             <div class="input-box">
                 <input id="client_id" type="text" name="client_id" placeholder="아이디">
@@ -175,12 +170,12 @@
             </div>
 
             <div class="input-box">
-                <input id="client_name" type="password" name="client_name" placeholder="이름">
+                <input id="client_name" type="text" name="client_name" placeholder="이름">
                 <label for="client_name">이름</label>
             </div>
             
             <div class="input-box">
-                <input id="client_email" type="password" name="client_email" placeholder="이메일">
+                <input id="client_email" type="text" name="client_email" placeholder="이메일">
                 <label for="client_email">이메일</label>
             </div><br/><br/>
             
@@ -189,7 +184,7 @@
             </div>
             
             <div id="btn"> 
-            <input type="submit" value="비밀번호 찾기">
+            <input type="submit" value="비밀번호 찾기" id="searchPwBtn">
 			</div>
 			
         </form>
