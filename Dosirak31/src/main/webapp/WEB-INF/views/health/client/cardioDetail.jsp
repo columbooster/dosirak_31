@@ -48,31 +48,35 @@
 				<!-- ################################################################################################ -->
 				<div id="gallery">
 					<figure>
-						<header class="heading">${cardioDetail.health_img_name }</header>
+						<header class="heading">${cardioDetail.health_title }(조회수: ${cardioDetail.health_hits })</header>
 						<!-------------------------------------------------- 동영상 & 소개 공간 ---------------------------------------------------->
 						<div class="jumbotron">
-
 							<section>
-								<iframe width="560" height="315"
-									src="https://www.youtube.com/embed/${cardioDetail.health_url }?mute=1&autoplay=1"></iframe>
+							<table>
+								<tr>	
+									<td> <iframe width="560" height="315"
+										src="https://www.youtube.com/embed/${cardioDetail.health_url }?mute=1&autoplay=1"></iframe>
+									</td>
+								</tr>					
+								<tr>
+									<td class="col-md-4">
+									${cardioDetail.health_contents }
+								
+									</td>
+								</tr>
+								</table>
 							</section>
 						</div>
-
 						<div class="row marketing">
 							<div class="col-lg-6">
 								<h4>운동영상 댓글</h4>
 								<p>댓글</p>
 							</div>
 						</div>
-
+				
 					</figure>
 				</div>
-				<!-- ################################################################################################ -->
-				<!-- ################################################################################################ -->
-
-				<!-- ################################################################################################ -->
 			</div>
-			<!-- ################################################################################################ -->
 			<!-- / main body -->
 			<div class="clear"></div>
 		</main>
