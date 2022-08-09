@@ -20,7 +20,7 @@ import lombok.AllArgsConstructor;
 public class FoodAdminPageController {
 	
 	FoodOrderService foodOrderService;
-	/*장바구니에 식품 추가 후 장바구니 페이지로 이동하면서 select*/
+	/*주문내역 select*/
 	@RequestMapping(value="/orderhistory",method=RequestMethod.GET)
 	public String orderhistory(@ModelAttribute("data") OrderDetailVO odv, Model model){
 		List<OrderDetailVO> orderhistory=foodOrderService.orderhistory(odv);

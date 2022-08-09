@@ -114,11 +114,7 @@
 
 	</select>
 	
-	<!-- where 밑 select밑
-	<trim prefix="(" suffix=") AND" prefixOverrides="AND">
-	        	<include refid="orderSearch"></include>
-	        </trim>
-	 -->
+	
 	
 	 <!-- 페이징처리를 위한 list개수  -->
 	<select id="orderListCnt" parameterType="orderDetail" resultType="int">
