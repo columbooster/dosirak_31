@@ -8,15 +8,20 @@
 		<typeAlias type="com.dosirak31.food.order.vo.OrderDetailVO" alias="orderDetail"/>
 		<!-- health -->
 		<typeAlias type="com.dosirak31.health.board.vo.HealthBoardVO" alias="healthBoard"/>
+		<!-- healthcomment -->
+		<typeAlias type="com.dosirak31.hcomment.client.vo.HCommentVO" alias="hComment"/>
 		<!-- login -->
 		<typeAlias type="com.dosirak31.login.client.vo.ClientLoginVO" alias="clientLogin"/>
+		<typeAlias type="com.dosirak31.login.admin.vo.AdminLoginVO" alias="adminLogin"/>
 		<!-- 리뷰 관련-->
 		<typeAlias type="com.dosirak31.food.review.vo.FoodReviewVO" alias="review" />
-		<typeAlias type="com.dosirak31.food.page.vo.PageVO" alias="page" />
+		
 		<!-- 현규님파트 -->
 		<typeAlias type="com.dosirak31.client.signup.vo.ClientVO" alias="client"/>
 		<typeAlias type="com.dosirak31.client.community.vo.CommunityVO" alias="community"/>
 		<typeAlias type="com.dosirak31.client.reply.vo.ReplyVO" alias="reply"/>
+		
+		<typeAlias type="com.dosirak31.mypage.review.vo.MypageReviewVO" alias="mypage"/>
 		
 	</typeAliases>
 </configuration>

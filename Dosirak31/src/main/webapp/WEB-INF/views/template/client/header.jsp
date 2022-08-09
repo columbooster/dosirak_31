@@ -15,12 +15,12 @@
         <li><a class="drop" href="/food/foodClientBasicList">FOOD</a>
           <ul>
             <li><a href="/food/foodClientBasicList">MY LUNCHBOX</a></li>
-            <li><a href="/foodReview/pageList">FOOD REVIEW</a>
+            <li><a href="/foodReview/client/foodReviewList">FOOD REVIEW</a>
             </li>
           </ul>
         </li>
         <li><a href="/community/client/communityList">COMMUNITY</a></li>
-        <li><a href="#">MYPAGE</a></li>
+        <li><a href="/mypage/client/mypageMain">MYPAGE</a></li>
         <li><a href="/client/logout">LOGOUT</a></li>
       </ul>
     </nav>

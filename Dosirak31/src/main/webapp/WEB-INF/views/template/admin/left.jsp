@@ -14,7 +14,7 @@
               <li><a href="/health/admin/hBoardList">운동 영상 관리</a></li>
                <li><a href="#">커뮤니티 관리</a></li>
                <li><a href="#">식품 리뷰 관리</a></li>
-               <li><a href="#">운동 댓글 관리</a></li>
+               <li><a href="/adminhreplies/hcommentManage">운동 댓글 관리</a></li>
             </ul>
           </li>
           <li><a href="#">회원 관리</a>

@@ -1,25 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
-
-		<link rel="shortcut icon" href="/resources/images/common/icon.png"/>
-		<link rel="apple-touch-icon" href="/resources/images/common/icon.png"/>
-		
-		<title>login.jsp</title>
-
-		<link rel="stylesheet" type="text/css" href="/resources/include/dist/css/bootstrap.min.css"/>
-		<link rel="stylesheet" type="text/css" href="/resources/include/dist/css/bootstrap-theme.min.css"/>
-		<link rel="stylesheet" type="text/css" href="/resources/include/css/default.css"/>
+ <%@ include file="/WEB-INF/views/common/common.jspf" %> 
 		
 		<style type="text/css">
 			header{
                 display:flex;
                 justify-content: center;
+                margin-top: 50px;
             }
             h2{
             	font-weight: bold;
+            	color: black;
+            	font-weight: bolder;
             }
             form{
                 padding:10px;
@@ -46,7 +38,7 @@
 
             }
             input:focus + label, label{
-                color:#8aa1a1;
+                color:#f89b00;
                 font-size:10pt;
                 pointer-events: none;
                 position: absolute;
@@ -63,7 +55,7 @@
                 outline:none;
             }
             input[type=submit]{
-                background-color: #8aa1a1;
+                background-color: gray;
                 border:none;
                 color:white;
                 border-radius: 5px;
@@ -72,7 +64,9 @@
                 font-size: 16pt;
                 font-weight:bold;
                 margin-top:40px;
-                text-align: center;
+                display:inline-block;
+                text-align:center;
+                margin-bottom: 50px;
             }
             .return{
                 text-align: center;
@@ -81,9 +75,11 @@
                 margin:10px 0px;
             }
             #btn{
-            	text-align: center
+            	text-align: center;
             }
             #error{ color : red; font-size: 3px; text-align:center;}
+            
+            body{background-color:white;}
 			
 		</style>
 		
@@ -160,7 +156,7 @@
             </div>
             
             <div id="btn"> 
-            <input type="submit" value="아이디 찾기">
+            	<input type="submit" value="아이디 찾기">
 			</div>
 			
         </form>
