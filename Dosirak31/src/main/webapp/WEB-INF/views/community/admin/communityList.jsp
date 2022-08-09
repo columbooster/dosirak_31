@@ -45,7 +45,7 @@
 					});
 					
 					// 검색 버튼 클릭 시 처리 이벤트
-					$("#searchData").click(function() {
+					$("#searchBtn").click(function() {
 						if($("#search").val()!="all"){ // 제목 /내용/작성자 선택시 검색어 유효성 체크.
 							if(!chkData("#keyword","검색어를")) return;
 						}
@@ -84,8 +84,9 @@
 
 
 
-
-<h2 class="sub-header">게시판 리스트</h2>
+<div class="wrapper row3">
+	<main class="container clear">
+<h2 class="sub-header">Community 관리</h2>
 
 
 	<%-- ==================== 검색 기능 시작 ========================= --%>
@@ -113,7 +114,6 @@
 						</div>
 						<button type="button" id="searchBtn" class="btn btn-primary">Search</button>
 						<button type="button" id="allSearchBtn" class="btn btn-primary" >All Search</button>
-						<button type="button" id="excelDownBtn" class="btn btn-primary" >Excel Down</button>
 					</form>
 				</div>	
 					<%-- ==================== 검색 기능 종료 ========================= --%>
@@ -137,7 +137,7 @@
 										<tr class="text-center" data-num="${community.community_no}">
 											<td>${count - status.index}</td>
 											<td class="goDetail tal">${community.community_title}</td>
-											<td>${board.b_date}</td>
+											<td>${community.community_date}</td>
 											<td class="name">${community.client_id}</td>
 										</tr>
 									</c:forEach>
@@ -155,7 +155,9 @@
 				<%-- ======== 페이징 처리를 커스텀태그(pagination)를 정의============ --%>
 				<tag:pagination endPage="${pageMaker.endPage}" startPage="${pageMaker.startPage}" amount="${pageMaker.cvo.amount}" 
 				prev="${pageMaker.prev}" pageNum="${pageMaker.cvo.pageNum}" next="${pageMaker.next}" />
-
+			</main>
+		</div>
+			
 
 
      

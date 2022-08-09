@@ -13,6 +13,8 @@ public class ClientVO {
 	private String client_email = "";
 	private String client_phone = "";
 	private String client_address = "";
+	private String client_rrn ="";
 	private Date client_date;
 	private Date client_update;
+	
 }
