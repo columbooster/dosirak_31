@@ -27,17 +27,19 @@ public class test {
 		
 		ClientLoginVO cvo = new ClientLoginVO();
 		
-		cvo.setClient_name("»çÈ¸¿ø");
-		cvo.setClient_phone("010-0000-0000");
+		cvo.setClient_email("gyruddkssud@naver.com");
+		cvo.setClient_pw("reset");
 		
 		
-		ClientLoginVO list = null;
-		list = clientLoginDao.idConfirm(cvo);
+		int result = clientLoginDao.pwupdate(cvo);
 		
-		log.info(list);
+		log.info("¿Ï´¢");
 		
 		
 	}
+	/*update client
+		set client_pw = #{client_pw}
+		where client_email = #{client_email}*/
 	
 	
 	

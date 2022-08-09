@@ -54,14 +54,13 @@
 
 							<section>
 								<iframe width="560" height="315"
-									src="https://www.youtube.com/embed/${cardioDetail.health_url }?mute=1&autoplay=1"></iframe>
+									src="https://www.youtube.com/embed/${cardioDetail.health_url}?mute=1&autoplay=1"></iframe>
 							</section>
 						</div>
 
 						<div class="row marketing">
 							<div class="col-lg-6">
-								<h4>운동영상 댓글</h4>
-								<p>댓글</p>
+								<jsp:include page="hcomment.jsp" />
 							</div>
 						</div>
 
