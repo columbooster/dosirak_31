@@ -20,7 +20,7 @@ import lombok.AllArgsConstructor;
 public class FoodAdminPageController {
 	
 	FoodOrderService foodOrderService;
-	/*장바구니에 식품 추가 후 장바구니 페이지로 이동하면서 select*/
+	/*주문내역 select*/
 	@RequestMapping(value="/orderhistory",method=RequestMethod.GET)
 	public String orderhistory(@ModelAttribute("data") OrderDetailVO odv, Model model){
 		List<OrderDetailVO> orderhistory=foodOrderService.orderhistory(odv);
@@ -35,9 +35,25 @@ public class FoodAdminPageController {
 		return "food/admin/orderhistory"; 
 	}
 	
-	@RequestMapping(value="/orderDetail",method=RequestMethod.GET)
-	public String orderDetail(@ModelAttribute("data") OrderDetailVO odv, Model model){
-		
-		return "food/admin/orderDetail"; 
+	//배달발송버튼
+	@RequestMapping(value="/delivery",method=RequestMethod.GET)
+	public String orderDelivery(@ModelAttribute("data") OrderDetailVO odv, Model model){
+		foodOrderService.orderDelivery(odv);
+		return "redirect:/food/admin/orderhistory?pageNum=1&amount=10&order_status_no=5"; 
 	}
+	
+	//결제취소버튼
+	//배달발송버튼
+		@RequestMapping(value="/paymentDelete",method=RequestMethod.GET)
+		public String paymentDelete(@ModelAttribute("data") OrderDetailVO odv, Model model){
+			foodOrderService.paymentDelete(odv);
+			return "redirect:/food/admin/orderhistory?pageNum=1&amount=10&order_status_no=4"; 
+		}
+		
+	/*주문매출로 이동*/
+	@RequestMapping(value="/orderGraph",method=RequestMethod.GET)
+	public String bagList(){
+		return "food/admin/orderGraph";  
+	}
+			
 }

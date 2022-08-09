@@ -34,6 +34,18 @@
 			<version>${org.springframework-version}</version>
 		</dependency>
 		
+		<!--인터셉터위한 
+		<dependency>
+		    <groupId>org.springframework</groupId>
+		    <artifactId>spring-web</artifactId>
+		    <version>5.2.8.RELEASE</version>
+		</dependency>
+		<dependency>
+		   <groupId>org.apache.httpcomponents</groupId>
+		   <artifactId>httpclient</artifactId>
+		   <version>4.5.2</version>
+		   <scope>runtime</scope>
+		 </dependency>-->
 		<!--트랜잭션 설정을 위한 설정 -->	
 		<dependency>
 			<groupId>org.springframework</groupId>
@@ -131,6 +143,31 @@
 		    <artifactId>imgscalr-lib</artifactId>
 		    <version>4.2</version>
 		</dependency>
+		
+		<!--excel write-->
+		<!--jxls 라이브러리는 poi패키지를 기반으로 동작하기 때문에 jxls 라이브러리 사용시 poi라이브러리도 함께 사용해야 한다.-->
+		<dependency>
+		    <groupId>org.apache.poi</groupId>
+		    <artifactId>poi</artifactId>
+		    <version>3.9</version>
+		</dependency>
+		<dependency>
+		    <groupId>org.apache.poi</groupId>
+		    <artifactId>poi-ooxml</artifactId>
+		    <version>3.9</version>
+		</dependency>
+		<dependency>
+		    <groupId>net.sf.jxls</groupId>
+		    <artifactId>jxls-core</artifactId>
+		    <version>1.0.2</version>
+		</dependency>
+		<dependency>
+		    <groupId>net.sf.jxls</groupId>
+		    <artifactId>jxls-reader</artifactId>
+		    <version>1.0.2</version>
+		</dependency>
+		
+		
 		<!-- tiles -->
 	      <dependency>
 	         <groupId>org.apache.tiles</groupId>
