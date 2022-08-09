@@ -48,7 +48,7 @@
 				<!-- ################################################################################################ -->
 				<div id="gallery">
 					<figure>
-						<header class="heading">${weightDetail.health_img_name }</header>
+						<header class="heading">${weightDetail.health_title }</header>
 						<!-------------------------------------------------- 동영상 & 소개 공간 ---------------------------------------------------->
 						<div class="jumbotron">
 
