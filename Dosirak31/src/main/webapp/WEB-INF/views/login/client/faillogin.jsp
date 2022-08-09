@@ -1,27 +1,31 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" isELIgnored="false" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ page trimDirectiveWhitespaces="true" %>
-<meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
-
-
-		<link rel="shortcut icon" href="/resources/images/common/icon.png"/>
-		<link rel="apple-touch-icon" href="/resources/images/common/icon.png"/>
-		
-		<title>login.jsp</title>
-
-		<link rel="stylesheet" type="text/css" href="/resources/include/dist/css/bootstrap.min.css"/>
-		<link rel="stylesheet" type="text/css" href="/resources/include/dist/css/bootstrap-theme.min.css"/>
-		<link rel="stylesheet" type="text/css" href="/resources/include/css/default.css"/>
-		
+    pageEncoding="UTF-8"%>
+ <%@ include file="/WEB-INF/views/common/common.jspf" %> 
+ 
 		<style type="text/css">
+			
 			.here{ font-weight: bold;
 					text-align: center;
 					font-size : 40pt;
-					margin-top: 100px;
-					}
+					margin-top: 130px;
+					color:red;
+			}
+			h1{
+				text-align: center;
+				color: black;
+				font-weight: bold;
+				margin-top: 80px;
+				margin-bottom: 50px;
+			}
+			body{background-color: white;}
+			
+			 .forgot{
+                text-align: center;
+                font-size:12pt;
+                color:rgb(164, 164, 164);
+                margin:10px 0px;
+                margin-bottom: 190px;
+            }
 		</style>
 		
 		
@@ -29,12 +33,15 @@
 		<script type="text/javascript" src="/resources/include/js/common.js"></script>
 		<script type="text/javascript" src="/resources/include/dist/js/bootstrap.min.js"></script>
 
-		<script type="text/javascript">
-		 	
-		 
-		</script>
 </head>
 <body>
-	<div class="here">아이디나 비밀번호가 일치하지 않아 로그인에 실패하였습니다</div>
+	<div class="here">LOGIN FAIL</div>
+	<h1>아이디, 비밀번호를 다시 확인해주세요</h1>
+	
+	<div class ="forgot">
+         <span><a href="/client/loginmain">이전 페이지</a></span>
+    </div>
+	
+	
 </body>
 </html>

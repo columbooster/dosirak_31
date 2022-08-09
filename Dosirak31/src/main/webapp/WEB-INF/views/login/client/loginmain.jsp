@@ -1,29 +1,19 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+ <%@ include file="/WEB-INF/views/common/common.jspf" %> 
 
-		<link rel="shortcut icon" href="/resources/images/common/icon.png"/>
-		<link rel="apple-touch-icon" href="/resources/images/common/icon.png"/>
-		
-		<title>login.jsp</title>
-
-		<link rel="stylesheet" type="text/css" href="/resources/include/dist/css/bootstrap.min.css"/>
-		<link rel="stylesheet" type="text/css" href="/resources/include/dist/css/bootstrap-theme.min.css"/>
-		<link rel="stylesheet" type="text/css" href="/resources/include/css/default.css"/>
-		<script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
-		
 		<style type="text/css">
 			header{
                 display:flex;
                 justify-content: center;
+                margin-top: 50px;
             }
             h2{
             	font-weight: bold;
             	text-align:center;
+            	color: black;
             }
-            form{
+            form{ 
                 padding:10px;
             }
             .input-box{
@@ -41,6 +31,7 @@
             input::placeholder{
                 color:transparent;
             }
+
             input:placeholder-shown + label{
                 color:#aaa;
                 font-size:14pt;
@@ -48,7 +39,7 @@
 
             }
             input:focus + label, label{
-                color:#8aa1a1;
+                color:#f89b00;
                 font-size:10pt;
                 pointer-events: none;
                 position: absolute;
@@ -64,9 +55,8 @@
                 border-bottom: solid 1px #8aa1a1;
                 outline:none;
             }
-            
             input[type=submit]{
-                background-color: #8aa1a1;
+                background-color: gray;
                 border:none;
                 color:white;
                 border-radius: 5px;
@@ -75,8 +65,10 @@
                 font-size: 16pt;
                 font-weight:bold;
                 margin-top:40px;
-                text-align: center;
+                display:inline-block;
+                text-align:center;
             }
+            
             .forgot{
                 text-align: center;
                 font-size:12pt;
@@ -88,27 +80,33 @@
             }
             #error{ color : red; font-size: 3px; text-align:center;}
             
-            #kakao {display: block; margin: 0px auto;width:250px; height: 40px;}
+            #kakao {display: block; margin: 0px auto;width:250px; height: 40px; margin-bottom: 50px;}
             
-            .or-seperator{text-align:center;  }
+            .or-seperator{text-align:center; }
             
             hr{border: 0; background: #d3d3d3; height: 3px; width: 550px;}
+			
+			body{background-color:white;}
 		</style>
 		
 		
 		<script type="text/javascript" src="/resources/include/js/jquery-1.12.4.min.js"></script>
 		<script type="text/javascript" src="/resources/include/js/common.js"></script>
 		<script type="text/javascript" src="/resources/include/dist/js/bootstrap.min.js"></script>
-		
-	</head>
+		<script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+	
 	<body> 
-		<div id="container" >
+
+
+	
+		<div id="containers" >
             <header>
             <h2>Login</h2>
         	</header><br/>
         	<p id = "error"></p>
 	
         <form id="loginForm" method="post" action="/client/userlogin">
+        	
             <div class="input-box">
                 <input id="client_id" type="text" name="client_id" placeholder="아이디">
                 <label for="client_id">아이디</label> 
@@ -118,7 +116,9 @@
                 <input id="client_pw" type="password" name="client_pw" placeholder="비밀번호">
                 <label for="client_pw">비밀번호</label> <p id = "error"></p>
             </div>
+            
             <br/><br/>
+            
             
             
             <div class ="forgot">
@@ -134,7 +134,7 @@
 			</div>
 			
 			<h2>SNS 간편 로그인</h2>
-		</div><br/>
+		</div>
 		
 		<!-- 카카오 정보를 넘기기 위한 숨겨진 태그 -->
 		<div class="form-group row" id="kakaologin">
@@ -220,6 +220,5 @@
 		}
 	 	
 	</script>
-	
-	
 </body>
+</html>

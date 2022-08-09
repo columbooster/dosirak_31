@@ -38,6 +38,7 @@
  		<put-attribute name="header" value="/WEB-INF/views/template/client/headerNoLogin.jsp"/>
  		<put-attribute name="body" value="/WEB-INF/views/main.jsp"/>
  	</definition>
+ 	
  	<!-- 로그인 전 끝-->
  	<definition name="login/success/*" extends="content">
  		<put-attribute name="body" value="/WEB-INF/views/login/success/{1}.jsp"/>
