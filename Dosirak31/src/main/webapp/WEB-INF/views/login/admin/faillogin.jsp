@@ -39,7 +39,7 @@
 	<h1>아이디, 비밀번호를 다시 확인해주세요</h1>
 	
 	<div class ="forgot">
-         <span><a href="/admin/adminloginmain">이전 페이지</a></span>
+         <span><a href="/admin/login">이전 페이지</a></span>
     </div>
 	
 	

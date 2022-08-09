@@ -1,4 +1,4 @@
-package com.dosirak31.admin.adminPage.vo;
+package com.dosirak31.food.order.vo;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

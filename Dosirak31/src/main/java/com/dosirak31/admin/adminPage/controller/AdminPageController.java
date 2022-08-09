@@ -34,4 +34,5 @@ public class AdminPageController {
 		return "adminPage/admin/memberManagement";
 	}
 	
+	
 }

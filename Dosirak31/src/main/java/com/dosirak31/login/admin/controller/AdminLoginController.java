@@ -42,7 +42,7 @@ public class AdminLoginController {
 	/**************************************************
 	 	admin 로그인 메인 화면으로 감
 	*************************************************/
-	@RequestMapping("/adminloginmain")
+	@RequestMapping("/login")
 	public String adminLoginForm() {
 		
 		return "login/admin/adminloginmain";
@@ -72,7 +72,7 @@ public class AdminLoginController {
 	@RequestMapping("successlogin")
 	public String successLogin() {
 		
-		return "login";
+		return "food/admin/foodAdminBasicList";
 	}
 	
 
