@@ -158,8 +158,10 @@
 					</div>
 				
 					<div class="text-right">
-						<input type="button" value="글수정" id="updateFormBtn" class="btn btn-success">
-						<input type="button" value="글삭제" id="communityDeleteBtn" class="btn btn-success">
+						<c:if test="${sessionScope.client_info.client_id == detail.client_id}">
+							<input type="button" value="글수정" id="updateFormBtn" class="btn btn-success">
+							<input type="button" value="글삭제" id="communityDeleteBtn" class="btn btn-success">
+						</c:if>
 						<input type="button" value="글쓰기" id="insertFormBtn" class="btn btn-success">
 						<input type="button" value="목록" id="communityListBtn" class="btn btn-success">
 					</div>	

@@ -67,28 +67,34 @@
 						<table class="table table-bordered">
 							<colgroup>
 								<col width="20%" />
-								<col width="80%" />
+								<col width="65%" />
+								<col width="15%" />
 							</colgroup>
 							<tbody>
 								<tr>
 									<td>작성자</td>
 									<td class="text-left"><input type="text" name="client_id" id="client_id" class="form-control" value="<c:out value='${sessionScope.client_info.client_id}'/>" readonly="readonly" /></td>
+									<td class="text-left"><label><input type="checkbox" name="community_category_no" value="QnA">QnA</label>
+														  <label><input type="checkbox" name="community_category_no" value="community">community</label>
+									</td>
 								</tr>
 								<tr>
 									<td>글제목</td>
-									<td class="text-left"><input type="text" name="community_title" id="community_title" class="form-control" /></td>
+									<td class="text-left" colspan="2"><input type="text" name="community_title" id="community_title" class="form-control" /></td>
+									
 								</tr>
 								<tr>
 									<td>글내용</td>
-									<td class="text-left"><textarea name="community_contents" id="community_contents" class="form-control" rows="8"></textarea></td>
+									<td class="text-left" colspan="2"><textarea name="community_contents" id="community_contents" class="form-control" rows="8"></textarea></td>
 								</tr>
 								<tr>
 									<td>비밀번호</td>
 									<td class="text-left"><input type="text" name="community_pw" id="community_pw" class="form-control" /></td>
+									<td class="text-left"><label><input type="checkbox" name="community_closed" value="비밀글">비밀글</label></td>
 								</tr>
 								<tr>
 									<td>파일첨부</td>
-									<td class="text=left"><input type="file" name="file" id="file" /></td>
+									<td class="text=left" colspan="2"><input type="file" name="file" id="file" /></td>
 								</tr>
 							</tbody>
 						</table>

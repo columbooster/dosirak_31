@@ -229,8 +229,8 @@
 						<h3 class="panel-title">
 							<span class="name"></span>
 							<span class="date"></span>
-							<button type="button" data-btn="upBtn" class="btn btn-default gap">수정하기</button>
-							<button type="button" data-btn="delBtn" class="btn btn-default gap">삭제하기</button>
+								<button type="button" data-btn="upBtn" class="btn btn-default gap">수정하기</button>
+								<button type="button" data-btn="delBtn" class="btn btn-default gap">삭제하기</button>
 						</h3>
 					</div>
 					<div class="panel-body"></div>

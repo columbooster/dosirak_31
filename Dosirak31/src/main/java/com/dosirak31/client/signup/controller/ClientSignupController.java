@@ -4,6 +4,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.dosirak31.client.signup.service.ClientService;
@@ -37,6 +39,30 @@ public class ClientSignupController {
 					
 				return "signup/client/kakao_join_form";
 			}
+			
+		// 아이디 중복 검사
+		@RequestMapping(value = "/clientIdChk", method = RequestMethod.POST)
+		@ResponseBody
+		public String clientIdChk(String client_id) throws Exception{
+				
+			log.info("clientIdChk() 호출");
+			
+			int result = clientService.idCheck(client_id);
+			
+			log.info("결과값 = " + result);
+			
+			if(result != 0) {
+				
+				return "fail";	// 중복 아이디가 존재
+				
+			} else {
+				
+				return "success";	// 중복 아이디 x
+				
+			}
+				
+		} // clientIdChk() 종료	
+			
 		
 		// 회원가입 post
 		@PostMapping(value = "/signup")
