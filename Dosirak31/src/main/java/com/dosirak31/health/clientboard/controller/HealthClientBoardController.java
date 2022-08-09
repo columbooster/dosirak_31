@@ -57,24 +57,13 @@ public class HealthClientBoardController {
 	}
 
 	/****************************************************************************
-	 * 공지사항 게시판 상세보기 구현
-	 ***************************************************************************/
-	@RequestMapping(value = "/noticeDetail", method = RequestMethod.GET)
-	public String noticeDetail(@ModelAttribute("data") HealthBoardVO hbvo, Model model) {
-		log.info("noticeDetail 호출 성공");
-
-		HealthBoardVO noticeDetail = (HealthBoardVO) healthBoardService.noticeDetail(hbvo);
-		model.addAttribute("noticeDetail", noticeDetail);
-
-		return "health/client/noticeDetail";
-	}
-
-	/****************************************************************************
 	 * 웨이트 운동 이미지 상세보기 구현
 	 ***************************************************************************/
 	@RequestMapping(value = "/weightDetail", method = RequestMethod.GET)
 	public String weightDetail(@ModelAttribute("data") HealthBoardVO hbvo, Model model) {
 		log.info("weightDetail 호출 성공");
+		// 조회수 조회
+		healthBoardService.healthHit(hbvo);
 
 		HealthBoardVO weightDetail = (HealthBoardVO) healthBoardService.healthDetail(hbvo);
 		model.addAttribute("weightDetail", weightDetail);
@@ -91,7 +80,12 @@ public class HealthClientBoardController {
 
 		List<HealthBoardVO> cardioList = healthBoardService.healthList(hbvo);
 		model.addAttribute("cardioList", cardioList);
-
+		
+		//전체 레코드 수 구현
+	    int total=healthBoardService.boardListCnt(hbvo);
+	    //페이징 처리
+	    model.addAttribute("pageMaker",new PageDTO(hbvo,total));
+		
 		return "health/client/cardioList";
 	}
 	
@@ -101,7 +95,9 @@ public class HealthClientBoardController {
 	@RequestMapping(value = "/cardioDetail", method = RequestMethod.GET)
 	public String cardioDetail(@ModelAttribute("data") HealthBoardVO hbvo, Model model) {
 		log.info("cardioDetail 호출 성공");
-
+		// 조회수 조회
+		healthBoardService.healthHit(hbvo); 
+		
 		HealthBoardVO cardioDetail = (HealthBoardVO) healthBoardService.healthDetail(hbvo);
 		model.addAttribute("cardioDetail", cardioDetail);
 
