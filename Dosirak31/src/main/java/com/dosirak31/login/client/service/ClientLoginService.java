@@ -10,4 +10,9 @@ public interface ClientLoginService {
 
 	public ClientLoginVO getUserByEmail(ClientLoginVO cvo);
 
+	public ClientLoginVO selectMember(ClientLoginVO pwvo);
+
+	public int pwupdate(ClientLoginVO cvo);
+
+
 }

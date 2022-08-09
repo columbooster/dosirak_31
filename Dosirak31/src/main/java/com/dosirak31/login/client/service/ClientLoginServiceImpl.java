@@ -40,4 +40,24 @@ public class ClientLoginServiceImpl implements ClientLoginService{
 	}
 
 
+	@Override
+	public ClientLoginVO selectMember(ClientLoginVO pwvo) {
+		
+		ClientLoginVO pwselect = clientLoginDao.selectMember(pwvo);
+		
+		return pwselect;
+	}
+
+
+	@Override
+	public int pwupdate(ClientLoginVO cvo) {
+		
+		int pwupdate = clientLoginDao.pwupdate(cvo);
+		
+		return pwupdate;
+	}
+
+
+
+
 }

@@ -1,37 +1,25 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" isELIgnored="false" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+    pageEncoding="UTF-8"%>
+ <%@ include file="/WEB-INF/views/common/common.jspf" %> 
 
-
-		<link rel="shortcut icon" href="/resources/images/common/icon.png"/>
-		<link rel="apple-touch-icon" href="/resources/images/common/icon.png"/>
-		
-		<title>login.jsp</title>
-
-		<link rel="stylesheet" type="text/css" href="/resources/include/dist/css/bootstrap.min.css"/>
-		<link rel="stylesheet" type="text/css" href="/resources/include/dist/css/bootstrap-theme.min.css"/>
-		<link rel="stylesheet" type="text/css" href="/resources/include/css/default.css"/>
-		
 		<style type="text/css">
 			.here{ font-weight: bold;
 					text-align: center;
 					font-size : 30pt;
-                	margin-top: 60px;
+                	margin-top: 80px;
+                	color:black;
 					}
 					
-					 .input-box{
+			.input-box{
                 position:relative;
                 margin:10px 500px;
             }
 			#emphasize{
-				color: #058f25;
+				color: #f89b00;
 			}
 			
 			 input[type=button]{
-                background-color: #8aa1a1;
+                background-color: gray;
                 border:none;
                 color:white;
                 border-radius: 5px;
@@ -40,7 +28,10 @@
                 font-size: 16pt;
                 font-weight:bold;
                 margin-top:40px;
-                text-align: center;
+                display:inline-block;
+                text-align:center;
+                margin-bottom: 50px;
+                
             }
             
             .loginmain{
@@ -53,6 +44,7 @@
              #btn{
             	text-align: center
             }
+            body{background-color:white;}
 		</style>
 		
 		
@@ -65,7 +57,7 @@
 		</script>
 </head>
 <body>
-		<div class ="here">회원님의 아이디는 <br/>
+		<div class ="here">회원님의 아이디는 <br/><br/><br/>
 		<span id="emphasize">${clientsearchid.client_id}</span> 입니다.</div><br/><br/>
 	
 		<div class ="loginmain">
