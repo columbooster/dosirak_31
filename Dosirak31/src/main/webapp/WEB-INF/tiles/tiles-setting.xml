@@ -28,14 +28,17 @@
  	<definition name="food/noclient/*" extends="content">
  		<put-attribute name="header" value="/WEB-INF/views/template/client/headerNoLogin.jsp"/>
  		<put-attribute name="body" value="/WEB-INF/views/food/noclient/{1}.jsp"/>
+ 		<put-attribute name="footer" value="/WEB-INF/views/template/client/footerNoLogin.jsp"/>
  	</definition>
  	<definition name="login/client/*" extends="content">
  		<put-attribute name="header" value="/WEB-INF/views/template/client/headerNoLogin.jsp"/>
  		<put-attribute name="body" value="/WEB-INF/views/login/client/{1}.jsp"/>
+ 		<put-attribute name="footer" value="/WEB-INF/views/template/client/footerNoLogin.jsp"/>
  	</definition>
  	<definition name="main" extends="content">
  		<put-attribute name="header" value="/WEB-INF/views/template/client/headerNoLogin.jsp"/>
  		<put-attribute name="body" value="/WEB-INF/views/main.jsp"/>
+ 		<put-attribute name="footer" value="/WEB-INF/views/template/client/footerNoLogin.jsp"/>
  	</definition>
  	<definition name="foodReview/client/*" extends="content">
  		<put-attribute name="body" value="/WEB-INF/views/foodReview/client/{1}.jsp"/>
@@ -48,5 +51,6 @@
  	<definition name="signup/client/*" extends="content">
  		<put-attribute name="header" value="/WEB-INF/views/template/client/headerNoLogin.jsp"/>
  		<put-attribute name="body" value="/WEB-INF/views/signup/client/{1}.jsp"/>
+ 		<put-attribute name="footer" value="/WEB-INF/views/template/client/footerNoLogin.jsp"/>
  	</definition>
  </tiles-definitions> 

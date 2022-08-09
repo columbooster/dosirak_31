@@ -364,9 +364,9 @@
 		<div id="breadcrumb" class="clear">
 			
 			<ul>
-				<li><a href="/resources/index.html">Home</a></li>
-				 <li><a class="drop" href="/food/foodClientBasicList">FOOD</a>
-				<li><a href="/health/hBoardList">MY LUNCHBOX</a></li>
+				<li><a href="/">Home</a></li>
+				 <li><a class="drop" href="/food/foodNoClientBasicList">FOOD</a>
+				<li><a href="/food/foodNoClientBasicList">MY LUNCHBOX</a></li>
 			</ul>
 			
 		</div>

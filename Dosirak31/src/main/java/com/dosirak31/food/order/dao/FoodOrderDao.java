@@ -18,4 +18,8 @@ public interface FoodOrderDao {
 	
 	public List<OrderDetailVO> orderhistory(OrderDetailVO odv);//주문내역 관리자페이지에 조회
 	public int orderListCnt(OrderDetailVO odv);//페이징처리를 위한 list개수 
+	
+	public List<OrderDetailVO> orderDetailHistory(int order_no);//주문 상세 내용
+	public int orderDelivery(OrderDetailVO odv);//배달 버튼-발송
+	public int paymentDelete(OrderDetailVO odv);//결제취소버튼
 }

@@ -94,7 +94,7 @@
 		<script type="text/javascript" src="/resources/include/js/common.js"></script>
 		<script type="text/javascript" src="/resources/include/dist/js/bootstrap.min.js"></script>
 		<script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
-	
+	</head>
 	<body> 
 
 

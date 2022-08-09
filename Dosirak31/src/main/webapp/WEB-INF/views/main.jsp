@@ -3,7 +3,12 @@
  <%@ include file="/WEB-INF/views/common/common.jspf" %> 
  
 	<style type="text/css"></style>
-	<script type="text/javascript"></script>
+	<script type="text/javascript">
+		$(function(){
+			
+		})
+	
+	</script>
 
 <body id="top">
   <!-- ##################  nav바 시작  ################### -->
@@ -16,29 +21,29 @@
     <section id="pageintro" class="clear"> 
       <!-- ################################################################################################ -->
       <div class="center btmspace-80">
-        <h2 class="heading xxl uppercase btmspace-30">Ultricies convallis</h2>
-        <p class="xl nospace capitalise">Aenean et cursus adipiscing</p>
+        <h2 class="heading xxl uppercase btmspace-30">Dosirak31 HomePage</h2>
+        <p class="xl nospace capitalise">Welcome</p>
       </div>
       <ul class="nospace group services">
         <li class="one_third first">
-          <article class="overlay"><a href="#"><i class="fa fa-legal"></i></a>
-            <h6 class="heading">Dui leo egestas augue</h6>
-            <p>Maecenas libero nunc, volutpat eu erat sed, blandit elementum mi etiam scelerisque&hellip;</p>
-            <footer><a href="#">Read More &raquo;</a></footer>
+          <article class="overlay"><a href="/health/hBoardList"><i class="fa fa-legal"></i></a>
+            <h6 class="heading">WorkOut</h6>
+            <p>웨이트/유산소 운동 영상을 보며 따라하고, 운동영상에 대한 회원들의 생각을 댓글로 소통합니다.&hellip;</p>
+            <footer><a href="/health/hBoardList">바로가기&raquo;</a></footer>
           </article>
         </li>
         <li class="one_third">
-          <article class="overlay"><a href="#"><i class="fa fa-line-chart"></i></a>
-            <h6 class="heading">Eget molestie augue diam</h6>
-            <p>Donec facilisis volutpat ligula nec egestas aliquam malesuada, lectus sed sollicitudin&hellip;</p>
-            <footer><a href="#">Read More &raquo;</a></footer>
+          <article class="overlay"><a href="/food/foodNoClientBasicList"><i class="fa fa-line-chart"></i></a>
+            <h6 class="heading">Food</h6>
+            <p>기초대사량을 계산해보고, 영양성분을 고려하여 나만의 도시락을 구성하여 구입할 수 있습니다.&hellip;</p>
+            <footer><a href="/food/foodNoClientBasicList">바로가기&raquo;</a></footer>
           </article>
         </li>
         <li class="one_third">
-          <article class="overlay"><a href="#"><i class="fa fa-archive"></i></a>
-            <h6 class="heading">Fusce quis feugiat urna</h6>
-            <p>Aenean semper elementum tellus, ut placerat leo. Quisque vehicula, urna sit amet&hellip;</p>
-            <footer><a href="#">Read More &raquo;</a></footer>
+          <article class="overlay"><a href="/community/client/communityList"><i class="fa fa-archive"></i></a>
+            <h6 class="heading">Community</h6>
+            <p>커뮤니티 공간에서 회원들간의 소통을하고 관리자에게 묻고싶은 질문을 Q&A로 할 수 있습니다.&hellip;</p>
+            <footer><a href="/community/client/communityList">바로가기&raquo;</a></footer>
           </article>
         </li>
       </ul>
