@@ -17,4 +17,6 @@ public interface FoodReviewService {
 	public FoodReviewVO updateForm(FoodReviewVO rvo);	// 업데이트 폼
 	
 	public FoodReviewVO foodReviewDetail (FoodReviewVO rvo);  //상세페이지
+	
+	public int foodReviewListCnt(FoodReviewVO rvo);			// 전체 레코드수
 }

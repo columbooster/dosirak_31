@@ -7,17 +7,31 @@
 		<script type="text/javascript">
 			$(function() {
 				// 수정 버튼 클릭시 처리 이벤트
-				$("#foodReviewUpdateBtn").click(function() {
+				$("#mypageReviewUpdateBtn").click(function() {
 					//입력값 체크
 					if(!chkData("#review_score", "점수를")) return;
-					else if(!chkData("#review_comments", "작성할 내용을")) return;
-					else 
+					else if(!chkData("#review_contents", "작성할 내용을")) return;
+					else {
 						$("#f_updateForm").attr({
 							"method" : "post",
-							"action" : "/foodReview/foodReviewUpdate"
+							"action" : "/mypage/client/mypageReviewUpdate"
 						});
-				})
-			})
+						$("#f_updateForm").submit();
+					}
+				});
+				
+				// 취소 버튼 클릭시 처리 이벤트
+				$("#mypageReviewCancelBtn").click(function() {
+					$("#f_updateForm").each(function() {
+						this.reset();
+					});
+				});
+				
+				// 목록 버튼 클릭 시 처리 이벤트
+				$("#mypageReviewListBtn").click(function() {
+					location.href="/mypage/client/mypageReviewList";
+				});
+			});
 		</script>
 </head>
 
@@ -74,42 +88,48 @@
 	<div class="wrapper row3">
 	<main class="container clear"> 
     <div class="content">
-		<h2>Update A Comment</h2>
-		<div>
-        <form  id="f_updateForm" name="f_updateForm">
-        	<input type="hidden" id="review_no" name="review_no" value="${updateData.review_no}" />
-        	
-	          <div class="one_third first">
-	            <label for="review_name">Name <span>*</span></label>
-	            <input type="text" name="review_name" id="review_name" size="22" value="${updateData.review_name}">
-	          </div>
-	          
-	          <div class="one_third">
-	            <label for="review_score">Score <span>*</span></label>
-	            <input type="text" name="review_score" id="review_score" size="22" value="${updateData.review_score}">
-	          </div>
-	          
-	          <div class="one_third">
-            	<label for="review_score">Date</label>
-           		 <input type="text" name="review_score" id="review_score" size="22" value="${updateData.review_date}">
-        	  </div>
-        	  
-	          <div class="block clear">
-	            <label for="review_comments">Text</label>
-	            <textarea name="review_comments" id="review_comments" cols="25" rows="10">${updateData.review_comments}</textarea>
-	          </div>
-	          <div>
-	            <input type="button" value="Update" id="foodReviewUpdateBtn">
-	            &nbsp;
-	            <input type="reset" name="reset" value="Reset">
-	            &nbsp;
-	            <input type="button" id="foodReviewListBtn" value="List">
-	          </div>
-        	</form>
-        </div>
-        </div>
+		<div class="contentTB text-center">
+					<form id="f_updateForm" name="f_updateForm">
+						<input type="hidden" id="review_no" name="review_no" value="${updateData.review_no}" />
+						
+						<table class="table table-bordered">
+							<tbody>
+								<tr>
+									<td class="col-md-3">글번호</td>
+									<td class="text-left col-md-3">${updateData.review_no}</td>
+									<td class="col-md-3">작성일</td>
+									<td class="text-left col-md-3">${updateData.review_date}</td>
+								</tr>
+								<tr>
+									<td>작성자</td>
+									<td colspan="3" class="text-left">${updateData.review_name}</td>
+								</tr>
+								<tr>
+									<td>별점</td>
+									<td colspan="1" class="text-left">
+										<input type="text" name="review_score" id="review_score" value="${updateData.review_score}" class="form-control" />
+									</td>
+								</tr>
+								<tr class="table-tr-height">
+									<td>내용</td>
+									<td colspan="3" class="text-left">
+										<textarea name="review_contents" id="review_contents" class="form-control" rows="8">${updateData.review_contents}</textarea>
+									</td>
+								</tr>
+								
+								
+							</tbody>
+						</table>
+					</form>		
+				</div>
+				<div class="contentBtn text-right">
+					<input type="button" value="수정" id="mypageReviewUpdateBtn" class="btn btn-success">
+					<input type="button" value="취소" id="mypageReviewCancelBtn" class="btn btn-success">
+					<input type="button" value="목록" id="mypageReviewListBtn" class="btn btn-success">
+				</div>
+     </div>
     <div class="clear"></div>
   	</main>
-</div>
+	</div>
 	</body>
 </html>

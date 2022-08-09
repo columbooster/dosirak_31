@@ -16,6 +16,5 @@ public interface FoodReviewDao {
 	public int foodReviewDelete(int review_no);			//삭제
 	
 	public int foodReviewListCnt(FoodReviewVO rvo);		// review 테이블의 전체 레코드 수
-
 	
 }

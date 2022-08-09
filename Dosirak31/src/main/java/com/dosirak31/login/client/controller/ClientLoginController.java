@@ -31,23 +31,23 @@ private ClientLoginService clientLoginService;
 	@GetMapping("/loginmain")
 	public String loginForm() {
 		
-		log.info("client ·Î±×ÀÎ È­¸é È£Ãâ");
+		log.info("client ï¿½Î±ï¿½ï¿½ï¿½ È­ï¿½ï¿½ È£ï¿½ï¿½");
 		
 		return "login/client/loginmain";
-		//     /WEB-INF/views/login/client/loginmain.jsp·Î Æ÷¿öµå(°ü¸®ÀÚ ½ÃÀÛÆäÀÌÁö·Î ±¸ºÐ)
+		//     /WEB-INF/views/login/client/loginmain.jspï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½)
 		
-		//redirect:´Â ¸ÊÇÎÀ» ¿äÃ»ÇÏ´Â°ÍÀÓ -> ÄÁÆ®·Ñ·¯¿¡ ´Ù½Ã ¸Þ¼­µå ÀÛ¼ºÇØ¾ßµÊ
+		//redirect:ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»ï¿½Ï´Â°ï¿½ï¿½ï¿½ -> ï¿½ï¿½Æ®ï¿½Ñ·ï¿½ï¿½ï¿½ ï¿½Ù½ï¿½ ï¿½Þ¼ï¿½ï¿½ï¿½ ï¿½Û¼ï¿½ï¿½Ø¾ßµï¿½
 		
 	} 
 	
 	@RequestMapping("/searchid")
 	public String serarchId() {
-		return "login/client/searchid"; //     /WEB-INF/views/login/client/searchid.jsp·Î ÀÌµ¿ , ¾ÆÀÌµð Ã£±â È­¸é
+		return "login/client/searchid"; //     /WEB-INF/views/login/client/searchid.jspï¿½ï¿½ ï¿½Ìµï¿½ , ï¿½ï¿½ï¿½Ìµï¿½ Ã£ï¿½ï¿½ È­ï¿½ï¿½
 	}
 	
 	@RequestMapping("/searchpw")
 	public String searchPw() { 
-		return "login/client/searchpw"; //     /WEB-INF/views/login/client/searchpw.jsp·Î ÀÌµ¿ , ºñ¹Ð¹øÈ£ Ã£±â È­¸é
+		return "login/client/searchpw"; //     /WEB-INF/views/login/client/searchpw.jspï¿½ï¿½ ï¿½Ìµï¿½ , ï¿½ï¿½Ð¹ï¿½È£ Ã£ï¿½ï¿½ È­ï¿½ï¿½
 	}
 	
 	
@@ -63,13 +63,13 @@ private ClientLoginService clientLoginService;
 		return "login/client/faillogin";
 	}
 	
-
+	
 	
 
 	@PostMapping("/userlogin")
 	public String loginProcess(ClientLoginVO login, Model model, HttpServletRequest request,RedirectAttributes ras) {
-		//·Î±×ÀÎ ¹öÆ°À» Å¬¸¯ÇÏ¿© ·Î±×ÀÎÆûÀÌ ¿Â »óÅÂ
-		//¿©±â¼­ ·Î±×ÀÎ °úÁ¤À» Ã³¸®
+		//ï¿½Î±ï¿½ï¿½ï¿½ ï¿½ï¿½Æ°ï¿½ï¿½ Å¬ï¿½ï¿½ï¿½Ï¿ï¿½ ï¿½Î±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+		//ï¿½ï¿½ï¿½â¼­ ï¿½Î±ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
 		
 		String url="";
 		
@@ -81,13 +81,15 @@ private ClientLoginService clientLoginService;
 			
 			HttpSession session = request.getSession();
 
-			session.setAttribute("client_info", clientLogin); 
+			session.setAttribute("client_info", clientLogin);
 			
-			url="successlogin"; //¼º°ø½Ã ·Î±×ÀÎ ¼º°øÆäÀÌÁö·Î ÀÌµ¿ 
+			session.setAttribute("client_no", clientLogin.getClient_no());
+			
+			url="successlogin"; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Î±ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½ 
 					
 		}else {
 			
-			ras.addFlashAttribute("errorMsg","·Î±×ÀÎ ½ÇÆÐ");
+			ras.addFlashAttribute("errorMsg","ï¿½Î±ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½");
 			
 			//return "/client/loginmain";
 			
@@ -101,20 +103,20 @@ private ClientLoginService clientLoginService;
 	
 	@RequestMapping("/idconfirm")
 	public String idConfirm(ClientLoginVO login, Model model) {
-		//¾ÆÀÌµð¸¦ Ã£±â Ã¢¿¡¼­ ¾ÆÀÌµð, ÀüÈ­¹øÈ£°¡ ¿Â »óÅÂ
-		//¿©±â¼­ ¾ÆÀÌµðÃ£±â °úÁ¤À» Ã³¸®
+		//ï¿½ï¿½ï¿½Ìµï¿½ Ã£ï¿½ï¿½ Ã¢ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ìµï¿½, ï¿½ï¿½È­ï¿½ï¿½È£ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+		//ï¿½ï¿½ï¿½â¼­ ï¿½ï¿½ï¿½Ìµï¿½Ã£ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
 		
-		ClientLoginVO clientsearchid = clientLoginService.idConfirm(login); //¾ÆÀÌµð, ÀüÈ­¹øÈ£°¡ ÀÏÄ¡ÇÏ´Â °í°´ÀÇ °´Ã¼¸¦ Àü´Þ¹ÞÀ½
+		ClientLoginVO clientsearchid = clientLoginService.idConfirm(login); //ï¿½ï¿½ï¿½Ìµï¿½, ï¿½ï¿½È­ï¿½ï¿½È£ï¿½ï¿½ ï¿½ï¿½Ä¡ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã¼ï¿½ï¿½ ï¿½ï¿½ï¿½Þ¹ï¿½ï¿½ï¿½
 		
 		if(clientsearchid != null) {
 			
 			model.addAttribute("clientsearchid",clientsearchid);
 			
-			return "login/client/successidconfirm"; //     /WEB-INF/views/login/client/succecssidconfirm.jsp·Î ÀÌµ¿
+			return "login/client/successidconfirm"; //     /WEB-INF/views/login/client/succecssidconfirm.jspï¿½ï¿½ ï¿½Ìµï¿½
 			
 		}else {
 			
-			return "login/client/failidconfirm"; //  /WEB-INF/views/login/client/failidconfirm.jsp·Î ÀÌµ¿
+			return "login/client/failidconfirm"; //  /WEB-INF/views/login/client/failidconfirm.jspï¿½ï¿½ ï¿½Ìµï¿½
 			
 		}
 		
@@ -122,31 +124,31 @@ private ClientLoginService clientLoginService;
 	
 	@RequestMapping(value = "/kakaologin", method = RequestMethod.POST)
 	public String kakaoLogin(Model model, HttpServletRequest request){
-		String kakaoemail=request.getParameter("kakaoemail"); //Ä«Ä«¿À ÀÌ¸ÞÀÏ °ªÀ» ¹Þ¾Æ¿Í¼­ ÀúÀå
-		String kakaoname=request.getParameter("kakaoname"); //Ä«Ä«¿À ´Ð³×ÀÓ °ªÀ» ¹Þ¾Æ¿Í¼­ ÀúÀå
+		String kakaoemail=request.getParameter("kakaoemail"); //Ä«Ä«ï¿½ï¿½ ï¿½Ì¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Þ¾Æ¿Í¼ï¿½ ï¿½ï¿½ï¿½ï¿½
+		String kakaoname=request.getParameter("kakaoname"); //Ä«Ä«ï¿½ï¿½ ï¿½Ð³ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Þ¾Æ¿Í¼ï¿½ ï¿½ï¿½ï¿½ï¿½
 		
 		
-		ClientLoginVO cvo = new ClientLoginVO(); //Ä«Ä«¿À ±âº» Á¤º¸¸¦ VO°´Ã¼¿¡ ´ã¾ÆÁÜ
-		cvo.setClient_email(kakaoemail); //Ä«Ä«¿À ÀÌ¸ÞÀÏÀ» client_eamil º¯¼ö¿¡ ÀúÀå
-		cvo.setClient_name(kakaoname);//Ä«Ä«¿À ´Ð³×ÀÓÀ» client_name º¯¼ö¿¡ ÀúÀå
+		ClientLoginVO cvo = new ClientLoginVO(); //Ä«Ä«ï¿½ï¿½ ï¿½âº» ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ VOï¿½ï¿½Ã¼ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½
+		cvo.setClient_email(kakaoemail); //Ä«Ä«ï¿½ï¿½ ï¿½Ì¸ï¿½ï¿½ï¿½ï¿½ï¿½ client_eamil ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+		cvo.setClient_name(kakaoname);//Ä«Ä«ï¿½ï¿½ ï¿½Ð³ï¿½ï¿½ï¿½ï¿½ï¿½ client_name ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		
 	
-		if (clientLoginService.getUserByEmail(cvo) == null) { //Ä«Ä«¿À ÀÌ¸ÞÀÏ·Î ·Î±×ÀÎ ÇÑ ÀûÀÌ ÀÖ´ÂÁö È®ÀÎ
-													//Ä«Ä«¿À ·Î±×ÀÎ ÇÑ ÀûÀÌ ¾ø´Ù¸é, 
-			model.addAttribute("kakaoclient", cvo); //Ä«Ä«¿À ±âº»Á¤º¸(ÀÌ¸§, ÀÌ¸ÞÀÏ)ÀÌ ´ã±ä °´Ã¼¸¦ Ä«Ä«¿À È¸¿ø°¡ÀÔ ÆäÀÌÁö·Î ³Ñ°ÜÁØ´Ù.
+		if (clientLoginService.getUserByEmail(cvo) == null) { //Ä«Ä«ï¿½ï¿½ ï¿½Ì¸ï¿½ï¿½Ï·ï¿½ ï¿½Î±ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´ï¿½ï¿½ï¿½ È®ï¿½ï¿½
+													//Ä«Ä«ï¿½ï¿½ ï¿½Î±ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ù¸ï¿½, 
+			model.addAttribute("kakaoclient", cvo); //Ä«Ä«ï¿½ï¿½ ï¿½âº»ï¿½ï¿½ï¿½ï¿½(ï¿½Ì¸ï¿½, ï¿½Ì¸ï¿½ï¿½ï¿½)ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½Ã¼ï¿½ï¿½ Ä«Ä«ï¿½ï¿½ È¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ°ï¿½ï¿½Ø´ï¿½.
 			
-			return "/signup/client/kakao_join_form"; //Ä«Ä«¿À È¸¿ø°¡ÀÔ ÆäÀÌÁö·Î ¸ÊÇÎ
+			return "/signup/client/kakao_join_form"; //Ä«Ä«ï¿½ï¿½ È¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			
 		}else {
 			
 			String url = "";
 			
-			//Ä«Ä«¿À °èÁ¤À¸·Î ·Î±×ÀÎÇÑ ÀûÀÌ ÀÖÀ» ¶§ ±× È¸¿øÀÇ Á¤º¸¸¦ ºÒ·¯¿È
+			//Ä«Ä«ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Î±ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ È¸ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ò·ï¿½ï¿½ï¿½
 			ClientLoginVO clientLogin = clientLoginService.getUserByEmail(cvo);
 			
 			HttpSession session = request.getSession();
 			
-			//È¸¿ø Á¤º¸¸¦ ¼¼¼Ç¿¡ ÀúÀåÇÑ´Ù.
+			//È¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ç¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
 			session.setAttribute("client_info", clientLogin);
 			
 			url = "successlogin";
@@ -157,13 +159,13 @@ private ClientLoginService clientLoginService;
 		
 	}
 	
-	//·Î±×¾Æ¿ô
+	//ï¿½Î±×¾Æ¿ï¿½
 	@RequestMapping("/logout")
 	public String logout(HttpSession session) {
 		
 		String url = "";
 		
-		log.info("·Î±×¾Æ¿ô Ã³¸®");
+		log.info("ï¿½Î±×¾Æ¿ï¿½ Ã³ï¿½ï¿½");
 		
         session.invalidate();
         
@@ -177,7 +179,7 @@ private ClientLoginService clientLoginService;
 	@RequestMapping("completelogout")
 	public String logout() {
 		
-		return "main"; //     /WEB-INF/views/login/client/completelogout.jsp·Î ÀÌµ¿ , ¾ÆÀÌµð Ã£±â È­¸é
+		return "main"; //     /WEB-INF/views/login/client/completelogout.jspï¿½ï¿½ ï¿½Ìµï¿½ , ï¿½ï¿½ï¿½Ìµï¿½ Ã£ï¿½ï¿½ È­ï¿½ï¿½
 	}
 	
 	

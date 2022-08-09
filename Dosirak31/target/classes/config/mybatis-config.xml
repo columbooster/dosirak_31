@@ -18,7 +18,7 @@
 		<typeAlias type="com.dosirak31.client.community.vo.CommunityVO" alias="community"/>
 		<typeAlias type="com.dosirak31.client.reply.vo.ReplyVO" alias="reply"/>
 		
-		<typeAlias type="com.dosirak31.mypage.complex.vo.MypageComplexVO" alias="mypage"/>
+		<typeAlias type="com.dosirak31.mypage.review.vo.MypageReviewVO" alias="mypage"/>
 		
 	</typeAliases>
 </configuration>

@@ -20,7 +20,7 @@
           </ul>
         </li>
         <li><a href="/community/client/communityList">COMMUNITY</a></li>
-        <li><a href="#">MYPAGE</a></li>
+        <li><a href="/mypage/client/mypageMain">MYPAGE</a></li>
         <li><a href="/client/logout">LOGOUT</a></li>
       </ul>
     </nav>

@@ -25,6 +25,12 @@ public class FoodReviewServiceImpl implements FoodReviewService {
 		return list;
 	}
 	
+	//전체 레코드 수 구현
+	@Override
+	public int foodReviewListCnt(FoodReviewVO rvo) {
+		return foodReviewDao.foodReviewListCnt(rvo);
+	}
+	
 	
 	// 리뷰 입력
 	@Override 
@@ -34,14 +40,15 @@ public class FoodReviewServiceImpl implements FoodReviewService {
 		return result;
 	}
 	 
-
+	// 리뷰 수정 구현
 	@Override
 	public int foodReviewUpdate(FoodReviewVO rvo) {
 		int result = 0;
 		result = foodReviewDao.foodReviewUpdate(rvo);
 		return result;
 	}
-
+	
+	// 리뷰 삭제 구현
 	@Override
 	public int foodReviewDelete(FoodReviewVO rvo) {
 		int result = 0;
@@ -49,7 +56,7 @@ public class FoodReviewServiceImpl implements FoodReviewService {
 		return result;
 	}
 
-
+	// 리뷰 수정 폼
 	@Override
 	public FoodReviewVO updateForm(FoodReviewVO rvo) {
 		FoodReviewVO detail = null;
@@ -57,7 +64,7 @@ public class FoodReviewServiceImpl implements FoodReviewService {
 		return detail;
 	}
 
-
+	// 리뷰 상세페이지
 	@Override
 	public FoodReviewVO foodReviewDetail(FoodReviewVO rvo) {
 		FoodReviewVO detail = null;
@@ -68,6 +75,9 @@ public class FoodReviewServiceImpl implements FoodReviewService {
 		}
 		return detail;
 	}
+
+
+	
 
 	
 	
