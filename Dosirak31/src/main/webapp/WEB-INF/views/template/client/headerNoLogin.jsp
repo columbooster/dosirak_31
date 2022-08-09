@@ -5,11 +5,11 @@
   <header id="header" class="clear"> 
   
     <div id="logo" class="fl_left">
-      <h1><a href="/resources/index.html">DOSIRAK31</a></h1>
+      <h1><a href="/">DOSIRAK31</a></h1>
     </div>
     <nav id="mainav" class="fl_right">
       <ul class="clear">
-        <li class="active"><a href="/resources/index.html">Home</a></li>
+        <li class="active"><a href="/">Home</a></li>
         <li><a href="/health/hBoardList">WORKOUT</a>  
         </li>
         <li><a href="/food/foodNoClientBasicList">FOOD</a>
