@@ -87,7 +87,7 @@
          }
          $("#f_search").attr({
             "method":"get",
-            "action":"/health/weightList"
+            "action":"/health/admin/weightList"
          })
          $("#f_search").submit();
       }

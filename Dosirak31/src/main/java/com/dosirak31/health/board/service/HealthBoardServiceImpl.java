@@ -59,20 +59,11 @@ public class HealthBoardServiceImpl implements HealthBoardService {
 	public int healthBoardInsert(HealthBoardVO hbvo) throws Exception {
 		int result = 0;
 		
-		/* 예외를 발생시킬 코드 작성  */
-		hbvo.setHealth_no(0);
-		if(hbvo.getHealth_no()==0) {
-			throw new IllegalArgumentException("0번 글은 등록할 수 없습니다.");
-		}
+		if(hbvo.getFile().getSize()>0) {
+	         String fileName=FileUploadUtil.fileUpload(hbvo.getFile(), "health");
+	         hbvo.setHealth_img(fileName);
+	      }		
 		
-		/*
-		 * if(hbvo.getFile().getSize() > 0) { String fileName =
-		 * HealthBasicFileUploadUtil.fileUpload(hbvo.getFile(), "health"); //
-		 * health_weight_weightMain.jsp hbvo.setHealth_file(fileName);
-		 * 
-		 * String thumbName = HealthBasicFileUploadUtil.makeThumbnail(fileName); //
-		 * thumbnail_health_weight_weightMain.jsp hbvo.setHealth_thumb(thumbName); }
-		 */
 		result = hBoardDao.healthBoardInsert(hbvo);
 		return result;
 	}

@@ -2,6 +2,9 @@
 	pageEncoding="UTF-8"%>
 <%@ include file="/WEB-INF/views/common/common.jspf"%>
 
+<style type="text/css">
+		#cardioImg, #weightImg{width:280px; height:220px;}
+	</style>
 </head>
 
 	<div class="wrapper row3">

@@ -87,7 +87,7 @@
          }
          $("#f_search").attr({
             "method":"get",
-            "action":"/health/cardioList"
+            "action":"/health/admin/cardioList"
          })
          $("#f_search").submit();
       }

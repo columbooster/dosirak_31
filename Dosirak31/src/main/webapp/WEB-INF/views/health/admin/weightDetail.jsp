@@ -21,54 +21,111 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 
+ <script type="text/javascript">
+         $(function(){
+            /*수정 버튼 클릭 시 처리 이벤트*/
+            $("#weightUpdateFormBtn").click(function(){
+            	goUrl = "/health/admin/healthUpdateForm";
+                $("#weightData").attr("action",goUrl);
+                $("#weightData").submit();
+            })
+            
+            /* 삭제 버튼 */
+            $("#weightDeleteBtn").click(function(){
+            	if(confirm("정말 삭제하시겠습니까?")){
+                    goUrl = "/health/admin/healthBoardDelete";
+                    $("#weightData").attr("action",goUrl);
+                    $("#weightData").submit();
+            }
+            })
+            
+            /*삭제버튼 클릭 시 댓글 확인 후 처리 이벤트
+            $("#weightDeleteBtn").click(function(){
+               $.ajax({
+                  url:"/board/replyCnt",
+                  type:"post",
+                  data:"health_no="+$("#health_no").val(),
+                  dataType:"text",
+                  error:function(){
+                     alert("시스템 오류")
+                  },
+                  success:function(resultData){
+                     if(resultData==0){//댓글이 존재하지 않을 경우
+                        $("#pwdChk").css("visibility","visible");
+                        $("#msg").text("작성시 입력한 비밀번호를 입력해 주세요.").css("color","#000099");
+                        buttonCheck=2;
+                     }else{ //댓글이 존재하는 경우
+                        alert("댓글 존재시 게시물 작성할 수가 없습니다.\n댓글 삭제 후 다시 확인해주세요.");
+                        return;
+                     }
+                  }
+               })
+            })*/
+           
+            //글쓰기 버튼
+            $("#weightInsertFormBtn").click(function(){
+               location.href="/health/admin/healthWriteForm";
+            })
+            
+            //목록 버튼
+            $("#weightListBtn").click(function(){
+               location.href="/health/admin/weightList?health_category_no=2"
+            })
+          
+         });
+</script>
+
 </head>
+	<div class="wrapper row3">
+		
+			<!-- main body -->
+			<!-- ################################################################################################ -->
+			<div class="content">
+				<!-- ################################################################################################ -->
+				<div id="gallery">
+					<figure>
+						<form name="weightData" id="weightData" method="post">
+				            <input type="hidden" name="health_no" value="${weightDetail.health_no }"/>
+				   			<input type="hidden" name="health_category_no" value="${weightDetail.health_category_no }"/>
+				            
+				         </form>
+						<header class="heading">${weightDetail.health_title }</header>
+						<!-------------------------------------------------- 동영상 & 소개 공간 ---------------------------------------------------->
+						<div >
 
-<div class="wrapper row3">
-	<!-- main body -->
-	<!-- ################################################################################################ -->
-	<div class="content">
-		<!-- ################################################################################################ -->
-		<div id="gallery">
-			<div id="gallery">
-				<figure>
-					<header class="heading">${weightDetail.health_title }(조회수:
-						${weightDetail.health_hits })</header>
-					<!-------------------------------------------------- 동영상 & 소개 공간 ---------------------------------------------------->
-					<div class="jumbotron">
-						<section>
-							<table>
-								<tr>
-									<td><iframe width="560" height="315"
-											src="https://www.youtube.com/embed/${weightDetail.health_url }?mute=1&autoplay=1"></iframe>
-									</td>
-								</tr>
-								<tr>
-									<td class="col-md-4">${weightDetail.health_contents }</td>
-								</tr>
-							</table>
-						</section>
-						
-					</div>
-						<div class="btnArea col-md-4 text-right">
-              
-					<div class="row marketing">
-						<div class="col-lg-6">
-							<h4>운동영상 댓글</h4>
-							<p>댓글</p>
+							<section>
+								<iframe width="560" height="315"
+									src="https://www.youtube.com/embed/${weightDetail.health_url }?mute=1&autoplay=1"></iframe>
+								<div>
+								${weightDetail.health_contents }
+								</div>	
+							</section>
 						</div>
-					</div>
+						<div>
+							<input type="button" value="글수정" id="weightUpdateFormBtn" class="btn btn-success" />
+			                <input type="button" value="글삭제" id="weightDeleteBtn" class="btn btn-success" />
+			                <input type="button" value="글쓰기" id="weightInsertFormBtn" class="btn btn-success" />
+			                <input type="button" value="목록" id="weightListBtn" class="btn btn-success" />
+						</div>
+						<div class="row marketing">
+							<div class="col-lg-6">
+								<h4>운동영상 댓글</h4>
+								<p>댓글</p>
+							</div>
+						</div>
 
-				</figure>
+					</figure>
+				</div>
+				<!-- ################################################################################################ -->
+				<!-- ################################################################################################ -->
+
+				<!-- ################################################################################################ -->
 			</div>
 			<!-- ################################################################################################ -->
-			<!-- ################################################################################################ -->
+			<!-- / main body -->
+			<div class="clear"></div>
 
-			<!-- ################################################################################################ -->
-		</div>
-		<!-- ################################################################################################ -->
-		<!-- / main body -->
-		<div class="clear"></div>
 	</div>
-
-	</body>
-	</html>
+	
+</body>
+</html>

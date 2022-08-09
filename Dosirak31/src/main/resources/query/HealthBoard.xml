@@ -14,29 +14,27 @@
    </sql>
 	
 	<!-- Workout 게시판 조회 -->
-	<select id="healthList" parameterType="healthBoard"
-		resultType="healthBoard">
-		<!-- id : 사용할 명칭(필수항목) = 다오랑 같아야함, 현재 Mapper에서 유일한 이름사용. resultType : 조회 
-			결과 값을 저장하기 위한 데이터 타입(데이터 하나에 대한 타입 지정) paramterType : 전달받은 파라이터 데이터 타입 지정(선택적) -->
-		<![CDATA[		
-		SELECT
-		  health_no,admin_id, health_title, to_char(health_date,'YYYY-MM-DD') as health_date, health_closed, health_hits,
+		<!--  커뮤니티 게시판 리스트 조회(페이징 처리와 검색 처리) 및 댓글 갯수 구하기 PK_community_no-->
+	<select id="healthList" parameterType="healthBoard" resultType="healthBoard">
+		<![CDATA[
+		SELECT 
+				health_no,admin_id, health_title, to_char(health_date,'YYYY-MM-DD') as health_date, health_closed, health_hits,
 		  health_contents, health_url, health_img, health_category_no
-		from (
-		   select /*+index_desc(health health_pk)*/
-              rownum as rnum, health_no,admin_id, health_title, health_date, health_closed, health_hits,
+		FROM(
+				 select /*+ index_desc(health PK_health_no) */
+             	  	 rownum as rnum, health_no,admin_id, health_title, health_date, health_closed, health_hits,
 		  health_contents, health_url, health_img, health_category_no
            from health
-           where ]]>
-	        <trim prefix="(" suffix=") AND" prefixOverrides="AND">
-              <include refid="boardSearch"></include>
-           </trim>
-			health_category_no = #{health_category_no} and
-	        <![CDATA[rownum<=#{pageNum} *#{amount}
-	    )healthList
-	    where rnum>(#{pageNum}-1)*#{amount}
-	   	]]>
-	</select>
+        		 where ]]>
+        		 <trim prefix="(" suffix=") AND " prefixOverrides="AND">
+        		 		<include refid="boardSearch"></include>
+        		 </trim>
+        		 health_category_no = #{health_category_no} and
+        	<![CDATA[ 	rownum <= #{pageNum} * #{amount}
+        		) healthList
+        	WHERE rnum > (#{pageNum} - 1) * #{amount}
+        	]]>
+	</select> 
 	
 	<!-- 전체 레코드 수 조회 -->
    <select id="boardListCnt" parameterType="healthBoard" resultType="int">
@@ -71,10 +69,10 @@
 			select health_seq.nextval from dual
 		</selectKey>
 		INSERT INTO health(health_no, health_title, health_contents,
-		health_img, health_url, health_category_no)
+		health_img, health_url, health_category_no, admin_id)
 		VALUES(#{health_no},
 		#{health_title}, #{health_contents}, #{health_img}, #{health_url},
-		#{health_category_no})
+		#{health_category_no}, 'dosirak31')
 	</insert>
 
 	<!-- 게시물 수정 -->
@@ -84,11 +82,10 @@
 		health_title = #{health_title},
 		health_contents = #{health_contents},
 		health_category_no = #{health_category_no},
-		health_update = to_char(health_date, 'YYYY-MM-DD') as health_update,
-		health_date,
+		health_date = sysdate,
 		health_url = #{health_url},
 		health_img = #{health_img}
-
+		
 		WHERE health_no = #{health_no}
 	</update>
 

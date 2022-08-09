@@ -129,89 +129,58 @@ public class HealthAdminBoardController {
 	      
 	      result=healthBoardService.healthBoardInsert(hbvo);
 	      if(result==1) {
-	         url="/health/admin/weightList";
+	         url="/health/admin/weightList?health_category_no="+hbvo.getHealth_category_no();
 	      }else {
 	         url="/health/admin/healthWriteForm";
 	      }
 	      return "redirect:"+url; 
 	   }
+	   
 	   /****************************************************************************	
-		 *	웨이트 업데이트 폼 화면으로 이동
+		 *	업데이트 폼 화면으로 이동
 		 ***************************************************************************/
-		@RequestMapping(value="/admin/weightUpdateForm")
-		  	public String weightUpdateForm(@ModelAttribute("data") HealthBoardVO hbvo, Model model)  {
-		      log.info("weightUpdateForm");
-		      
-		      HealthBoardVO weightUpdateForm = (HealthBoardVO) healthBoardService.healthDetail(hbvo);
-			
-		      model.addAttribute("weightUpdate", weightUpdateForm);
-
-				return "health/admin/weightUpdateForm";
-		}
+	   @RequestMapping(value="/admin/healthUpdateForm")
+	  	public String healthUpdateForm(@ModelAttribute("data") HealthBoardVO hbvo, Model model)  {
+	      log.info("healthUpdateForm");
+	      
+	      HealthBoardVO healthUpdateForm = (HealthBoardVO) healthBoardService.healthDetail(hbvo);
 		
-		 /****************************************************************************	
-		 *	웨이트 업데이트 폼 구현하기
+	      model.addAttribute("healthUpdate", healthUpdateForm);
+
+			return "health/admin/healthUpdateForm";
+	}
+	   /****************************************************************************	
+		 *	업데이트폼 구현
 		 ***************************************************************************/
-	   @RequestMapping(value="/admin/weightUpdate",method=RequestMethod.POST)
-		   public String weightUpdate(@ModelAttribute HealthBoardVO hbvo, RedirectAttributes ras) throws Exception{
-		      log.info("weightUpdate 호출 성공");
+		   @RequestMapping(value="/admin/healthUpdate",method=RequestMethod.POST)
+		   
+		   public String healthUpdate(HealthBoardVO hbvo, Model model) throws Exception{
+		      log.info("healthUpdate 호출 성공");
 		      
 		      int result=0;
 		      String url="";
 		      
 		      result=healthBoardService.healthBoardUpdate(hbvo);
-		      ras.addFlashAttribute("data",hbvo);
-		      
-		      if(result==1) {
-		         url="/health/admin/weightDetail?health_no="+hbvo.getHealth_no();
-		      }else {
-		         url="/health/admin/weightUpdateForm";
-		      }
-		      return "redirect:"+url;
-		   }
-	   
-	   /****************************************************************************	
-		 *	카디오 업데이트 폼 화면으로 이동
-		 ***************************************************************************/
-		@RequestMapping(value="/admin/cardioUpdateForm")
-		  	public String cardioUpdateForm(@ModelAttribute("data") HealthBoardVO hbvo, Model model)  {
-		      log.info("cardioUpdateForm");
-		      
-		      HealthBoardVO cardioUpdateForm = (HealthBoardVO) healthBoardService.healthDetail(hbvo);
-			
-		      model.addAttribute("cardioUpdate", cardioUpdateForm);
 
-				return "health/admin/cardioUpdateForm";
-		}
-		
-		 /****************************************************************************	
-		 *	카디오 업데이트 폼 구현하기
-		 ***************************************************************************/
-	   @RequestMapping(value="/admin/cardioUpdate",method=RequestMethod.POST)
-		   public String cardioUpdate(@ModelAttribute HealthBoardVO hbvo, RedirectAttributes ras) throws Exception{
-		      log.info("cardioUpdate 호출 성공");
-		      
-		      int result=0;
-		      String url="";
-		      
-		      result=healthBoardService.healthBoardUpdate(hbvo);
-		      ras.addFlashAttribute("data",hbvo);
-		      
 		      if(result==1) {
-		         url="/health/admin/cardioDetail?health_no="+hbvo.getHealth_no();
+		    	  if(hbvo.getHealth_category_no()==1) {
+		    		  url="/health/admin/weightDetail?health_no="+hbvo.getHealth_no();
+		    	  } else {
+		    		  url="/health/admin/cardioDetail?health_no="+hbvo.getHealth_no();
+		    	  }	         
 		      }else {
-		         url="/health/admin/cardioUpdateForm";
+		         url="/health/admin/healthWriteForm";
 		      }
-		      return "redirect:"+url;
+		      return "redirect:"+url; 
 		   }
-	   
+		    
 	   /****************************************************************************	
-		 *	웨이트 글 삭제 구현하기
+		 *	글 삭제 구현하기
 		 ***************************************************************************/
-	   @RequestMapping(value="/admin/healthBoardDelete1")
+	   @RequestMapping(value="/admin/healthBoardDelete")
 	   public String weightBoardDelete(@ModelAttribute HealthBoardVO hbvo, RedirectAttributes ras) throws Exception{
 	      log.info("weightBoardDelete 호출 성공");
-	     
+
 	      int result=0;
 	      String url="";
 	      
@@ -219,32 +188,18 @@ public class HealthAdminBoardController {
 	      ras.addFlashAttribute("healthBoardVO",hbvo);
 	      
 	      if(result==1) {
-	         url="/health/admin/weightList?health_category_no="+hbvo.getHealth_category_no();
+	    	  if(hbvo.getHealth_category_no()==1) {
+	    		  url="/health/admin/weightList?health_category_no="+hbvo.getHealth_category_no();
+	    	  } else {
+	    		  url="/health/admin/cardioList?health_category_no="+hbvo.getHealth_category_no();
+	    	  }	         
 	      }else {
-	         url="/health/admin/weightDetail";
+	    	  if(hbvo.getHealth_category_no()==1) {
+	    		  url="/health/admin/weightDetail?health_no="+hbvo.getHealth_no();
+	    	  } else {
+	    		  url="/health/admin/cardioDetail?health_no="+hbvo.getHealth_no();
+	    	  }	 
 	      }
-	      return "redirect:"+url;
+	      return "redirect:"+url; 
 	   }
-	   
-	   /****************************************************************************	
-		 *	카디오 글 삭제 구현하기
-		 ***************************************************************************/
-	   @RequestMapping(value="/admin/healthBoardDelete2")
-	   public String cardioBoardDelete(@ModelAttribute HealthBoardVO hbvo, RedirectAttributes ras) throws Exception{
-	      log.info("cardioBoardDelete 호출 성공");
-	     
-	      int result=0;
-	      String url="";
-	      
-	      result=healthBoardService.healthBoardDelete(hbvo);
-	      ras.addFlashAttribute("healthBoardVO",hbvo);
-	      
-	      if(result==1) {
-	         url="/health/admin/cardioList?health_category_no="+hbvo.getHealth_category_no();
-	      }else {
-	         url="/health/admin/cardioDetail";
-	      }
-	      return "redirect:"+url;
-	   }
-		   
 }

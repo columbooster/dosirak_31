@@ -25,7 +25,7 @@
          $(function(){
             /*수정 버튼 클릭 시 처리 이벤트*/
             $("#cardioUpdateFormBtn").click(function(){
-            	goUrl = "/health/admin/cardioUpdateForm";
+            	goUrl = "/health/admin/healthUpdateForm";
                 $("#cardioData").attr("action",goUrl);
                 $("#cardioData").submit();
             })
@@ -33,9 +33,10 @@
             /* 삭제 버튼 */
             $("#cardioDeleteBtn").click(function(){
             	if(confirm("정말 삭제하시겠습니까?")){
-                    goUrl = "/board/boardDelete";
+                    goUrl = "/health/admin/healthBoardDelete";
                     $("#cardioData").attr("action",goUrl);
                     $("#cardioData").submit();
+            }
             })
             
             /*삭제버튼 클릭 시 댓글 확인 후 처리 이벤트
@@ -85,8 +86,7 @@
 					<figure>
 						<form name="cardioData" id="cardioData" method="post">
 				            <input type="hidden" name="health_no" value="${cardioDetail.health_no }"/>
-				            <input type="hidden" name="file" value="${cardioDetail.file }"/>
-				            <input type="hidden" name="health_img" value="${cardioDetail.health_img }"/>
+				            <input type="hidden" name="health_category_no" value="${cardioDetail.health_category_no }"/>
 				         </form>
 						<header class="heading">${cardioDetail.health_title }</header>
 						<!-------------------------------------------------- 동영상 & 소개 공간 ---------------------------------------------------->
@@ -96,6 +96,7 @@
 								<iframe width="560" height="315"
 									src="https://www.youtube.com/embed/${cardioDetail.health_url }?mute=1&autoplay=1"></iframe>
 								<div>
+								${cardioDetail.health_contents }
 								</div>	
 							</section>
 						</div>
