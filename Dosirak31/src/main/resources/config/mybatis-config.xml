@@ -8,8 +8,11 @@
 		<typeAlias type="com.dosirak31.food.order.vo.OrderDetailVO" alias="orderDetail"/>
 		<!-- health -->
 		<typeAlias type="com.dosirak31.health.board.vo.HealthBoardVO" alias="healthBoard"/>
+		<!-- healthcomment -->
+		<typeAlias type="com.dosirak31.hcomment.client.vo.HCommentVO" alias="hComment"/>
 		<!-- login -->
 		<typeAlias type="com.dosirak31.login.client.vo.ClientLoginVO" alias="clientLogin"/>
+		<typeAlias type="com.dosirak31.login.admin.vo.AdminLoginVO" alias="adminLogin"/>
 		<!-- 리뷰 관련-->
 		<typeAlias type="com.dosirak31.food.review.vo.FoodReviewVO" alias="review" />
 		

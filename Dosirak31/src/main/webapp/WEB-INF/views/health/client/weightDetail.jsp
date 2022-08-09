@@ -60,8 +60,7 @@
 
 						<div class="row marketing">
 							<div class="col-lg-6">
-								<h4>운동영상 댓글</h4>
-								<p>댓글</p>
+								<jsp:include page="hcomment2.jsp" />
 							</div>
 						</div>
 
