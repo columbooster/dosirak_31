@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.dosirak31.client.community.vo.CommunityVO;
 import com.dosirak31.client.reply.dao.ReplyDao;
 import com.dosirak31.client.reply.vo.ReplyVO;
 
@@ -25,6 +26,7 @@ public class ReplyServiceImpl implements ReplyService {
 		
 		return list;
 	}
+	
 
 	// 글 입력 구현
 	@Override

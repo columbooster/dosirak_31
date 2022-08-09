@@ -112,7 +112,7 @@
 </div>
 
 <div class="wrapper row3">
-	<main class="container clear"> 	
+	<main class="container clear">
 		<div class="contentContainer container">
 				<!-- <div class="contentTit page-header"><h3 class="text-center">게시판 리스트</h3></div>  -->
 				
@@ -196,7 +196,9 @@
 					
 					<%-- ==================== 글쓰기 버튼 출력 시작 ========================= --%>
 				<div class="contentBtn text-right">
-					<input type="button" value="글쓰기" id="insertFormBtn" class="btn btn-success">
+					<c:if test="${sessionScope.client_info.client_id != null}">
+						<input type="button" value="글쓰기" id="insertFormBtn" class="btn btn-success">
+					</c:if>
 				</div>	
 					<%-- ==================== 글쓰기 버튼 출력 종료 ========================= --%>
 			</div>

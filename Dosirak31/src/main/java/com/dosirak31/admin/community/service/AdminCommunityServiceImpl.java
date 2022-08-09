@@ -28,7 +28,7 @@ public class AdminCommunityServiceImpl implements AdminCommunityService {
 	public int communityListCnt(CommunityVO cvo) {
 		int countNum = 0;
 		countNum = communityDao.communityListCnt(cvo);
-		return 0;
+		return countNum;
 	}
 
 }

@@ -22,6 +22,13 @@ public class ClientServiceImpl implements ClientService {
 		return result;
 	}
 
+	@Override
+	public int idCheck(String client_id) throws Exception  {
+		return clientDao.idCheck(client_id);
+	}
+	
+	
+
 	
 	
 }

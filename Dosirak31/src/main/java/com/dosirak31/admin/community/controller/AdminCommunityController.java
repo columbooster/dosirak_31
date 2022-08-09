@@ -41,7 +41,7 @@ public class AdminCommunityController {
 		int count = total - (cvo.getPageNum()-1) * cvo.getAmount();
 		model.addAttribute("count", count);
 		
-		return "/community/admin/communityList";
+		return "community/admin/communityList";
 	}
 
 }
