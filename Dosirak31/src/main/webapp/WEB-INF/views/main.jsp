@@ -3,15 +3,33 @@
  <%@ include file="/WEB-INF/views/common/common.jspf" %> 
  
 	<style type="text/css">
-	article.overlay{background-img:url('/resources/images/common/health.png');}
-	h6.heading{color:white;}
-	.white,a.white{color:white;}
+	.overlay{background-color:rgba(0,0,0,0); height:650px; }
+	h2{color:black; font-size:40px; }
+	h3{color:black; font-size:30px; }
+	.heading{font-weight:bold; font-size:40px;}
+	.fs{font-size:20px;}
+	.kj{font-weight:bold; color:#EE6D00;}
+	.wd{width:200px; height:150px;}
 	</style>
+	<script type="text/javascript" src="/resources/include/js/coin-slider.min.js"></script>
+	<script type="text/javascript" src="/resources/include/js/origin.js"></script>
+	<link rel="stylesheet" href="/resources/include/css/coin-slider-styles.css" type="text/css" />
+		
 	<script type="text/javascript">
-		$(function(){
-			
-		})
 	
+	
+	$(function(){
+        $("#coin-slider").coinslider({ 
+        	navigation: false, delay: 2000, hoverPause: true ,
+        	width: 565, // width of slider panel
+        	height: 260, // height of slider panel	
+        	
+        });
+        
+        $(window).scroll(function(){
+    	    $(".top").css("opacity", 1 - $(window).scrollTop() / 250);
+    	  });
+    });
 	</script>
 
 <body id="top">
@@ -20,13 +38,15 @@
 <!-- ##################  nav바 끝 ################### -->
 <!-- ##################  main 시작 ################### -->
 
-<div class="wrapper row2 bgded" style="background-image:url('/resources/images/common/main2.png');">
+<div class="wrapper row2 bgded" style="background-image:url('/resources/images/common/main.jpg');">
   <div class="overlay">
     <section id="pageintro" class="clear"> 
       <!-- ################################################################################################ -->
       <div class="center btmspace-80">
-        <h2 class="heading xxl uppercase btmspace-30">Dosirak31</h2>
-        <p class="xl nospace capitalise"><h2>함께라는 마법,</h2><br/><h3>dosirak31과 함께라면 건강한 삶은 현실이 된다.</h3></p>
+        <h2 class="heading xxl uppercase btmspace-30"></h2>
+        <p class="xl nospace capitalise"><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+        
+        <h2>함께라는 마법,</h2><br/><h3>dosirak31과 함께라면 건강한 삶은 현실이 된다.</h3></p>
       </div>
     </section>
   </div>
@@ -36,52 +56,59 @@
 <!-- ################################################################################################ -->
 <div class="wrapper row3">
   <main class="container clear">
-  <ul class="nospace group services">
-        <li class="one_third first">
-          <article class="overlay" style="background-image:url('/resources/images/common/healthIcon.png');">
-            <h6 class="heading">WorkOut</h6>
-            <p class="white">웨이트/유산소 운동 영상을 보며 따라하고, 운동영상에 대한 회원들의 생각을 댓글로 소통합니다.&hellip;</p>
-            <footer><a href="/health/hBoardList"  class="white">바로가기&raquo;</a></footer>
-          </article>
-        </li>
-        <li class="one_third">
-          <article class="overlay">
-            <h6 class="heading">Food</h6>
-            <p  class="white">기초대사량을 계산해보고, 영양성분을 고려하여 나만의 도시락을 구성하여 구입할 수 있습니다.&hellip;</p>
-            <footer><a href="/food/foodNoClientBasicList"  class="white">바로가기&raquo;</a></footer>
-          </article>
-        </li>
-        <li class="one_third">
-          <article class="overlay">
-            <h6 class="heading">Community</h6>
-            <p  class="white">커뮤니티 공간에서 회원들간의 소통을하고 관리자에게 묻고싶은 질문을 Q&A로 할 수 있습니다.&hellip;</p>
-            <footer><a href="/community/client/communityList"  class="white">바로가기&raquo;</a></footer>
-          </article>
-        </li>
-      </ul> 
     <!-- main body -->
     <!-- ################################################################################################ -->
     <div class="group">
-      <div class="one_third first"><img src="/resources/images/demo/460x700.png" alt=""></div>
+      <div class="one_third first"><img src="/resources/images/common/foodProduct.jpg" alt=""></div>
       <div class="two_third">
-        <h2 class="heading">Etiam finibus tempus felis eget ullamcorper</h2>
-        <p>Cras pellentesque neque, consectetur adipiscing elit. Fusce venenatis elit ac ligula euismod varius. Maecenas feugiat purus quam, vel aliquet tellus sodales eu. Integer vitae vestibulum turpis, in sollicitudin quam. Aliquam vulputate non felis non luctus. Vestibulum eget augue nulla. Aliquam dignissim nibh mi, ut bibendum quam dapibus eget. Nam nec nisi vel sapien pulvinar ultrices. Curabitur rutrum nisl sagittis, pretium velit eget, convallis lacus. Nulla fermentum nulla ut lacus maximus, ut porttitor neque varius. Nullam sed vulputate sem. Sed bibendum porttitor metus.</p>
-        <p class="btmspace-80">Donec lacinia lacus eros, nec luctus odio bibendum dictum. Vivamus nec egestas libero, non faucibus mauris. In in efficitur felis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nunc porttitor turpis in ex porttitor, nec sagittis diam ultrices.</p>
+        <p class="heading">DOSIRAK31의<br/> 내맘대로 구성하는 건강도시락</p>
+        <p class="btmspace-80 fs">저희 DOSIRAK31은 다음과 같은 <span class="kj">3가지 약속</span>을 지키겠습니다. </p>
         <ul class="nospace group">
           <li class="one_third first">
-            <h6 class="nospace btmspace-10"><a href="#"><i class="fa fa-location-arrow"></i> Praesent neque</a></h6>
-            <p class="nospace">Mauris consectetur vel tellus quis consectetur&hellip;</p>
+            <h6 class="nospace btmspace-10"><a>1.DOSIRAK31 농장</a></h6>
+            <p class="nospace">직접 운영하는 농장에서 키운 재료들로 최상의 맛과 품질을 유지하고 있습니다.</p>
+            <img class="wd" src="/resources/images/common/nongJang.jpg"/>
           </li>
           <li class="one_third">
-            <h6 class="nospace btmspace-10"><a href="#"><i class="fa fa-lock"></i> Integer tinciduntt</a></h6>
-            <p class="nospace">Mauris consectetur vel tellus quis consectetur&hellip;</p>
+            <h6 class="nospace btmspace-10"><a>2.신선한 재료들</a></h6>
+            <p class="nospace">DOSIRAK31에서 판매하는 모든 야채와 과일, 원재료들은 모두 유기농으로 키웁니다.</p>
+             <img class="wd" src="/resources/images/common/organic.jpg"/>
           </li>
           <li class="one_third last">
-            <h6 class="nospace btmspace-10"><a href="#"><i class="fa fa-map-marker"></i> Aliquam mauris</a></h6>
-            <p class="nospace">Mauris consectetur vel tellus quis consectetur&hellip;</p>
+            <h6 class="nospace btmspace-10"><a>3.새벽 배송</a></h6>
+            <p class="nospace">신선함을 유지한 도시락을 받아 보실 수 있도록 당일 새벽 배송으로 보내드립니다.</p>
+             <img class="wd" src="/resources/images/common/delivery.jpg"/>
           </li>
         </ul>
       </div>
+      <div class="top"><div class="title"><span></span></div></div>
+		<section>
+			<h1>대출 베스트 TOP3</h1>
+			   <div id='coin-slider'>
+				    <a href="http://store.seoul.go.kr/images/goods/12056_imgl.jpg" target="_blank">
+				        <img src="http://store.seoul.go.kr/images/goods/12056_imgl.jpg" >
+				        <span>
+				           1위. 2019 보건환경백서<br/>
+				          
+				        </span>
+				    </a>
+				    <a href="http://store.seoul.go.kr/images/goods/11936_imgl.jpg">
+				        <img src="http://store.seoul.go.kr/images/goods/11936_imgl.jpg" >
+				        <span>
+				           2위.BANPOBON-DONG(반포본동)<br/> 
+				           
+				        </span>
+				    </a>
+				    <a href="http://store.seoul.go.kr/images/goods/11916_imgl.jpg">
+				        <img src="http://store.seoul.go.kr/images/goods/11916_imgl.jpg" >
+				        <span>
+				           3위.앵커-서울역 일대 도시재생공간 8 )<br/> 
+				           
+				        </span>
+				    </a>
+				</div>
+			
+			</section>
     </div>
     <!-- ################################################################################################ -->
     <!-- / main body -->

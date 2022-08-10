@@ -19,7 +19,7 @@
 	}
 	
 	ul.tabs li.current{
-		background: lightgray;
+		background:ghostwhite;
 		color: #222;
 		font-weight:bold;
 	}
@@ -27,7 +27,7 @@
 	/*탭 안 내용*/
 	.tab-content{
 		display: none;
-		background:lightgray;
+		background:ghostwhite;
 		padding: 50px;
 		text-align:center;
 		height:auto;
@@ -58,7 +58,11 @@
 	#nutritionResult{border:1px solid gray;}
 	/*수량크기 조절*/
 		#comments input[type='number']{display:inline; width:10%; height:50%;}
-	
+	/*맨위사진*/
+		.overlay{
+	   height:350px;
+	    background-color:rgba(0,0,0,0);
+	}
 	
 	</style>
 	<script type="text/javascript">
@@ -359,19 +363,11 @@
 
 </head>
 <div class="wrapper row2 bgded"
-	style="background-image: url('/resources/images/demo/backgrounds/01.png');">
-	<div class="overlay">
-		<div id="breadcrumb" class="clear">
-			
-			<ul>
-				<li><a href="/">Home</a></li>
-				 <li><a class="drop" href="/food/foodNoClientBasicList">FOOD</a>
-				<li><a href="/food/foodNoClientBasicList">MY LUNCHBOX</a></li>
-			</ul>
-			
-		</div>
-	</div>
-</div>
+      style="background-image: url('/resources/images/common/lunchbox3.jpg');">
+      <div class="overlay">
+         
+      </div>
+   </div>
 <div class="wrapper row3">
   <main class="container clear"> 
     <!-- 장바구니 insert해주기 위한 값들 -->
@@ -420,20 +416,20 @@
             <textarea name="comment" id="comment" cols="10" rows="2" readonly="readonly"></textarea>
           </div> 
       </div>
-      
+      <br/><br/>
       	<!--===================기초대사량 계산 끝=========================== -->
       
       
    	<!--===================도시락 메뉴 리스트=========================== -->
      <article>
-     	 <h3><label for="comment">도시락 메뉴 고르기</label></h3>
+     	 <h3><label for="comment">나만의 건강 도시락 메뉴 고르기</label></h3>
 			<ul class="tabs">
 				<li class="tab-link current" data-tab="tab-1" >메뉴<br/></li>
-				<li class="tab-link " data-tab="tab-2" data-value="밥류" id="menu1">밥<br/></li>
-				<li class="tab-link" data-tab="tab-3" data-value="볶음류" id="menu2">볶음<br/></li>
-				<li class="tab-link" data-tab="tab-4" data-value="무침류" id="menu3">무침<br/></li>
-				<li class="tab-link " data-tab="tab-5" data-value="찜류" id="menu4">찜<br/></li>
-				<li class="tab-link" data-tab="tab-6" data-value="김치류" id="menu5">김치<br/></li>
+				<li class="tab-link " data-tab="tab-2" data-value="야채" id="menu1">야채<br/></li>
+				<li class="tab-link" data-tab="tab-3" data-value="메인" id="menu2">메인토핑<br/></li>
+				<li class="tab-link" data-tab="tab-4" data-value="서브" id="menu3">서브토핑<br/></li>
+				<li class="tab-link" data-tab="tab-6" data-value="사이드" id="menu5">사이드메뉴<br/></li>
+				<li class="tab-link " data-tab="tab-5" data-value="과일" id="menu4">과일<br/></li>
 			</ul>
 			<div id="tab-1" class="tab-content current">
 				카테고리 상관없이 원하는 메뉴 5가지를 골라주세요.
