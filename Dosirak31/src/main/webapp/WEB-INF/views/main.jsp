@@ -2,7 +2,11 @@
     pageEncoding="UTF-8"%>
  <%@ include file="/WEB-INF/views/common/common.jspf" %> 
  
-	<style type="text/css"></style>
+	<style type="text/css">
+	article.overlay{background-img:url('/resources/images/common/health.png');}
+	h6.heading{color:white;}
+	.white,a.white{color:white;}
+	</style>
 	<script type="text/javascript">
 		$(function(){
 			
@@ -16,37 +20,14 @@
 <!-- ##################  nav바 끝 ################### -->
 <!-- ##################  main 시작 ################### -->
 
-<div class="wrapper row2 bgded" style="background-image:url('/resources/images/common/main.png');">
+<div class="wrapper row2 bgded" style="background-image:url('/resources/images/common/main2.png');">
   <div class="overlay">
     <section id="pageintro" class="clear"> 
       <!-- ################################################################################################ -->
       <div class="center btmspace-80">
-        <h2 class="heading xxl uppercase btmspace-30">Dosirak31 HomePage</h2>
-        <p class="xl nospace capitalise">Welcome</p>
+        <h2 class="heading xxl uppercase btmspace-30">Dosirak31</h2>
+        <p class="xl nospace capitalise"><h2>함께라는 마법,</h2><br/><h3>dosirak31과 함께라면 건강한 삶은 현실이 된다.</h3></p>
       </div>
-      <ul class="nospace group services">
-        <li class="one_third first">
-          <article class="overlay"><a href="/health/hBoardList"><i class="fa fa-legal"></i></a>
-            <h6 class="heading">WorkOut</h6>
-            <p>웨이트/유산소 운동 영상을 보며 따라하고, 운동영상에 대한 회원들의 생각을 댓글로 소통합니다.&hellip;</p>
-            <footer><a href="/health/hBoardList">바로가기&raquo;</a></footer>
-          </article>
-        </li>
-        <li class="one_third">
-          <article class="overlay"><a href="/food/foodNoClientBasicList"><i class="fa fa-line-chart"></i></a>
-            <h6 class="heading">Food</h6>
-            <p>기초대사량을 계산해보고, 영양성분을 고려하여 나만의 도시락을 구성하여 구입할 수 있습니다.&hellip;</p>
-            <footer><a href="/food/foodNoClientBasicList">바로가기&raquo;</a></footer>
-          </article>
-        </li>
-        <li class="one_third">
-          <article class="overlay"><a href="/community/client/communityList"><i class="fa fa-archive"></i></a>
-            <h6 class="heading">Community</h6>
-            <p>커뮤니티 공간에서 회원들간의 소통을하고 관리자에게 묻고싶은 질문을 Q&A로 할 수 있습니다.&hellip;</p>
-            <footer><a href="/community/client/communityList">바로가기&raquo;</a></footer>
-          </article>
-        </li>
-      </ul>
     </section>
   </div>
 </div>
@@ -54,7 +35,30 @@
 <!-- ################################################################################################ -->
 <!-- ################################################################################################ -->
 <div class="wrapper row3">
-  <main class="container clear"> 
+  <main class="container clear">
+  <ul class="nospace group services">
+        <li class="one_third first">
+          <article class="overlay" style="background-image:url('/resources/images/common/healthIcon.png');">
+            <h6 class="heading">WorkOut</h6>
+            <p class="white">웨이트/유산소 운동 영상을 보며 따라하고, 운동영상에 대한 회원들의 생각을 댓글로 소통합니다.&hellip;</p>
+            <footer><a href="/health/hBoardList"  class="white">바로가기&raquo;</a></footer>
+          </article>
+        </li>
+        <li class="one_third">
+          <article class="overlay">
+            <h6 class="heading">Food</h6>
+            <p  class="white">기초대사량을 계산해보고, 영양성분을 고려하여 나만의 도시락을 구성하여 구입할 수 있습니다.&hellip;</p>
+            <footer><a href="/food/foodNoClientBasicList"  class="white">바로가기&raquo;</a></footer>
+          </article>
+        </li>
+        <li class="one_third">
+          <article class="overlay">
+            <h6 class="heading">Community</h6>
+            <p  class="white">커뮤니티 공간에서 회원들간의 소통을하고 관리자에게 묻고싶은 질문을 Q&A로 할 수 있습니다.&hellip;</p>
+            <footer><a href="/community/client/communityList"  class="white">바로가기&raquo;</a></footer>
+          </article>
+        </li>
+      </ul> 
     <!-- main body -->
     <!-- ################################################################################################ -->
     <div class="group">
