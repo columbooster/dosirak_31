@@ -27,10 +27,11 @@
 	/*탭 안 내용*/
 	.tab-content{
 		display: none;
-		background:ghostwhite;
+		background-image:url('/resources/images/common/salladLayout.jpg');
+		background-repeat:no-repeat;
 		padding: 50px;
 		text-align:center;
-		height:auto;
+		height:400px;
 		overflow:auto;
 	}
 	
@@ -43,9 +44,11 @@
 	.clear{clear:none;}
 	.clear, ul.nospace.clear.fd::after, .group {clear:none;}/*여긴보류*/
 	#comments ul{margin:0px;}
+	.white{color:white; font-size:20px;}
+	.wd{width:300px; height:230px; box-shadow:0 4px 8px 0 rgba(0,0,0,0.3), 0 6px 20px 0 rgba(0,0,0,0.15);}
 	/*이미지 정렬 및 탭안 li 가로정렬*/
-	.img-thumbnail{width:100px; height:100px;}
-	.li_control{width:200px; height:250px; border:1px solid black;}
+	.img-thumbnail{width:200px; height:150px;}
+	.li_control{width:200px; height:290px; box-shadow:0 4px 8px 0 rgba(0,0,0,0.3), 0 6px 20px 0 rgba(0,0,0,0.15);}
 	.one_half, .one_third, .two_third, .one_quarter, .two_quarter, .three_quarter{float:left;}
 	#foodMenu{display:none;}
 	/*폰트색*/
@@ -56,6 +59,7 @@
 	/*테이블 설정*/
 	#addFood{display:none;}
 	#nutritionResult{border:1px solid gray;}
+	th.text-center{background:ghostwhite; color:black;}
 	/*수량크기 조절*/
 		#comments input[type='number']{display:inline; width:10%; height:50%;}
 	/*맨위사진*/
@@ -432,7 +436,9 @@
 				<li class="tab-link " data-tab="tab-5" data-value="과일" id="menu4">과일<br/></li>
 			</ul>
 			<div id="tab-1" class="tab-content current">
-				카테고리 상관없이 원하는 메뉴 5가지를 골라주세요.
+				<span class="white">
+				카테고리 상관없이 원하는 메뉴 5가지를 골라주세요.<br/>
+				샐러드볼은 기본 제공됩니다.</span>
 			</div>
 			<div id="tab-2" class="tab-content" >
 					<ul id="foodMenu"class="nospace clear">

@@ -11,25 +11,11 @@
 	.kj{font-weight:bold; color:#EE6D00;}
 	.wd{width:200px; height:150px;}
 	</style>
-	<script type="text/javascript" src="/resources/include/js/coin-slider.min.js"></script>
-	<script type="text/javascript" src="/resources/include/js/origin.js"></script>
-	<link rel="stylesheet" href="/resources/include/css/coin-slider-styles.css" type="text/css" />
-		
+	
 	<script type="text/javascript">
 	
 	
-	$(function(){
-        $("#coin-slider").coinslider({ 
-        	navigation: false, delay: 2000, hoverPause: true ,
-        	width: 565, // width of slider panel
-        	height: 260, // height of slider panel	
-        	
-        });
-        
-        $(window).scroll(function(){
-    	    $(".top").css("opacity", 1 - $(window).scrollTop() / 250);
-    	  });
-    });
+	
 	</script>
 
 <body id="top">
@@ -81,34 +67,7 @@
           </li>
         </ul>
       </div>
-      <div class="top"><div class="title"><span></span></div></div>
-		<section>
-			<h1>대출 베스트 TOP3</h1>
-			   <div id='coin-slider'>
-				    <a href="http://store.seoul.go.kr/images/goods/12056_imgl.jpg" target="_blank">
-				        <img src="http://store.seoul.go.kr/images/goods/12056_imgl.jpg" >
-				        <span>
-				           1위. 2019 보건환경백서<br/>
-				          
-				        </span>
-				    </a>
-				    <a href="http://store.seoul.go.kr/images/goods/11936_imgl.jpg">
-				        <img src="http://store.seoul.go.kr/images/goods/11936_imgl.jpg" >
-				        <span>
-				           2위.BANPOBON-DONG(반포본동)<br/> 
-				           
-				        </span>
-				    </a>
-				    <a href="http://store.seoul.go.kr/images/goods/11916_imgl.jpg">
-				        <img src="http://store.seoul.go.kr/images/goods/11916_imgl.jpg" >
-				        <span>
-				           3위.앵커-서울역 일대 도시재생공간 8 )<br/> 
-				           
-				        </span>
-				    </a>
-				</div>
-			
-			</section>
+    
     </div>
     <!-- ################################################################################################ -->
     <!-- / main body -->
