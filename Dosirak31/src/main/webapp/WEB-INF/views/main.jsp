@@ -16,7 +16,7 @@
 <!-- ##################  nav바 끝 ################### -->
 <!-- ##################  main 시작 ################### -->
 
-<div class="wrapper row2 bgded" style="background-image:url('/resources/images/demo/backgrounds/01.png');">
+<div class="wrapper row2 bgded" style="background-image:url('/resources/images/common/main.png');">
   <div class="overlay">
     <section id="pageintro" class="clear"> 
       <!-- ################################################################################################ -->

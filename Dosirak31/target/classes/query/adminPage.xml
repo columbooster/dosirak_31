@@ -20,5 +20,29 @@
 	<select id="memberListCnt" resultType="int">
 		select count(*) from client
 	</select>
-
+	
+	<select id="ageGraph" resultType="memberGraph">
+		<![CDATA[
+		 select count(case when age<19 then 1 end) "lowerTwenty"
+        ,count(case when age between 20 and 29 then 1 end) "twenty"
+        ,count(case when age between 30 and 39 then 1 end) "thirdy"
+        ,count(case when age between 40 and 49 then 1 end) "fourty"
+        ,count(case when age between 50 and 59 then 1 end) "fifty"
+        ,count(case when age between 60 and 69 then 1 end) "sixty"
+        ,count(case when age >=70 then 1 end) "seventy"
+        from (
+            select to_char(sysdate,'yyyy')-concat(case when substr(client_rrn,8,1) in
+            ('1','2') then '19' else '20' end,substr(client_rrn,1,2)) as age
+            from client
+        )
+        ]]>
+	</select>
+	<select id="genderGraph" resultType="memberGraph">
+		select count(case when substr(client_rrn,8,1) in ('1','3') then 1 end) "man"
+		,count(case when substr(client_rrn,8,1) in ('2','4') then 1 end) "woman"
+		from client
+	</select>
+	<select id="countMember" resultType="memberGraph">
+		select NVL(count(*),0) today from client where to_char(client_date,'yyyymmdd')=to_char(sysdate,'yyyymmdd')
+	</select>
 </mapper>

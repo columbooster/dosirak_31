@@ -20,7 +20,9 @@
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-
+<style>
+	a{color:#FF8D2C;}
+</style>
 </head>
    <div class="wrapper row2 bgded"
       style="background-image: url('/resources/images/demo/backgrounds/01.png');">
@@ -28,10 +30,9 @@
          <div id="breadcrumb" class="clear">
             <!-- ################################################################################################ -->
             <ul>
-               <li><a href="#">Home</a></li>
-               <li><a href="#">Lorem</a></li>
-               <li><a href="#">Ipsum</a></li>
-               <li><a href="/health/hBoardList">WORKOUTS</a></li>
+             <li><a href="/client/successlogin">Home</a></li>
+			<li><a href="/health/hBoardList">WORKOUT</a></li>
+			<li><a href="/health/cardioList?health_category_no=2">CARDIO WORKOUT</a></li>
             </ul>
             <!-- ################################################################################################ -->
          </div>

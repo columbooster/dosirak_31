@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.dosirak31.admin.adminPage.service.AdminPageService;
+import com.dosirak31.admin.adminPage.vo.MemberGraphDTO;
 import com.dosirak31.common.vo.PageDTO;
 import com.dosirak31.food.order.vo.ClientVO;
 
@@ -32,6 +33,20 @@ public class AdminPageController {
 		//페이징 처리
 		model.addAttribute("pageMaker",new PageDTO(cvo,total));
 		return "adminPage/admin/memberManagement";
+	}
+	
+	/*주문매출로 이동*/
+	@RequestMapping(value="/memberGraph",method=RequestMethod.GET)
+	public String memberGraph(Model model){
+		
+		  MemberGraphDTO ageGraph= adminPageService.ageGraph();
+		  model.addAttribute("ageGraph",ageGraph); 
+		  MemberGraphDTO genderGraph=adminPageService.genderGraph();
+		  model.addAttribute("genderGraph",genderGraph); 
+		  MemberGraphDTO countMember=adminPageService.countMember();
+		  model.addAttribute("countMember",countMember);
+		 
+		return "adminPage/admin/memberGraph";  
 	}
 	
 	

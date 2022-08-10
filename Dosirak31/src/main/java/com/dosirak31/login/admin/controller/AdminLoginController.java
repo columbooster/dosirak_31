@@ -253,7 +253,25 @@ public class AdminLoginController {
 	
 }
 	
+	@RequestMapping("/logout")
+	public String logout(HttpSession session) {
+		
+		String url = "";
+		
+        session.invalidate();
+        
+        url = "completelogout";
+        
+		
+		return "redirect:"+url;
+	}
 	
+	
+	@RequestMapping("completelogout")
+	public String logout() {
+		
+		return "login/admin/adminloginmain"; //     /WEB-INF/views/login/client/completelogout.jsp�� �̵� , ���̵� ã�� ȭ��
+	}
 	
 	
 	

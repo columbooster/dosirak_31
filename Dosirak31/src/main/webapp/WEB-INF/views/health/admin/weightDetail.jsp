@@ -107,12 +107,6 @@
 			                <input type="button" value="글쓰기" id="weightInsertFormBtn" class="btn btn-success" />
 			                <input type="button" value="목록" id="weightListBtn" class="btn btn-success" />
 						</div>
-						<div class="row marketing">
-							<div class="col-lg-6">
-								<h4>운동영상 댓글</h4>
-								<p>댓글</p>
-							</div>
-						</div>
 
 					</figure>
 				</div>
