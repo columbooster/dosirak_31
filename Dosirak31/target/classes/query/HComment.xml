@@ -1,71 +1,54 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.dosirak31.hcomment.client.dao.HCommentDao">
-<<<<<<< HEAD
-	
-	
-	<!-- 댓글 전체 조회(해당 게시물번호에 대해) -->
-	
-	<select id="selectAll" parameterType="int" resultType="hComment">
-=======
-   
-   
-   <!-- 댓글 전체 조회(해당 게시물번호에 대해)  ORDER BY parent_health_comment_no asc, health_comment_no asc-->
-   
-   <select id="selectAll" parameterType="int" resultType="hComment">
->>>>>>> branch 'dev' of https://github.com/columbooster/dosirak_31.git
-        SELECT health_comment_no,health_no,NVL(parent_health_comment_no,health_comment_no) as parent_health_comment_no,health_comment_contents,client_id,reg_date,up_date
-        FROM hcomment
-        WHERE health_no = #{health_no} 
-        ORDER BY parent_health_comment_no asc, health_comment_no asc
-    </select>
-<<<<<<< HEAD
-    
-	<!-- 댓글 삭제 -->
-	<delete id="delete" parameterType="hComment">
-=======
 
-   <delete id="delete" parameterType="hComment">
->>>>>>> branch 'dev' of https://github.com/columbooster/dosirak_31.git
-        DELETE 
-        FROM hcomment
-        WHERE health_comment_no = #{health_comment_no} and client_id = #{client_id}
-    </delete>
-    
-<<<<<<< HEAD
-    <!-- 댓글 등록 -->
-=======
-    
->>>>>>> branch 'dev' of https://github.com/columbooster/dosirak_31.git
-    <insert id="insert" parameterType="hComment">
-        INSERT INTO hcomment(health_no, health_comment_no,parent_health_comment_no, health_comment_contents,client_id, reg_date, up_date)
-        VALUES
-<<<<<<< HEAD
-       	(#{health_no}, hcomment_seq.nextval, #{parent_health_comment_no,jdbcType=NUMERIC},#{health_comment_contents}, #{client_id}, sysdate, sysdate)
-=======
-          (#{health_no}, hcomment_seq.nextval, #{parent_health_comment_no,jdbcType=NUMERIC},#{health_comment_contents}, #{client_id}, sysdate, sysdate)
->>>>>>> branch 'dev' of https://github.com/columbooster/dosirak_31.git
-    </insert>
-    
-    <!-- 댓글 수정 -->
-    <update id="update" parameterType="hComment">
-        UPDATE hcomment
-        SET health_comment_contents = #{health_comment_contents}
-          , up_date = sysdate
-        WHERE health_comment_no = #{health_comment_no} and client_id = #{client_id}
-    </update>
-    
-    <!-- 관리자 페이지에서 댓글 조회-->
-    <select id="select" resultType="hComment">
-        select health_title, health_comment_no, client_id, health_comment_contents
-		from health h join hcomment hc
-		on h.health_no = hc.health_no
-    </select>
-    
-    <!-- 관리자 페이지에서 댓글 삭제-->
-    <delete id="deleteadmin" parameterType="hComment">
-        DELETE 
-        FROM hcomment
-        WHERE health_comment_no = #{health_comment_no}
-    </delete>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.dosirak31.hcomment.client.dao.HCommentDao">
+
+<!-- 댓글 전체 조회(해당 게시물번호에 대해) -->
+
+
+<select resultType="hComment" parameterType="int" id="selectAll">
+SELECT health_comment_no,health_no,NVL(parent_health_comment_no,health_comment_no) as parent_health_comment_no,health_comment_contents,client_id,reg_date,up_dateFROM hcommentWHERE health_no = #{health_no}ORDER BY parent_health_comment_no asc, health_comment_no asc 
+</select>
+
+<!-- 댓글 삭제 -->
+
+
+<delete parameterType="hComment" id="delete">
+DELETEFROM hcommentWHERE health_comment_no = #{health_comment_no} and client_id = #{client_id} 
+</delete>
+
+<!-- 댓글 등록 -->
+
+
+<insert parameterType="hComment" id="insert">
+INSERT INTO hcomment(health_no, health_comment_no,parent_health_comment_no, health_comment_contents,client_id, reg_date, up_date)VALUES(#{health_no}, hcomment_seq.nextval, #{parent_health_comment_no,jdbcType=NUMERIC},#{health_comment_contents}, #{client_id}, sysdate, sysdate) 
+</insert>
+
+<!-- 댓글 수정 -->
+
+
+<update parameterType="hComment" id="update">
+UPDATE hcomment
+SET health_comment_contents = #{health_comment_contents}, up_date = sysdate
+WHERE health_comment_no = #{health_comment_no} and client_id = #{client_id} 
+</update>
+
+<!-- 관리자 페이지에서 댓글 조회-->
+
+
+<select resultType="hComment" id="select">  
+select health_title, health_comment_no, client_id, health_comment_contents
+from health h join hcomment hc
+on h.health_no = hc.health_no
+</select>
+
+<!-- 관리자 페이지에서 댓글 삭제-->
+
+
+<delete parameterType="hComment" id="deleteadmin">
+DELETE FROM hcommen
+tWHERE health_comment_no = #{health_comment_no} 
+</delete>
+
 </mapper>

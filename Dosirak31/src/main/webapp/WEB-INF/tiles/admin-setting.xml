@@ -15,10 +15,6 @@
  	<definition name="community/admin/*" extends="basic">
  		<put-attribute name="main" value="/WEB-INF/views/community/admin/{1}.jsp"/>
  	</definition>
-<<<<<<< HEAD
-=======
- 	
->>>>>>> branch 'dev' of https://github.com/columbooster/dosirak_31.git
  	<definition name="health/admin/*" extends="basic">
  		<put-attribute name="main" value="/WEB-INF/views/health/admin/{1}.jsp"/>
  	</definition>
