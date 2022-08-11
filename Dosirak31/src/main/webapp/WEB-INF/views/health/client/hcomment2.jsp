@@ -22,7 +22,6 @@
 			
 			li {
     			background-color: #f9f9fa;
-    			border-bottom : 1px solid rgb(235,236,239);
     			list-style-type: none;
     			padding : 18px 18px 9px 18px;
 				}

@@ -23,18 +23,21 @@
 	</beans:bean>-->
 	
 	<beans:bean id="sessionCheckInterceptor" class="com.dosirak31.interceptor.SessionCheckInterceptor"/>
-	<interceptors>
-		<interceptor>
-			<mapping path="/health/**"/>
-			<mapping path="/community/**"/>
-			<mapping path="/foodReview/**"/>
-			<exclude-mapping path="/login/**"/>
-			<exclude-mapping path="/food/**"/>
-			<exclude-mapping path="login"/>
-			<exclude-mapping path="main"/>
-			<beans:ref bean="sessionCheckInterceptor"/>
-		</interceptor>
-	</interceptors>
+   <interceptors>
+      <interceptor>
+         <mapping path="/health/client/**"/>
+         <mapping path="/community/client/**"/>
+         <mapping path="/health/**"/>
+         <mapping path="/foodReview/client/**"/>
+         <exclude-mapping path="/login/**"/>
+         <exclude-mapping path="/food/**"/>
+         <exclude-mapping path="/health/admin/**"/>
+         <exclude-mapping path="login"/>
+         
+         <exclude-mapping path="main"/>
+         <beans:ref bean="sessionCheckInterceptor"/>
+      </interceptor>
+   </interceptors>
 	
 	<context:component-scan base-package="com.dosirak31.**" />
 	
