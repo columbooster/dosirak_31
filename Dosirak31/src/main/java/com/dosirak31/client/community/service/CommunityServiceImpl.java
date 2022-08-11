@@ -31,6 +31,8 @@ public class CommunityServiceImpl implements CommunityService {
 		return list;
 	}
 	
+	
+	
 
 	// 전체 레코드 수 구현
 	@Override
@@ -55,9 +57,15 @@ public class CommunityServiceImpl implements CommunityService {
 			cvo.setFile_thumb(thumbName);
 		}
 		
-		result = communityDao.communityInsert(cvo);
+		
+		  result = communityDao.communityInsert(cvo); 
+		
+		
 		return result;
 	}
+	
+	
+	
 	
 	// 글 상세 구현
 	
@@ -139,6 +147,12 @@ public class CommunityServiceImpl implements CommunityService {
 			result = replyDao.replyCnt(community_no);
 			return result;
 		}
+
+
+		
+
+
+		
 
 
 

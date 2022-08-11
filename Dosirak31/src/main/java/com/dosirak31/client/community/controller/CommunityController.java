@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.dosirak31.client.community.service.CommunityService;
@@ -33,21 +34,6 @@ public class CommunityController {
 	private CommunityService communityService;
 	
 	
-	
-	/*************************************************
-	 * 글 목록 구현하기 
-	 * 요청 URL: http://localhost:8080/community/communityList
-	 ************************************************
-	@GetMapping("/communityList")
-	public String communityList(@ModelAttribute CommunityVO cvo, Model model) {
-		log.info("communityList 호출 성공");
-		// 전체 레코드 조회
-		List<CommunityVO> communityList = communityService.communityList(cvo);
-		model.addAttribute("communityList", communityList);
-		
-		return "community/client/communityList";  // /WEB-INF/views/community/communityList.jsp
-	} */
-	
 	/*************************************************
 	 * 글 목록 구현하기(페이징 처리 목록 조회) 
 	 * 요청 URL: http://localhost:8080/community/communityList
@@ -55,9 +41,12 @@ public class CommunityController {
 	@GetMapping("/communityList")
 	public String communityList(@ModelAttribute CommunityVO cvo, Model model) {
 		log.info("communityList 호출 성공");
+		
+		
 		// 전체 레코드 조회
 		List<CommunityVO> communityList = communityService.communityList(cvo);
 		model.addAttribute("communityList", communityList);
+		
 		
 		// 전체 레코드 수 반환
 		int total = communityService.communityListCnt(cvo);
@@ -67,12 +56,7 @@ public class CommunityController {
 		return "community/client/communityList";  // /WEB-INF/views/community/communityList.jsp
 	}
 	
-	
-	
-	
-	
-	
-	
+
 	
 	
 	/*************************************************
@@ -96,12 +80,13 @@ public class CommunityController {
 		int result = 0;
 		String url = "";
 		
+		
 		result = communityService.communityInsert(cvo);
+		
 		if(result == 1) {
-			url = "/community/client/communityList";
-		} else {
-			url = "/community/client/writeForm";
-		}
+			url = "/community/client/communityList"; 
+		} else { 
+			 url = "/community/client/writeForm"; }
 		
 		return "redirect:"+url;
 	}

@@ -19,7 +19,12 @@
             </li>
           </ul>
         </li>
-        <li><a href="/community/client/communityList">COMMUNITY</a></li>
+        <li><a class="drop" href="/community/client/communityList">COMMUNITY</a>
+          <ul>
+            <li><a href="/community/client/communityList?community_category_no=0">FREE COMMUNITY</a></li>
+            <li><a href="/community/client/communityList?community_category_no=1">QnA COMMUNITY</a></li>
+          </ul>
+        </li>
         <li><a href="/mypage/client/mypageMain">MYPAGE</a></li>
         <li><a href="/client/logout">LOGOUT</a></li>
       </ul>
