@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 
 import com.dosirak31.food.order.dao.FoodOrderDao;
 import com.dosirak31.food.order.vo.OrderDetailVO;
+import com.dosirak31.food.order.vo.OrderGraphDTO;
 
 import lombok.AllArgsConstructor;
 
@@ -100,6 +101,22 @@ public class FoodOrderServiceImpl implements FoodOrderService {
 	public int paymentDelete(OrderDetailVO odv) {
 		int result=foodOrderDao.paymentDelete(odv);//배달 버튼-발송
 		return result;
+	}
+	
+	@Override
+	public OrderGraphDTO orderBeforeWeek() {
+		OrderGraphDTO orderBeforeWeek= foodOrderDao.orderBeforeWeek();
+		return orderBeforeWeek;
+	}
+	@Override
+	public OrderGraphDTO orderCurrentWeek() {
+		OrderGraphDTO orderCurrentWeek=foodOrderDao.orderCurrentWeek();
+		return orderCurrentWeek;
+	}
+	@Override
+	public OrderGraphDTO orderMonth() {
+		OrderGraphDTO orderMonth=foodOrderDao.orderMonth();
+		return orderMonth;
 	}
 
 }

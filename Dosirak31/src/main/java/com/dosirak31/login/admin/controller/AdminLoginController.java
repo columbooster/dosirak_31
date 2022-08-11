@@ -42,7 +42,7 @@ public class AdminLoginController {
 	/**************************************************
 	 	admin ·Î±×ÀÎ ¸ÞÀÎ È­¸éÀ¸·Î °¨
 	*************************************************/
-	@RequestMapping("/adminloginmain")
+	@RequestMapping("/login")
 	public String adminLoginForm() {
 		
 		return "login/admin/adminloginmain";
@@ -72,7 +72,7 @@ public class AdminLoginController {
 	@RequestMapping("successlogin")
 	public String successLogin() {
 		
-		return "login";
+		return "food/admin/foodAdminBasicList";
 	}
 	
 
@@ -253,7 +253,25 @@ public class AdminLoginController {
 	
 }
 	
+	@RequestMapping("/logout")
+	public String logout(HttpSession session) {
+		
+		String url = "";
+		
+        session.invalidate();
+        
+        url = "completelogout";
+        
+		
+		return "redirect:"+url;
+	}
 	
+	
+	@RequestMapping("completelogout")
+	public String logout() {
+		
+		return "login/admin/adminloginmain"; //     /WEB-INF/views/login/client/completelogout.jspï¿½ï¿½ ï¿½Ìµï¿½ , ï¿½ï¿½ï¿½Ìµï¿½ Ã£ï¿½ï¿½ È­ï¿½ï¿½
+	}
 	
 	
 	

@@ -4,7 +4,6 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import com.dosirak31.food.basic.dao.FoodBasicDao;
 import com.dosirak31.food.basic.file.FoodBasicFileUploadUtil;
 import com.dosirak31.food.basic.vo.FoodBasicVO;
@@ -70,5 +69,6 @@ public class FoodBasicServiceImpl implements FoodBasicService {
 		result=foodBasicDao.foodBasicUpdate(fbo);
 		return result;
 	}
+	
 	
 }

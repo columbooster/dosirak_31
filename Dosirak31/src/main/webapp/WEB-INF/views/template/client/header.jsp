@@ -1,11 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
  <%@ page trimDirectiveWhitespaces="true" %>
+ <style>
+ 	.logo{width:70px; height:40px;}
+ </style>
  <div class="wrapper row1">
   <header id="header" class="clear"> 
   
     <div id="logo" class="fl_left">
-      <h1><a href="/client/successlogin">DOSIRAK31</a></h1>
+      <h1><a href="/client/successlogin"><img class="logo" src="/resources/images/common/dosirak31Logo.png" /></a></h1>
     </div>
     <nav id="mainav" class="fl_right">
       <ul class="clear">

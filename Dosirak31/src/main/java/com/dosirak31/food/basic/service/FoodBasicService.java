@@ -3,7 +3,6 @@ package com.dosirak31.food.basic.service;
 import java.util.List;
 
 import org.springframework.web.bind.annotation.RequestBody;
-
 import com.dosirak31.food.basic.vo.FoodBasicVO;
 
 public interface FoodBasicService {
