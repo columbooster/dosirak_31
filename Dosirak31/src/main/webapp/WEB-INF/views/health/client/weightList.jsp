@@ -93,10 +93,9 @@
 		<div class="overlay">
 			<div id="breadcrumb" class="clear">
 				<ul>
-					<li><a href="#">Home</a></li>
-					<li><a href="#">Lorem</a></li>
-					<li><a href="#">Ipsum</a></li>
-					<li><a href="/health/hBoardList">WORKOUTS</a></li>
+					<li><a href="/client/successlogin">Home</a></li>
+					<li><a href="/health/hBoardList">WORKOUT</a></li>
+					<li><a href="/health/weightList?health_category_no=1">WEIGHT WORKOUT</a></li>
 				</ul>
 			</div>
 		</div>

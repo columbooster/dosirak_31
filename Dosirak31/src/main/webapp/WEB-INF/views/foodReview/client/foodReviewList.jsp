@@ -1,9 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file="/WEB-INF/views/common/common.jspf" %>
+		<style type="text/css">
+      /*이미지를 위한*/
+	
+		.overlay{
+	   height:350px;
+	   background-color:rgba(0,0,0,0);
+	}
 
-
-
+	</style>
 		<script type="text/javascript">
 			$(function() {
 				$(".paginate_button a").click(function(e) {
@@ -25,32 +31,14 @@
 </head>
 	<body>
 
-		
-<div class="wrapper row2 bgded" style="background-image:url('/resources/images/demo/backgrounds/01.png');">
-  <div class="overlay">
-    <div id="breadcrumb" class="clear"> 
-      
-      <ul>
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Lorem</a></li>
-        <li><a href="#">Ipsum</a></li>
-        <li><a href="/foodReview/client/foodReviewList">Review</a></li>
-      </ul>
-      
-    </div>
-  </div>
-</div>
-
-
-
-
-
-
-
-
-
-
-
+<!-- 이미지를 위한-->			
+<div class="wrapper row2 bgded"
+      style="background-image: url('/resources/images/common/review.jpg');">
+      <div class="overlay">
+         
+      </div>
+   </div>
+<!-- 이미지를 위한 끝-->		
 <!-- main body @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
 <div class="wrapper row3">
 	<main class="container clear"> 

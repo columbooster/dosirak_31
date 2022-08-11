@@ -3,6 +3,13 @@
 <%@ include file="/WEB-INF/views/common/common.jspf" %> 
  
       <style type="text/css">
+      /*이미지를 위한*/
+	
+		.overlay{
+	   height:350px;
+	   background-color:rgba(0,0,0,0);
+	}
+	 /*이미지를 위한 끝*/
       </style>
       <script type="text/javascript">
 				$(function() {
@@ -97,20 +104,14 @@
       
 </head>
 <body>
+<!-- 이미지를 위한-->		
 <div class="wrapper row2 bgded"
-	style="background-image: url('/resources/images/demo/backgrounds/01.png');">
-	<div class="overlay">
-		<div id="breadcrumb" class="clear">
-			
-			<ul>
-				<li><a href="/resources/index.html">Home</a></li>
-				<li><a href="/community/client/communityList">Community</a></li>
-			</ul>
-			
-		</div>
-	</div>
-</div>
-
+      style="background-image: url('/resources/images/common/community.jpg');">
+      <div class="overlay">
+         
+      </div>
+   </div>
+<!-- 이미지를 위한 끝-->		
 <div class="wrapper row3">
 	<main class="container clear">
 		<div class="contentContainer container">
