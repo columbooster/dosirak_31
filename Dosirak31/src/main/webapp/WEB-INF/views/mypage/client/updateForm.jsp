@@ -77,9 +77,9 @@
       <!-- ################################################################################################ -->
       <ul>
         <li><a href="#">Home</a></li>
-        <li><a href="#">Lorem</a></li>
-        <li><a href="#">Ipsum</a></li>
-        <li><a href="#">Sidebar Left</a></li>
+        <li><a href="/client/successlogin">Home</a></li>
+        <li><a href="/mypage/client/mypageMain">MYPAGE</a></li>
+        <li><a href="/mypage/client/mypageMain">MYPAGE</a></li>
       </ul>
       <!-- ################################################################################################ -->
     </div>

@@ -19,21 +19,20 @@
 	}
 	
 	ul.tabs li.current{
-		background: lightgray;
+		background:ghostwhite;
 		color: #222;
 		font-weight:bold;
 	}
 	
-	/*탭 안 내용*/
 	.tab-content{
 		display: none;
-		background:lightgray;
+		background-image:url('/resources/images/common/salladLayout.jpg');
+		background-repeat:no-repeat;
 		padding: 50px;
 		text-align:center;
-		height:auto;
+		height:400px;
 		overflow:auto;
 	}
-	
 	.tab-content.current{
 		display: inherit;
 		padding: 50px;
@@ -42,10 +41,12 @@
 	/*탭 안 음식관련 ul 가로 정렬 */
 	.clear{clear:none;}
 	.clear, ul.nospace.clear.fd::after, .group {clear:none;}/*여긴보류*/
+	.white{color:white; font-size:20px;}
 	#comments ul{margin:0px;}
+	.wd{width:300px; height:230px; box-shadow:0 4px 8px 0 rgba(0,0,0,0.3), 0 6px 20px 0 rgba(0,0,0,0.15);}
 	/*이미지 정렬 및 탭안 li 가로정렬*/
-	.img-thumbnail{width:100px; height:100px;}
-	.li_control{width:200px; height:250px; border:1px solid black;}
+	.img-thumbnail{width:200px; height:150px;}
+	.li_control{width:200px; height:290px; box-shadow:0 4px 8px 0 rgba(0,0,0,0.3), 0 6px 20px 0 rgba(0,0,0,0.15);}
 	.one_half, .one_third, .two_third, .one_quarter, .two_quarter, .three_quarter{float:left;}
 	#foodMenu{display:none;}
 	/*폰트색*/
@@ -56,10 +57,15 @@
 	/*테이블 설정*/
 	#addFood{display:none;}
 	#nutritionResult{border:1px solid gray;}
+	th.text-center{background:ghostwhite; color:black;}
 	/*수량크기 조절*/
 		#comments input[type='number']{display:inline; width:10%; height:50%;}
+	/*맨위 사진*/
 	
-	
+		.overlay{
+	   height:280px;
+	   background-color:rgba(0,0,0,0);
+	}
 	</style>
 	<script type="text/javascript">
 	<!--===================도시락 메뉴 탭 기능 =========================== -->
@@ -359,19 +365,11 @@
 
 </head>
 <div class="wrapper row2 bgded"
-	style="background-image: url('/resources/images/demo/backgrounds/01.png');">
-	<div class="overlay">
-		<div id="breadcrumb" class="clear">
-			
-			<ul>
-				<li><a href="/client/successlogin">Home</a></li>
-				 <li><a class="drop" href="/food/foodClientBasicList">FOOD</a>
-				<li><a href="/food/foodClientBasicList">MY LUNCHBOX</a></li>
-			</ul>
-			
-		</div>
-	</div>
-</div>
+      style="background-image: url('/resources/images/common/lunchbox3.jpg');">
+      <div class="overlay">
+         
+      </div>
+   </div>
 <div class="wrapper row3">
   <main class="container clear"> 
     <!-- 장바구니 insert해주기 위한 값들 -->
@@ -420,23 +418,25 @@
             <textarea name="comment" id="comment" cols="10" rows="2" readonly="readonly"></textarea>
           </div> 
       </div>
-      
+      <br/><br/>
       	<!--===================기초대사량 계산 끝=========================== -->
       
       
    	<!--===================도시락 메뉴 리스트=========================== -->
      <article>
-     	 <h3><label for="comment">도시락 메뉴 고르기</label></h3>
+     	 <h3><label for="comment">나만의 건강 도시락 메뉴 고르기</label></h3>
 			<ul class="tabs">
 				<li class="tab-link current" data-tab="tab-1" >메뉴<br/></li>
-				<li class="tab-link " data-tab="tab-2" data-value="밥류" id="menu1">밥<br/></li>
-				<li class="tab-link" data-tab="tab-3" data-value="볶음류" id="menu2">볶음<br/></li>
-				<li class="tab-link" data-tab="tab-4" data-value="무침류" id="menu3">무침<br/></li>
-				<li class="tab-link " data-tab="tab-5" data-value="찜류" id="menu4">찜<br/></li>
-				<li class="tab-link" data-tab="tab-6" data-value="김치류" id="menu5">김치<br/></li>
+				<li class="tab-link " data-tab="tab-2" data-value="야채" id="menu1">야채<br/></li>
+				<li class="tab-link" data-tab="tab-3" data-value="메인" id="menu2">메인토핑<br/></li>
+				<li class="tab-link" data-tab="tab-4" data-value="서브" id="menu3">서브토핑<br/></li>
+				<li class="tab-link" data-tab="tab-6" data-value="사이드" id="menu5">사이드메뉴<br/></li>
+				<li class="tab-link " data-tab="tab-5" data-value="드레싱" id="menu4">드레싱<br/></li>
 			</ul>
 			<div id="tab-1" class="tab-content current">
-				카테고리 상관없이 원하는 메뉴 5가지를 골라주세요.
+				<span class="white">
+				카테고리 상관없이 원하는 메뉴 5가지를 골라주세요.<br/>
+				샐러드볼은 기본 제공됩니다.</span>
 			</div>
 			<div id="tab-2" class="tab-content" >
 					<ul id="foodMenu"class="nospace clear">

@@ -3,6 +3,7 @@ package com.dosirak31.food.order.dao;
 import java.util.List;
 
 import com.dosirak31.food.order.vo.OrderDetailVO;
+import com.dosirak31.food.order.vo.OrderGraphDTO;
 
 public interface FoodOrderDao {
 	public int bagInsert(OrderDetailVO odv);//장바구니에 insert
@@ -22,4 +23,8 @@ public interface FoodOrderDao {
 	public List<OrderDetailVO> orderDetailHistory(int order_no);//주문 상세 내용
 	public int orderDelivery(OrderDetailVO odv);//배달 버튼-발송
 	public int paymentDelete(OrderDetailVO odv);//결제취소버튼
+	
+	public OrderGraphDTO orderBeforeWeek();//지난주 매출
+	public OrderGraphDTO orderCurrentWeek();//이번주 매출
+	public OrderGraphDTO orderMonth();//오늘,지난달,이번달 매출
 }
