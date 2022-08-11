@@ -1,13 +1,9 @@
-package com.dosirak31.mypage.review.vo;
-
-import com.dosirak31.common.vo.CommonVO;
+package com.dosirak31.mypage.client.vo;
 
 import lombok.Data;
-import lombok.EqualsAndHashCode;
 
 @Data
-@EqualsAndHashCode(callSuper = false)
-public class MypageReviewVO extends CommonVO{
+public class MypageClientVO {
 	
 	private int client_no			=0;			// 회원 일련번호
 	
@@ -20,15 +16,4 @@ public class MypageReviewVO extends CommonVO{
 	private String client_rrn		="";		// 회원 주민번호
 	private String client_date		="";		// 회원 등록일자
 	private String client_update	="";		// 회원 수정일자
-	
-	
-	private int review_no				=0;		// 리뷰 일련번호
-	private String review_contents		="";	// 리뷰 내용
-	private int review_score			=0;		// 리뷰 점수
-	private String review_date			="";	// 리뷰 작성일자
-	private int order_no				=0;		// 주문 일련번호
-	private String review_name			="";	// 리뷰 작성자
-	
-	
-	
 }
