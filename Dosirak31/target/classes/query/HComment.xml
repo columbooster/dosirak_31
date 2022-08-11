@@ -3,7 +3,7 @@
 <mapper namespace="com.dosirak31.hcomment.client.dao.HCommentDao">
 	
 	
-	<!-- 댓글 전체 조회(해당 게시물번호에 대해)  ORDER BY parent_health_comment_no asc, health_comment_no asc-->
+	<!-- 댓글 전체 조회(해당 게시물번호에 대해) -->
 	
 	<select id="selectAll" parameterType="int" resultType="hComment">
         SELECT health_comment_no,health_no,NVL(parent_health_comment_no,health_comment_no) as parent_health_comment_no,health_comment_contents,client_id,reg_date,up_date
@@ -11,24 +11,40 @@
         WHERE health_no = #{health_no} 
         ORDER BY parent_health_comment_no asc, health_comment_no asc
     </select>
-
+    
+	<!-- 댓글 삭제 -->
 	<delete id="delete" parameterType="hComment">
         DELETE 
-        FROM hcomment 
+        FROM hcomment
         WHERE health_comment_no = #{health_comment_no} and client_id = #{client_id}
     </delete>
     
+    <!-- 댓글 등록 -->
     <insert id="insert" parameterType="hComment">
         INSERT INTO hcomment(health_no, health_comment_no,parent_health_comment_no, health_comment_contents,client_id, reg_date, up_date)
         VALUES
-       	(#{health_no}, hcomment_seq.nextval, #{parent_health_comment_no,jdbcType=NUMERIC},#{health_comment_contents}, #{client_id}, to_date(sysdate,'YYYY-MM-DD HH24:MI:SS'), to_date(sysdate,'YYYY-MM-DD HH24:MI:SS'))
+       	(#{health_no}, hcomment_seq.nextval, #{parent_health_comment_no,jdbcType=NUMERIC},#{health_comment_contents}, #{client_id}, sysdate, sysdate)
     </insert>
     
+    <!-- 댓글 수정 -->
     <update id="update" parameterType="hComment">
         UPDATE hcomment
         SET health_comment_contents = #{health_comment_contents}
-          , up_date = to_date(sysdate,'YYYY-MM-DD HH24:MI:SS')
+          , up_date = sysdate
         WHERE health_comment_no = #{health_comment_no} and client_id = #{client_id}
     </update>
     
+    <!-- 관리자 페이지에서 댓글 조회-->
+    <select id="select" resultType="hComment">
+        select health_title, health_comment_no, client_id, health_comment_contents
+		from health h join hcomment hc
+		on h.health_no = hc.health_no
+    </select>
+    
+    <!-- 관리자 페이지에서 댓글 삭제-->
+    <delete id="deleteadmin" parameterType="hComment">
+        DELETE 
+        FROM hcomment
+        WHERE health_comment_no = #{health_comment_no}
+    </delete>
 </mapper>

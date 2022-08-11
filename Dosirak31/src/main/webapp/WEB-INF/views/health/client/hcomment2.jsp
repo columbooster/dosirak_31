@@ -1,11 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" isELIgnored="false" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ page trimDirectiveWhitespaces="true" %>
-<meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
-
+    pageEncoding="UTF-8"%>
+ <%@ include file="/WEB-INF/views/common/common.jspf" %> 
 	 
 		<link rel="shortcut icon" href="/resources/img/common/icon.png"/>
 		<link rel="apple-touch-icon" href="/resources/img/common/icon.png"/>
@@ -20,12 +15,12 @@
 			
 			ul{list-style:none;}
 			
-			li {
+			#reviewList > li {
+			
     			background-color: #f9f9fa;
-    			border-bottom : 1px solid rgb(235,236,239);
     			list-style-type: none;
     			padding : 18px 18px 9px 18px;
-				}
+			}
 			
 			.update{
 				font-size:9pt;
@@ -99,6 +94,10 @@
 			}
 			
 			
+		</style>
+		
+		<style>
+   			a{color:#FF8D2C;}
 		</style>
 	
 		<script type="text/javascript" src="/resources/include/js/jquery-1.12.4.min.js"></script>

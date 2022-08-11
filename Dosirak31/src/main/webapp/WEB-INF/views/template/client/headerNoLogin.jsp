@@ -20,11 +20,7 @@
           </ul>
         </li>
         <li><a href="/community/client/communityList">COMMUNITY</a></li>
-        <li><a class="drop" href="/client/loginmain">LOGIN</a>
-       	 <ul>
-            <li><a href="/client/loginmain">CLIENT LOGIN</a></li>
-            <li><a href="/food/foodAdminBasicList">ADMIN LOGIN</a></li>
-          </ul>
+        <li><a href="/client/loginmain">LOGIN</a>     
         </li>
         <li><a href="/signup/client/signupForm">SIGN UP</a></li>
       </ul>

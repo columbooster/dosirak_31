@@ -14,4 +14,9 @@ public interface HCommentService {
 
 	public int update(HCommentVO hvo);
 
+	public List<HCommentVO> select();
+
+	public int deleteadmin(HCommentVO hvo);
+
+
 }

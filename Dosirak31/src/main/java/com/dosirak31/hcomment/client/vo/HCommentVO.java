@@ -12,5 +12,8 @@ public class HCommentVO {
 	private String client_id;	//	작성자
 	private String reg_date; // 등록날짜
 	private String up_date; // 수정날짜
+	
+	private String health_title = "";
+	
 
 }

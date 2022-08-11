@@ -50,29 +50,21 @@
                <figure>
                   <header class="heading">${weightDetail.health_title }(조회수: ${weightDetail.health_hits })</header>
                   <!-------------------------------------------------- 동영상 & 소개 공간 ---------------------------------------------------->
-                  <div class="jumbotron">
-                     <section>
-                     <table>
-                        <tr>   
-                           <td> <iframe width="560" height="315"
-                              src="https://www.youtube.com/embed/${weightDetail.health_url }?mute=1&autoplay=1"></iframe>
-                           </td>
-                        </tr>               
-                        <tr>
-                           <td class="col-md-4">
-                           ${weightDetail.health_contents }
-                        
-                           </td>
-                        </tr>
-                        </table>
-                     </section>
+                  <div>
+                  <iframe width="560" height="315"
+                     src="https://www.youtube.com/embed/${weightDetail.health_url }?mute=1&autoplay=1"></iframe>
+               </div>
+               <div class="col-md-4">
+                ${weightDetail.health_contents }
+                </div>
+                
+                <div class="row marketing">
+                  <div class="col-lg-6">
+                     <jsp:include page="hcomment2.jsp" />
                   </div>
+               </div>
+              
                   
-                  <div class="row marketing">
-                     <div class="col-lg-6">
-                        <jsp:include page="hcomment2.jsp" />
-                     </div>
-                  </div>
             
                </figure>
             </div>

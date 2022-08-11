@@ -47,4 +47,22 @@ public class HCommentServiceImpl implements HCommentService{
 		return updatesu; // 업데이트 된 행의 갯수 반환
 	}
 
+	@Override
+	public List<HCommentVO> select() {
+		
+		List<HCommentVO> hvo = hcommentDao.select();
+		
+		return hvo; // health_no이 일치하는 객체 반환
+	}
+
+	@Override
+	public int deleteadmin(HCommentVO hvo){
+		 
+		int deletesu = hcommentDao.deleteadmin(hvo);
+	        
+		return deletesu; //삭제하고 완료된 행의 갯수 반환
+		
+	}
+
+
 }

@@ -5,17 +5,19 @@ import lombok.Data;
 @Data
 public class CommonVO {
 	
-	private int pageNum=0;	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È£
-	private int amount=0;	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
+	private int pageNum=0;	//ÆäÀÌÁö ¹øÈ£
+	private int amount=0;	//ÆäÀÌÁö¿¡ º¸¿©ÁÙ µ¥ÀÌÅÍ ¼ö
 	
 	
-	//ï¿½ï¿½ï¿½Ç°Ë»ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Êµï¿½(ï¿½Ë»ï¿½ï¿½ï¿½ï¿½, ï¿½Ë»ï¿½ï¿½Ü¾ï¿½)
+	//Á¶°Ç°Ë»ö½Ã »ç¿ëÇÒ ÇÊµå(°Ë»ö´ë»ó, °Ë»ö´Ü¾î)
 	private String search="";
 	private String keyword="";
+	
 	
 	public CommonVO() {
 		this(1,10);
 	}
+	
 	
 	public CommonVO(int pageNum,int amount) {
 		this.pageNum=pageNum;

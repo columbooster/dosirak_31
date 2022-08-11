@@ -37,7 +37,6 @@ public class HCommentController {
 		return "hcomment/hcomment";
 	}
 	
-	
 	//지정된 게시물의 모든 댓글을 가져오는 메서드
 	 @ResponseBody
 	 @GetMapping("/comments")  // /comments/health_no=1 GET방식
@@ -92,7 +91,6 @@ public class HCommentController {
 		 // 댓글을 등록하는 메서드
 		    @PostMapping("/comments")   // /ch4/comments?bno=1085
 		    public ResponseEntity<String> write(@RequestBody HCommentVO hvo, Integer health_no, HttpSession session) {
-		    	
 		    	
 		    	String client_id = (String)session.getAttribute("client_id"); 
 		        

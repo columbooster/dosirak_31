@@ -14,4 +14,9 @@ public interface HCommentDao {
 
 		public int update(HCommentVO hvo);
 
+		public List<HCommentVO> select();
+		
+		public int deleteadmin(HCommentVO hvo);
+		
+
 }
