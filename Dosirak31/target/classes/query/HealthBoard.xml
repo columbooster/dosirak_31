@@ -5,17 +5,18 @@
 		현재 파일에 정의된 SQL문 집합의 고유한 이름이다. 보통은 SQL문을 실행할 Dao 인터페이스 이름으로 설정 -->
 
 	<sql id="boardSearch">
-         <if test="search=='health_title'">
+		<if test="search=='health_title'">
          <![CDATA[health_title like '%' || #{keyword}||'%']]>
-      </if>     
-      <if test="search=='health_contents'">
+		</if>
+		<if test="search=='health_contents'">
          <![CDATA[health_contents like '%' || #{keyword}||'%']]>
-      </if>
-   </sql>
-	
+		</if>
+	</sql>
+
 	<!-- Workout 게시판 조회 -->
-		<!--  커뮤니티 게시판 리스트 조회(페이징 처리와 검색 처리) 및 댓글 갯수 구하기 PK_community_no-->
-	<select id="healthList" parameterType="healthBoard" resultType="healthBoard">
+	<!-- 커뮤니티 게시판 리스트 조회(페이징 처리와 검색 처리) 및 댓글 갯수 구하기 PK_community_no -->
+	<select id="healthList" parameterType="healthBoard"
+		resultType="healthBoard">
 		<![CDATA[
 		SELECT 
 				health_no,admin_id, health_title, to_char(health_date,'YYYY-MM-DD') as health_date, health_closed, health_hits,
@@ -26,33 +27,36 @@
 		  health_contents, health_url, health_img, health_category_no
            from health
         		 where ]]>
-        		 <trim prefix="(" suffix=") AND " prefixOverrides="AND">
-        		 		<include refid="boardSearch"></include>
-        		 </trim>
-        		 health_category_no = #{health_category_no} and
+		<trim prefix="(" suffix=") AND " prefixOverrides="AND">
+			<include refid="boardSearch"></include>
+		</trim>
+		health_category_no = #{health_category_no} and
         	<![CDATA[ 	rownum <= #{pageNum} * #{amount}
         	order by health_no desc
         		) healthList
         	WHERE rnum > (#{pageNum} - 1) * #{amount}
         	]]>
-	</select> 
-	
+	</select>
+
 	<!-- 전체 레코드 수 조회 -->
-   <select id="boardListCnt" parameterType="healthBoard" resultType="int">
-      select count(*) from health
-      <trim prefix="where(" suffix=")">
-         <include refid="boardSearch"></include>
-      </trim>
-   
-   </select>
-	
+	<select id="boardListCnt" parameterType="healthBoard"
+		resultType="int">
+		select count(*) from health
+		<trim prefix="where(" suffix=")">
+			<include refid="boardSearch"></include>
+		</trim>
+
+	</select>
+
 	<!-- 웨이트 & 유산소 동영상 상세 페이지를 위한 게시물 조회 -->
 	<select id="healthDetail" parameterType="healthBoard"
 		resultType="healthBoard">
 		SELECT health_no, health_title, to_char(health_date,
 		'YYYY-MM-DD') as health_date, health_closed,
-		health_hits, health_contents, health_url, health_img,
-		health_category_no, health_update, admin_id
+		health_hits,
+		health_contents, health_url, health_img,
+		health_category_no,
+		health_update, admin_id
 		FROM health
 		WHERE health_no
 		= #{health_no}
@@ -60,7 +64,7 @@
 
 	<!-- 게시글 조회수 증가 -->
 	<update id="healthHit" parameterType="healthBoard">
-	update health set health_hits=health_hits+1 where health_no=#{health_no}
+		update health set health_hits=health_hits+1 where health_no=#{health_no}
 	</update>
 
 	<!-- 게시물 등록 -->
@@ -72,7 +76,8 @@
 		INSERT INTO health(health_no, health_title, health_contents,
 		health_img, health_url, health_category_no, admin_id)
 		VALUES(#{health_no},
-		#{health_title}, #{health_contents}, #{health_img}, #{health_url},
+		#{health_title}, #{health_contents},
+		#{health_img}, #{health_url},
 		#{health_category_no}, 'dosirak31')
 	</insert>
 
@@ -86,13 +91,14 @@
 		health_date = sysdate,
 		health_url = #{health_url},
 		health_img = #{health_img}
-		
+
 		WHERE health_no = #{health_no}
 	</update>
 
 	<!-- 게시물 삭제 paramerType=board도 되고 int도 됨 board의 int값이라 둘다 가능 -->
 	<delete id="healthBoardDelete" parameterType="healthBoard">
-		delete from health where health_no=#{health_no}
+		delete from health
+		where health_no=#{health_no}
 	</delete>
-	
+
 </mapper>

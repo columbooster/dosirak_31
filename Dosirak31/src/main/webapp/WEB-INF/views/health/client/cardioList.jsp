@@ -2,11 +2,67 @@
 	pageEncoding="UTF-8"%>
 <%@ include file="/WEB-INF/views/common/common.jspf"%>
 
+<style type="text/css">
+
+/* 이미지 */
+img{
+width: 100%;
+height: 154px
+}
+
+/* 각 동영상 크기 */
+.health_div{
+width: 23%;
+float: left;
+margin-right: 10px;
+margin-top: 25px;
+}
+
+/* 동영상 배경 */
+main{
+background-color: white;
+
+}
+
+/* 컨텐츠 위치 */
+.contents{
+margin-left: 55.86px;
+}
+
+/* 게시물 작성자 & 조회수 */
+.health_writer_hits{
+font-size:smaller;
+margin-top:-8px;
+}
+
+/* 게시물 제목 */
+.health_title{
+font-weight: 550;
+margin-bottom: 8px;
+}
+
+/* 페이징 */
+.pagination{
+padding-top:30px;
+}
+
+/* 검색 */
+.search_bar{
+text-align: center;
+margin-bottom: 20px;
+}
+
+.search_space{
+width: 250px;
+}
+</style>
+
+
 <script type="text/javascript">
 	$(function() {
 		<!-- 이미지 클릭 시 운동 동영상 상세 페이지 이동을 위한 처리 이벤트 -->
 		$(".goImgDetail").click(function() {
-			let health_no = $(this).parents("tr").attr("data-num");
+			let health_no = $(this).parents("div").attr("data-num");
 			$("#health_no").val(health_no);
 			console.log("헬스번호 : " + health_no);
 			$("#detailForm").attr({
@@ -100,11 +156,11 @@
 			</div>
 		</div>
 	</div>
-	<div class="wrapper row3">
-		<main class="container clear">
+	<div>
+		<main>
 			<!-- main body -->
-			<div class="content">
-				<div id="gallery">
+			<div>
+				<div>
 					<figure>
 						<header class="heading">Cardio Exercise</header>
 						
@@ -114,52 +170,38 @@
 						</form>
 						
 						<!-------------------------------------------------- 유산소 게시판 운동 리스트(이미지) 시작 ---------------------------------------------------->
-						<div id="cardioList" class="table-height">
-							<table summary="헬스 게시판 리스트" class="table table-striped">
-							<tbody id="list" class="table-striped text-center">
+						<div id="cardioList" class="contents">
+							
+							
 								<c:choose>
 									<c:when test="${not empty cardioList }">
-										<c:forEach var="imgBoard" items="${cardioList }" 
-											varStatus="status">								
-											<tr class="text-center" data-num="${imgBoard.health_no }">
-												<td colspan="5"><img class="goImgDetail"
+										<c:forEach  var="imgBoard" items="${cardioList }" 
+											varStatus="status">		
+											<div class="health_div">
+											<div data-num="${imgBoard.health_no }">
+												<img class="goImgDetail"
 													src="/dosirak31img/health/${imgBoard.health_img }" /> 
-												</td>
-											</tr>
-										
-											<tr>
-							                     <th data-value="health_no" class="order text-center col-md-1">글번호</th>
-							                     <th class="text-left col-md-4">글제목</th>
-							                     <th data-value="health_date" class="order col-md-1">작성일</th>
-							                     <th class="text-center col-md-2">작성자</th>
-							                     <th class="text-center col-md-1">조회수</th>
-							                     
-							                </tr>
-											<tr class="text-center" data-num="${imgBoard.health_no }">
-												<td>${imgBoard.health_no }</td>
-												<td class="goDetail text-left">${imgBoard.health_title }</td>
-								                <td class="text-left">${imgBoard.health_date }</td>
-								                <td class="name">${imgBoard.admin_id }</td>
-								                <td class="read">${imgBoard.health_hits }</td>
-								                
-											</tr>
-													
+											</div>
+											<div data-num="${imgBoard.health_no }">
+												<div class="goDetail health_title">${imgBoard.health_title }</div>
+								                <div class="health_writer_hits">${imgBoard.admin_id }</div>
+								                <div class="health_writer_hits">${imgBoard.health_hits }views</div>
+											</div>	
+											</div>												
 										</c:forEach>
 									</c:when>
 									<c:otherwise>
-										<tr>
-											<td colspan="4" class="tac text-center">유산소 동영상(이미지)
-												게시물이 존재하지 않습니다</td>
-										</tr>
+										<div>
+											<div>유산소 동영상(이미지) 게시물이 존재하지 않습니다</div>
+										</div>
 									</c:otherwise>
 								</c:choose>
-								</tbody>
-							</table>
 						</div>
 					</figure>
 				</div>
+				
 				<!-------------------------------------------------- 유산소 게시판 운동 리스트(이미지) 끝 ---------------------------------------------------->
-
+				
 				<!-------------------------------------------------- 게시판 페이지 바 시작 ---------------------------------------------------->
 					<tag:pagination pageNum="${pageMaker.cvo.pageNum }" amount="${pageMaker.cvo.amount }"
 				startPage="${pageMaker.startPage }" endPage="${pageMaker.endPage }" prev="${pageMaker.prev }" next="${pageMaker.next }"/>
@@ -168,7 +210,7 @@
 				
 				<!-------------------------------------------------- 검색 기능 시작 ---------------------------------------------------->
 		         <div id="boardSearch" class="text-right">
-		            <form id="f_search" name="f_search" class="form-inline">
+		            <form id="f_search" name="f_search" class="form-inline search_bar">
 		            <%--페이징 처리를 위한 파라미터 --%>
 		            <input type="hidden" name="health_category_no" value="2">
 		            <input type="hidden" name="pageNum" id="pageNum" value="${pageMaker.cvo.pageNum }">
@@ -179,12 +221,13 @@
 		                     <option value="health_title">제목</option>
 		                     <option value="health_contents">내용</option>
 		                  </select>
-		                  <input type="text" name="keyword" id="keyword" value="검색어를 입력하세요" class="form-control"/>
+		                  <input type="text" name="keyword" id="keyword" value="검색어를 입력하세요" class="form-control search_space"/>
 		                  <button type="button" id="searchData" class="btn btn-success">검색</button>
 		               </div>
 		            </form>
 		         </div>
          		<!-------------------------------------------------- 검색 기능 끝 ---------------------------------------------------->         		
+         	
 			</div>
 			<!-- / main body -->
 			<div class="clear"></div>
