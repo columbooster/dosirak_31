@@ -26,6 +26,10 @@
 				goPage();
 			});
 			
+			$("#memberGraphBtn").click(function(){
+				location.href="/adminPage/memberGraph";
+			})
+			
 			
 		});//최상위함수
 		
@@ -34,7 +38,7 @@
 			
 			$("#f_search").attr({
 				"method":"get",
-				"action":"/adminPage/admin/memberManagement"
+				"action":"/adminPage/memberList"
 			})
 			$("#f_search").submit();
 		}
@@ -59,7 +63,7 @@
 				</form>
 			</div>
 			 <%--=======회원 목록 시작============--%>
-       
+       		<button type="button" class="btn btn-default text-right" id="memberGraphBtn">회원 통계</button>
 	
        <div id="comments">
    	

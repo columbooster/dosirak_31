@@ -39,6 +39,7 @@ public class AdminLoginController {
    @Autowired
    private JavaMailSender mailSender;
 
+<<<<<<< HEAD
    
    /**************************************************
        admin ·Î±×ÀÎ ¸ÞÀÎ È­¸éÀ¸·Î °¨
@@ -59,7 +60,26 @@ public class AdminLoginController {
       return "login/admin/adsearchid";
    
    }
-
+	
+	/**************************************************
+	 	admin ·Î±×ÀÎ ¸ÞÀÎ È­¸éÀ¸·Î °¨
+	*************************************************/
+	@RequestMapping("/login")
+	public String adminLoginForm() {
+		
+		return "login/admin/adminloginmain";
+		
+	}
+	
+	/**************************************************
+ 		admin ¾ÆÀÌµð Ã£±â È­¸éÀ¸·Î °¨
+	 *************************************************/
+	@RequestMapping("/adsearchid")
+	public String adSearchId() {
+	
+		return "login/admin/adsearchid";
+	
+	}
    /**************************************************
       admin ºñ¹Ð¹øÈ£ Ã£±â È­¸éÀ¸·Î °¨
     *************************************************/
@@ -67,6 +87,7 @@ public class AdminLoginController {
    public String adSearchPw() {
 
       return "login/admin/adsearchpw";
+
 
    }
    
@@ -76,7 +97,14 @@ public class AdminLoginController {
       return "food/admin/foodAdminBasicList";
    }
    
-
+	}
+	
+	@RequestMapping("successlogin")
+	public String successLogin() {
+		
+		return "food/admin/foodAdminBasicList";
+	}
+	
    /**************************************************
       admin ·Î±×ÀÎ
     *************************************************/
@@ -277,7 +305,27 @@ public class AdminLoginController {
    
    
    
-   
-
-   
+	@RequestMapping("/logout")
+	public String logout(HttpSession session) {
+		
+		String url = "";
+		
+        session.invalidate();
+        
+        url = "completelogout";
+        
+		
+		return "redirect:"+url;
+	}
+	
+	
+	@RequestMapping("completelogout")
+	public String logout() {
+		
+		return "login/admin/adminloginmain"; //     /WEB-INF/views/login/client/completelogout.jspï¿½ï¿½ ï¿½Ìµï¿½ , ï¿½ï¿½ï¿½Ìµï¿½ Ã£ï¿½ï¿½ È­ï¿½ï¿½
+	}
+	
+	
+	
+	
 }

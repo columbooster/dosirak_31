@@ -24,6 +24,9 @@
 				<!-- 관리자페이지 회원목록 -->
 		<typeAlias type="com.dosirak31.food.order.vo.ClientVO" alias="clientVO"/>
 		<typeAlias type="com.dosirak31.mypage.review.vo.MypageReviewVO" alias="mypage"/>
+		<!-- 관리자페이지 통계 -->
+		<typeAlias type="com.dosirak31.food.order.vo.OrderGraphDTO" alias="orderGraph"/>
+		<typeAlias type="com.dosirak31.admin.adminPage.vo.MemberGraphDTO" alias="memberGraph"/>
 		
 	</typeAliases>
 </configuration>
