@@ -49,6 +49,7 @@
 						if($("#search").val()!="all"){ // 제목 /내용/작성자 선택시 검색어 유효성 체크.
 							if(!chkData("#keyword","검색어를")) return;
 						}
+						$("#pageNum").val(1);
 						goPage();
 						
 					});
@@ -59,6 +60,18 @@
 						location.href = "/community/client/writeForm";
 					});
 					
+					// 제목 클릭시 상세 페이지 이동을 위한 처린 이벤트
+					$(".goDetail").click(function() {
+						let community_no = $(this).parents("tr").attr("data-num");
+						$("#community_no").val(community_no);
+						console.log("글번호 : " + community_no);
+						// 상세 페이지로 이동하기 위해 form 추가 (id : detailForm)
+						$("#detailForm").attr({
+							"method":"get",
+							"action":"/community/client/communityDetail"
+						});
+						$("#detailForm").submit();
+					});
 					
 					$(".paginate_button a").click(function(e) {
 						e.preventDefault();
@@ -87,14 +100,17 @@
 <div class="wrapper row3">
 	<main class="container clear">
 <h2 class="sub-header">Community 관리</h2>
-
+	
+				<form id="detailForm">
+					<input type="hidden" id="community_no" name="community_no" />
+				</form>
 
 	<%-- ==================== 검색 기능 시작 ========================= --%>
 				<div class="well">
 					<form id="f_search" class="form-inline">
 						<%-- 페이징 처리를 위한 파라미터 --%>
-						<input type="hidden" name="pageNum" value="${pageMaker.cvo.pageNum}">
-						<input type="hidden" name="amount" value="${pageMaker.cvo.amount}">
+						<input type="hidden" name="pageNum" id="pageNum" value="${pageMaker.cvo.pageNum}">
+						<input type="hidden" name="amount" id="amount" value="${pageMaker.cvo.amount}">
 						
 						<h3><span class="label label-success">검색조건</span> </h3>
 						<div class="form-group">

@@ -181,7 +181,7 @@
 									<td class="col-md-3">작성자</td>
 									<td class="col-md-3 text-left">${detail.client_id} (조회수: ${detail.community_hits})</td>
 									<td class="col-md-3">작성일</td>
-									<td class="col-md-3 text-left">${detail.community_date}</td>
+									<td class="col-md-3 text-left">${detail.community_date} (카테고리넘버: ${detail.community_category_no})</td>
 								</tr>
 								<tr>
 									<td class="col-md-4">글제목</td>

@@ -208,24 +208,23 @@
 				<table class="table table-bordered">
 							<colgroup>
 								<col width="20%" />
-								<col width="70%" />
-								<col width="10"  />
+								<col width="80%" />
 							</colgroup>
 							<tbody>
 								<tr>
 									<td>아이디</td>
-									<td class="text-left"><input type="text" name="client_id" id="client_id" class="form-control" />
+									<td class="text-left"><input type="text" name="client_id" id="client_id" class="form-control" placeholder="아이디는 영소문자,숫자로 구성된 6글자 이상으로 작성해주세요." />
 									<div><span class="id_input_re_1">사용 가능한 아이디입니다.</span>
 										<span class="id_input_re_2">아이디가 이미 존재합니다.</span></div>
 									</td>
 								</tr>
 								<tr>
 									<td>패스워드</td>
-									<td class="text-left"><input type="password" name="client_pw" id="client_pw" class="form-control" /></td>
+									<td class="text-left"><input type="password" name="client_pw" id="client_pw" class="form-control" placeholder="비밀번호는 영대소문자,숫자로 구성된 8글자 이상으로 작성해주세요" /></td>
 								</tr>
 								<tr>
 									<td>패스워드 확인</td>
-									<td class="text-left"><input type="password" name="client_pw_re" id="client_pw_re" class="form-control" /></td>
+									<td class="text-left"><input type="password" name="client_pw_re" id="client_pw_re" class="form-control" placeholder="비밀번호는 아이디와 중복될 수 없습니다." /></td>
 								</tr>
 								<tr>
 									<td>이름</td>
@@ -259,11 +258,13 @@
 								</tr>
 							</tbody>
 						</table>
-						<div class="text-right">
+						<div class="text-center">
 							<input type="button" value="회원가입" id="signupBtn" class="btn btn-success">
 							<input type="button" value="취소" id="cancleBtn" class="btn btn-success">
+						</div>
+						<div class="text-right">
 							<input type="button" value="로그인" id="loginBtn" class="btn btn-success">
-						</div>	
+						</div>		
 			
 			</form>
 		</section>

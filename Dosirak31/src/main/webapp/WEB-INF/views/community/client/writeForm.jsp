@@ -5,6 +5,7 @@
       <style type="text/css"></style>
       <script type="text/javascript">
 				$(function() {
+					
 					// 저장 버튼 클릭 시 처리 이벤트
 					$("#communityInsertBtn").click(function() {
 						// 입력값 체크
@@ -74,9 +75,7 @@
 								<tr>
 									<td>작성자</td>
 									<td class="text-left"><input type="text" name="client_id" id="client_id" class="form-control" value="<c:out value='${sessionScope.client_info.client_id}'/>" readonly="readonly" /></td>
-									<td class="text-left"><label><input type="checkbox" name="community_category_no" value="QnA">QnA</label>
-														  <label><input type="checkbox" name="community_category_no" value="community">community</label>
-									</td>
+									<td class="text-left"><label><input type="checkbox" name="community_category_no" id="community_category_no" value="1">QnA</label></td>
 								</tr>
 								<tr>
 									<td>글제목</td>
@@ -90,7 +89,7 @@
 								<tr>
 									<td>비밀번호</td>
 									<td class="text-left"><input type="text" name="community_pw" id="community_pw" class="form-control" /></td>
-									<td class="text-left"><label><input type="checkbox" name="community_closed" value="비밀글">비밀글</label></td>
+									<td class="text-left"><label><input type="checkbox" name="community_closed" id="community_closed" value="1">비밀글</label></td>
 								</tr>
 								<tr>
 									<td>파일첨부</td>

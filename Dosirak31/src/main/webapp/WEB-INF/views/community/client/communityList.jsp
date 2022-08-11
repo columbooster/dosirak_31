@@ -57,6 +57,7 @@
 						if($("#search").val()!="all"){ // 제목 /내용/작성자 선택시 검색어 유효성 체크.
 							if(!chkData("#keyword","검색어를")) return;
 						}
+						$("#pageNum").val(1);
 						goPage();
 						
 					});
@@ -72,6 +73,11 @@
 						let community_no = $(this).parents("tr").attr("data-num");
 						$("#community_no").val(community_no);
 						console.log("글번호 : " + community_no);
+						
+						let community_category_no = $(this).parents("tr").attr("data-numc");
+						$("#community_category_no").val(community_category_no);
+						console.log("카테고리번호 : " + community_category_no);
+						
 						// 상세 페이지로 이동하기 위해 form 추가 (id : detailForm)
 						$("#detailForm").attr({
 							"method":"get",
@@ -91,6 +97,7 @@
 				// 검색을 위한 실질적인 처리 함수
 				function goPage(){
 					if($("#search").val()=="all"){
+						$("#community_category_no").val($("#community_category_no"));
 						$("#keyword").val("");
 					}
 					$("#f_search").attr({
@@ -99,6 +106,9 @@
 					});
 					$("#f_search").submit();
 				}
+				
+			
+				
 				
 			</script>
       
@@ -114,33 +124,20 @@
 <!-- 이미지를 위한 끝-->		
 <div class="wrapper row3">
 	<main class="container clear">
+	
 		<div class="contentContainer container">
-				<!-- <div class="contentTit page-header"><h3 class="text-center">게시판 리스트</h3></div>  -->
-				
+			<c:if test="${pageMaker.cvo.community_category_no == 0}">
+				<div class="contentTit page-header"><h3 class="text-center">게시판 리스트</h3></div>
+			</c:if>
+			<c:if test="${pageMaker.cvo.community_category_no == 1}">
+				<div class="contentTit page-header"><h3 class="text-center">Q n A 리스트</h3></div>
+			</c:if>		
 				<form id="detailForm">
 					<input type="hidden" id="community_no" name="community_no" />
+					<input type="hidden" id="community_category_no" name="community_category_no" />
 				</form>
 				
-					<%-- ==================== 검색 기능 시작 ========================= --%>
-				<div id="communitySearch" class="contentBtn text-right">
-					<form id="f_search" name="f_search" class="form-inline">
-						<%-- 페이징 처리를 위한 파라미터 --%>
-						<input type="hidden" name="pageNum" value="${pageMaker.cvo.pageNum}">
-						<input type="hidden" name="amount" value="${pageMaker.cvo.amount}">
-						<div class="form-group">
-							<label>검색조건</label>
-							<select id="search" name="search" class="form-control">
-								<option value="all">전체</option>
-								<option value="community_title">제목</option>
-								<option value="community_contents">내용</option>
-								<option value="client_id">작성자</option>
-							</select>
-							<input type="text" name="keyword" id="keyword" value="검색어를 입력하세요" class="form-control">
-							<button type="button" id="searchData" class="btn btn-success">검색</button>
-						</div>
-					</form>
-				</div>	
-					<%-- ==================== 검색 기능 종료 ========================= --%>
+					
 				
 				<%-- ==================== 리스트 시작 ========================= --%>
 				<div id="communityList" class="table-height">
@@ -153,19 +150,33 @@
 								<th data-value="community_date" class="order col-md-1">작성일</th>
 								<th class="text-center col-md-1">조회수</th>
 								<th class="text-center col-md-4">이미지</th>
+								<th class="text-center col-md-1">카테고리넘버</th>
 							</tr>
 						</thead>
 						<tbody id="list" class="table-striped">
 							<!-- 데이터 출력 -->
 							<c:choose>
-								<c:when test="${not empty communityList }">
+								<c:when test="${not empty communityList}">
 									<c:forEach var="community" items="${communityList}" varStatus="status">
-										<tr class="text-center" data-num="${community.community_no}">
+										<tr class="text-center" data-num="${community.community_no}" data-numc="${community.community_category_no}">
 											<td>${community.community_no}</td>
+											<c:if test="${community.community_closed == 1}">
+											<td class="goDetail text-left">
+												<c:choose>
+													<c:when test="${community.client_id eq sessionScope.client_info.client_id || sessionScope.admin_info.admin_id != null}">
+														<c:out value="${community.community_title}" />	
+														<c:if test="${community.reply_cnt > 0}"><span class="reply_count">[${community.reply_cnt}]</span></c:if>
+													</c:when>
+													<c:otherwise>[비밀글]비밀글은 작성자와 관리자만 볼 수 있습니다.</c:otherwise>
+												</c:choose>
+											</td>
+											</c:if>
+											<c:if test="${community.community_closed == 0}">
 											<td class="goDetail text-left">
 												${community.community_title}
 												<c:if test="${community.reply_cnt > 0}"><span class="reply_count">[${community.reply_cnt}]</span></c:if>
 											</td>
+											</c:if>
 											<td class="name">${community.client_id}</td>
 											<td class="text-left">${community.community_date}</td>
 											<td class="text-center">${community.community_hits}</td>
@@ -177,6 +188,7 @@
 													<img src="/resources/images/common/noimage.png" />
 												</c:if>
 											</td>
+											<td class="text-center">${community.community_category_no}</td>
 										</tr>
 									</c:forEach>
 								</c:when>
@@ -191,17 +203,40 @@
 				</div>
 					<%-- ==================== 리스트 종료 ========================= --%>
 					
-				<%-- ======== 페이징 처리를 커스텀태그(pagination)를 정의============ --%>
-				<tag:pagination endPage="${pageMaker.endPage}" startPage="${pageMaker.startPage}" amount="${pageMaker.cvo.amount}" 
-				prev="${pageMaker.prev}" pageNum="${pageMaker.cvo.pageNum}" next="${pageMaker.next}" />		
-					
 					<%-- ==================== 글쓰기 버튼 출력 시작 ========================= --%>
 				<div class="contentBtn text-right">
 					<c:if test="${sessionScope.client_info.client_id != null}">
 						<input type="button" value="글쓰기" id="insertFormBtn" class="btn btn-success">
 					</c:if>
-				</div>	
+				</div>
 					<%-- ==================== 글쓰기 버튼 출력 종료 ========================= --%>
+					
+				<%-- ======== 페이징 처리를 커스텀태그(pagination)를 정의============ --%>
+				<tag:pagination endPage="${pageMaker.endPage}" startPage="${pageMaker.startPage}" amount="${pageMaker.cvo.amount}" 
+				prev="${pageMaker.prev}" pageNum="${pageMaker.cvo.pageNum}" next="${pageMaker.next}" />		
+					
+					
+				<%-- ==================== 검색 기능 시작 ========================= --%>
+				<div id="communitySearch" class="contentBtn text-center">
+					<form id="f_search" name="f_search" class="form-inline">
+						<%-- 페이징 처리를 위한 파라미터 --%>
+						<input type="hidden" name="pageNum" id="pageNum" value="${pageMaker.cvo.pageNum}">
+						<input type="hidden" name="amount" id="amount" value="${pageMaker.cvo.amount}">
+						<input type="hidden" id="community_category_no" name="community_category_no" value="${pageMaker.cvo.community_category_no}" />
+						<div class="form-group">
+							<select id="search" name="search" class="form-control">
+								<option value="all">전체</option>
+								<option value="community_title">제목</option>
+								<option value="community_contents">내용</option>
+								<option value="client_id">작성자</option>
+							</select>
+							<input type="text" name="keyword" id="keyword" value="검색어를 입력하세요" class="form-control">
+							<button type="button" id="searchData" class="btn btn-success">검색</button>
+						</div>
+					</form>
+				</div>	
+					<%-- ==================== 검색 기능 종료 ========================= --%>	
+					
 			</div>
 	</main>		
 </div>

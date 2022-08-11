@@ -19,9 +19,9 @@ public class CommunityVO extends CommonVO{
 	private String community_date;	//작성일시 
 	private int community_notify = 0;	//공지여부
 	private int community_hits = 0;		//조회수
-	private boolean community_closed;	//비공개여부
+	private int community_closed = 0;	//비공개여부
 	private String community_contents;	//게시글내용
-	private int community_category_no;	//게시판카테고리일련번호
+	private int community_category_no=0;	//게시판카테고리일련번호
 	private String community_update;	//게시판 수정일시
 	private int reply_cnt = 0;		//댓글개수
 	
