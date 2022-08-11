@@ -3,13 +3,14 @@
  <%@ include file="/WEB-INF/views/common/common.jspf" %> 
  
 	<style type="text/css">
-	.overlay{background-color:rgba(0,0,0,0); height:650px; }
+	.overlay{background-color:rgba(0,0,0,0); height:550px; }
 	h2{color:black; font-size:40px; }
 	h3{color:black; font-size:30px; }
 	.heading{font-weight:bold; font-size:40px;}
 	.fs{font-size:20px;}
-	.kj{font-weight:bold; color:#EE6D00;}
+	.kj{font-weight:bold; color:#a5d610;}
 	.wd{width:200px; height:150px;}
+	.green{color:#9bc224;}
 	</style>
 	<script type="text/javascript"></script>
 
@@ -26,8 +27,8 @@
       <div class="center btmspace-80">
         <h2 class="heading xxl uppercase btmspace-30"></h2>
         <p class="xl nospace capitalise"></p>
-        <p class="xl nospace capitalise"><br/><br/><br/><br/><br/><br/><br/><br/><br/>
-        <h2>함께라는 마법,</h2><br/><h3>dosirak31과 함께라면 건강한 삶은 현실이 된다.</h3></p>
+         <p class="xl nospace capitalise"><br/><br/><br/><br/><br/><br/><br/>
+        <h3>dosirak31과 함께라면 <span class="green">건강한 삶</span>은 현실이 된다.</h3></p>
       </div>
     </section>
   </div>
@@ -43,7 +44,7 @@
       <div class="one_third first"><img src="/resources/images/common/foodProduct.jpg" alt=""></div>
       <div class="two_third">
         <p class="heading">DOSIRAK31의<br/> 내맘대로 구성하는 건강도시락</p>
-        <p class="btmspace-80 fs">저희 DOSIRAK31은 다음과 같은 <span class="kj">3가지 약속</span>을 지키겠습니다. </p>
+        <p class="btmspace-50 fs">저희 DOSIRAK31은 다음과 같은 <span class="kj">3가지 약속</span>을 지키겠습니다. </p>
         <ul class="nospace group">
           <li class="one_third first">
             <h6 class="nospace btmspace-10"><a>1.DOSIRAK31 농장</a></h6>

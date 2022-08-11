@@ -64,7 +64,7 @@
 		#comments input[type='number']{display:inline; width:10%; height:50%;}
 	/*맨위사진*/
 		.overlay{
-	   height:350px;
+	   height:280px;
 	    background-color:rgba(0,0,0,0);
 	}
 	
@@ -412,7 +412,7 @@
 		    	 <input type="radio" name="gender" value="woman"/>여자
 		  </div>
 		   <div class="form-group">
-		  <button type="submit" id="submitBtn" class="btn btn-default">계산</button>
+		  <button type="submit" id="submitBtn" class="dosirakBtn">계산</button>
 		</div>
 
           <div class="block clear">
@@ -446,7 +446,7 @@
 		         		<!-- <img src="/dosirak31img/food/이미지이름"/> --> 
 				  		<img alt="식품이미지" class="img-thumbnail">
 			     			<div class="menuList"></div>
-			     			<button type="button" class="addBtn btn btn-default">추가</button>
+			     			<button type="button" class="addBtn dosirakBtn">추가</button>
 			     		</li>
 			     	</ul>   			
 			</div>
@@ -505,9 +505,9 @@
  		<div class="text-right">
  			도시락 수량<input type="number" value="1" id="amount" min="1"/>
  			<span id="totalprice"></span>
- 			<button type="button" class="btn btn-default" id="priceBtn">총금액 확인하기</button>
- 			<button type="button" class="btn btn-default text-right" id="bagBtn">장바구니</button>
- 			<button type="button" class="btn btn-default text-right" id="orderBtn">바로 구매하기</button>
+ 			<button type="button" class="dosirakBtn" id="priceBtn">총 금액</button>
+ 			<button type="button" class="dosirakBtn text-right" id="bagBtn">장바구니</button>
+ 			<button type="button" class="dosirakBtn text-right" id="orderBtn">바로 구매</button>
  		</div>
  	 <!--===================총금액,장바구니,바로구매 버튼 끝=========================== -->
     </div>

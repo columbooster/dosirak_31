@@ -193,7 +193,7 @@
   <footer id="footer" class="clear"> 
     <!-- ################################################################################################ -->
     <div class="one_quarter first">
-      <h6 class="title">Viral</h6>
+      <h6 class="title">Dosirak31</h6>
       <address class="btmspace-15">
       Company Name<br>
       Street Name &amp; Number<br>

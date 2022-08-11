@@ -63,7 +63,7 @@
 	/*맨위 사진*/
 	
 		.overlay{
-	   height:350px;
+	   height:280px;
 	   background-color:rgba(0,0,0,0);
 	}
 	</style>
