@@ -28,14 +28,14 @@
 		  
 	</head>
 	<body>
-		<%--이 부분은 개발 당시에는 사용하면 된다. (예외메시지를 확인하기 위해서) --%>
+		<%--이 부분은 개발 당시에는 사용하면 된다. (예외메시지를 확인하기 위해서)
 		<h4><c:out value="${exception.getMessage()}"></c:out></h4> 
 		<ul>
 			<c:forEach items="${exception.getStackTrace()}" var="stack">
 				<li><c:out value="${stack}"></c:out></li>
 			</c:forEach>
-		</ul>
-		<%-- 개발이 완료되면 이 부분을 주석해제 하면 된다. 
+		</ul> --%>
+		<%-- 개발이 완료되면 이 부분을 주석해제 하면 된다. --%>
 		<div class="alert alert-danger alert-dismissible fade in" role="alert" id="errorAlert">
 			<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 			<h4>예상하지 못한 오류가 발생했습니다.</h4>
@@ -47,7 +47,7 @@
 			<p>
 				<button type="button" class="btn btn-danger" id="main">홈으로</button>
 			</p>
-		</div>--%>
+		</div>
 		
 	</body>
 </html>

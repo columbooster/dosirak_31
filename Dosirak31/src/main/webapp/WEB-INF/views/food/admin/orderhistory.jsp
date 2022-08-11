@@ -193,7 +193,7 @@
 				<form id="f_search" name="f_search" class="form-inline">
 				<%--페이징 처리를 위한 파라미터 --%>
 				<input type="hidden" name="pageNum" value="${pageMaker.cvo.pageNum }" id="pageNum">
-				<input type="hidden" name="amount" value="${pageMaker.cvo.amount }"> <!-- ${pageMaker.cvo.amount } -->
+				<input type="hidden" name="amount" value="${pageMaker.cvo.amount }" id="amount"> <!-- ${pageMaker.cvo.amount } -->
 					<div class="form-group">
 						<select id="search" name="order_status_no" class="form-control">
 							<!--  <option value="2">전체내역</option>-->
@@ -201,7 +201,7 @@
 							<option value="4">주문취소내역</option>
 							<option value="5">배송완료내역</option>
 						</select>
-						<button type="button" class="btn btn-default text-right" id="orderGraphBtn">매출관리</button>
+						<button type="button" class="btn btn-default text-right" id="orderGraphBtn">매출 통계</button>
 					</div>
 				</form>
 			</div>

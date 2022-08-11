@@ -1,11 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
  <%@ page trimDirectiveWhitespaces="true" %>
+ <style>
+ 	.logo{width:70px; height:40px;}
+ </style>
  <div class="wrapper row1">
   <header id="header" class="clear"> 
   
     <div id="logo" class="fl_left">
-      <h1><a href="/">DOSIRAK31</a></h1>
+      <h1><a href="/"><img class="logo" src="/resources/images/common/dosirak31Logo.png" /></a></h1>
     </div>
     <nav id="mainav" class="fl_right">
       <ul class="clear">
@@ -20,11 +23,7 @@
           </ul>
         </li>
         <li><a href="/community/client/communityList">COMMUNITY</a></li>
-        <li><a class="drop" href="/client/loginmain">LOGIN</a>
-       	 <ul>
-            <li><a href="/client/loginmain">CLIENT LOGIN</a></li>
-            <li><a href="/food/foodAdminBasicList">ADMIN LOGIN</a></li>
-          </ul>
+        <li><a href="/client/loginmain">LOGIN</a> 	 
         </li>
         <li><a href="/signup/client/signupForm">SIGN UP</a></li>
       </ul>

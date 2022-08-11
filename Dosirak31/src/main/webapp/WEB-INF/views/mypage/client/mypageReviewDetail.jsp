@@ -45,9 +45,9 @@
     <div id="breadcrumb" class="clear"> 
       
       <ul>
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Lorem</a></li>
-        <li><a href="#">Ipsum</a></li>
+         <li><a href="/client/successlogin">Home</a></li>
+        <li><a href="/mypage/client/mypageMain">MYPAGE</a></li>
+        <li><a href="/mypage/client/mypageMain">MYPAGE</a></li>
         <li><a href="/foodReview/client/foodReviewList">Review</a></li>
       </ul>
       
