@@ -12,7 +12,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.dosirak31.mypage.client.service.MypageClientService;
 import com.dosirak31.mypage.client.vo.MypageClientVO;
-import com.dosirak31.mypage.review.vo.MypageReviewVO;
+
 
 import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j;

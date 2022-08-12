@@ -72,7 +72,7 @@
 				else {
 					$("#updateForm").attr({
 						"method":"post",
-						"action":"/mypage/client/cUpdateForm"
+						"action":"/mypage/client/mypageClientUpdate"
 					});
 					$("#updateForm").submit();
 				}
@@ -90,12 +90,12 @@
 			$("#mypageClientDeleteBtn").click(function() {
 				if(!chkData("#client_pw", "비밀번호를")) {
 					return;
-				} else	if(confirm("진짜 삭제할꺼?")) {
+				} else	if(confirm("정말 탈퇴하시겠습니까?\n(다시는 되돌릴수 없습니다.)")) {
 						goUrl = "/mypage/client/mypageClientDelete";
 						
 						$("#f_data").attr("action",goUrl);
 						$("#f_data").submit();
-						alert("삭제되었습니다.");
+						alert("탈퇴 완료되었습니다.");
 					} else {
 						alert("취소되었습니다.");
 					}
@@ -215,15 +215,13 @@
     <!-- ################################################################################################ -->
     <div class="content three_quarter"> 
       <!-- ################################################################################################ -->
-      <form id="f_updateForm" name="f_updateForm">
-      		<input type="hidden" id="client_id" name="client_id" value="${sessionScope.client_info.client_id }" />
-      </form>
+     
       
       <form name="f_data" id="f_data" method="post">
 		<input type="hidden" name="client_no" value="${sessionScope.client_info.client_no}"/>
 	  </form>
       
-      <section id="container">
+      <section id="container" style="width : 80%;">
 			<form id="updateForm" name="updateForm" class="form-horizontal">
 				<input type="hidden" id="client_no" name="client_no" value="${sessionScope.client_info.client_no}" />
 				<table class="table table-bordered">
@@ -258,7 +256,7 @@
 								<tr>
 									<td>주민등록번호</td>
 									<td class="text-left"><input type="text" name="client_rrn" id="client_rrn" class="form-control" maxlength="8" 
-									placeholder="ex) man =  910403-1 or 3, woman =  910403-2 or 4" 
+									placeholder="ex) 951026-1" 
 									value="<c:out value='${sessionScope.client_info.client_rrn}'/>"/>
 									</td>
 								</tr>
@@ -291,9 +289,9 @@
 							</tbody>
 						</table>
 						<div class="text-right">
-							<input type="button" value="회원탈퇴" id="mypageClientDeleteBtn" class="btn btn-success">
-							<input type="button" value="취소" id="cancleBtn" class="btn btn-success">
-							<input type="button" value="회원정보 수정" id="mypageClientUpdateBtn" class="btn btn-success">
+							<input type="button" value="회원탈퇴" id="mypageClientDeleteBtn" class="dosirakBtn">
+							<input type="button" value="취소" id="cancleBtn" class="dosirakBtn">
+							<input type="button" value="회원정보 수정" id="mypageClientUpdateBtn" class="dosirakBtn">
 						</div>	
 			
 			</form>

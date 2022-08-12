@@ -75,8 +75,8 @@
       <h6>Category</h6>
       <nav class="sdb_holder">
         <ul>
-          <li><a href="#">회원정보</a></li>
-          <li><a href="#">주문 내역</a>
+          <li><a href="/mypage/client/mypageMain">회원정보</a></li>
+          <li><a href="/mypage/client/mypageOrderList">주문 내역</a>
           <li><a href="/mypage/client/mypageReviewList">나의 리뷰</a>
             <ul>
               <li><a href="/foodReview/client/writeForm">리뷰 입력</a></li>
@@ -119,11 +119,9 @@
 		</section>
       </div>
       <div class="btn">
-      <input type="button" value="회원정보 수정" id="client_infoUpdateBtn" class="btn1">
-      <input type="button" value="회원정보 삭제" id="client_infoDeleteBtn" class="btn1">
+      <input type="button" value="회원정보 수정 및 탈퇴" id="client_infoUpdateBtn" class="dosirakBtn">
       </div>
-      <a href="/mypage/client/mypageClientList">예시 경로</a>
-      <a href="/mypage/client/cUpdateForm">예시 경로</a>
+      
       <!-- ################################################################################################ -->      
 <!-- ################################################################################################ -->
     </div>

@@ -21,4 +21,17 @@
 	<delete id="mypageClientDelete" parameterType="mypageClient">
 		DELETE from client where client_no = #{client_no}
 	</delete>
+	
+	<!-- 회원정보 수정 -->
+	<update id="mypageClientUpdate" parameterType="mypageClient">
+		UPDATE client
+		SET client_pw = #{client_pw},
+			client_name = #{client_name},
+			client_rrn = #{client_rrn},
+			client_email = #{client_email},
+			client_phone = #{client_phone},
+			client_address = #{client_address},
+			client_update = sysdate
+		WHERE client_id = #{client_id}
+	</update>
 </mapper>
