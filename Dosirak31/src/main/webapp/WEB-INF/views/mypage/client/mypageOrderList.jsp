@@ -150,7 +150,11 @@
            			<td>도시락이름</td>
            			<td>수량</td>
            			<td>가격</td>
-           			<td>이미지</td>
+           			<td>이미지1</td>
+           			<td>이미지2</td>
+           			<td>이미지3</td>
+           			<td>이미지4</td>
+           			<td>이미지5</td>
            			
            			
            		</tr>
@@ -175,7 +179,7 @@
 				<%--페이징 처리를 위한 파라미터 --%>
 				<input type="hidden" name="pageNum" value="${pageMaker.cvo.pageNum }" id="pageNum">
 				<input type="hidden" name="amount" value="${pageMaker.cvo.amount }" id="amount"> <!-- ${pageMaker.cvo.amount } -->
-				<input type="hidden" name="client_no" value="${sessionScope.client_info.client_no }" id="client_no"/>
+				<input type="hidden" id="client_no" value="${sessionScope.client_info.client_no}" name="client_no"/>	
 				</form>
 		
 		  <div id="comments">

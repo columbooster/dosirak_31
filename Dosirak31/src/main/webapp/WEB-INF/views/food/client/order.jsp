@@ -21,7 +21,7 @@
 	<script type="text/javascript">
 	 $(function(){
 			 /*주소 검색*/
-			  $("#postcodify_search_button").postcodifyPopUp(); 
+			  /* $("#postcodify_search_button").postcodifyPopUp();  */
 	 		/*배송지 정보에 주문자정보와 같게 했을때*/
 			 $("#same").click(function(){
 			        if($(this).is(":checked")){
