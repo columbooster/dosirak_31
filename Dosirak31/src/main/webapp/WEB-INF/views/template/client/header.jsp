@@ -3,6 +3,7 @@
  <%@ page trimDirectiveWhitespaces="true" %>
  <style>
  	.logo{width:70px; height:40px;}
+ 	.size{width:50px; height:40px;}
  </style>
  <div class="wrapper row1">
   <header id="header" class="clear"> 
@@ -23,7 +24,8 @@
           </ul>
         </li>
         <li><a href="/community/client/communityList">COMMUNITY</a></li>
-        <li><a href="/mypage/client/mypageMain">MYPAGE</a></li>
+        <li><a href="/food/bagList"><img class="size" src="/resources/images/common/bag.png"/></a></li>
+        <li><a href="/mypage/client/mypageMain"><img class="size" src="/resources/images/common/mypage.png"/></a></li>
         <li><a href="/client/logout">LOGOUT</a></li>
       </ul>
     </nav>

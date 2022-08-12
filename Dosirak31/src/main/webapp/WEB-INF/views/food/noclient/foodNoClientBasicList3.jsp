@@ -3,44 +3,6 @@
  <%@ include file="/WEB-INF/views/common/common.jspf" %> 
  
 	<style type="text/css">
-	/*기초대사량 계산*/
-	#age,#height,#weight{width:300px; height:70px; display:block; font-size:18px; margin:0 auto;}
-	.span1{font-size:20px; color:black;}
-	.color{color:blue;}
-	input[name='gender']{width:30px;height:30px;font-size:20pt}
-	.fdImg{display:none;}
-	/*radio button */
-	 .test_obj input[type="radio"] {
-        display: none;
-        
-    }
- 
-    .test_obj input[type="radio"] + span {
-        display: inline-block;
-        float:left;
-        padding: 15px 10px;
-        border: 1px solid #dfdfdf;
-        background-color: #ffffff;
-        color:black;
-        text-align: center;
-        cursor: pointer;
-        width:250px;
-        height:50px;
-    }
- 
-    .test_obj input[type="radio"]:checked + span {
-        background-color: #113a6b;
-        color: #ffffff;
-    }
-	
-	/* 검섹버튼 위치 */
-	.searchBtn{
-	text-align: right;
-    margin-right: 100px;
-	}
-	#comments input{width:80%;}
-	#centerda{margin:0 auto; text-align:center;}
-	
 	/*tab 만드는 css*/
 	ul.tabs{
 		margin: 0px;
@@ -58,19 +20,10 @@
 	
 	ul.tabs li.current{
 		background:ghostwhite;
-		
 		color: #222;
 		font-weight:bold;
 	}
-	 
-	input[type="submit"], #comments input[type="reset"] {
-    color: inherit;
-    background-color: ghostwhite;
-}
-tr:nth-child(even), #comments li:nth-child(even) {
-    color: inherit;
-    background-color: ghostwhite;
-}
+	
 	/*탭 안 내용*/
 	.tab-content{
 		display: none;
@@ -78,7 +31,6 @@ tr:nth-child(even), #comments li:nth-child(even) {
 		background-repeat:no-repeat;
 		padding: 50px;
 		text-align:center;
-		width:980px;
 		height:400px;
 		overflow:auto;
 	}
@@ -88,10 +40,6 @@ tr:nth-child(even), #comments li:nth-child(even) {
 		padding: 50px;
 		text-align:center;
 	}
-	td{color:black;}
-	#comments div {
-    color: black;
-}
 	/*탭 안 음식관련 ul 가로 정렬 */
 	.clear{clear:none;}
 	.clear, ul.nospace.clear.fd::after, .group {clear:none;}/*여긴보류*/
@@ -100,49 +48,26 @@ tr:nth-child(even), #comments li:nth-child(even) {
 	.wd{width:300px; height:230px; box-shadow:0 4px 8px 0 rgba(0,0,0,0.3), 0 6px 20px 0 rgba(0,0,0,0.15);}
 	/*이미지 정렬 및 탭안 li 가로정렬*/
 	.img-thumbnail{width:200px; height:150px;}
-	#comments li{margin:10px 10px;}
-	.li_control{width:190px; height:300px; background-color:ghostwhite;/*변경*/
+	.li_control{width:200px; height:290px; background-color:ghostwhite;/*변경*/
 	 box-shadow:0 4px 8px 0 rgba(0,0,0,0.3), 0 6px 20px 0 rgba(0,0,0,0.15);}
 	.one_half, .one_third, .two_third, .one_quarter, .two_quarter, .three_quarter{float:left;}
 	#foodMenu{display:none;}
 	/*폰트색*/
 	#tab-1{color:black;}
 	#total_price{color:orage; font-weight:bold;}
-	#sallad{width:300px; height:200px;}
+	
 	
 	/*테이블 설정*/
 	#addFood{display:none;}
 	#nutritionResult{border:1px solid gray;}
 	th.text-center{background:ghostwhite; color:black;}
-	.text-right {
-    text-align: -webkit-right;
-    }
-    #totalPrice{font-size:16px;}
 	/*수량크기 조절*/
 		#comments input[type='number']{display:inline; width:10%; height:50%;}
 	/*맨위사진*/
 		.overlay{
 	   height:280px;
 	    background-color:rgba(0,0,0,0);
-	    }
-	    
-	 /*동그라미*/
-	 .circle{
-	 	width:200px;
-	 	height:200px;
-	 	border-radius:50%;
-	 	font-size:20px;
-	 	color:black;
-	 	text-align:center;
-	 	line-height:70px;
-	 	display:inline-block;
-	 	float:left;
-	 	
-	 }
-	 
-	 #comment,#danResult{background-color: #a5d610;}
-	 #tanResult,#jiResult{border:1px solid #a5d610;}
-	 
+	}
 	
 	</style>
 	<script type="text/javascript">
@@ -175,14 +100,13 @@ tr:nth-child(even), #comments li:nth-child(even) {
 
 	       
 			$("#submitBtn").click(function(){
-				if($("input[name='gender']:radio:checked").length<1){
-					alert("성별을 선택하세요");
-					return;
-				}
-				else if(!chkData("#height","키를")) return;
+				if(!chkData("#height","키를")) return;
 				else if(!chkData("#weight","몸무게를")) return;
 				else if(!chkData("#age","나이를")) return;
-				else{
+				else if($("input[name='gender']:radio:checked").length<1){
+					alert("성별을 선택하세요");
+					return;
+				}else{
 					let gender=$("input[name='gender']").val();
 					let height=parseInt($("#height").val());
 					let weight=parseInt($("#weight").val());
@@ -194,15 +118,8 @@ tr:nth-child(even), #comments li:nth-child(even) {
 					}else if(gender=="woman"){
 						bmr=655+(9.6*weight)+(1.8*height)-(4.7*age);
 					}
-					bmr=bmr.toFixed(1);
-					let tanResult=(bmr*0.5/4).toFixed(1);
-					let danResult=(bmr*0.3/4).toFixed(1);
-					let jiResult=(bmr*0.2/9).toFixed(1);
-					$("#comment").append(" <br/> "+bmr+"kcal");
-					$("#tanResult").append("  <br/>"+tanResult+"g");
-					$("#danResult").append("  <br/>"+danResult+"g");
-					$("#jiResult").append("  <br/>"+jiResult+"g");
 					
+					$("#comment").html("당신의 기초대사량은 "+bmr+"kcal입니다.");
 				}
 			})
 			/*숫자만 입력되도록하는 함수*/
@@ -231,7 +148,6 @@ tr:nth-child(even), #comments li:nth-child(even) {
 							$ul.find(".addBtn").attr("data-num",food_no);
 							$ul.addClass("fd");
 							$ul.find(".img-thumbnail").attr("src","/dosirak31img/food/"+food_img);
-							$ul.find(".img-thumbnail").attr("data-name",food_img);
 							$ul.find(".menuList").html(food_name+food_volume+"g<br/>"+food_kcal+"kcal<br/>"+food_price+"원");
 							$div.append($ul);
 							
@@ -268,7 +184,6 @@ tr:nth-child(even), #comments li:nth-child(even) {
 							let food_protein=this.food_protein;
 							let food_fat=this.food_fat;
 							let food_kcal=this.food_kcal;
-							let food_img=this.food_img;
 							
 							/*ajax불러온것 화면 구성*/
 								
@@ -284,8 +199,7 @@ tr:nth-child(even), #comments li:nth-child(even) {
 							$tr.find(".dan").html(food_protein);
 							$tr.find(".ji").html(food_fat);
 							$tr.find(".price").html(food_price);
-							$tr.find(".fdImg").html(food_img);
-							$tr.find(".delete").html("<input type='button' value='삭제' class='foodDelete dosirakBtn'/>");
+							$tr.find(".delete").html("<input type='button' value='삭제' class='foodDelete'/>");
 							i++;
 							$tbody.append($tr);
 						
@@ -352,11 +266,7 @@ tr:nth-child(even), #comments li:nth-child(even) {
 				$(document).on("click","#bagBtn",function(){
 					
 					if($("#client_no").val()==""){
-						let login=confirm("로그인하시겠습니까?");
-						if(login){
-							location.href="/client/loginmain";
-						}
-						
+						alert("로그인해주셔야합니다.");
 						//로그인화면으로 이동 location.href="로그인가기위한url"
 					}else{
 						if($("#tabl>tbody>tr").length<6){
@@ -371,24 +281,19 @@ tr:nth-child(even), #comments li:nth-child(even) {
 						let order_quantity=parseInt($("#amount").val());
 						let price=parseInt($(".priceplus").html());
 						let order_price=order_quantity*price;
-						let food_img1=$("#addMenu>tr:nth-child(2)>.fdImg").html();
-						let food_img2=$("#addMenu>tr:nth-child(3)>.fdImg").html();
-						let food_img3=$("#addMenu>tr:nth-child(4)>.fdImg").html();
-						let food_img4=$("#addMenu>tr:nth-child(5)>.fdImg").html();
-						let food_img5=$("#addMenu>tr:nth-child(6)>.fdImg").html();
 						$("#dosirak_name").val(food_name1+"/"+food_name2+"/"+food_name3+"/"+food_name4+"/"+food_name5);
 						
-						$("#food_img1").val(food_img1);
-						$("#food_img2").val(food_img2);
-						$("#food_img3").val(food_img3);
-						$("#food_img4").val(food_img4);
-						$("#food_img5").val(food_img5);
+						$("#food_name1").val(food_name1);
+						$("#food_name2").val(food_name2);
+						$("#food_name3").val(food_name3);
+						$("#food_name4").val(food_name4);
+						$("#food_name5").val(food_name5);
 						
 						$("#order_quantity").val(order_quantity);
 						$("#order_price").val(order_price);
 						
 						$("#bagForm").attr({
-							"method":"get",
+							"method":"post",
 							"action":"/food/bagInsert"
 						})
 						$("#bagForm").submit();
@@ -401,16 +306,14 @@ tr:nth-child(even), #comments li:nth-child(even) {
 				/*주문버튼 눌렀을때*/
 				$("#orderBtn").click(function(){
 					if($("#client_no").val()==""){
-						let login=confirm("로그인하시겠습니까?");
-						if(login){
-							location.href="/client/loginmain";
-						}
+						alert("로그인해주셔야합니다.");
 						//로그인화면으로 이동 location.href="로그인가기위한url"
 					}else{
 						if($("#tabl>tbody>tr").length<6){
 							alert("도시락은 5가지의 메뉴를 골라주셔야 완성됩니다.");
 							return;
 						}
+					
 						let food_name1=$('#addMenu>tr:nth-child(2)>.name').html();
 						let food_name2=$('#addMenu>tr:nth-child(3)>.name').html();
 						let food_name3=$('#addMenu>tr:nth-child(4)>.name').html();
@@ -419,23 +322,16 @@ tr:nth-child(even), #comments li:nth-child(even) {
 						let order_quantity=parseInt($("#amount").val());
 						let price=parseInt($(".priceplus").html());
 						let order_price=order_quantity*price;
-						let food_img1=$("#addMenu>tr:nth-child(2)>.fdImg").html();
-						let food_img2=$("#addMenu>tr:nth-child(3)>.fdImg").html();
-						let food_img3=$("#addMenu>tr:nth-child(4)>.fdImg").html();
-						let food_img4=$("#addMenu>tr:nth-child(5)>.fdImg").html();
-						let food_img5=$("#addMenu>tr:nth-child(6)>.fdImg").html();
 						$("#dosirak_name").val(food_name1+"/"+food_name2+"/"+food_name3+"/"+food_name4+"/"+food_name5);
 						
-						$("#food_img1").val(food_img1);
-						$("#food_img2").val(food_img2);
-						$("#food_img3").val(food_img3);
-						$("#food_img4").val(food_img4);
-						$("#food_img5").val(food_img5);
+						$("#food_name1").val(food_name1);
+						$("#food_name2").val(food_name2);
+						$("#food_name3").val(food_name3);
+						$("#food_name4").val(food_name4);
+						$("#food_name5").val(food_name5);
 						
 						$("#order_quantity").val(order_quantity);
 						$("#order_price").val(order_price);
-						
-						
 						
 						$("#bagForm").attr({
 							"method":"post",
@@ -484,66 +380,45 @@ tr:nth-child(even), #comments li:nth-child(even) {
 	<!-- session값 있는지 확인   나중에 sessionScope.client_info.client_no-->
 	<input type="hidden" name="client_no" id="client_no" value="${sessionScope.client_info.client_no }"/>
 	<input type="hidden" name="dosirak_name" id="dosirak_name" />
-	<input type="hidden" name="food_img1" id="food_img1" />
-	<input type="hidden" name="food_img2" id="food_img2" />
-	<input type="hidden" name="food_img3" id="food_img3" />
-	<input type="hidden" name="food_img4" id="food_img4" />
-	<input type="hidden" name="food_img5" id="food_img5" />
+	<input type="hidden" name="food_name1" id="food_name1" />
+	<input type="hidden" name="food_name2" id="food_name2" />
+	<input type="hidden" name="food_name3" id="food_name3" />
+	<input type="hidden" name="food_name4" id="food_name4" />
+	<input type="hidden" name="food_name5" id="food_name5" />
 	<input type="hidden" name="order_quantity" id="order_quantity"/>
 	<input type="hidden" name="order_price" id="order_price"/>
 	</form>
 	<!-- 장바구니 insert해주기 위한 값들 끝-->
 	
 	<!--===================기초대사량 계산 시작=========================== -->
-   <div id="comments"> 
-         <div id="centerda">
+   <div id="comments">   
+         <label for="comment">기초대사량 계산</label>
        		<div class="form-inline">
-       		<label for="comment"><span class="span1">고객님의 건강정보를 분석하여<br/>
-       		 Dosirak31에서<span class="color"> 하루 영양 구성</span>을 제안합니다.<br/>
-       		 도시락을 드시는 분의 정보를 입력해주세요.</span>
-       	
-       		</label><br/>
-       		
-       		<div class="form-group">
-       		<label class="test_obj">
-       		 <div>성별을 클릭해주세요</div>
-		      <input type="radio" name="gender" value="man" id="radio1"/><span>남자</span>
-		      </label>
-		      <label class="test_obj">
-		       <input type="radio" name="gender" value="woman" id="radio2"/><span>여자</span>
-		       </label>
+		  <div class="form-group">
+		    <label class="sr-only" for="height">Enter Height</label>
+		    <input type="text" class="form-control" id="height" name="height" placeholder="키를 입력해주세요" onlyNumber>
+		  </div>
+		  <div class="form-group">
+		    <label class="sr-only" for="weight">Weight</label>
+		    <input type="text" class="form-control" id="weight" name="weight" placeholder="몸무게를 입력해주세요" onlyNumber>
+		  </div>
+		  <div class="form-group">
+		    <label class="sr-only" for="age">Age</label>
+		    <input type="text" class="form-control" id="age" name="age" placeholder="나이를 입력해주세요" onlyNumber>
+		  </div>
+		<div class="form-group">
+		      <input type="radio" name="gender" value="man"/>남자
 		     </div>
-		
-		  
-		   <div class="block clear">
-		    <div>키를 입력해주세요</div>
-		    <input type="text" class="form-control" id="height" name="height" placeholder="예:165" onlyNumber>
+		   <div class="form-group">
+		    	 <input type="radio" name="gender" value="woman"/>여자
 		  </div>
-		   <div class="block clear">
-		     <div>몸무게를 입력해주세요</div>
-		   
-		    <input type="text" class="form-control" id="weight" name="weight" placeholder="예:56"  onlyNumber>
-		  </div>
-		   <div class="block clear">
-		   <div>나이를 입력해주세요</div>
-		   
-		    <input type="text" class="form-control" id="age" name="age" placeholder="예:36"  onlyNumber>
-		  </div>
-		  <div class="block clear searchBtn">
-		  	<button type="submit" id="submitBtn" class="dosirakBtn text-right"> &nbsp;&nbsp;  계산하기 &nbsp;&nbsp;</button>
-		  </div>
-          <div class="form-group">
-         	
-          	<div class="circle " id="comment">기초대사량</div>
-          	
-          	<div class="circle" id="tanResult" >탄수화물</div>
-          	
-          	<div class="circle" id="danResult">단백질</div>
-          	<div class="circle" id="jiResult">지방</div>
-          	
-          </div>
-           <!--  <label for="comment">기초대사량 계산결과</label>
-            <textarea name="comment" id="comment" cols="10" rows="2" readonly="readonly"></textarea> -->
+		   <div class="form-group">
+		  <button type="submit" id="submitBtn" class="dosirakBtn">계산</button>
+		</div>
+
+          <div class="block clear">
+            <label for="comment">기초대사량 계산결과</label>
+            <textarea name="comment" id="comment" cols="10" rows="2" readonly="readonly"></textarea>
           </div> 
       </div>
       <br/><br/>
@@ -551,30 +426,20 @@ tr:nth-child(even), #comments li:nth-child(even) {
       
       
    	<!--===================도시락 메뉴 리스트=========================== -->
-   	<div class="block clear">
      <article>
      	 <h3><label for="comment">나만의 건강 도시락 메뉴 고르기</label></h3>
 			<ul class="tabs">
 				<li class="tab-link current" data-tab="tab-1" >메뉴<br/></li>
 				<li class="tab-link " data-tab="tab-2" data-value="야채" id="menu1">야채<br/></li>
-				<li class="tab-link" data-tab="tab-3" data-value="토핑" id="menu2">토핑<br/></li>
-				<li class="tab-link" data-tab="tab-4" data-value="사이드" id="menu3">사이드메뉴<br/></li>
+				<li class="tab-link" data-tab="tab-3" data-value="메인" id="menu2">메인토핑<br/></li>
+				<li class="tab-link" data-tab="tab-4" data-value="서브" id="menu3">서브토핑<br/></li>
+				<li class="tab-link" data-tab="tab-6" data-value="사이드" id="menu5">사이드메뉴<br/></li>
 				<li class="tab-link " data-tab="tab-5" data-value="과일" id="menu4">과일<br/></li>
 			</ul>
 			<div id="tab-1" class="tab-content current">
-			<div>
 				<span class="white">
-			DOSIRAK31 도시락 구성 방법</span></div>
-				<div>1. 원하는 메뉴 5가지를 골라주세요</div>
-				<div>2. 샐러드볼은 기본 제공됩니다.</div>
-				<div>
-				<img src="/resources/images/common/sallad.jpg" id="sallad">
-				</div>
-				<div>3. 하루 영양성분을 고려하면 더 건강한 식단을 만들 수 있습니다.</div>
-				<div>4. 다른 사람들의 후기가 궁금하다면?</div>
-				<div><a href="/foodReview/client/foodReviewList"><span class="color">리뷰 보러가기 &raquo;</span></a></div>
-				
-				</div>
+				카테고리 상관없이 원하는 메뉴 5가지를 골라주세요.<br/>
+				샐러드볼은 기본 제공됩니다.</span>
 			</div>
 			<div id="tab-2" class="tab-content" >
 					<ul id="foodMenu"class="nospace clear">
@@ -582,7 +447,7 @@ tr:nth-child(even), #comments li:nth-child(even) {
 		         		<!-- <img src="/dosirak31img/food/이미지이름"/> --> 
 				  		<img alt="식품이미지" class="img-thumbnail">
 			     			<div class="menuList"></div>
-			     			<button type="button" class="addBtn dosirakBtn3">추가</button>
+			     			<button type="button" class="addBtn dosirakBtn">추가</button>
 			     		</li>
 			     	</ul>   			
 			</div>
@@ -592,7 +457,6 @@ tr:nth-child(even), #comments li:nth-child(even) {
 			<div id="tab-6" class="tab-content "></div>
 				
 			</article>
-		</div>	
      	<!--===================도시락 메뉴 끝=========================== -->
      	<!--===================도시락 고르기 테이블 보여주는것 =========================== -->
       <div class="scrollable">
@@ -621,7 +485,6 @@ tr:nth-child(even), #comments li:nth-child(even) {
               <td class="ji text-center"></td>
               <td class="price text-center"></td>
               <td class="delete text-center"></td>
-              <td class="fdImg"></td>
             </tr>
            
           </tbody>
@@ -641,22 +504,20 @@ tr:nth-child(even), #comments li:nth-child(even) {
  	<!--===================도시락 고르기 테이블 보여주는것 끝 =========================== -->
  	<!--===================총금액,장바구니,바로구매 버튼 =========================== -->
  		<div class="text-right">
- 			도시락 수량<input type="number" value="1" id="amount" min="1"/><br/>
- 			<div>
+ 			도시락 수량<input type="number" value="1" id="amount" min="1"/>
  			<span id="totalprice"></span>
- 			<button type="button" class="dosirakBtn2" id="priceBtn">총 금액</button>
+ 			<button type="button" class="dosirakBtn" id="priceBtn">총 금액</button>
  			<button type="button" class="dosirakBtn text-right" id="bagBtn">장바구니</button>
  			<button type="button" class="dosirakBtn text-right" id="orderBtn">바로 구매</button>
- 			
- 			</div>
  		</div>
  	 <!--===================총금액,장바구니,바로구매 버튼 끝=========================== -->
-     </div> 
+    </div>
   <!-- ################################################################################################ --> 
     <!-- / main body -->
     <div class="clear"></div>
   </main>
 </div>
+
 
 </body>
 </html>
