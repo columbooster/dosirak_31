@@ -54,7 +54,7 @@
 	  				else if(!chkData("#order_client_phone","배달받을 고객의 번호를")) return;
 	  				else if(!chkData("#order_address","배달받을 주소를")) return; 
 	  			
-		    	  //주문 번호, 상품명, 가격, 회원 이름, 이메일, 연락처
+		    	  
 			    	 let name=$("#cn").html();
 			    	 let phone=$("#cp").html();
 			    	 let email=$("#ce").html();
@@ -215,11 +215,11 @@
      	<form id="orderInsert">
      		<input type="hidden" name="client_no" id="client_no" value="${sessionScope.client_info.client_no }"/>
 			<input type="hidden" name="dosirak_name" value="${order1.dosirak_name} "/>
-			<input type="hidden" name="food_name1" id="isForm"value="${order1.food_name1}" />
-			<input type="hidden" name="food_name2" value="${order1.food_name2}"  />
-			<input type="hidden" name="food_name3" value="${order1.food_name3}" />
-			<input type="hidden" name="food_name4" value="${order1.food_name4}" />
-			<input type="hidden" name="food_name5" value="${order1.food_name5}"  />
+			<input type="hidden" name="food_img1" id="isForm"value="${order1.food_img1}" />
+			<input type="hidden" name="food_img2" value="${order1.food_img2}"  />
+			<input type="hidden" name="food_img3" value="${order1.food_img3}" />
+			<input type="hidden" name="food_img4" value="${order1.food_img4}" />
+			<input type="hidden" name="food_img5" value="${order1.food_img5}"  />
 			<input type="hidden" name="order_quantity" value="${order1.order_quantity}" />
 			<input type="hidden" name="order_price" value="${order1.order_price}" />
      	</form>

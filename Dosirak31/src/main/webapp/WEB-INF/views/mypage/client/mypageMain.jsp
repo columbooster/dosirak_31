@@ -41,6 +41,10 @@
 				buttonCheck = 2;
 			}); 
 		});
+		
+		function orderList(client_no){
+			location.href="/mypage/client/mypageOrderList?client_no="+client_no;
+		}
 	</script>
 	
 	
@@ -76,7 +80,7 @@
       <nav class="sdb_holder">
         <ul>
           <li><a href="/mypage/client/mypageMain">회원정보</a></li>
-          <li><a href="/mypage/client/mypageOrderList">주문 내역</a>
+          <li><a href="javascript:orderList(${sessionScope.client_info.client_no })">주문 내역</a>
           <li><a href="/mypage/client/mypageReviewList">나의 리뷰</a>
             <ul>
               <li><a href="/foodReview/client/writeForm">리뷰 입력</a></li>

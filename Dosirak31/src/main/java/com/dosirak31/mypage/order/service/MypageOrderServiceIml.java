@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.dosirak31.common.file.FileUploadUtil;
+import com.dosirak31.food.order.vo.OrderDetailVO;
 import com.dosirak31.mypage.order.dao.MypageOrderDao;
 import com.dosirak31.mypage.order.vo.MypageOrderVO;
 
@@ -17,18 +18,18 @@ public class MypageOrderServiceIml implements MypageOrderService {
 	@Setter(onMethod_ = @Autowired)
 	private MypageOrderDao mypageOrderDao;
 	
-	// 주문내역 조회
+	// 二쇰Ц�궡�뿭 議고쉶
 	@Override
-	public List<MypageOrderVO> mypageOrderList(MypageOrderVO movo) {
-		List<MypageOrderVO> list = null;
-		list = mypageOrderDao.mypageOrderList(movo);
+	public List<OrderDetailVO> mypageOrderList(OrderDetailVO odv) {
+		List<OrderDetailVO> list = null;
+		list = mypageOrderDao.mypageOrderList(odv);
 		return list;
 	}
 	
-	// 주문내역 레코드 수 조회
+	// 二쇰Ц�궡�뿭 �젅肄붾뱶 �닔 議고쉶
 	@Override
-	public int mypageOrderListCnt(MypageOrderVO movo) {
-		return mypageOrderDao.mypageOrderListCnt(movo);
+	public int mypageOrderListCnt(OrderDetailVO odv) {
+		return mypageOrderDao.mypageOrderListCnt(odv);
 	}
 
 	@Override
