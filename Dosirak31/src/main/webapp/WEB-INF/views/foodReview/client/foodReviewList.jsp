@@ -62,6 +62,7 @@
 				            <article>
 				              <header>
 				                <figure class="avatar"><img src="/resources/images/demo/avatar.png" alt=""></figure>
+				                <div>${review.dosirak_name}</div>
 				                <address>
 				                By <a href="#">${review.review_name}</a>
 				                </address>

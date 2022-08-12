@@ -3,6 +3,17 @@
 <%@ include file="/WEB-INF/views/common/common.jspf" %>
 	
 	<style type="text/css">
+	 section#content ul li { display:inline-block; margin:10px; }
+	 section#content div.goodsThumb img { width:200px; height:200px; }
+	 section#content div.goodsName { padding:10px 0; text-align:center; }
+	 section#content div.goodsName a { color:#000; }
+	 section#content ul.client_info{margin:0px 0px;}
+	 section#content ul li { border:5px solid #eee; padding:10px 20px; margin:40px 0px 0px 0px; width:500px; height:250px;}
+	 section#content .client_info span { font-size:15px; font-weight:bold; display:inline-block; width:100px; margin-right:10px; }
+	 
+	</style>
+	
+	<style type="text/css">
 			.btn{
 				float: right;
 			}
@@ -20,7 +31,7 @@
 			// 회원수정버튼 클릭시 처리 이벤트
 			$("#client_infoUpdateBtn").click(function() {
 				
-				buttonCheck = 1;
+				location.href = "/mypage/client/cUpdateForm";
 			});
 			
 			
@@ -64,9 +75,9 @@
       <h6>Category</h6>
       <nav class="sdb_holder">
         <ul>
-          <li><a href="#">회원정보</a></li>
-          <li><a href="#">주문 내역</a>
-          <li><a href="/mypage/client/mypageReviewList">내가 쓴 리뷰들</a>
+          <li><a href="/mypage/client/mypageMain">회원정보</a></li>
+          <li><a href="/mypage/client/mypageOrderList">주문 내역</a>
+          <li><a href="/mypage/client/mypageReviewList">나의 리뷰</a>
             <ul>
               <li><a href="/foodReview/client/writeForm">리뷰 입력</a></li>
               
@@ -85,42 +96,32 @@
       <form>
       	<input type="hidden" name="client_no" value="${sessionScope.client_info.client_no }">
       </form> 
-      <div class="scrollable">
-        <table>
-          <tbody>
-            <tr>
-              <th class="one_quarter">회원아이디</th>
-              <td class="one_quarter">${client_info.client_id}</td>
-            </tr>
-          
-          
-            <tr>
-              <th class="one_quarter">회원비밀번호</th>
-              <td class="one_half">${client_info.client_pw }</td>
-            </tr>
-            <tr>
-              <th class="one_quarter">회원이름</th>
-              <td class="one_half">${client_info.client_name }</td>
-            </tr>
-            <tr>
-              <th class="one_quarter">회원이메일</th>
-              <td class="one_half">${client_info.client_email }</td>
-            </tr>
-            <tr>
-              <th class="one_quarter">회원핸드폰번호</th>
-              <td class="one_half">${client_info.client_phone}</td>
-            </tr>
-            <tr>
-              <th class="one_quarter">회원 주소</th>
-              <td class="one_half">${client_info.client_address}</td>
-            </tr>
-          </tbody>
-        </table>
+      <div id="comments">
+        <section id="content">
+ 
+					 <ul class="client_info">
+					 
+					  <li>		
+					  <div>
+					   <p><span>회원아이디</span>${client_info.client_id }</p>
+					   <p><span>회원비밀번호</span>${client_info.client_pw }</p>
+					   <p><span>회원이름</span>${client_info.client_name}</p>
+					   <p><span>회원이메일</span>${client_info.client_email}</p>
+					   <p><span>핸드폰번호</span>${client_info.client_phone}</p>
+					   <p><span>회원주소</span>${client_info.client_address}</p>
+					   <p><span>가입일</span>${client_info.client_date}</p>
+					  <c:if test="${not empty client_info.client_update}">
+					  	 <p><span>정보 변경일</span>${client_info.client_update }</p>
+					   </c:if>		   
+					  </div>				  
+					  </li>
+					 </ul>				
+		</section>
       </div>
       <div class="btn">
-      <input type="button" value="회원정보 수정" id="client_infoUpdateBtn" class="btn1">
-      <input type="button" value="회원정보 삭제" id="client_infoDeleteBtn" class="btn1">
+      <input type="button" value="회원정보 수정 및 탈퇴" id="client_infoUpdateBtn" class="dosirakBtn">
       </div>
+      
       <!-- ################################################################################################ -->      
 <!-- ################################################################################################ -->
     </div>

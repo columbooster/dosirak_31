@@ -6,15 +6,16 @@ import lombok.Data;
 public class ClientLoginVO {
 	
 
-	private int client_no; //È¸¿øÀÏ·Ã¹øÈ£
-	private String client_id; //È¸¿ø¾ÆÀÌµğ
-	private String client_pw; //È¸¿øºñ¹Ğ¹øÈ£
-	private String client_name; //È¸¿øÀÌ¸§
-	private String client_email; //È¸¿øÀÌ¸ŞÀÏ
-	private String client_phone; //È¸¿øÀüÈ­¹øÈ£
-	private String client_address; //È¸¿øÁÖ¼Ò
-	private String client_date; //È¸¿ø°¡ÀÔÀÏ
-	private String client_update; //È¸¿øÁ¤º¸¼öÁ¤ÀÏ
+	private int client_no; //È¸ï¿½ï¿½ï¿½Ï·Ã¹ï¿½È£
+	private String client_id; //È¸ï¿½ï¿½ï¿½ï¿½ï¿½Ìµï¿½
+	private String client_pw; //È¸ï¿½ï¿½ï¿½ï¿½Ğ¹ï¿½È£
+	private String client_name; //È¸ï¿½ï¿½ï¿½Ì¸ï¿½
+	private String client_email; //È¸ï¿½ï¿½ï¿½Ì¸ï¿½ï¿½ï¿½
+	private String client_phone; //È¸ï¿½ï¿½ï¿½ï¿½È­ï¿½ï¿½È£
+	private String client_address; //È¸ï¿½ï¿½ï¿½Ö¼ï¿½
+	private String client_date; //È¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	private String client_update; //È¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	private String client_rrn;
 	
 	
 

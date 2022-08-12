@@ -15,6 +15,9 @@
 		<typeAlias type="com.dosirak31.login.admin.vo.AdminLoginVO" alias="adminLogin"/>
 		<!-- 리뷰 관련-->
 		<typeAlias type="com.dosirak31.food.review.vo.FoodReviewVO" alias="review" />
+		<typeAlias type="com.dosirak31.admin.review.vo.AdminReviewVO" alias="adminReview" />
+		<typeAlias type="com.dosirak31.mypage.client.vo.MypageClientVO" alias="mypageClient" />
+		<typeAlias type="com.dosirak31.mypage.order.vo.MypageOrderVO" alias="mypageOrder" />
 		
 		<!-- 현규님파트 -->
 		<typeAlias type="com.dosirak31.client.signup.vo.ClientVO" alias="client"/>
