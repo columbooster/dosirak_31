@@ -39,7 +39,7 @@
 	</update>
 	
 	<!-- 리뷰 게시판 리스트 조회 (페이징 처리) -->
-	<select id="foodReviewList" parameterType="review" resultType="review">
+	<!-- <select id="foodReviewList" parameterType="review" resultType="review">
 	     <![CDATA[	 
      	 SELECT review_no, review_contents, review_score, client_no, order_no,
    		 review_name, to_char(review_date, 'YYYY-MM-DD HH24:MI:ss') as review_date
@@ -54,6 +54,31 @@
                 ) reviewList
      	 WHERE rnum >(#{pageNum} - 1) * #{amount}
      	 ]]>
+     	 
+    </select> -->
+    
+    <!-- 리뷰 게시판 리스트 조회 (페이징 처리) -->
+	<select id="foodReviewList" parameterType="review" resultType="review">
+	     <![CDATA[	 
+     	 SELECT review_no, review_contents, review_score, client_no, order_no, review_name, dosirak_name,
+       			 to_char(review_date, 'YYYY-MM-DD HH24:MI:ss') as review_date, dosirak_no
+     	 FROM ( SELECT /*+ INDEX_DESC(review review_pk) */
+		 		       rownum as rnum, review_no, review_contents, review_score, dosirak_name, d.dosirak_no as dosirak_no,
+		 		       r.client_no as client_no, r.order_no as order_no, review_name, review_date
+ 		 FROM   review r
+    	 INNER JOIN orders o 	 on r.order_no=o.order_no
+    	 join order_detail od    on o.order_no=od.order_no 
+         join dosirak d 		 on d.dosirak_no=od.dosirak_no 
+         join payment p          on p.order_no=o.order_no 
+         join client c 			 on c.client_no=o.client_no 
+    	 where ]]> 
+		<![CDATA[ order_status_no=3
+			or order_status_no =4
+			or order_status_no =5 and rownum <= #{pageNum} * #{amount}
+			) reviewList
+		WHERE rnum >(#{pageNum} - 1) * #{amount}
+		]]>
+  	  	 
      	 
     </select>
     

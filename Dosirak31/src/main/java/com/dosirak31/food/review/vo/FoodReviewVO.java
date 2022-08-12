@@ -18,4 +18,5 @@ public class FoodReviewVO extends CommonVO {
 	private String review_name			="";	// 리뷰 작성자
 	private String dosirak_name			="";
 	private int dosirak_no				=0;
+	
 }
