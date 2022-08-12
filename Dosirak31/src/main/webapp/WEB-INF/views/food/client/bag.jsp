@@ -165,6 +165,11 @@
 		         let $li=$("#bagLi").clone().removeAttr("id");
 		         //$element.attr("data-num",r_num);
 		         $li.addClass("bag");
+		         $li.find(".food_img1").val(food_img1);
+		         $li.find(".food_img2").val(food_img2);
+		         $li.find(".food_img3").val(food_img3);
+		         $li.find(".food_img4").val(food_img4);
+		         $li.find(".food_img5").val(food_img5);
 		         $li.find(".imgda1").attr("src","/dosirak31img/food/"+food_img1);
 		         $li.find(".imgda2").attr("src","/dosirak31img/food/"+food_img2);
 		         $li.find(".imgda3").attr("src","/dosirak31img/food/"+food_img3);
@@ -225,10 +230,16 @@
         	<h2>장바구니 목록</h2>
 					<ul id="bagUl">
 			          <li id="bagLi">
+			          <input type="hidden" class="food_img1" name="food_img1" />
+			          <input type="hidden" class="food_img2" name="food_img2" />
+			          <input type="hidden" class="food_img3" name="food_img3" />
+			          <input type="hidden" class="food_img4" name="food_img4" />
+			          <input type="hidden" class="food_img5" name="food_im5" />
 			            <article>
 			              <header>
-			                <figure class="avatar"><img  class="imgda1">
-			                <img  class="imgda2"><img  class="imgda3"><img  class="imgda4"><img  class="imgda5">
+			                <figure class="avatar"><img  class="imgda1" >
+			                <img  class="imgda2" ><img  class="imgda3" >
+			                <img  class="imgda4" ><img  class="imgda5" >
 			                </figure>
 			                <address>
 			               	<label>도시락: </label><span class="name"></span>

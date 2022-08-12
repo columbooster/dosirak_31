@@ -74,7 +74,12 @@
 	</insert>
 	
 	<select id="orderList" parameterType="orderDetail" resultType="orderDetail">
-		select o.order_no,dosirak_no from orders o join order_detail od on o.order_no=od.order_no where order_status_no=2 and client_no=#{client_no}
+		 SELECT D.DOSIRAK_NO DOSIRAK_NO,DOSIRAK_NAME,FOOD_img1,FOOD_img2,FOOD_img3,FOOD_img4,FOOD_img5,
+		OD.ORDER_NO ORDER_NO,ORDER_QUANTITY,ORDER_PRICE, ORDER_DATE,ORDER_ADDRESS,CLIENT_NO,ORDER_STATUS_NO
+		FROM DOSIRAK D JOIN ORDER_DETAIL OD 
+		ON D.DOSIRAK_NO=OD.DOSIRAK_NO
+		JOIN ORDERS O
+		ON OD.ORDER_NO=O.ORDER_NO where order_status_no=2 and client_no=#{client_no}
    </select>
    <!-- 결제 후 결제 테이블 insert -->
    <insert id="paymentInsert" parameterType="orderDetail">

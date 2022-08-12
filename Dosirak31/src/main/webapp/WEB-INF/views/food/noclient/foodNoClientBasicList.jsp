@@ -3,12 +3,15 @@
  <%@ include file="/WEB-INF/views/common/common.jspf" %> 
  
 	<style type="text/css">
+	.row3{background-color:#f9f9f9;}
+	.row4{background-color:white;}
 	/*기초대사량 계산*/
 	#age,#height,#weight{width:300px; height:70px; display:block; font-size:18px; margin:0 auto;}
 	.span1{font-size:20px; color:black;}
 	.color{color:blue;}
 	input[name='gender']{width:30px;height:30px;font-size:20pt}
 	.fdImg{display:none;}
+	.black{color:black;}
 	/*radio button */
 	 .test_obj input[type="radio"] {
         display: none;
@@ -119,7 +122,7 @@ tr:nth-child(even), #comments li:nth-child(even) {
     }
     #totalPrice{font-size:16px;}
 	/*수량크기 조절*/
-		#comments input[type='number']{display:inline; width:10%; height:50%;}
+		#comments input[type='number']{display:inline; width:7%; height:50%;}
 	/*맨위사진*/
 		.overlay{
 	   height:280px;
@@ -142,7 +145,8 @@ tr:nth-child(even), #comments li:nth-child(even) {
 	 
 	 #comment,#danResult{background-color: #a5d610;}
 	 #tanResult,#jiResult{border:1px solid #a5d610;}
-	 
+	 .hwasal{width:150px;height:200px;}
+	 .center{text-align:center;}
 	
 	</style>
 	<script type="text/javascript">
@@ -549,11 +553,28 @@ tr:nth-child(even), #comments li:nth-child(even) {
       <br/><br/>
       	<!--===================기초대사량 계산 끝=========================== -->
       
-      
+      <div class="center"> <h3><label for="comment">계산된 영양을 바탕으로 식단 구성하기</label></h3></div>
+      <!-- <div class="center btmspace-80"><img class="hwasal" src="/resources/images/common/hwasal.png"/></div> -->
+      <hr/>
+
+ 	 <!--===================총금액,장바구니,바로구매 버튼 끝=========================== -->
+     </div> 
+  <!-- ################################################################################################ --> 
+    <!-- / main body -->
+    <div class="clear"></div>
+  </main>
+</div>
+
+<div class="wrapper row4">
+  <section id="info" class="clear"> 
+    <!-- ################################################################################################ -->
+  
+   <div id="comments"> 
+
    	<!--===================도시락 메뉴 리스트=========================== -->
    	<div class="block clear">
      <article>
-     	 <h3><label for="comment">나만의 건강 도시락 메뉴 고르기</label></h3>
+     	 <h3><label for="comment">DOSIRAK31 건강 도시락 메뉴</label></h3>
 			<ul class="tabs">
 				<li class="tab-link current" data-tab="tab-1" >메뉴<br/></li>
 				<li class="tab-link " data-tab="tab-2" data-value="야채" id="menu1">야채<br/></li>
@@ -641,7 +662,8 @@ tr:nth-child(even), #comments li:nth-child(even) {
  	<!--===================도시락 고르기 테이블 보여주는것 끝 =========================== -->
  	<!--===================총금액,장바구니,바로구매 버튼 =========================== -->
  		<div class="text-right">
- 			도시락 수량<input type="number" value="1" id="amount" min="1"/><br/>
+ 		
+ 			<div class="black">도시락 수량<input type="number" value="1" id="amount" min="1"/><br/></div>
  			<div>
  			<span id="totalprice"></span>
  			<button type="button" class="dosirakBtn2" id="priceBtn">총 금액</button>
@@ -652,11 +674,9 @@ tr:nth-child(even), #comments li:nth-child(even) {
  		</div>
  	 <!--===================총금액,장바구니,바로구매 버튼 끝=========================== -->
      </div> 
-  <!-- ################################################################################################ --> 
-    <!-- / main body -->
+    <!-- ################################################################################################ -->
     <div class="clear"></div>
-  </main>
+  </section>
 </div>
-
 </body>
 </html>
