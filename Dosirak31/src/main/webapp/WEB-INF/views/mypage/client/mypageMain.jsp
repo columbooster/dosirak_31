@@ -11,9 +11,13 @@
 	 section#content ul li { border:5px solid #eee; padding:10px 20px; margin:40px 0px 0px 0px; width:500px; height:250px;}
 	 section#content .client_info span { font-size:15px; font-weight:bold; display:inline-block; width:100px; margin-right:10px; }
 	 
-	</style>
-	
-	<style type="text/css">
+			 .btn{
+				float: right;
+			}
+			.btn1{
+				display :inline-block;
+			}
+
 			.btn{
 				float: right;
 			}
@@ -22,24 +26,31 @@
 			}
 			
 	</style>
+	<style type="text/css">
+		.info-title {
+			display : inline;
+			width:200px; height:50px; 
+			background-color:#234234;
+
+		}
+		.info-subtitle {
+			display :inline-block;
+			background-color:#481525;
+		}
+		
+	</style>
 	
 	
 	<script type="text/javascript">
 		let buttonCheck = 0;	// 수정과 삭제를 구별하기 위한 변수
 		$(function() {
 			
-			// 회원수정버튼 클릭시 처리 이벤트
+			// 회원수정,삭제 버튼 클릭시 처리 이벤트
 			$("#client_infoUpdateBtn").click(function() {
 				
 				location.href = "/mypage/client/cUpdateForm";
 			});
-			
-			
-			// 회원삭제버튼 클릭시 처리 이벤트
-			$("#client_infoDeleteBtn").click(function() {
-				
-				buttonCheck = 2;
-			}); 
+		
 		});
 	</script>
 	
@@ -50,18 +61,18 @@
 
 <!-- ################################################################################################ -->
 <!-- ################################################################################################ -->
-<div class="wrapper row2 bgded" style="background-image:url('/resources/images/demo/backgrounds/01.png');">
-  <div class="overlay">
+<div class="wrapper row2 bgded" style="background-image:url('/resources/images/common/info1.png'); height: 200px;">
+  
     <div id="breadcrumb" class="clear"> 
       <!-- ################################################################################################ -->
       <ul>
-       <li><a href="/client/successlogin">Home</a></li>
+       <li><a href="/client/successlogin">Home</a></li> 
         <li><a href="/mypage/client/mypageMain">MYPAGE</a></li>
         <li><a href="/mypage/client/mypageMain">MYPAGE</a></li>
       </ul>
       <!-- ################################################################################################ -->
     </div>
-  </div>
+  
 </div>
 <!-- ################################################################################################ -->
 <!-- ################################################################################################ -->
@@ -90,15 +101,80 @@
     </div>
     <!-- ################################################################################################ -->
     <!-- ################################################################################################ -->
-    <div class="content three_quarter"> 
-      <!-- ################################################################################################ -->
-      <h1>Client_Info</h1>
       <form>
       	<input type="hidden" name="client_no" value="${sessionScope.client_info.client_no }">
       </form> 
+    <div class="content three_quarter"> 
+      <!-- ################################################################################################ -->
       <div id="comments">
         <section id="content">
- 
+        	<div class="header-title">
+        		"My page"
+        	<span class="right-arrow">&gt;</span>
+        	<strong>Client_info</strong>
+        	</div>
+       		<h3 class="title">회원정보</h3>
+
+     		<div class="block">
+          	
+            	<div class="table">
+              		<div class="info-title">아이디</div>
+              		<div class="info-subtitle">id</div>
+            	</div>
+            	<div class="table">
+                	<div class="info-title">이름</div>
+                	<div class="info-subtitle">name</div>
+            	</div>
+           		<div class="table">
+               		<div class="info-title">주민번호</div>
+               		<div class="info-subtitle">joomin</div>
+            	</div>
+            	<div class="table">
+               		<div class="info-title">성별</div>
+               		<div class="info-subtitle">man / woman</div>
+            	</div>
+           
+            </div>
+        	
+        	<p>아이디, 이름, 주민번호, 성별은 변경이 불가능합니다.</p>
+        		
+			<div class="block">
+          	
+            	<div class="table">
+              		<div class="info-title">비밀번호</div>
+              		<div class="info-subtitle">password</div>
+            	</div>
+            	<div class="table">
+                	<div class="info-title">이메일</div>
+                	<div class="info-subtitle">email</div>
+            	</div>
+           		<div class="table">
+               		<div class="info-title">휴대폰</div>
+               		<div class="info-subtitle">phone</div>
+            	</div>
+            	           
+            </div>
+            
+            
+            <div class="block">
+          	
+            	<div class="table">
+              		<div class="info-title">주소</div>
+              		<div class="info-subtitle">address</div>
+            	</div>
+            	<div class="table">
+                	<div class="info-title">가입일자</div>
+                	<div class="info-subtitle">date</div>
+            	</div>
+      
+            </div>
+        
+            
+             
+            
+
+
+ 			
 					 <ul class="client_info">
 					 
 					  <li>		

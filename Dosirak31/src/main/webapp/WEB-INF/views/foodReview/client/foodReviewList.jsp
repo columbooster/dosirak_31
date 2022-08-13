@@ -33,7 +33,7 @@
 
 <!-- 이미지를 위한-->			
 <div class="wrapper row2 bgded"
-      style="background-image: url('/resources/images/common/review.jpg');">
+      style="background-image: url('/resources/images/common/review1.png');">
       <div class="overlay">
          
       </div>
