@@ -2,61 +2,6 @@
 	pageEncoding="UTF-8"%>
 <%@ include file="/WEB-INF/views/common/common.jspf"%>
 
-<style type="text/css">
-
-/* 이미지 */
-img{
-width: 100%;
-height: 154px
-}
-
-/* 각 동영상 크기 */
-.health_div{
-width: 23%;
-float: left;
-margin-right: 10px;
-margin-top: 25px;
-}
-
-/* 동영상 배경 */
-main{
-background-color: white;
-
-}
-
-/* 컨텐츠 위치 */
-.contents{
-margin-left: 55.86px;
-}
-
-/* 게시물 작성자 & 조회수 */
-.health_writer_hits{
-font-size:smaller;
-margin-top:-8px;
-}
-
-/* 게시물 제목 */
-.health_title{
-font-weight: 550;
-margin-bottom: 8px;
-}
-
-/* 페이징 */
-.pagination{
-padding-top:30px;
-}
-
-/* 검색 */
-.search_bar{
-text-align: center;
-margin-bottom: 20px;
-}
-
-.search_space{
-width: 250px;
-}
-</style>
-
 
 <script type="text/javascript">
 	$(function() {
@@ -144,100 +89,103 @@ width: 250px;
 
 </head>
 
-	<div class="wrapper row2 bgded"
-		style="background-image: url('/resources/images/demo/backgrounds/01.png');">
-		<div class="overlay">
-			<div id="breadcrumb" class="clear">
-				<ul>
-					<li><a href="/client/successlogin">Home</a></li>
-					<li><a href="/health/hBoardList">WORKOUT</a></li>
-					<li><a href="/health/cardioList?health_category_no=2">CARDIO WORKOUT</a></li>
-				</ul>
-			</div>
-		</div>
+<div id="hBoardList_board_img" class="wrapper row2 bgded"
+	style="background-image: url('/resources/images/common/health_List.jpg');">
+	<div class=" hBoardList_name_location">
+		<div id="breadcrumb" class="hBoard_Name">유산소 운동</div>
 	</div>
-	<div>
-		<main>
-			<!-- main body -->
+</div>
+<div>
+	<main id="health_main">
+		<!-- main body -->
+		<div>
 			<div>
-				<div>
-					<figure>
-						<header class="heading">Cardio Exercise</header>
-						
-						<!-- 히든 상세 게시판 -->
-						<form id="detailForm">
-							<input type="hidden" id="health_no" name="health_no" />
-						</form>
-						
-						<!-------------------------------------------------- 유산소 게시판 운동 리스트(이미지) 시작 ---------------------------------------------------->
-						<div id="cardioList" class="contents">
-							
-							
-								<c:choose>
-									<c:when test="${not empty cardioList }">
-										<c:forEach  var="imgBoard" items="${cardioList }" 
-											varStatus="status">		
-											<div class="health_div">
-											<div data-num="${imgBoard.health_no }">
-												<img class="goImgDetail"
-													src="/dosirak31img/health/${imgBoard.health_img }" /> 
-											</div>
-											<div data-num="${imgBoard.health_no }">
-												<div class="goDetail health_title">${imgBoard.health_title }</div>
-								                <div class="health_writer_hits">${imgBoard.admin_id }</div>
-								                <div class="health_writer_hits">${imgBoard.health_hits }views</div>
-											</div>	
-											</div>												
-										</c:forEach>
-									</c:when>
-									<c:otherwise>
-										<div>
-											<div>유산소 동영상(이미지) 게시물이 존재하지 않습니다</div>
-										</div>
-									</c:otherwise>
-								</c:choose>
-						</div>
-					</figure>
-				</div>
-				
-				<!-------------------------------------------------- 유산소 게시판 운동 리스트(이미지) 끝 ---------------------------------------------------->
-				
-				<!-------------------------------------------------- 게시판 페이지 바 시작 ---------------------------------------------------->
-					<tag:pagination pageNum="${pageMaker.cvo.pageNum }" amount="${pageMaker.cvo.amount }"
-				startPage="${pageMaker.startPage }" endPage="${pageMaker.endPage }" prev="${pageMaker.prev }" next="${pageMaker.next }"/>
-				
-				<!-------------------------------------------------- 게시판 페이지 바 끝 ---------------------------------------------------->
-				
-				<!-------------------------------------------------- 검색 기능 시작 ---------------------------------------------------->
-		         <div id="boardSearch" class="text-right">
-		            <form id="f_search" name="f_search" class="form-inline search_bar">
-		            <%--페이징 처리를 위한 파라미터 --%>
-		            <input type="hidden" name="health_category_no" value="2">
-		            <input type="hidden" name="pageNum" id="pageNum" value="${pageMaker.cvo.pageNum }">
-		            <input type="hidden" name="amount" value="${pageMaker.cvo.amount }">
-		               <div class="form-group">
-		                  <select id="search" name="search" class="form-control">
-		                     <option value="all">전체</option>
-		                     <option value="health_title">제목</option>
-		                     <option value="health_contents">내용</option>
-		                  </select>
-		                  <input type="text" name="keyword" id="keyword" value="검색어를 입력하세요" class="form-control search_space"/>
-		                  <button type="button" id="searchData" class="btn btn-success">검색</button>
-		               </div>
-		            </form>
-		         </div>
-         		<!-------------------------------------------------- 검색 기능 끝 ---------------------------------------------------->         		
-         	
-			</div>
-			<!-- / main body -->
-			<div class="clear"></div>
-		</main>
-	</div>
+				<figure>
+					<header class="heading">Cardio Exercise</header>
 
-	<a id="backtotop" href="#top"><i class="fa fa-chevron-up"></i></a>
-	<!-- JAVASCRIPTS -->
-	<script src="/resources/layout/scripts/jquery.min.js"></script>
-	<script src="/resources/layout/scripts/jquery.backtotop.js"></script>
-	<script src="/resources/layout/scripts/jquery.mobilemenu.js"></script>
+					<!-- 히든 상세 게시판 -->
+					<form id="detailForm">
+						<input type="hidden" id="health_no" name="health_no" />
+					</form>
+
+					<!-------------------------------------------------- 유산소 게시판 운동 리스트(이미지) 시작 ---------------------------------------------------->
+					<div id="cardioList" class="health_contents">
+
+
+						<c:choose>
+							<c:when test="${not empty cardioList }">
+								<c:forEach var="imgBoard" items="${cardioList }"
+									varStatus="status">
+									<div class="health_div">
+										<div data-num="${imgBoard.health_no }">
+											<img class="goImgDetail img_size"
+												src="/dosirak31img/health/${imgBoard.health_img }" />
+										</div>
+										<div data-num="${imgBoard.health_no }" class="all_contents">
+											<div class="goDetail health_title">${imgBoard.health_title }</div>
+											<div>
+												<div class="health_board_info">
+													<img class="health_logoImg"
+														src="/resources/images/common/Logo.png" />
+												</div>
+												<div class="health_writer_hits">${imgBoard.admin_id }</div>
+												<div class="health_writer_hits">${imgBoard.health_hits }views</div>
+											</div>
+										</div>
+									</div>
+								</c:forEach>
+							</c:when>
+							<c:otherwise>
+								<div>
+									<div>유산소 동영상(이미지) 게시물이 존재하지 않습니다</div>
+								</div>
+							</c:otherwise>
+						</c:choose>
+					</div>
+				</figure>
+			</div>
+
+			<!-------------------------------------------------- 유산소 게시판 운동 리스트(이미지) 끝 ---------------------------------------------------->
+
+			<!-------------------------------------------------- 게시판 페이지 바 시작 ---------------------------------------------------->
+			<tag:pagination pageNum="${pageMaker.cvo.pageNum }"
+				amount="${pageMaker.cvo.amount }"
+				startPage="${pageMaker.startPage }" endPage="${pageMaker.endPage }"
+				prev="${pageMaker.prev }" next="${pageMaker.next }" />
+
+			<!-------------------------------------------------- 게시판 페이지 바 끝 ---------------------------------------------------->
+
+			<!-------------------------------------------------- 검색 기능 시작 ---------------------------------------------------->
+			<div id="boardSearch" class="text-right">
+				<form id="f_search" name="f_search" class="form-inline search_bar">
+					<%--페이징 처리를 위한 파라미터 --%>
+					<input type="hidden" name="health_category_no" value="2"> <input
+						type="hidden" name="pageNum" id="pageNum"
+						value="${pageMaker.cvo.pageNum }"> <input type="hidden"
+						name="amount" id="amount" value="${pageMaker.cvo.amount }">
+					<div class="form-group">
+						<select id="search" name="search" class="form-control">
+							<option value="all">전체</option>
+							<option value="health_title">제목</option>
+							<option value="health_contents">내용</option>
+						</select> <input type="text" name="keyword" id="keyword" value="검색어를 입력하세요"
+							class="form-control search_space" />
+						<button type="button" id="searchData" class="dosirakBtn">&nbsp&nbsp검색&nbsp&nbsp</button>
+					</div>
+				</form>
+			</div>
+			<!-------------------------------------------------- 검색 기능 끝 ---------------------------------------------------->
+
+		</div>
+		<!-- / main body -->
+		<div class="clear"></div>
+	</main>
+</div>
+
+<a id="backtotop" href="#top"><i class="fa fa-chevron-up"></i></a>
+<!-- JAVASCRIPTS -->
+<script src="/resources/layout/scripts/jquery.min.js"></script>
+<script src="/resources/layout/scripts/jquery.backtotop.js"></script>
+<script src="/resources/layout/scripts/jquery.mobilemenu.js"></script>
 </body>
 </html>

@@ -172,7 +172,7 @@
 		            <%--페이징 처리를 위한 파라미터 --%>
 		            <input type="hidden" name="health_category_no" value="1">
 		            <input type="hidden" name="pageNum" id="pageNum" value="${pageMaker.cvo.pageNum }">
-		            <input type="hidden" name="amount" value="${pageMaker.cvo.amount }">
+		            <input type="hidden" name="amount" id="amount" value="${pageMaker.cvo.amount }">
 		               <div class="form-group">
 		                  <select id="search" name="search" class="form-control">
 		                     <option value="all">전체</option>

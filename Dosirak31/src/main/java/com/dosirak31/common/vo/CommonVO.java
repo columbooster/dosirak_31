@@ -5,11 +5,9 @@ import lombok.Data;
 @Data
 public class CommonVO {
 	
-	private int pageNum=0;	//��������ȣ
-	private int amount=0;	//�������� ������ ������ ��
-	
-	
-	//���ǰ˻��� ����� �ʵ�(�˻����, �˻��ܾ�)
+	private int pageNum=0;
+	private int amount=0;
+
 	private String search="";
 	private String keyword="";
 	

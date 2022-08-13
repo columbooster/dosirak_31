@@ -2,62 +2,45 @@
 	pageEncoding="UTF-8"%>
 <%@ include file="/WEB-INF/views/common/common.jspf"%>
 
-<!-- Bootstrap core CSS -->
-<link href="/resources/include/dist/css/bootstrap.min.css"
-	rel="stylesheet">
-
-<!-- Custom styles for this template -->
-<link href="/resources/include/dist/css/jumbotron-narrow.css"
-	rel="stylesheet">
-
-<!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
-<!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
-<script
-	src="/resources/include/dist/assets/js/ie-emulation-modes-warning.js"></script>
-
-<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-<!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
 </head>
-<div class="wrapper row2 bgded"
-	style="background-image: url('/resources/images/demo/backgrounds/01.png');">
-	<div class="overlay">
-		<div id="breadcrumb" class="clear">
-			<!-- ################################################################################################ -->
-			<ul>
-				<li><a href="#">Home</a></li>
-				<li><a href="#">Lorem</a></li>
-				<li><a href="#">Ipsum</a></li>
-				<li><a href="/health/hBoardList">WORKOUTS</a></li>
-			</ul>
-			<!-- ################################################################################################ -->
-		</div>
+<div id="hBoardList_board_img" class="wrapper row2 bgded"
+	style="background-image: url('/resources/images/common/running.jpg');">
+	<div class=" hBoardList_name_location">
+		<div id="breadcrumb" class="hBoard_Name">유산소 운동</div>
 	</div>
 </div>
 <!-- ################################################################################################ -->
 <!-- ################################################################################################ -->
 <!-- ################################################################################################ -->
 <div class="wrapper row3">
-	<main class="container clear">
+	<main class="container clear" id="health_main">
 		<!-- main body -->
 		<!-- ################################################################################################ -->
 		<div class="content">
 			<!-- ################################################################################################ -->
 			<div id="gallery">
 				<figure>
-					<header class="heading">${cardioDetail.health_title }(조회수:
-						${cardioDetail.health_hits })</header>
 					<!-------------------------------------------------- 동영상 & 소개 공간 ---------------------------------------------------->
 					<div>
-						<iframe width="560" height="315"
+						<iframe width="930" height="500"
 							src="https://www.youtube.com/embed/${cardioDetail.health_url }?mute=1&autoplay=1"></iframe>
 					</div>
-					<div class="col-md-4">
-					 ${cardioDetail.health_contents }
-					 </div>
+					<div class="health_title2">${cardioDetail.health_title }</div>
+					<div>
+						<div class="health_board_info2">
+							<img class="health_logoImg2"
+								src="/resources/images/common/Logo.png" />
+						</div>
+						<div class="health_writer_hits2">${cardioDetail.admin_id }</div>
+						<div class="health_writer_hits2">${cardioDetail.health_hits }views</div>
+					</div>
+
+					<hr class="health_hr" />
+					<div class="health_comments_part">
+						<h3>Detail</h3>
+						<div>${cardioDetail.health_contents }</div>
+					</div>
+					<hr class="hr" />
 					<div class="row marketing">
 						<div class="col-lg-6">
 							<jsp:include page="hcomment.jsp" />

@@ -66,7 +66,7 @@
 	<update id="healthHit" parameterType="healthBoard">
 		update health set health_hits=health_hits+1 where health_no=#{health_no}
 	</update>
-
+	
 	<!-- 게시물 등록 -->
 	<insert id="healthBoardInsert" parameterType="healthBoard">
 		<selectKey keyProperty="health_no" resultType="int"
@@ -95,7 +95,7 @@
 		WHERE health_no = #{health_no}
 	</update>
 
-	<!-- 게시물 삭제 paramerType=board도 되고 int도 됨 board의 int값이라 둘다 가능 -->
+	<!-- 게시물 삭제 -->
 	<delete id="healthBoardDelete" parameterType="healthBoard">
 		delete from health
 		where health_no=#{health_no}
