@@ -22,7 +22,7 @@
    <script type="text/javascript">
     $(function(){
           /*주소 검색*/
-            $("#postcodify_search_button").postcodifyPopUp();  
+            $("#postcodify_search_button").postcodifyPopUp();  */
           /*배송지 정보에 주문자정보와 같게 했을때*/
           $("#same").click(function(){
                  if($(this).is(":checked")){
@@ -216,7 +216,7 @@
         <form id="orderInsert">
            <input type="hidden" name="client_no" id="client_no" value="${sessionScope.client_info.client_no }"/>
          <input type="hidden" name="dosirak_name" value="${order1.dosirak_name} "/>
-         <input type="hidden" name="food_img1" id="isForm"value="${order1.food_img1}" />
+         <input type="hidden" name="food_img1" id="isForm" value="${order1.food_img1}" />
          <input type="hidden" name="food_img2" value="${order1.food_img2}"  />
          <input type="hidden" name="food_img3" value="${order1.food_img3}" />
          <input type="hidden" name="food_img4" value="${order1.food_img4}" />
@@ -329,10 +329,10 @@
                                <address>
                                  <label><h3>최종 선택 상품</h3></label>
                                </address>
-                               <figure class="avatar"><img  class="imgda1" src="/dosirak31img/food/${order1.food_img1 }">
+                              <%--  <figure class="avatar"><img  class="imgda1" src="/dosirak31img/food/${order1.food_img1 }">
 			                <img  class="imgda2" src="/dosirak31img/food/${order1.food_img2 }"><img  class="imgda3" src="/dosirak31img/food/${order1.food_img3 }">
 			                <img  class="imgda4" src="/dosirak31img/food/${order1.food_img4 }"><img  class="imgda5" src="/dosirak31img/food/${order1.food_img5 }">
-			                </figure>
+			                </figure> --%>
                              </header>
                              <div class="comcont">
                             
