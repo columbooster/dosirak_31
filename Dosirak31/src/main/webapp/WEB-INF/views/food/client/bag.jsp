@@ -187,6 +187,12 @@
 		         $li.find(".orderlist_name").attr("name","orderlist["+i+"].dosirak_name").val(dosirak_name);
 		         $li.find(".orderlist_quantity").attr("name","orderlist["+i+"].order_quantity").val(order_quantity);
 		         $li.find(".orderlist_price").attr("name","orderlist["+i+"].order_price").val(order_price);
+		         $li.find(".food_img1").attr("name","orderlist["+i+"].food_img1").val(food_img1);
+		         $li.find(".food_img2").attr("name","orderlist["+i+"].food_img2").val(food_img2);
+		         $li.find(".food_img3").attr("name","orderlist["+i+"].food_img3").val(food_img3);
+		         $li.find(".food_img4").attr("name","orderlist["+i+"].food_img4").val(food_img4);
+		         $li.find(".food_img5").attr("name","orderlist["+i+"].food_img5").val(food_img5);
+		         
 		         
 		         
 		         $ul.append($li);
@@ -225,16 +231,16 @@
     <!-- main body -->
     <!-- ################################################################################################ -->
     <div class="content"> 
-      <form id="orderForm">
+      <form id="orderForm" name="OrderDetailVO" >
       	<div id="comments">
         	<h2>장바구니 목록</h2>
 					<ul id="bagUl">
 			          <li id="bagLi">
-			          <input type="hidden" class="food_img1" name="food_img1" />
-			          <input type="hidden" class="food_img2" name="food_img2" />
-			          <input type="hidden" class="food_img3" name="food_img3" />
-			          <input type="hidden" class="food_img4" name="food_img4" />
-			          <input type="hidden" class="food_img5" name="food_im5" />
+			          <input type="hidden" class="food_img1" />
+			          <input type="hidden" class="food_img2" />
+			          <input type="hidden" class="food_img3" />
+			          <input type="hidden" class="food_img4" />
+			          <input type="hidden" class="food_img5" />
 			            <article>
 			              <header>
 			                <figure class="avatar"><img  class="imgda1" >

@@ -20,9 +20,55 @@
       src="https://cdn.iamport.kr/js/iamport.payment-1.2.0.js"></script>
    
    <script type="text/javascript">
+   
+   
+   function execDaumPostcode() {   // 주소 API function
+       new daum.Postcode({
+           oncomplete: function(data) {
+               // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
+
+               // 각 주소의 노출 규칙에 따라 주소를 조합한다.
+               // 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
+               var addr = ''; // 주소 변수
+               var extraAddr = ''; // 참고항목 변수
+
+               //사용자가 선택한 주소 타입에 따라 해당 주소 값을 가져온다.
+               if (data.userSelectedType === 'R') { // 사용자가 도로명 주소를 선택했을 경우
+                   addr = data.roadAddress;
+               } else { // 사용자가 지번 주소를 선택했을 경우(J)
+                   addr = data.jibunAddress;
+               }
+
+               // 사용자가 선택한 주소가 도로명 타입일때 참고항목을 조합한다.
+               if(data.userSelectedType === 'R'){
+                   // 법정동명이 있을 경우 추가한다. (법정리는 제외)
+                   // 법정동의 경우 마지막 문자가 "동/로/가"로 끝난다.
+                   if(data.bname !== '' && /[동|로|가]$/g.test(data.bname)){
+                       extraAddr += data.bname;
+                   }
+                   // 건물명이 있고, 공동주택일 경우 추가한다.
+                   if(data.buildingName !== '' && data.apartment === 'Y'){
+                       extraAddr += (extraAddr !== '' ? ', ' + data.buildingName : data.buildingName);
+                   }
+               
+               } 
+
+               // 우편번호와 주소 정보를 해당 필드에 넣는다.
+               document.getElementById('sample6_postcode').value = data.zonecode;
+               document.getElementById("sample6_address").value = addr;
+               
+               let client_addr = data.zonecode + addr;
+               
+               $("#order_address").val(client_addr);
+           }
+       }).open();
+       
+   }
+
+   
     $(function(){
           /*주소 검색*/
-            $("#postcodify_search_button").postcodifyPopUp();  */
+           /* $("#postcodify_search_button").postcodifyPopUp();   */
           /*배송지 정보에 주문자정보와 같게 했을때*/
           $("#same").click(function(){
                  if($(this).is(":checked")){
@@ -50,7 +96,6 @@
           /*결제하기*/
             
             $("#iampayment").click(function() {
-               $("#iampayment").unbind('click');//한번만 클릭하도록
                if(!chkData("#order_client_name","배달받을 고객의 이름을")) return;
                  else if(!chkData("#order_client_phone","배달받을 고객의 번호를")) return;
                  else if(!chkData("#order_address","배달받을 주소를")) return; 
@@ -64,8 +109,9 @@
                  let order_name="";
                  let price=0;
                  let order_no=0; 
-               
+             $("#iampayment").unbind('click');//한번만 클릭하도록
              if($("#isForm").val()!=null){
+            	 
                 //원래 있던것 delete하고 실행
                $.ajax({
                      url:"/order/orderInsert",
@@ -296,13 +342,26 @@
                                     <input type="hidden" name="order_no" id="order_no1" />
                                  </tr>
                                
-                              <tr>
+                               <tr>
+                           <td>주소</td>
+                           <td class="text-left"><input type="button" id="addBtn" class="form-control dosirakBtn3" value="주소검색" onclick="execDaumPostcode()" />
+                              <div style="display: none;">
+                              <input type="text" id="sample6_postcode" placeholder="우편번호">
+                              <input type="button" onclick="sample6_execDaumPostcode()" value="우편번호 찾기"><br>
+                              <input type="text" id="sample6_address" placeholder="주소"><br>
+                              </div>
+                              <input type="text" name="order_address" id="order_address" class="form-control" placeholder="주소검색 후 상세주소를 입력해주세요." />
+                              <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+                           </td>
+                        </tr>
+                               
+                             <!--  <tr>
                                  <td>주소</td>
                                  <td>
                               <input type="text" id="order_address" name="order_address" class="postcodify_address" value="" /><br />
                               </form>
                               <button id="postcodify_search_button" class="dosirakBtn3">주소 검색</button><br />
-                              </tr>
+                              </tr> -->
                               
                            
                                     
@@ -314,8 +373,7 @@
                      </article>
                 </li>
                 <!-- ========배송지 정보 끝======================-->
-                 <!-- ========고른 식품 정보======================-->
-                       
+                 <!-- ========고른 식품 정보======================-->   
             </ul>
             <ul>
                <c:choose>
@@ -329,10 +387,10 @@
                                <address>
                                  <label><h3>최종 선택 상품</h3></label>
                                </address>
-                              <%--  <figure class="avatar"><img  class="imgda1" src="/dosirak31img/food/${order1.food_img1 }">
+                                <figure class="avatar"><img  class="imgda1" src="/dosirak31img/food/${order1.food_img1 }">
 			                <img  class="imgda2" src="/dosirak31img/food/${order1.food_img2 }"><img  class="imgda3" src="/dosirak31img/food/${order1.food_img3 }">
 			                <img  class="imgda4" src="/dosirak31img/food/${order1.food_img4 }"><img  class="imgda5" src="/dosirak31img/food/${order1.food_img5 }">
-			                </figure> --%>
+			                </figure> 
                              </header>
                              <div class="comcont">
                             
@@ -366,7 +424,7 @@
                         </table>
                          </li>
                      </c:when>
-               
+               		
                      <c:when test="${not empty order2 }">   
                         <c:forEach var="order" items="${order2.orderlist}">
                         <input type="hidden" class="order2no" value="${order.order_no }"/>
@@ -376,10 +434,10 @@
                                      <address>
                                        <label><h3>최종 선택 상품</h3></label>
                                      </address>
-                                     <figure class="avatar"><img  class="imgda1" src="/dosirak31img/food/${order2.food_img1 }">
-			                <img  class="imgda2" src="/dosirak31img/food/${order2.food_img2 }"><img  class="imgda3" src="/dosirak31img/food/${order2.food_img3 }">
-			                <img  class="imgda4" src="/dosirak31img/food/${order2.food_img4 }"><img  class="imgda5" src="/dosirak31img/food/${order2.food_img5 }">
-			                </figure>
+                                     <figure class="avatar"><img  class="imgda1" src="/dosirak31img/food/${order.food_img1 }">
+			                <img  class="imgda2" src="/dosirak31img/food/${order.food_img2 }"><img  class="imgda3" src="/dosirak31img/food/${order.food_img3 }">
+			                <img  class="imgda4" src="/dosirak31img/food/${order.food_img4 }"><img  class="imgda5" src="/dosirak31img/food/${order.food_img5 }">
+			                </figure> 
                                    </header>
                                    <div class="comcont">
                                   
