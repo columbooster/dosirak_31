@@ -147,6 +147,7 @@ address, article, aside, figcaption, figure, footer, header, main, nav, section{
    border-style:solid;
 }
 
+
 .dosirakBtn:active {
    box-shadow:inset #a4d610 0px 5px 8px -1px,#658205 0px 0 0px;
    o-box-shadow:inset #a4d610 0px 5px 8px -1px,#658205 0px 0 0px;
@@ -165,4 +166,169 @@ address, article, aside, figcaption, figure, footer, header, main, nav, section{
    background:-webkit-linear-gradient(#88ad10, #99c40e);
    background:-ms-linear-gradient(#88ad10, #99c40e);
    background:linear-gradient(#88ad10, #99c40e);
+}
+
+/* 버튼 1
+--------------------------------------------------------------------------------------------------------------- */
+.dosirakBtn1{
+   text-decoration:none;
+   font-family:Arial;
+   box-shadow:inset #a4d610 0px 5px 8px -1px;
+   o-box-shadow:inset #a4d610 0px 5px 8px -1px;
+   -moz-box-shadow:inset #a4d610 0px 5px 8px -1px;
+   -webkit-box-shadow:inset #a4d610 0px 5px 8px -1px;
+   background:#99c40e;
+   background:-o-linear-gradient(90deg, #99c40e, #88ad10);
+   background:-moz-linear-gradient( center top, #99c40e 5%, #88ad10 100% );
+   background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #99c40e), color-stop(1, #88ad10) );
+   filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#99c40e', endColorstr='#88ad10');
+   background:-webkit-linear-gradient(#99c40e, #88ad10);
+   background:-ms-linear-gradient(#99c40e, #88ad10);
+   background:linear-gradient(#99c40e, #88ad10);
+   text-indent:0px;
+   line-height:23px;
+   -moz-border-radius:6px;
+   -webkit-border-radius:6px;
+   border-radius:6px;
+   text-align:center;
+   vertical-align:middle;
+   display:inline-block;
+   font-size:12px;
+   color:#ffffff;
+   width:auto;
+   height:auto;
+   padding:5.2px;
+   text-shadow:#7d7d7d 0px 1px 0px;
+   border-color:#ffffff;
+   border-width:0px;
+   border-style:solid;
+}
+
+.dosirakBtn1:active {
+   box-shadow:inset #a4d610 0px 5px 8px -1px,#658205 0px 0 0px;
+   o-box-shadow:inset #a4d610 0px 5px 8px -1px,#658205 0px 0 0px;
+   -moz-box-shadow:inset #a4d610 0px 5px 8px -1px,#658205 0px 0 0px;
+   -webkit-box-shadow:inset #a4d610 0px 5px 8px -1px,#658205 0px 0 0px;
+   position:relative;
+   top:5px
+}
+
+.dosirakBtn1:hover {
+   background:#88ad10;
+   background:-o-linear-gradient(90deg, #88ad10, #99c40e);
+   background:-moz-linear-gradient( center top, #88ad10 5%, #99c40e 100% );
+   background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #88ad10), color-stop(1, #99c40e) );
+   filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#88ad10', endColorstr='#99c40e');
+   background:-webkit-linear-gradient(#88ad10, #99c40e);
+   background:-ms-linear-gradient(#88ad10, #99c40e);
+   background:linear-gradient(#88ad10, #99c40e);
+}
+
+/* 검정색 버튼
+--------------------------------------------------------------------------------------------------------------- */
+
+.dosirakBtn2 {
+   text-decoration:none;
+   font-family:Arial;
+   box-shadow:inset #787878 0px 5px 8px -1px,#333333 0px 5px 0px;
+   o-box-shadow:inset #787878 0px 5px 8px -1px,#333333 0px 5px 0px;
+   -moz-box-shadow:inset #787878 0px 5px 8px -1px,#333333 0px 5px 0px;
+   -webkit-box-shadow:inset #787878 0px 5px 8px -1px,#333333 0px 5px 0px;
+   background:#4f4f4f;
+   background:-o-linear-gradient(90deg, #4f4f4f, #5e5e5e);
+   background:-moz-linear-gradient( center top, #4f4f4f 5%, #5e5e5e 100% );
+   background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #4f4f4f), color-stop(1, #5e5e5e) );
+   filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#4f4f4f', endColorstr='#5e5e5e');
+   background:-webkit-linear-gradient(#4f4f4f, #5e5e5e);
+   background:-ms-linear-gradient(#4f4f4f, #5e5e5e);
+   background:linear-gradient(#4f4f4f, #5e5e5e);
+   text-indent:0px;
+   line-height:23px;
+   -moz-border-radius:6px;
+   -webkit-border-radius:6px;
+   border-radius:6px;
+   text-align:center;
+   vertical-align:middle;
+   display:inline-block;
+   font-size:12px;
+   color:#ffffff;
+   width:auto;
+   height:auto;
+   padding:7px;
+   text-shadow:#7d7d7d 0px 1px 0px;
+   border-color:#ffffff;
+   border-width:0px;
+   border-style:solid;
+}
+
+.dosirakBtn2:active {
+   box-shadow:inset #787878 0px 5px 8px -1px,#333333 0px 0 0px;
+   o-box-shadow:inset #787878 0px 5px 8px -1px,#333333 0px 0 0px;
+   -moz-box-shadow:inset #787878 0px 5px 8px -1px,#333333 0px 0 0px;
+   -webkit-box-shadow:inset #787878 0px 5px 8px -1px,#333333 0px 0 0px;
+   position:relative;
+   top:5px
+}
+
+.dosirakBtn2:hover {
+   background:#5e5e5e;
+   background:-o-linear-gradient(90deg, #5e5e5e, #4f4f4f);
+   background:-moz-linear-gradient( center top, #5e5e5e 5%, #4f4f4f 100% );
+   background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #5e5e5e), color-stop(1, #4f4f4f) );
+   filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#5e5e5e', endColorstr='#4f4f4f');
+   background:-webkit-linear-gradient(#5e5e5e, #4f4f4f);
+   background:-ms-linear-gradient(#5e5e5e, #4f4f4f);
+   background:linear-gradient(#5e5e5e, #4f4f4f);
+}
+
+/* 검정색버튼 그림자 없는 버전
+*********************************************************************************************************************/
+.dosirakBtn3 {
+   text-decoration:none;
+   font-family:Arial;
+   box-shadow:inset #787878 0px 5px 8px -1px;
+   o-box-shadow:inset #787878 0px 5px 8px -1px;
+   -moz-box-shadow:inset #787878 0px 5px 8px -1px;
+   -webkit-box-shadow:inset #787878 0px 5px 8px -1px;
+   background:#4f4f4f;
+   background:-o-linear-gradient(90deg, #4f4f4f, #5e5e5e);
+   background:-moz-linear-gradient( center top, #4f4f4f 5%, #5e5e5e 100% );
+   background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #4f4f4f), color-stop(1, #5e5e5e) );
+   filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#4f4f4f', endColorstr='#5e5e5e');
+   background:-webkit-linear-gradient(#4f4f4f, #5e5e5e);
+   background:-ms-linear-gradient(#4f4f4f, #5e5e5e);
+   background:linear-gradient(#4f4f4f, #5e5e5e);
+   text-indent:0px;
+   line-height:23px;
+   -moz-border-radius:6px;
+   -webkit-border-radius:6px;
+   border-radius:6px;
+   text-align:center;
+   vertical-align:middle;
+   display:inline-block;
+   font-size:12px;
+   color:#ffffff;
+   width:auto;
+   height:auto;
+   padding:7px;
+   text-shadow:#7d7d7d 0px 1px 0px;
+   border-color:#ffffff;
+   border-width:0px;
+   border-style:solid;
+}
+
+.dosirakBtn3:active {
+   position:relative;
+   top:5px
+}
+
+.dosirakBtn3:hover {
+   background:#5e5e5e;
+   background:-o-linear-gradient(90deg, #5e5e5e, #4f4f4f);
+   background:-moz-linear-gradient( center top, #5e5e5e 5%, #4f4f4f 100% );
+   background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #5e5e5e), color-stop(1, #4f4f4f) );
+   filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#5e5e5e', endColorstr='#4f4f4f');
+   background:-webkit-linear-gradient(#5e5e5e, #4f4f4f);
+   background:-ms-linear-gradient(#5e5e5e, #4f4f4f);
+   background:linear-gradient(#5e5e5e, #4f4f4f);
 }

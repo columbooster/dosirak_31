@@ -82,7 +82,7 @@ public class MypageClientController {
 		MypageClientVO updateData = mypageClientService.cUpdateForm(mcvo);
 		
 		model.addAttribute("updateData", updateData);
-		return "/mypage/client/cUpdateForm";
+		return "mypage/client/cUpdateForm";
 	}
 	
 	

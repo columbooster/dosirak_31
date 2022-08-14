@@ -15,7 +15,7 @@
 				
 				if($("#search").val()!='review_contents'){
 					//:contains()는 특정 텍스트를 포함한 요소반환
-					if($("#search").val()=='community_title') value = "#list tr td.goDetail";
+					if($("#search").val()=='review_contents') value = "#list tr td.goDetail";
 					else if($("#search").val()=='client_id') value="#list tr td.name";
 					console.log($(value+":contains('"+word+"')").html());
 					
@@ -48,6 +48,7 @@
 				if($("#search").val()!="all"){ // 제목 /내용/작성자 선택시 검색어 유효성 체크.
 					if(!chkData("#keyword","검색어를")) return;
 				}
+				$("#pageNum").val(1);
 				goPage();
 				
 			});

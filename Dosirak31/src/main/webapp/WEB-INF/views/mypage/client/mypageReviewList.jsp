@@ -55,19 +55,14 @@
 
 <!-- ################################################################################################ -->
 <!-- ################################################################################################ -->
-<div class="wrapper row2 bgded" style="background-image:url('/resources/images/demo/backgrounds/01.png');">
-  <div class="overlay">
+<div class="wrapper row2 bgded" style="background-image:url('/resources/images/common/mypagereview.jpeg'); height: 300px;">
+  
     <div id="breadcrumb" class="clear"> 
       <!-- ################################################################################################ -->
-      <ul>
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Lorem</a></li>
-        <li><a href="#">Ipsum</a></li>
-        <li><a href="#">Sidebar Left</a></li>
-      </ul>
+      
       <!-- ################################################################################################ -->
     </div>
-  </div>
+  
 </div>
 <!-- ################################################################################################ -->
 <!-- ################################################################################################ -->
@@ -96,7 +91,12 @@
       <div class="content three_quarter">
       <div class="content">
 	 <div id="comments">
-	      <h2>Comments</h2>
+	      <div class="header-title">
+        		"My page"
+        	<span class="right-arrow">&gt;</span>
+        	<strong>Reviews</strong>
+        	</div>
+       		<h3 class="title">리뷰</h3>
 	      	<form id="detailForm">
 	      		<input type="hidden" id="review_no" name="review_no" />
 	      	</form>
@@ -141,16 +141,16 @@
 		        </c:otherwise>
 	        </c:choose>
         </div>
-	       <%-- ===================페이징 출력=================== --%>
-     <tag:pagination pageNum="${pageMaker.cvo.pageNum }" amount="${pageMaker.cvo.amount }"
-     startPage="${pageMaker.startPage }" endPage="${pageMaker.endPage }" prev="${pageMaker.prev }" next="${pageMaker.next }" />
+	        
 	        
 	        </div>
-      
       </div>
 
 	 	</main>
 	</div>	
+	       <%-- ===================페이징 출력=================== --%>
+     <tag:pagination pageNum="${pageMaker.cvo.pageNum }" amount="${pageMaker.cvo.amount }"
+     startPage="${pageMaker.startPage }" endPage="${pageMaker.endPage }" prev="${pageMaker.prev }" next="${pageMaker.next }" />
 		
 		<!-- ################################################################################################ -->
 		<!-- ################################################################################################ -->

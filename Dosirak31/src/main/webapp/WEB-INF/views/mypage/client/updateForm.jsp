@@ -8,6 +8,14 @@
 			$(function() {
 				// 수정 버튼 클릭시 처리 이벤트
 				$("#mypageReviewUpdateBtn").click(function() {
+					// 점수 제한 정규식
+					let scoreval = $('#review_score').val()
+					let scorecheck = /^[0-5]$/
+					if (!scorecheck.test(scoreval)){
+						alert('점수는 0~5점 사이의 정수를 입력해주세요.')
+						$('review_score').focus();
+						return false
+					}
 					//입력값 체크
 					if(!chkData("#review_score", "점수를")) return;
 					else if(!chkData("#review_contents", "작성할 내용을")) return;
@@ -38,56 +46,26 @@
 
 	<body id="top">
 <!-- ################################################################################################ -->
-<div class="wrapper row1">
-  <header id="header" class="clear"> 
-
-    <div id="logo" class="fl_left">
-      <h1><a href="/resources/index.html">DOSIRAK31</a></h1>
-    </div>
-    <nav id="mainav" class="fl_right">
-      <ul class="clear">
-        <li class="active"><a href="/resources/index.html">Home</a></li>
-        <li><a href="/health/hBoardList">WORKOUT</a>  
-        </li>
-        <li><a class="drop" href="/food/foodNoClientBasicList">FOOD</a>
-          <ul>
-            <li><a href="/food/foodNoClientBasicList">FOOD</a>
-            <li><a href="/foodReview/client/foodReviewList">FOOD REVIEW</a>
-            </li>
-          </ul>
-        </li>
-        <li><a href="/community/client/communityList">COMMUNITY</a></li>
-        <li><a class="drop" href="/client/loginmain">LOGIN</a>
-       	 <ul>
-            <li><a href="/client/loginmain">CLIENT LOGIN</a></li>
-            <li><a href="/food/foodAdminBasicList">ADMIN LOGIN</a></li>
-          </ul>
-        </li>
-        <li><a href="/signup/client/signupForm">SIGN UP</a></li>
-        <li><a href="/mypage/client/mypage">MY PAGE</a></li>
-      </ul>
-    </nav>
-  </header>
-</div>
 <!-- ################################################################################################ -->
 <!-- ################################################################################################ -->
-<div class="wrapper row2 bgded" style="background-image:url('/resources/images/demo/backgrounds/01.png');">
-  <div class="overlay">
+<div class="wrapper row2 bgded" style="background-image:url('/resources/images/common/modify.jpeg'); height: 320px;">
+  
     <div id="breadcrumb" class="clear"> 
       <!-- ################################################################################################ -->
-      <ul>
-        <li><a href="#">Home</a></li>
-        <li><a href="/client/successlogin">Home</a></li>
-        <li><a href="/mypage/client/mypageMain">MYPAGE</a></li>
-        <li><a href="/mypage/client/mypageMain">MYPAGE</a></li>
-      </ul>
+      
       <!-- ################################################################################################ -->
     </div>
-  </div>
+  
 </div>
 	<div class="wrapper row3">
 	<main class="container clear"> 
     <div class="content">
+    	<div class="header-title">
+        		"My page"
+        	<span class="right-arrow">&gt;</span>
+        	<strong>Client_info</strong>
+        	</div>
+       		<h3 class="title">회원정보 수정</h3>
 		<div class="contentTB text-center">
 					<form id="f_updateForm" name="f_updateForm">
 						<input type="hidden" id="review_no" name="review_no" value="${updateData.review_no}" />
@@ -107,13 +85,14 @@
 								<tr>
 									<td>별점</td>
 									<td colspan="1" class="text-left">
-										<input type="text" name="review_score" id="review_score" value="${updateData.review_score}" class="form-control" />
+										<input type="text" name="review_score" id="review_score" value="${updateData.review_score}" 
+										class="form-control" placeholder="0~5점 사이의 정수를 입력해주세요."/>
 									</td>
 								</tr>
 								<tr class="table-tr-height">
 									<td>내용</td>
 									<td colspan="3" class="text-left">
-										<textarea name="review_contents" id="review_contents" class="form-control" rows="8">${updateData.review_contents}</textarea>
+										<textarea name="review_contents" id="review_contents" class="form-control" rows="8" placeholder="자유로운 의견을 남겨주세요.">${updateData.review_contents}</textarea>
 									</td>
 								</tr>
 								
@@ -123,9 +102,9 @@
 					</form>		
 				</div>
 				<div class="contentBtn text-right">
-					<input type="button" value="수정" id="mypageReviewUpdateBtn" class="btn btn-success">
-					<input type="button" value="취소" id="mypageReviewCancelBtn" class="btn btn-success">
-					<input type="button" value="목록" id="mypageReviewListBtn" class="btn btn-success">
+					<input type="button" value="수정" id="mypageReviewUpdateBtn" class="dosirakBtn">
+					<input type="button" value="취소" id="mypageReviewCancelBtn" class="dosirakBtn">
+					<input type="button" value="목록" id="mypageReviewListBtn" class="dosirakBtn">
 				</div>
      </div>
     <div class="clear"></div>

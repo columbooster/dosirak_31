@@ -63,7 +63,7 @@ public class FoodReviewController {
 	@RequestMapping(value = "/writeForm")
 	public String writeForm() {
 		log.info("writeForm 호출 성공");
-		return "foodReview/client/writeForm";
+		return "/foodReview/client/writeForm";
 	}
 	
 	/**************************************************

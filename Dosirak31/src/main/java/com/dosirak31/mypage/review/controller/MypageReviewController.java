@@ -40,7 +40,7 @@ public class MypageReviewController {
 	}
 	
 	/********************************************************
-	 * 마이페이지 리뷰 상세보기
+	 * 마이페이지 리뷰 리스트
 	 ********************************************************/
 	@RequestMapping(value = "/mypageReviewList", method = RequestMethod.GET)
 	public String mypageReviewList(@ModelAttribute MypageReviewVO mrvo, Model model, HttpSession session) {
