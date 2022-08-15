@@ -128,7 +128,7 @@
     <div class="form-group">
     	<input type="text" name ="comment" class="form-control" placeholder="댓글을 입력하세요"/><br/>
     	<button id="sendBtn" type="button"  class="dosirakBtn" style = "color: white; border:none; ">댓글 등록</button>
-    	<button id="modBtn" type="button"  class="dosirakBtn" style = "color: white; border:none;">수정 완료</button><br/><br/><br/>
+    	<button id="modBtn" type="button"  class="dosirakBtn2" style = "color: white; border:none;">수정 완료</button><br/><br/><br/>
     </div>
     
      
@@ -335,7 +335,7 @@
 					}); 
 				
 				}).fail(function() {
-						alert("게시물에 달린 댓글이 없습니다.");
+						
 				});
 			} 
 	

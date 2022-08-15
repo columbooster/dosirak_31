@@ -51,6 +51,7 @@
 	                if($("#search").val()=="all"){
 	                   $("#keyword").val("전체 데이터 조회합니다.");
 	                }else if($("#search").val()!="all"){
+	                	$("#keyword").attr("readonly",false);
 	                   $("#keyword").val("");
 	                   $("#keyword").focus();
 	                }

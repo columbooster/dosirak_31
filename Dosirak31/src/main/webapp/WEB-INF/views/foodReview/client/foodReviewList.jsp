@@ -28,7 +28,7 @@
 	  		 background-color:rgba(0,0,0,0);
 		}
        
-       
+        img{width:70px; height:70px;margin:5px;}
 		
 
 	</style>
@@ -90,7 +90,14 @@
 				          <li>
 				            <article>
 				              <header>
-				                <figure class="avatar"><img src="/resources/images/demo/avatar.png" alt=""></figure>
+				                <figure class="avatar">
+							<img  class="imgda1" src="/dosirak31img/food/${review.food_img1 }">
+			                <img  class="imgda2" src="/dosirak31img/food/${review.food_img2 }"><img  class="imgda3" src="/dosirak31img/food/${review.food_img3 }">
+			                <img  class="imgda4" src="/dosirak31img/food/${review.food_img4 }"><img  class="imgda5" src="/dosirak31img/food/${review.food_img5 }">
+			                </figure> 
+				                
+				                
+				                
 				                <div>${review.dosirak_name}</div>
 				                <address>
 				                By <a href="#">${review.review_name}</a>

@@ -26,11 +26,11 @@ public class MypageClientController {
 	private MypageClientService mypageClientService;
 	
 	/********************************************************
-	 * 마이페이지 회원정보 
+	 * 留덉씠�럹�씠吏� �쉶�썝�젙蹂� 
 	 ********************************************************/
 	@RequestMapping(value ="/mypageClientList", method = RequestMethod.GET)
 	public String mypageClientList(@ModelAttribute MypageClientVO mcvo, Model model) {
-		log.info("mypageClientList 호출 성공");
+		log.info("mypageClientList �샇異� �꽦怨�");
 		List<MypageClientVO> mypageClientList = mypageClientService.mypageClientList(mcvo);
 		model.addAttribute("mypageClientList", mypageClientList);
 		
@@ -39,11 +39,11 @@ public class MypageClientController {
 	
 	
 	/********************************************************
-	 * 마이페이지 회원정보 상세페이지
+	 * 留덉씠�럹�씠吏� �쉶�썝�젙蹂� �긽�꽭�럹�씠吏�
 	 ********************************************************/
 	@GetMapping("/mypageClientDetail")
 	public String mypageClientDetail(@ModelAttribute("data") MypageClientVO mcvo, Model model) {
-		log.info("mypageClientDetail 호출 성공");
+		log.info("mypageClientDetail �샇異� �꽦怨�");
 		
 		MypageClientVO detail = mypageClientService.mypageClientDetail(mcvo);
 		model.addAttribute("detail", detail);
@@ -52,11 +52,11 @@ public class MypageClientController {
 	}
 	
 	/********************************************************
-	 * 마이페이지 회원정보 삭제 (탈퇴)
+	 * 留덉씠�럹�씠吏� �쉶�썝�젙蹂� �궘�젣 (�깉�눜)
 	 ********************************************************/
 	@RequestMapping(value = "/mypageClientDelete")
 	public String mypageClientDelete(@ModelAttribute MypageClientVO mcvo, RedirectAttributes ras) {
-		log.info("mypageClientDelete 호출 성공");
+		log.info("mypageClientDelete �샇異� �꽦怨�");
 		
 		int result = 0;
 		String url ="";
@@ -71,13 +71,13 @@ public class MypageClientController {
 	}
 	
 	/********************************************************
-	 * 마이페이지 회원정보 수정 폼
+	 * 留덉씠�럹�씠吏� �쉶�썝�젙蹂� �닔�젙 �뤌
 	 * @param : client_no
 	 * @return : MypageClientVO
 	 ********************************************************/
 	@RequestMapping(value= "/cUpdateForm")
 	public String cUpdateForm(@ModelAttribute("data") MypageClientVO mcvo, Model model) {
-		log.info("cUpdateForm 호출 성공");
+		log.info("cUpdateForm �샇異� �꽦怨�");
 		log.info("client_no = " + mcvo.getClient_no());
 		MypageClientVO updateData = mypageClientService.cUpdateForm(mcvo);
 		
@@ -87,11 +87,11 @@ public class MypageClientController {
 	
 	
 	/********************************************************
-	 * 마이페이지 회원정보 수정
+	 * 留덉씠�럹�씠吏� �쉶�썝�젙蹂� �닔�젙
 	 ********************************************************/	
 	@RequestMapping(value= "/mypageClientUpdate", method=RequestMethod.POST)
 	public String mypageClientUpdate(@ModelAttribute MypageClientVO mcvo, RedirectAttributes ras ) {
-		log.info("mypageClientUpdate 호출 성공");
+		log.info("mypageClientUpdate �샇異� �꽦怨�");
 		
 		int result = 0;
 		String url = "";
@@ -100,7 +100,7 @@ public class MypageClientController {
 		ras.addFlashAttribute("data", mcvo);
 		
 		if(result == 1) {
-			url ="/mypage/client/mypageClientDetail";
+			url ="/mypage/client/mypageMain";
 		} else {
 			url ="/mypage/client/cUpdateForm";
 		}

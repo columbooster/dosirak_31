@@ -37,7 +37,7 @@
                <hr class="hr" />
                <div class="row marketing">
                   <div class="col-lg-6">
-                     <jsp:include page="hcomment.jsp" />
+                     <jsp:include page="hcomment2.jsp" />
                   </div>
                </div>
 

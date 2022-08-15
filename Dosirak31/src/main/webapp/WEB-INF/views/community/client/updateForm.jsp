@@ -103,9 +103,9 @@
 				
 				
 				<div class="contentBtn text-right">
-					<input type="button" value="수정" id="communityUpdateBtn" class="dosirakBtn1">
-					<input type="button" value="취소" id="communityCancelBtn" class="dosirakBtn1">
-					<input type="button" value="목록" id="communityListBtn" class="dosirakBtn3">
+					<input type="button" value="취소" id="communityCancelBtn" class="dosirakBtn2">
+					<input type="button" value="목록" id="communityListBtn" class="dosirakBtn2">
+					<input type="button" value="수정" id="communityUpdateBtn" class="dosirakBtn">
 				</div>	
 			</div>
 		</main>

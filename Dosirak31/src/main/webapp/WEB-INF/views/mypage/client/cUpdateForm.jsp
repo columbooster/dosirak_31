@@ -208,15 +208,9 @@
       <h6>Category</h6>
       <nav class="sdb_holder">
         <ul>
-          <li><a href="#">회원정보</a></li>
-          <li><a href="#">주문 내역</a>
-          <li><a href="/mypage/client/mypageReviewList">나의 리뷰</a>
-            <ul>
-              
-              
-            </ul>
-          </li>
-          
+          <li><a href="/mypage/client/mypageMain">회원정보</a></li>
+          <li><a href="javascript:orderList(${sessionScope.client_info.client_no })">주문 내역</a>
+          <li><a href="/mypage/client/mypageReviewList">나의 리뷰</a></li>
         </ul>
       </nav>
       <!-- ################################################################################################ -->

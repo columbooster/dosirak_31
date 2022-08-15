@@ -94,29 +94,18 @@
    
    
 
-	<!-- 게시판 리스트 조회(페이징 처리와 검색 처리) 및 댓글 갯수 구하기 -->
+<!-- 게시판 리스트 조회(페이징 처리와 검색 처리) 및 댓글 갯수 구하기 -->
 	<select id="orderhistory" parameterType="orderDetail" resultType="orderDetail">
 
 	<![CDATA[		
 			select order_no, to_char(order_date,'YYYY-MM-DD HH24:MM:SS') as order_date, order_client_name, order_client_phone,order_address,
-			order_quantity, order_price, dosirak_name, payment_method,payment_delete,client_name,client_phone,order_status_no,food_img1,food_img2,food_img3,food_img4,food_img5
+			order_quantity, order_price, dosirak_name, payment_method,payment_delete,client_name,client_phone,order_status_no
 			from ( select 
             rownum as rnum,o.order_no as order_no, order_date, order_client_name, order_client_phone,order_address,
-<<<<<<< HEAD
-            order_quantity, order_price, dosirak_name, payment_method,payment_delete,client_name,client_phone,order_status_no,food_img1,food_img2,food_img3,food_img4,food_img5
+            order_quantity, order_price, dosirak_name, payment_method,payment_delete,client_name,client_phone,order_status_no
             from orders o join order_detail od  on o.order_no=od.order_no 
             join dosirak d on d.dosirak_no=od.dosirak_no 
             join payment p on p.order_no=o.order_no 
-=======
-            order_quantity, order_price, dosirak_name, payment_method,payment_delete,client_name,client_phone,order_status_no
-            from orders o 
-            join order_detail od  
-            on o.order_no=od.order_no 
-            join dosirak d 
-            on d.dosirak_no=od.dosirak_no 
-            join payment p 
-            on p.order_no=o.order_no 
->>>>>>> branch 'feature/ssm4/ssm444444' of https://github.com/columbooster/dosirak_31.git
             join client c on c.client_no=o.client_no where]]>
             	 <if test="order_status_no != ''"> <!-- 비어있지 않다면 -->
 		            order_status_no=#{order_status_no} and

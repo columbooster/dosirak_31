@@ -119,10 +119,10 @@
 							</tbody>
 						</table>
 						
-						<div class="text-right">
-							<input type="button" value="저장" id="communityInsertBtn" class="btn btn-success">
-							<input type="button" value="취소" id="communityCancelBtn" class="btn btn-success">
-							<input type="button" value="목록" id="communityListBtn" class="btn btn-success">
+						<div class="text-right search_bar">
+							<input type="button" value="취소" id="communityCancelBtn" class="dosirakBtn2">
+							<input type="button" value="목록" id="communityListBtn" class="dosirakBtn2">
+							<input type="button" value="저장" id="communityInsertBtn" class="dosirakBtn">
 						</div>	
 					</form>
 				</div>

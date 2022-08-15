@@ -3,21 +3,7 @@
 <%@ include file="/WEB-INF/views/common/common.jspf" %>
 	
 	<style type="text/css">
-	 section#content ul li { display:inline-block; margin:first0px; }
-	 section#content div.goodsThumb img { width:200px; height:200px; }
-	 section#content div.goodsName { padding:first0px 0; text-align:center; }
-	 section#content div.goodsName a { color:#000; }
-	 section#content ul.client_info{margin:0px 0px;}
-<<<<<<< HEAD
-	 section#content ul li { border:5px solid #eee; padding:10px 20px; margin:40px 0px 0px 0px; width:500px; height:auto;}
-	 section#content .client_info span { font-size:15px; font-weight:bold; display:inline-block; width:100px; margin-right:10px; }
-=======
-	 section#content ul li { border:5px solid #eee; padding:first0px 20px; margin:40px 0px 0px 0px; width:500px; height:250px;}
-	 section#content .client_info span { font-size:first5px; font-weight:bold; display:inline-block; width:first00px; margin-right:first0px; }
->>>>>>> branch 'feature/ssm4/ssm444444' of https://github.com/columbooster/dosirak_31.git
-	 
-			
-		
+
 
 			.btn{
 				float: right;
@@ -77,14 +63,9 @@
 		});
 		
 		function orderList(client_no){
-<<<<<<< HEAD
-			location.href="/mypage/client/mypageOrderList?client_no="+client_no;
-		}
-=======
 	         location.href="/mypage/client/mypageOrderList?client_no="+client_no;
 	      }
 
->>>>>>> branch 'feature/ssm4/ssm444444' of https://github.com/columbooster/dosirak_31.git
 	</script>
 	
 	
@@ -114,17 +95,11 @@
     <div class="sidebar one_quarter first"> 
       <!-- ################################################################################################ -->
       <h6>Category</h6>
-      <nav class="sdb_holder">
+  <nav class="sdb_holder">
         <ul>
           <li><a href="/mypage/client/mypageMain">회원정보</a></li>
           <li><a href="javascript:orderList(${sessionScope.client_info.client_no })">주문 내역</a>
-          <li><a href="/mypage/client/mypageReviewList">나의 리뷰</a>
-            <ul>
-              
-              
-            </ul>
-          </li>
-          
+          <li><a href="/mypage/client/mypageReviewList">나의 리뷰</a></li>
         </ul>
       </nav>
       <!-- ################################################################################################ -->
