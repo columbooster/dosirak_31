@@ -18,7 +18,7 @@
         <li><a href="/food/foodNoClientBasicList">FOOD</a>
           <ul>
             <li><a href="/food/foodNoClientBasicList">MY LUNCHBOX</a></li>
-            <li><a href="/foodReview/client/foodReviewList">FOOD REVIEW</a>
+            <li><a href="/foodReview/client/foodNoClientReviewList">FOOD REVIEW</a>
             </li>
           </ul>
         </li>
