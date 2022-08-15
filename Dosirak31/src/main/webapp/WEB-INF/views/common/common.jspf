@@ -18,6 +18,10 @@
 
       <link rel="stylesheet" type="text/css" href="/resources/include/dist/css/bootstrap.min.css" />
       <link rel="stylesheet" type="text/css" href="/resources/include/dist/css/bootstrap-theme.min.css" />
+        <!-- 헬스 css -->
+      <link rel="stylesheet" type="text/css" href="/resources/layout/styles/health/health.css" />
+      
+      <link rel="stylesheet" type="text/css" href="/resources/layout/styles/framework.css" /> <!--  버튼 --> 
       
       <!-- 헬스 css -->
       <link rel="stylesheet" type="text/css" href="/resources/layout/styles/health/health.css" />

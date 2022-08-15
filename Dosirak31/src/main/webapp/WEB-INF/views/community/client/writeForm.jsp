@@ -2,9 +2,21 @@
     pageEncoding="UTF-8"%>
 <%@ include file="/WEB-INF/views/common/common.jspf" %> 
  
-      <style type="text/css"></style>
+      <style type="text/css">
+      
+      .container {
+		    padding: 0;
+		}
+   
+      .main_contents {
+		    height: 100px;
+		}
+
+      
+      </style>
       <script type="text/javascript">
 				$(function() {
+					
 					// 저장 버튼 클릭 시 처리 이벤트
 					$("#communityInsertBtn").click(function() {
 						// 입력값 체크
@@ -42,25 +54,27 @@
       
 </head>
 	<body>
-<div class="wrapper row2 bgded"
-	style="background-image: url('/resources/images/demo/backgrounds/01.png');">
-	<div class="overlay">
-		<div id="breadcrumb" class="clear">
-			
-			<ul>
-				<li><a href="/resources/index.html">Home</a></li>
-				<li><a href="/community/client/communityList">Community</a></li>
-			</ul>
-			
-		</div>
-	</div>
+<div id="hBoardList_board_img" class="wrapper row2 bgded"
+   style="background-image: url('/resources/images/common/write.jpg');">
+   <div class=" hBoardList_name_location">
+      <div id="breadcrumb" class="hBoard_Name">Write</div>
+   </div>
 </div>
 
 <div class="wrapper row3">
 	<main class="container clear"> 		
 	
 		<div class="contentContainer container">
-				<div class="contentTit page-header"><h3 class="text-center">게시판 글작성</h3></div>
+				<!-- <div class="contentTit page-header"><h3 class="text-center">게시판 글작성</h3></div> -->
+			 <div class="main_contents">
+            
+            <hr class="main_contents_hr">
+            <div class="head"><span class="bold">게시판 글작성</span></div>
+            <hr class="main_contents_hr">
+            
+         </div>
+				
+				
 				
 				<div class="contentTB text-center">
 					<form id="f_writeForm" name="f_writeForm" class="form-horizontal">
@@ -73,10 +87,16 @@
 							<tbody>
 								<tr>
 									<td>작성자</td>
-									<td class="text-left"><input type="text" name="client_id" id="client_id" class="form-control" value="<c:out value='${sessionScope.client_info.client_id}'/>" readonly="readonly" /></td>
-									<td class="text-left"><label><input type="checkbox" name="community_category_no" value="QnA">QnA</label>
-														  <label><input type="checkbox" name="community_category_no" value="community">community</label>
+									<td class="text-left">
+									<c:if test="${sessionScope.client_info.client_id != null && sessionScope.admin_info.admin_id == null}">
+											<input type="text" name="client_id" id="client_id" class="form-control" value="<c:out value='${sessionScope.client_info.client_id}'/>" readonly="readonly" />
+									</c:if>
+									<c:if test="${sessionScope.admin_info.admin_id != null && sessionScope.client_info.client_id == null}">
+											<input type="text" name="admin_id" id="admin_id" class="form-control" value="<c:out value='${sessionScope.admin_info.admin_id}'/>" readonly="readonly" />
+										
+									</c:if>
 									</td>
+									<td class="text-left"><label><input type="checkbox" name="community_category_no" id="community_category_no" value="1">QnA</label></td>
 								</tr>
 								<tr>
 									<td>글제목</td>
@@ -90,7 +110,7 @@
 								<tr>
 									<td>비밀번호</td>
 									<td class="text-left"><input type="text" name="community_pw" id="community_pw" class="form-control" /></td>
-									<td class="text-left"><label><input type="checkbox" name="community_closed" value="비밀글">비밀글</label></td>
+									<td class="text-left"><label><input type="checkbox" name="community_closed" id="community_closed" value="1">비밀글</label></td>
 								</tr>
 								<tr>
 									<td>파일첨부</td>

@@ -21,7 +21,7 @@
 				let value = JSON.stringify({
 					community_no:community_no,
 					client_id:$("#client_id").val(),
-					reply_pw:$("#reply_pw").val(),
+					reply_pw:$("#reply_pw").val(),	  // 삭제
 					reply_contents:$("#reply_contents").val()
 				});
 				
@@ -38,7 +38,7 @@
 					},
 					beforeSend : function() {
 						//if(!checkForm("#r_name","작성자를")) return false;
-						if(!checkForm("#reply_pw","비밀번호를")) return false;
+						if(!checkForm("#reply_pw","비밀번호를")) return false;		// 주석
 						else if (!checkForm("#reply_contents","댓글내용을")) return false;
 					},
 					success : function(result) {
@@ -76,14 +76,14 @@
 			$(document).on("click", "#replyUpdateBtn", function(){
 				let reply_no = $(this).attr("data-reply_no");
 				$.ajax({
-					url : '/replies/'+reply_no, // 전송 url
+					url : '/replies/client/'+reply_no, // 전송 url
 					type : 'put',	// 전송 시 method 방식
 					headers : {
 						"Content-Type":"application/json",
 						"X-HTTP-Method-Override" : "PUT" },
 					data:JSON.stringify({
 						reply_contents:$("#reply_contents").val(),
-						reply_pw:$("#reply_pw").val()
+						reply_pw:$("#reply_pw").val() // 삭제
 					}),	
 					dataType:'text',
 					error: function(xhr, textStatus, errorThrown) {// 실행시 오류가 발생하였을 경우
@@ -110,7 +110,7 @@
 			/* 비밀번호 확인없이 삭제버튼 제어 */
 			$(document).on("click", "button[data-btn='delBtn']", function() {
 				let reply_no = $(this).parents("div.panel").attr("data-num");
-				deleteBtn(community_no, reply_no);
+					deleteBtn(community_no, reply_no);
 			});
 			
 		});// 최상위 $ 종료
@@ -121,7 +121,7 @@
 			
 			let url = "/replies/client/all/"+community_no;
 			
-			$.getJSON(url, function(data) {
+			$.getJSON(url, function(data) {	// data == [r_num:1. r_name:"홍ㄱ길동"}. {}]
 				$(data).each(function() {
 					let reply_no = this.reply_no;
 					let client_id = this.client_id;
@@ -145,6 +145,15 @@
 			$element.addClass("reply");
 			$element.find('.panel-heading > .panel-title > .name').html(client_id + "님");
 			$element.find('.panel-heading > .panel-title > .date').html(" / " + reply_date);
+			
+			let loginName = "${sessionScope.client_info.client_id}";
+			let adminName = "${sessionScope.admin_info.admin_id}";
+			console.log(adminName);
+			if(loginName != client_id && adminName == ""){
+				$element.find('.panel-heading > .panel-title > button').detach();
+			}
+			
+			
 			$element.find('.panel-body').html(reply_contents);
 			
 			$div.append($element); 
@@ -208,7 +217,7 @@
 									<input type="password" name="reply_pw" id="reply_pw" maxlength="18" class="form-control" />
 								</td>	
 								<td class="col-md-4">
-									<button type="button" id="replyInsertBtn" class="btn btn-success">저장</button>
+									<button type="button" id="replyInsertBtn" class="dosirakBtn1">저장</button>
 								</td>
 							</tr>
 							<tr>

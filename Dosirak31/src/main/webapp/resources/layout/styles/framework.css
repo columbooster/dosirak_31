@@ -167,8 +167,11 @@ address, article, aside, figcaption, figure, footer, header, main, nav, section{
    background:linear-gradient(#88ad10, #99c40e);
 }
 
+<<<<<<< HEAD
 
 /*초록색 그림자 없는 버튼*/
+=======
+>>>>>>> branch 'feature/bhg6' of https://github.com/columbooster/dosirak_31.git
 .dosirakBtn1{
    text-decoration:none;
    font-family:Arial;
