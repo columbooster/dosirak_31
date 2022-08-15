@@ -81,6 +81,7 @@
                   <div>
                   <iframe width="930" height="500"
                      src="https://www.youtube.com/embed/${cardioDetail.health_url }?mute=1&autoplay=1"></iframe>
+                     <input type="hidden" name="health_url" value="${weightDetail.health_url }"/>
                </div>
                <div class="health_title2">${cardioDetail.health_title }</div>
                <div>

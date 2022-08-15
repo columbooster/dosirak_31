@@ -22,89 +22,89 @@ import lombok.extern.log4j.Log4j;
 @RequestMapping(value = "/mypage/client/*")
 @Controller
 public class MypageClientController {
-	
-	private MypageClientService mypageClientService;
-	
-	/********************************************************
-	 * 留덉씠�럹�씠吏� �쉶�썝�젙蹂� 
-	 ********************************************************/
-	@RequestMapping(value ="/mypageClientList", method = RequestMethod.GET)
-	public String mypageClientList(@ModelAttribute MypageClientVO mcvo, Model model) {
-		log.info("mypageClientList �샇異� �꽦怨�");
-		List<MypageClientVO> mypageClientList = mypageClientService.mypageClientList(mcvo);
-		model.addAttribute("mypageClientList", mypageClientList);
-		
-		return "mypage/client/mypageClientList";
-	}
-	
-	
-	/********************************************************
-	 * 留덉씠�럹�씠吏� �쉶�썝�젙蹂� �긽�꽭�럹�씠吏�
-	 ********************************************************/
-	@GetMapping("/mypageClientDetail")
-	public String mypageClientDetail(@ModelAttribute("data") MypageClientVO mcvo, Model model) {
-		log.info("mypageClientDetail �샇異� �꽦怨�");
-		
-		MypageClientVO detail = mypageClientService.mypageClientDetail(mcvo);
-		model.addAttribute("detail", detail);
-		
-		return "mypage/client/mypageClientDetail";
-	}
-	
-	/********************************************************
-	 * 留덉씠�럹�씠吏� �쉶�썝�젙蹂� �궘�젣 (�깉�눜)
-	 ********************************************************/
-	@RequestMapping(value = "/mypageClientDelete")
-	public String mypageClientDelete(@ModelAttribute MypageClientVO mcvo, RedirectAttributes ras) {
-		log.info("mypageClientDelete �샇異� �꽦怨�");
-		
-		int result = 0;
-		String url ="";
-		
-		result = mypageClientService.mypageClientDelete(mcvo);
-		ras.addFlashAttribute("MypageClientVO", mcvo);
-		
-		if(result ==1 ) {
-			url ="/mypage/client/mypageClientList";
-		} 
-		return "redirect:"+url;
-	}
-	
-	/********************************************************
-	 * 留덉씠�럹�씠吏� �쉶�썝�젙蹂� �닔�젙 �뤌
-	 * @param : client_no
-	 * @return : MypageClientVO
-	 ********************************************************/
-	@RequestMapping(value= "/cUpdateForm")
-	public String cUpdateForm(@ModelAttribute("data") MypageClientVO mcvo, Model model) {
-		log.info("cUpdateForm �샇異� �꽦怨�");
-		log.info("client_no = " + mcvo.getClient_no());
-		MypageClientVO updateData = mypageClientService.cUpdateForm(mcvo);
-		
-		model.addAttribute("updateData", updateData);
-		return "mypage/client/cUpdateForm";
-	}
-	
-	
-	/********************************************************
-	 * 留덉씠�럹�씠吏� �쉶�썝�젙蹂� �닔�젙
-	 ********************************************************/	
-	@RequestMapping(value= "/mypageClientUpdate", method=RequestMethod.POST)
-	public String mypageClientUpdate(@ModelAttribute MypageClientVO mcvo, RedirectAttributes ras ) {
-		log.info("mypageClientUpdate �샇異� �꽦怨�");
-		
-		int result = 0;
-		String url = "";
-		
-		result = mypageClientService.mypageClientUpdate(mcvo);
-		ras.addFlashAttribute("data", mcvo);
-		
-		if(result == 1) {
-			url ="/mypage/client/mypageMain";
-		} else {
-			url ="/mypage/client/cUpdateForm";
-		}
-		
-		return "redirect:"+url;
-	}
+   
+   private MypageClientService mypageClientService;
+   
+   /********************************************************
+    * 마이페이지 회원정보 
+    ********************************************************/
+   @RequestMapping(value ="/mypageClientList", method = RequestMethod.GET)
+   public String mypageClientList(@ModelAttribute MypageClientVO mcvo, Model model) {
+      log.info("mypageClientList 호출 성공");
+      List<MypageClientVO> mypageClientList = mypageClientService.mypageClientList(mcvo);
+      model.addAttribute("mypageClientList", mypageClientList);
+      
+      return "mypage/client/mypageClientList";
+   }
+   
+   
+   /********************************************************
+    * 마이페이지 회원정보 상세페이지
+    ********************************************************/
+   @GetMapping("/mypageClientDetail")
+   public String mypageClientDetail(@ModelAttribute("data") MypageClientVO mcvo, Model model) {
+      log.info("mypageClientDetail 호출 성공");
+      
+      MypageClientVO detail = mypageClientService.mypageClientDetail(mcvo);
+      model.addAttribute("detail", detail);
+      
+      return "mypage/client/mypageClientDetail";
+   }
+   
+   /********************************************************
+    * 마이페이지 회원정보 삭제 (탈퇴)
+    ********************************************************/
+   @RequestMapping(value = "/mypageClientDelete")
+   public String mypageClientDelete(@ModelAttribute MypageClientVO mcvo, RedirectAttributes ras) {
+      log.info("mypageClientDelete 호출 성공");
+      
+      int result = 0;
+      String url ="";
+      
+      result = mypageClientService.mypageClientDelete(mcvo);
+      ras.addFlashAttribute("MypageClientVO", mcvo);
+      
+      if(result ==1 ) {
+         url ="/mypage/client/mypageClientList";
+      } 
+      return "redirect:"+url;
+   }
+   
+   /********************************************************
+    * 마이페이지 회원정보 수정 폼
+    * @param : client_no
+    * @return : MypageClientVO
+    ********************************************************/
+   @RequestMapping(value= "/cUpdateForm")
+   public String cUpdateForm(@ModelAttribute("data") MypageClientVO mcvo, Model model) {
+      log.info("cUpdateForm 호출 성공");
+      log.info("client_no = " + mcvo.getClient_no());
+      MypageClientVO updateData = mypageClientService.cUpdateForm(mcvo);
+      
+      model.addAttribute("updateData", updateData);
+      return "mypage/client/cUpdateForm";
+   }
+   
+   
+   /********************************************************
+    * 마이페이지 회원정보 수정
+    ********************************************************/   
+   @RequestMapping(value= "/mypageClientUpdate", method=RequestMethod.POST)
+   public String mypageClientUpdate(@ModelAttribute MypageClientVO mcvo, RedirectAttributes ras ) {
+      log.info("mypageClientUpdate 호출 성공");
+      
+      int result = 0;
+      String url = "";
+      
+      result = mypageClientService.mypageClientUpdate(mcvo);
+      ras.addFlashAttribute("data", mcvo);
+      
+      if(result == 1) {
+         url ="/mypage/client/mypageMain";
+      } else {
+         url ="/mypage/client/cUpdateForm";
+      }
+      
+      return "redirect:"+url;
+   }
 }

@@ -477,7 +477,7 @@ tr:nth-child(even), #comments li:nth-child(even) {
 	</script>
 
 </head>
-<div class="wrapper row2 bgded"
+<div id="hBoardList_board_img" class="wrapper row2 bgded"
       style="background-image: url('/resources/images/common/lunchbox3.jpg');">
       <div class=" hBoardList_name_location">
       <div id="breadcrumb" class="hBoard_Name">DOSIRAK31 도시락 만들기</div>

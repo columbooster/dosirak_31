@@ -1,8 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file="/WEB-INF/views/common/common.jspf" %>
-
-   
    <style type="text/css">
     section#content ul li { display:inline-block; margin:10px; }
     section#content div.goodsThumb img { width:200px; height:200px; }
@@ -11,24 +9,28 @@
     section#content ul.orderList{margin:0px 0px;}
     section#content ul li { border:5px solid #eee; padding:10px 20px; margin:40px 0px 0px 0px; width:650px; height:230px;}
     section#content .orderList span { font-size:15px; font-weight:bold; display:inline-block; width:100px; margin-right:10px; }
-
+    
          /*레이어 창*/
         div#popup{
-           position:absolute;right:0;top:0;
-
+           position:absolute;right:10%;top:0;
            padding:5px;
-            color: yellow;
-            width: 500px; height: 80px;
-            background-color: gray;
+            color: white;
+            width: 600px; height: 80px;
+            background-color: #29AB87;
+     
         }
         div#popup>div{
             position: relative;
             background-color: #ffffff;
-            width: 500px; height: auto;
-            top: 0px; left:0px;
+            width: 600px; height: auto;
+            top: -5px; right:5px;
             border: 1px solid gray;
             padding: 10px;
             color: black;
+        }
+        
+        h2 {
+           margin-top: 20px;
         }
    
     #trClone{display:none;}
@@ -154,13 +156,14 @@
        })  
       })
       
-      function orderList(client_no){
-	         location.href="/mypage/client/mypageOrderList?client_no="+client_no;
-	      }
+      
    
    </script>
 
+</head>
+   </head>
 <body id="top">
+<!-- ################################################################################################ -->
 
 <!-- ################################################################################################ -->
 <!-- ################################################################################################ -->
@@ -188,7 +191,13 @@
         <ul>
           <li><a href="/mypage/client/mypageMain">회원정보</a></li>
           <li><a href="javascript:orderList(${sessionScope.client_info.client_no })">주문 내역</a>
-          <li><a href="/mypage/client/mypageReviewList">나의 리뷰</a></li>
+          <li><a href="/mypage/client/mypageReviewList">나의 리뷰</a>
+            <ul>
+              
+              
+            </ul>
+          </li>
+          
         </ul>
       </nav>
       <!-- ################################################################################################ -->
@@ -206,19 +215,16 @@
          
    <!-- 상세정보 팝업창 -->
        <div id="popup">
-           <h2 align="center" id="on"></h2>
+           <h2 align="center" id="on" style="font-family:vtfont;"></h2>
           
            <div align="right" id="detailDiv">        
              <table id="detailTable">
                  <tr>
-                    <td>도시락이름</td>
+                    <td>도시락</td>
                     <td>수량</td>
                     <td>가격</td>
-                    <td>이미지1</td>
-                    <td>이미지2</td>
-                    <td>이미지3</td>
-                    <td>이미지4</td>
-                    <td>이미지5</td>
+                    <td colspan="5">상품 내용</td>
+                    
                     
                     
                  </tr>
@@ -263,8 +269,8 @@
                  <div>
                   <p><span>주문번호</span><a href="javascript:popup(${order.order_no })" class="popUpBtn">${order.order_no }</a></p>
                   <p><span>주문상태</span><c:if test="${order.order_status_no eq 3}">주문 완료 / ${order.order_date} &nbsp;<a class="mypageOrderDeleteBtn" data-num="${order.order_no }">주문취소</a> </c:if>
-                  <c:if test="${order.order_status_no eq 4}">주문 취소 / ${order.order_date} </c:if>
-                  <c:if test="${order.order_status_no eq 5}">배송 완료 / ${order.order_date} &nbsp;<a class="mypageOrderDeleteBtn" data-num="${order.order_no }">주문취소</a></c:if>
+                  <c:if test="${order.order_status_no eq 4}">주문 취소</c:if>
+                  <c:if test="${order.order_status_no eq 5}">배송 완료</c:if>
                   </p>
                   <input type="hidden" id="status" value="${order.order_status_no }"/>
                   <p><span>결제상태</span><c:if test="${order.payment_delete eq 0}">결제 완료</c:if>
@@ -285,11 +291,7 @@
                   <p><span>수령인 정보</span>${order.order_client_name} / ${order.order_client_phone}</p>
                   <p><span>주소</span>${order.order_address }
                   </p>               
-                  <p style="text-align:right;">
-                  <c:if test="${order.order_status_no eq 5}">
-                  <a class="writeForm" data-num="${order.order_no }">리뷰 쓰기</a>
-                 </c:if>
-                  </p>   
+                  <p style="text-align:right;"><a class="writeForm" data-num="${order.order_no }">리뷰 쓰기</a></p>
                  </div>              
                  </li>
                 </ul>            

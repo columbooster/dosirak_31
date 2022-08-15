@@ -88,7 +88,7 @@
 			<div class="form-group">
 				<label for="url" class="col-sm-2 control-label">동영상 url</label>
 				<div class="col-sm-10">
-					<input type="text" class="form-control" id="url" name="url"
+					<input type="text" class="form-control" id="url" name="health_url"
 						value="${healthUpdate.health_url }" />
 				</div>
 			</div>

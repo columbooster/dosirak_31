@@ -83,11 +83,11 @@
                   <form name="weightData" id="weightData" method="post">
                         <input type="hidden" name="health_no" value="${weightDetail.health_no }"/>
                         <input type="hidden" name="health_category_no" value="${weightDetail.health_category_no }"/>
-                        
+                      
                      </form>
                   <!-------------------------------------------------- 동영상 & 소개 공간 ---------------------------------------------------->
                   <div>
-                  <iframe width="930" height="500"
+                  <iframe width="560" height="315"
                      src="https://www.youtube.com/embed/${weightDetail.health_url }?mute=1&autoplay=1"></iframe>
                </div>
                <div class="health_title2">${weightDetail.health_title }</div>

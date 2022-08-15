@@ -12,7 +12,13 @@
             <ul>
               <li><a href="/food/admin/foodAdminBasicList">식품 목록 관리</a></li>
               <li><a href="/health/admin/hBoardList">운동 영상 관리</a></li>
-               <li><a href="/community/admin/communityList">커뮤니티 관리</a></li>
+                <li><a class="drop" href="/community/admin/communityList">COMMUNITY</a>
+                <ul>
+                  <li><a href="/community/admin/communityList?community_category_no=0">FREE COMMUNITY</a></li>
+                  <li><a href="/community/admin/communityList?community_category_no=1">QnA COMMUNITY</a></li>
+                </ul>
+              </li>
+
 
                <li><a href="/foodReview/admin/adminfoodReviewList">식품 리뷰 관리</a></li>
                
