@@ -2,95 +2,60 @@
    pageEncoding="UTF-8"%>
 <%@ include file="/WEB-INF/views/common/common.jspf"%>
 
-<!-- Bootstrap core CSS -->
-<link href="/resources/include/dist/css/bootstrap.min.css"
-   rel="stylesheet">
-
-<!-- Custom styles for this template -->
-<link href="/resources/include/dist/css/jumbotron-narrow.css"
-   rel="stylesheet">
-
-<!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
-<!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
-<script
-   src="/resources/include/dist/assets/js/ie-emulation-modes-warning.js"></script>
-
-<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-<!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
-<style>
-	a{color:#FF8D2C;}
-</style>
 </head>
-   <div class="wrapper row2 bgded"
-      style="background-image: url('/resources/images/demo/backgrounds/01.png');">
-      <div class="overlay">
-         <div id="breadcrumb" class="clear">
-            <!-- ################################################################################################ -->
-            <ul>
-             <li><a href="/client/successlogin">Home</a></li>
-			<li><a href="/health/hBoardList">WORKOUT</a></li>
-			<li><a href="/health/cardioList?health_category_no=2">CARDIO WORKOUT</a></li>
-            </ul>
-            <!-- ################################################################################################ -->
+<div id="hBoardList_board_img" class="wrapper row2 bgded"
+   style="background-image: url('/resources/images/common/running.jpg');">
+   <div class=" hBoardList_name_location">
+      <div id="breadcrumb" class="hBoard_Name">유산소 운동</div>
+   </div>
+</div>
+<div class="wrapper row3">
+   <main class="container clear" id="health_main">
+      <div class="content">
+         <div id="gallery">
+            <figure>
+               <!-------------------------------------------------- 동영상 & 소개 공간 ---------------------------------------------------->
+               <div>
+                  <iframe width="930" height="500"
+                     src="https://www.youtube.com/embed/${cardioDetail.health_url }?mute=1&autoplay=1"></iframe>
+               </div>
+               <div class="health_title2">${cardioDetail.health_title }</div>
+               <div>
+                  <div class="health_board_info2">
+                     <img class="health_logoImg2"
+                        src="/resources/images/common/Logo.png" />
+                  </div>
+                  <div class="health_writer_hits2">${cardioDetail.admin_id }</div>
+                  <div class="health_writer_hits2">${cardioDetail.health_hits }views</div>
+               </div>
+
+               <hr class="health_hr" />
+               <div class="health_comments_part">
+                  <h3>Detail</h3>
+                  <div>${cardioDetail.health_contents }</div>
+               </div>
+               <hr class="hr" />
+               <div class="row marketing">
+                  <div class="col-lg-6">
+                     <jsp:include page="hcomment.jsp" />
+                  </div>
+               </div>
+
+            </figure>
          </div>
       </div>
-   </div>
-   <!-- ################################################################################################ -->
-   <!-- ################################################################################################ -->
-   <!-- ################################################################################################ -->
-   <div class="wrapper row3">
-      <main class="container clear">
-         <!-- main body -->
-         <!-- ################################################################################################ -->
-         <div class="content">
-            <!-- ################################################################################################ -->
-            <div id="gallery">
-               <figure>
-                  <header class="heading">${cardioDetail.health_title }(조회수: ${cardioDetail.health_hits })</header>
-                  <!-------------------------------------------------- 동영상 & 소개 공간 ---------------------------------------------------->
-                  <div class="jumbotron">
-                     <section>
-                     <table>
-                        <tr>   
-                           <td> <iframe width="560" height="315"
-                              src="https://www.youtube.com/embed/${cardioDetail.health_url }?mute=1&autoplay=1"></iframe>
-                           </td>
-                        </tr>               
-                        <tr>
-                           <td class="col-md-4">
-                           ${cardioDetail.health_contents }
-                        
-                           </td>
-                        </tr>
-                        </table>
-                     </section>
-                  </div>
-                  
-                  <div class="row marketing">
-                     <div class="col-lg-6">
-                        <jsp:include page="hcomment.jsp" />
-                     </div>
-                  </div>
-            
-               </figure>
-            </div>
-         </div>
-         <!-- / main body -->
-         <div class="clear"></div>
-      </main>
+      <div class="clear"></div>
+   </main>
 
-   </div>
-   <a id="backtotop" href="#top"><i class="fa fa-chevron-up"></i></a>
-   <!-- JAVASCRIPTS -->
-   <script src="/resources/layout/scripts/jquery.min.js"></script>
-   <script src="/resources/layout/scripts/jquery.backtotop.js"></script>
-   <script src="/resources/layout/scripts/jquery.mobilemenu.js"></script>
+</div>
+<a id="backtotop" href="#top"><i class="fa fa-chevron-up"></i></a>
+<!-- JAVASCRIPTS -->
+<script src="/resources/layout/scripts/jquery.min.js"></script>
+<script src="/resources/layout/scripts/jquery.backtotop.js"></script>
+<script src="/resources/layout/scripts/jquery.mobilemenu.js"></script>
 
-   <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-   <script
-      src="/resources/include/dist/assets/js/ie10-viewport-bug-workaround.js"></script>
+<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+<script
+   src="/resources/include/dist/assets/js/ie10-viewport-bug-workaround.js"></script>
 </body>
 </html>

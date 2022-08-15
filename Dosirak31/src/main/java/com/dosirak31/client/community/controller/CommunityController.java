@@ -48,6 +48,7 @@ public class CommunityController {
 		return "community/client/communityList";  // /WEB-INF/views/community/communityList.jsp
 	} */
 	
+	
 	/*************************************************
 	 * 글 목록 구현하기(페이징 처리 목록 조회) 
 	 * 요청 URL: http://localhost:8080/community/communityList
@@ -66,12 +67,6 @@ public class CommunityController {
 		
 		return "community/client/communityList";  // /WEB-INF/views/community/communityList.jsp
 	}
-	
-	
-	
-	
-	
-	
 	
 	
 	

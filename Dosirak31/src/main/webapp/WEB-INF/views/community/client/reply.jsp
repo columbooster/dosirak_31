@@ -147,7 +147,7 @@
 			$element.find('.panel-heading > .panel-title > .date').html(" / " + reply_date);
 			$element.find('.panel-body').html(reply_contents);
 			
-			$div.append($element);
+			$div.append($element); 
 		}
 		
 		// 입력 폼 초기화

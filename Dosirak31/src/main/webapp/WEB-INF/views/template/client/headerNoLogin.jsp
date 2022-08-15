@@ -23,7 +23,9 @@
           </ul>
         </li>
         <li><a href="/community/client/communityList">COMMUNITY</a></li>
-        <li><a href="/client/loginmain">LOGIN</a> 	 
+
+        <li><a href="/client/loginmain">LOGIN</a>     
+
         </li>
         <li><a href="/signup/client/signupForm">SIGN UP</a></li>
       </ul>

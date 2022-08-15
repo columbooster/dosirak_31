@@ -11,17 +11,23 @@
  	<definition name="food/admin/*" extends="basic">
  		<put-attribute name="main" value="/WEB-INF/views/food/admin/{1}.jsp"/>
  	</definition>
- 	
+ 	<definition name="foodReview/admin/*" extends="basic">
+ 		<put-attribute name="main" value="/WEB-INF/views/foodReview/admin/{1}.jsp"/>
+ 	</definition>
  	<definition name="community/admin/*" extends="basic">
  		<put-attribute name="main" value="/WEB-INF/views/community/admin/{1}.jsp"/>
  	</definition>
- 	
+ 	<definition name="health/admin/*" extends="basic">
+ 		<put-attribute name="main" value="/WEB-INF/views/health/admin/{1}.jsp"/>
+ 	</definition>
  	<definition name="health/admin/*" extends="basic">
  		<put-attribute name="main" value="/WEB-INF/views/health/admin/{1}.jsp"/>
  	</definition>
  	<definition name="adminPage/admin/*" extends="basic">
  		<put-attribute name="main" value="/WEB-INF/views/adminPage/admin/{1}.jsp"/>
  	</definition>
- 	
+ 	<definition name="hcomment/admin/*" extends="basic">
+ 		<put-attribute name="main" value="/WEB-INF/views/hcomment/admin/{1}.jsp"/>
+ 	</definition>
  	
  </tiles-definitions> 

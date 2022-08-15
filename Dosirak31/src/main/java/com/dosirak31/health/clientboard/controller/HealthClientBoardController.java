@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.dosirak31.common.vo.PageDTO;
+import com.dosirak31.common.vo.PageHealthDTO;
 import com.dosirak31.health.board.service.HealthBoardService;
 import com.dosirak31.health.board.vo.HealthBoardVO;
 
@@ -21,7 +22,7 @@ import lombok.extern.log4j.Log4j;
 /*
  * 요청 URL을 어떤 method가 처리할지 mapping해주는 Annotation이다. 요청을 받는 형식인 GET, POST, PATCH,
  * PUT, DELETE 를 정의하기도 한다. 디폴트는 GET으로 설정된다.
- */
+ */ 
 @AllArgsConstructor /* 모든 필드 값을 파라미터로 받는 생성자를 추가한다. */
 public class HealthClientBoardController {
 
@@ -50,8 +51,7 @@ public class HealthClientBoardController {
 		//전체 레코드 수 구현
 		int total=healthBoardService.boardListCnt(hbvo);
 		//페이징 처리
-		model.addAttribute("pageMaker",new PageDTO(hbvo,total));
-		
+		model.addAttribute("pageMaker",new PageHealthDTO(hbvo,total));
 		
 		return "health/client/weightList";
 	}
@@ -70,6 +70,7 @@ public class HealthClientBoardController {
 
 		return "health/client/weightDetail";
 	}
+	
 	/****************************************************************************
 	 * 유산소 게시판 구현
 	 ***************************************************************************/
@@ -84,7 +85,7 @@ public class HealthClientBoardController {
 		//전체 레코드 수 구현
 	    int total=healthBoardService.boardListCnt(hbvo);
 	    //페이징 처리
-	    model.addAttribute("pageMaker",new PageDTO(hbvo,total));
+	    model.addAttribute("pageMaker",new PageHealthDTO(hbvo,total));
 		
 		return "health/client/cardioList";
 	}

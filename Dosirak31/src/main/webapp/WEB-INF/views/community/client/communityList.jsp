@@ -13,7 +13,7 @@
       </style>
       <script type="text/javascript">
 				$(function() {
-					
+				
 					// 검색 후 검색 대상과 검색 단어 출력
 					let word ="<c:out value='${communityVO.keyword}' />";
 					let value="";

@@ -15,57 +15,41 @@
 <script
    src="/resources/include/dist/assets/js/ie-emulation-modes-warning.js"></script>
 
-<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-<!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
-	<style>
-		a{color:#FF8D2C;}
-	</style>
+   <style>
+      a{color:#FF8D2C;}
+   </style>
 </head>
   <div class="wrapper row2 bgded"
-		style="background-image: url('/resources/images/demo/backgrounds/01.png');">
-		<div class="overlay">
-			<div id="breadcrumb" class="clear">
-				<ul>
-					<li><a href="/client/successlogin">Home</a></li>
-					<li><a href="/health/hBoardList">WORKOUT</a></li>
-					<li><a href="/health/weightList?health_category_no=1">WEIGHT WORKOUT</a></li>
-				</ul>
-			</div>
-		</div>
-	</div>
-   <!-- ################################################################################################ -->
-   <!-- ################################################################################################ -->
-   <!-- ################################################################################################ -->
+      style="background-image: url('/resources/images/demo/backgrounds/01.png');">
+      <div class="overlay">
+         <div id="breadcrumb" class="clear">
+            <ul>
+               <li><a href="/client/successlogin">Home</a></li>
+               <li><a href="/health/hBoardList">WORKOUT</a></li>
+               <li><a href="/health/weightList?health_category_no=1">WEIGHT WORKOUT</a></li>
+            </ul>
+         </div>
+      </div>
+   </div>
    <div class="wrapper row3">
       <main class="container clear">
-         <!-- main body -->
-         <!-- ################################################################################################ -->
          <div class="content">
-            <!-- ################################################################################################ -->
             <div id="gallery">
                <figure>
                   <header class="heading">${weightDetail.health_title }(조회수: ${weightDetail.health_hits })</header>
                   <!-------------------------------------------------- 동영상 & 소개 공간 ---------------------------------------------------->
-                  <div class="jumbotron">
-                     <section>
-                     <table>
-                        <tr>   
-                           <td> <iframe width="560" height="315"
-                              src="https://www.youtube.com/embed/${weightDetail.health_url }?mute=1&autoplay=1"></iframe>
-                           </td>
-                        </tr>               
-                        <tr>
-                           <td class="col-md-4">
-                           ${weightDetail.health_contents }
-                        
-                           </td>
-                        </tr>
-                        </table>
-                     </section>
+                  <div>
+                  <iframe width="560" height="315"
+                     src="https://www.youtube.com/embed/${weightDetail.health_url }?mute=1&autoplay=1"></iframe>
+               </div>
+               <div class="col-md-4">
+                ${weightDetail.health_contents }
+                </div>
+               <div class="row marketing">
+                  <div class="col-lg-6">
+                     <jsp:include page="hcomment.jsp" />
                   </div>
+               </div>
                   
                   <div class="row marketing">
                      <div class="col-lg-6">
@@ -86,8 +70,6 @@
    <script src="/resources/layout/scripts/jquery.min.js"></script>
    <script src="/resources/layout/scripts/jquery.backtotop.js"></script>
    <script src="/resources/layout/scripts/jquery.mobilemenu.js"></script>
-
-   <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
    <script
       src="/resources/include/dist/assets/js/ie10-viewport-bug-workaround.js"></script>
 </body>
