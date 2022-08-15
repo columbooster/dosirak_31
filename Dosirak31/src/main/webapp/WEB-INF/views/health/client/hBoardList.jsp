@@ -14,9 +14,6 @@
 <div class="wrapper row3">
 
 	<main class="container clear">
-
-		<!-- main body -->
-		<!-- ################################################################################################ -->
 		<div class="content">
 			<div class="main_contents">
 				
@@ -27,12 +24,11 @@
 				<div class="hBoardListContents">Dosirak31은 <span class="bold">기본에 충실한 마음으로</span> 고객을 위한 최선의 트레이닝 방법을</div>
 				<div class="hBoardListContents">찾고 <span class="bold">더 만족도 높은 결과를 만들기 위해 끊임없이 공부합니다.</span></div>
 			</div>
-			<!-- ################################################################################################ -->
 			<div id="gallery">
 				<ul class="nospace clear ul">
 					<li class="li"><a href="/health/weightList?health_category_no=1"><img
 							class="img"
-							src="/dosirak31img/health/health_weight_weightMain.JPG" alt=""><br /><br />
+							src="/dosirak31img/health/health_weight_weightMain1.JPG" alt=""><br /><br />
 							<span class="span">
 							웨이트 트레이닝 동영상 자세히 보기
 							</span></a></li>
@@ -44,13 +40,7 @@
 							</span></a></li>
 				</ul>
 			</div>
-			<!-- ################################################################################################ -->
-			<!-- ################################################################################################ -->
-
-			<!-- ################################################################################################ -->
 		</div>
-		<!-- ################################################################################################ -->
-		<!-- / main body -->
 		<div class="clear"></div>
 	</main>
 </div>

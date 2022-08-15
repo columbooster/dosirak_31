@@ -42,7 +42,8 @@
 	<select id="boardListCnt" parameterType="healthBoard"
 		resultType="int">
 		select count(*) from health
-		<trim prefix="where(" suffix=")">
+		where health_category_no = #{health_category_no}
+		<trim prefix="and(" suffix=")">
 			<include refid="boardSearch"></include>
 		</trim>
 

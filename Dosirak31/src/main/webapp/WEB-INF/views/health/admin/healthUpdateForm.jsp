@@ -50,7 +50,6 @@
 		<div class="text-center">
 			<h3>게시판 글 작성</h3>
 		</div>
-
 		<form class="form-horizontal" id="h_updateForm" name="h_updateForm">
 			<input type="hidden" name="health_no"
 				value="${healthUpdate.health_no }">
@@ -86,7 +85,6 @@
 						class="form-control">${healthUpdate.health_contents }</textarea>
 				</div>
 			</div>
-
 			<div class="form-group">
 				<label for="url" class="col-sm-2 control-label">동영상 url</label>
 				<div class="col-sm-10">
@@ -94,17 +92,15 @@
 						value="${healthUpdate.health_url }" />
 				</div>
 			</div>
-
 			<div class="form-group">
 				<label for="file" class="col-sm-2 control-label">이미지파일첨부</label>
 				<div class="col-sm-10">
 					<input type="file" class="form-control" id="file" name="file" />
 				</div>
 			</div>
-	
 	</form>
 	<div class="text-right">
-		<button type="button" class="btn btn-primary" id="boardUpdateBtn">수정
+		<button type="button" class="dosirakBtn1" id="boardUpdateBtn">수정
 			완료</button>
 	</div>
 	</div>

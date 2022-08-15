@@ -101,8 +101,7 @@
 		<div>
 			<div>
 				<figure>
-					<header class="heading">Cardio Exercise</header>
-
+					
 					<!-- 히든 상세 게시판 -->
 					<form id="detailForm">
 						<input type="hidden" id="health_no" name="health_no" />
@@ -170,7 +169,7 @@
 							<option value="health_contents">내용</option>
 						</select> <input type="text" name="keyword" id="keyword" value="검색어를 입력하세요"
 							class="form-control search_space" />
-						<button type="button" id="searchData" class="dosirakBtn">&nbsp&nbsp검색&nbsp&nbsp</button>
+						<button type="button" id="searchData" class="dosirakBtn1">검색</button>
 					</div>
 				</form>
 			</div>
