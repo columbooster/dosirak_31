@@ -21,156 +21,104 @@
 			}
 			
 	</style>
-	<script type="text/javascript">
-
-	</script>
+	
 
 </head>
 	<body>
 		
-	<div class="wrapper row3">
+		<div class="wrapper row3">
 	
-   <h3>운동 게시판 댓글 관리</h3>
-   
-    <style>
-			#item-template{display: none;}
-	</style>
-  		
-    	
-    	 
-    <table class="table table-condensed">
-    	<thead>
-    		<tr>
-    			<th>글제목</th>
-    			<th>댓글번호</th>
-    			<th>내용</th>
-    			<th>아이디</th>
-    			<th>관리자 권한</th>
-    		</tr>
-    	</thead>
-    	
-    	
-    	<tbody id = "reviewList">
-    		<tr id = "item-template">
-    			<td class="health_title"></td>
-    			<td class="health_comment_no"></td>
-    			<td class="health_comment_contents"></td>
-    			<td class="client_id"></td>
-    			<td><button type="button" data-btn="delBtn" class="btn-write">삭제</button></td>
-    		</tr>
- 		</tbody>
- 		
- 		
-	</table>
+   				<h3>운동 게시판 댓글 관리</h3>
+   				
+   				<!-- 페이징 처리를 위한 파라미터 -->
+	      		<form id="f_search" name="f_search" class="form-inline" >
+	      			<input type="hidden" id = "pageNum" name="pageNum" value="${pageMaker.cvo.pageNum}">
+	      			<input type="hidden" id="amount" name="amount" value="${pageMaker.cvo.amount}">
+	      		</form>
+	      	<!-- 페이징 처리를 위한 파라미터 -->
+	      	
+	      				<form name="comment_no_date" id="comment_no_date" method="get">
+				            <input type="hidden" id = "health_comment_no" name="health_comment_no"/>
+				        </form>
+   				
+   				<table class="table table-condensed" style="width: 1300px">
+    			<thead>
+    				<tr>
+    					<th>글제목</th>
+    					<th>댓글번호</th>
+    					<th>내용</th>
+    					<th>아이디</th>
+    					<th>관리자 권한</th>
+    				</tr>
+    			</thead>
+    			
+    			<tbody id = "hcommentList">
+    				<c:choose>
+    				<c:when test="${not empty list}" >
+    					<c:forEach var="hcomment" items="${list}" varStatus="status">
+    						<tr id = "item-template">
+    						<td class="health_title">${hcomment.health_title}</td>
+    						<td class="health_comment_no" data-health_comment_no="${hcomment.health_comment_no}">${hcomment.health_comment_no}</td>
+    						<td class="health_comment_contents">${hcomment.health_comment_contents}</td>
+    						<td class="client_id">${hcomment.client_id}</td>
+    						<td><button type="button" data-btn="delBtn" class="btn-write">삭제</button></td>
+    					</tr>
+    					</c:forEach>
+    				</c:when>
+    				
+    				<c:otherwise>
+		        	<tr>
+		        		<td colspan="5">등록된 게시글이 존재하지 않습니다.</td>
+		        	</tr>
+		        	</c:otherwise>
+    			</c:choose>
+    			
+    			
+    		</tbody>
+    			
+    	</table>
+		
+	
+		<%-- ======== 리스트 종료 ============ --%>
+		
+		
+				<%-- ======== 페이징 처리를 커스텀태그(pagination)를 정의============ --%>
+				<tag:pagination endPage="${pageMaker.endPage}" startPage="${pageMaker.startPage}" amount="${pageMaker.cvo.amount}" 
+				prev="${pageMaker.prev}" pageNum="${pageMaker.cvo.pageNum}" next="${pageMaker.next}" />		
+					
     
- 	<script type="text/javascript">
-		 
-		
-		 /*********************************************************************
-		 	DOM이 만들어지면 실행됨
-		 *******************************************************************/
-		 	$(document).ready(function(){ 
-		 		
-		 /*********************************************************************
-		 	댓글 목록 보기
-		 *******************************************************************/
-		 
-					showList();
-				
-		 
-			 	/*********************************************************************
-			 			댓글 삭제
-			 	*******************************************************************/
-	            $(document).on("click", "button[data-btn='delBtn']", function(){
-	            	
-					let health_comment_no = $(this).parents().parents().attr("data-health_comment_no"); //헬스 댓글번호(primary key)를 가져옴
-					
-					deleteBtn(health_comment_no);
-					
+ 		<script type="text/javascript">
+			$(function() {
+				$(".paginate_button a").click(function(e) {
+					e.preventDefault();
+					$("#f_search").find("input[name='pageNum']").val($(this).attr("href"));
+					goPage();
 				});
-			 	
-
-			 	
-	           
-	     });	//최상위 함수
-		 
-		
-	     
-	     /*********************************************************************
-		 	댓글 목록의 값을 받아오는 함수
-		 *******************************************************************/
-		 function showList() {
-	    	 
-				$(".reply").detach(); //선택한 요소를 DOM트리에서 삭제
-				
-				let url = "/adminhreplies/comments" //여기서 컨트롤러로 전송
-				
-				$.getJSON(url, function(data) {  //댓글 목록들을 받아왔음
-					$(data).each(function() {
-						   
-		                   let health_title = this.health_title; //게시글 제목 
-		                   let health_comment_no = this.health_comment_no; //댓글 번호
-		                   let health_comment_contents = this.health_comment_contents; //댓글내용
-		                   let client_id = this.client_id; // 작성자 아이디
-		                   let up_date = this.up_date; // 수정날짜
-		                   
-		                   
-		                   template(health_title,health_comment_no,health_comment_contents,client_id)//댓글 양식에 가져온 값들을 셋팅
-		                   
-					}); 
-				
-				}).fail(function() {
-						alert("게시물에 달린 댓글이 없습니다.");
-				});
-			} 
+			});
 			
-		 /*********************************************************************
-		 	댓글 틀 및 내용을 집어넣어주는 함수(받아온 값들을 셋팅)
-		 *******************************************************************/
-		 function template(health_title,health_comment_no,health_comment_contents,client_id){
-			 
-			 let $ul = $('#reviewList');
-			 
-			 let $element = $('#item-template').clone().removeAttr('id'); //<li>를 id삭제한채로 그대로 복사
-			 
-			 $element.addClass("reply");
-			 
-			 $element.attr("data-health_title",health_title); //<li>에 속성 추가 1
-			 $element.attr("data-health_comment_no",health_comment_no); //<li>에 속성 추가 1
-			 $element.attr("data-health_comment_contents",health_comment_contents); //<li>에 속성 추가 2
-			 $element.attr("data-client_id",client_id); //<li>에 속성 추가 3
-			 
-			 $element.find('.health_title').text(health_title);
-			 $element.find('.health_comment_no').text(health_comment_no);
-			 $element.find('.health_comment_contents').text(health_comment_contents);
-			 $element.find('.client_id').text(client_id);
-			 
-			 $ul.append($element);
-			 
-		 }
-		 
-		 /*********************************************************************
-		  	글 삭제를 위한 함수
-	     *******************************************************************/
+			function goPage() {
+				$("#f_search").attr({
+					"method" : "get",
+					"action" : "/adminhreplies/hcommentManage"
+				});
+				$("#f_search").submit();
+			}
+			
+			 $(document).on("click", "button[data-btn='delBtn']", function(){
+				 
+				 if(confirm("댓글을 삭제하시겠습니까?")){
+	            	
+					let health_comment_no = $(this).parents().prev().prev().prev().attr("data-health_comment_no"); //헬스 댓글번호(primary key)를 가져옴
+					
+					$("#health_comment_no").attr("value",health_comment_no);
+					
+					$("#comment_no_date").attr("action","/adminhreplies/remove");
+					$("#comment_no_date").submit();
+				 }
+					
+			});
 		
-		function deleteBtn(health_comment_no) {
-				
-					$.ajax({
-	                     type:'DELETE',       // 요청 메서드
-	                     url: '/adminhreplies/comments/'+health_comment_no,  // 댓글 번호를 보냄
-	                     
-	                     success : function(result){
-	                    	 
-	                        showList();
-	                        
-	                     },
-	                     error : function(){ alert("본인이 쓴 댓글만 삭제 가능합니다.") } // 에러가 발생했을 때, 호출될 함수
-	                     
-	                 }); // $.ajax()
-	          
-		 }
-		 
-	</script>
+		</script>
      		
   <!-- ################################################################################################ --> 
     <!-- / main body -->

@@ -7,6 +7,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
@@ -28,7 +29,6 @@ import lombok.extern.log4j.Log4j;
 @AllArgsConstructor
 public class HCommentController {
 
-
 	private HCommentService hcommentService;
 	
 	@GetMapping("/hcomment")
@@ -43,7 +43,6 @@ public class HCommentController {
 	    public ResponseEntity<List<HCommentVO>> list(Integer health_no) {
 		 
 	        List<HCommentVO> list = null;
-	        
 	        try {
 	        	
 	            list = hcommentService.selectAll(health_no);
@@ -134,6 +133,9 @@ public class HCommentController {
 		            return new ResponseEntity<String>("MOD_ERR", HttpStatus.BAD_REQUEST);
 		        }
 		    }
+		    
 	 
+		    
+		    
 }
 

@@ -39,8 +39,6 @@ public class CommunityServiceImpl implements CommunityService {
 	}
 	
 	
-	
-	
 	// 커뮤니티 게시판 글 입력 구현
 	
 	@Override

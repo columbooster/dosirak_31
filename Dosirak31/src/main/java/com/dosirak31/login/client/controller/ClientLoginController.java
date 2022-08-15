@@ -34,7 +34,7 @@ import lombok.extern.log4j.Log4j;
 @RequestMapping("/client/*")
 @Log4j
 public class ClientLoginController {
-	
+
 	
 	private ClientLoginService clientLoginService;
 
@@ -114,7 +114,7 @@ public class ClientLoginController {
 			
 			//return "/client/loginmain";
 			
-			return "/login/client/faillogin";
+			return "login/client/faillogin";
 		}
 		
 			
@@ -158,7 +158,7 @@ public class ClientLoginController {
 													//카카오 로그인 한 적이 없다면, 
 			model.addAttribute("kakaoclient", cvo);//카카오 기본정보(이름, 이메일)이 담긴 객체를 카카오 회원가입 페이지로 넘겨준다.
 			
-			return "/signup/client/kakao_join_form"; //카카오 회원가입 페이지로 맵핑
+			return "signup/client/kakao_join_form"; //카카오 회원가입 페이지로 맵핑
 			
 		}else {
 			
@@ -227,7 +227,7 @@ public class ClientLoginController {
 				
 		        String content = "안녕하세요 회원님!!!<br/>"+"dosirak31 비밀번호 인증번호는 " + num +" 입니다.";
 		        
-		        String from = "dosirak31company@naver.com";
+		        String from = "gyruddkssud@naver.com";
 		        
 		        String to = email;
 		        

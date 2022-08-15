@@ -28,11 +28,11 @@ public class MypageReviewController {
 	private MypageReviewService mypageReviewService;
 	
 	/********************************************************
-	 * 마이페이지 회원정보 
+	 * 留덉씠�럹�씠吏� �쉶�썝�젙蹂� 
 	 ********************************************************/
 	@RequestMapping(value = "/mypageMain", method = RequestMethod.GET)
 	public String mypageList(@ModelAttribute MypageReviewVO mrvo, Model model) {
-		log.info("mypageList 호출 성공");
+		log.info("mypageList �샇異� �꽦怨�");
 		List<MypageReviewVO> mypageList = mypageReviewService.mypageList(mrvo);
 		model.addAttribute("mypageList", mypageList);
 		
@@ -40,11 +40,11 @@ public class MypageReviewController {
 	}
 	
 	/********************************************************
-	 * 마이페이지 리뷰 상세보기
+	 * 留덉씠�럹�씠吏� 由щ럭 �긽�꽭蹂닿린
 	 ********************************************************/
 	@RequestMapping(value = "/mypageReviewList", method = RequestMethod.GET)
 	public String mypageReviewList(@ModelAttribute MypageReviewVO mrvo, Model model, HttpSession session) {
-		log.info("mypageReviewList 호출 성공");
+		log.info("mypageReviewList �샇異� �꽦怨�");
 		int client_no = (int) session.getAttribute("client_no");
 		
 		mrvo.setClient_no(client_no);
@@ -52,9 +52,9 @@ public class MypageReviewController {
 		
 		model.addAttribute("mypageReviewList", mypageReviewList);
 		
-		//전체 레코드수 구현
+		//�쟾泥� �젅肄붾뱶�닔 援ы쁽
 		int total = mypageReviewService.mypageReviewListCnt(mrvo);
-		//페이징 처리
+		//�럹�씠吏� 泥섎━
 		model.addAttribute("pageMaker", new PageDTO(mrvo, total));
 		
 		return "mypage/client/mypageReviewList";
@@ -62,11 +62,11 @@ public class MypageReviewController {
 	
 	
 	/********************************************************
-	 * 마이페이지 리뷰 삭제
+	 * 留덉씠�럹�씠吏� 由щ럭 �궘�젣
 	 ********************************************************/
 	@RequestMapping(value = "/mypageReviewDelete")
 	public String mypageReviewDelete(@ModelAttribute MypageReviewVO mrvo, RedirectAttributes ras) {
-		log.info("mypageReviewDelete 호출 성공");
+		log.info("mypageReviewDelete �샇異� �꽦怨�");
 		
 		int result = 0;
 		String url ="";
@@ -82,11 +82,11 @@ public class MypageReviewController {
 	
 	
 	/********************************************************
-	 * 마이페이지 상세페이지
+	 * 留덉씠�럹�씠吏� �긽�꽭�럹�씠吏�
 	 ********************************************************/
 	@GetMapping("/mypageReviewDetail")
 	public String mypageReviewDetail(@ModelAttribute("data") MypageReviewVO mrvo, Model model) {
-		log.info("mypageReviewDetail 호출 성공");
+		log.info("mypageReviewDetail �샇異� �꽦怨�");
 		
 		MypageReviewVO detail = mypageReviewService.mypageReviewDetail(mrvo);
 		model.addAttribute("detail", detail);
@@ -96,13 +96,13 @@ public class MypageReviewController {
 	
 	
 	/********************************************************
-	 * 마이페이지 업데이트 폼
+	 * 留덉씠�럹�씠吏� �뾽�뜲�씠�듃 �뤌
 	 * @param : review_no
 	 * @return : MypageReviewVO
 	 ********************************************************/
 	@RequestMapping(value= "/updateForm")
 	public String updateForm(@ModelAttribute("data") MypageReviewVO mrvo, Model model) {
-		log.info("updateForm 호출 성공");
+		log.info("updateForm �샇異� �꽦怨�");
 		log.info("review_no = " + mrvo.getReview_no());
 		MypageReviewVO updateData = mypageReviewService.updateForm(mrvo);
 		
@@ -111,11 +111,11 @@ public class MypageReviewController {
 	}
 	
 	/********************************************************
-	 * 마이페이지 수정
+	 * 留덉씠�럹�씠吏� �닔�젙
 	 ********************************************************/
 	@RequestMapping(value= "/mypageReviewUpdate", method=RequestMethod.POST)
 	public String mypageReviewUpdate(@ModelAttribute MypageReviewVO mrvo, RedirectAttributes ras ) {
-		log.info("mypageReviewUpdate 호출 성공");
+		log.info("mypageReviewUpdate �샇異� �꽦怨�");
 		
 		int result = 0;
 		String url = "";

@@ -38,7 +38,7 @@
 
             }
             input:focus + label, label{
-                color:#f89b00;
+                color:#a5d610;
                 font-size:10pt;
                 pointer-events: none;
                 position: absolute;
@@ -55,10 +55,7 @@
                 outline:none;
             }
             input[type=submit]{
-                background-color: gray;
-                border:none;
-                color:white;
-                border-radius: 5px;
+               
                 width:37%;   
                 height:70px;
                 font-size: 16pt;
@@ -95,6 +92,7 @@
 				if($("#client_name").val().replace(/\s/g, "") == ""){
 					
 					let result = "이름은 필수 입력 항목 입니다.";
+					
 					$("#error").show();
 					$("#error").html(result);
 					
@@ -110,7 +108,9 @@
 				}
 				
 				if($("#client_phone").val().replace(/\s/g, "") == ""){
+					
 					let result = "전화번호는 필수 입력 항목 입니다.";
+					
 					$("#error").show();
 					$("#error").html(result);
 					
@@ -156,7 +156,7 @@
             </div>
             
             <div id="btn"> 
-            	<input type="submit" value="아이디 찾기">
+            	<input type="submit" value="아이디 찾기" class="dosirakBtn">
 			</div>
 			
         </form>
