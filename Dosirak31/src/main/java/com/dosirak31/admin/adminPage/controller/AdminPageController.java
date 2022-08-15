@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.dosirak31.admin.adminPage.service.AdminPageService;
 import com.dosirak31.admin.adminPage.vo.MemberGraphDTO;
 import com.dosirak31.common.vo.PageDTO;
-import com.dosirak31.food.order.vo.ClientVO;
+import com.dosirak31.food.order.vo.OrderDetailVO;
 
 import lombok.AllArgsConstructor;
 
@@ -23,9 +23,9 @@ public class AdminPageController {
 	private AdminPageService adminPageService;
 	/*관리자페이지 회원관리로 이동*/
 	@RequestMapping(value="/memberList",method=RequestMethod.GET)
-	public String memberList(@ModelAttribute ClientVO cvo,Model model) {
+	public String memberList(@ModelAttribute OrderDetailVO cvo,Model model) {
 		
-		List<ClientVO> memberList=adminPageService.memberList(cvo);
+		List<OrderDetailVO> memberList=adminPageService.memberList(cvo);
 		model.addAttribute("memberList",memberList);
 		
 		//전체 레코드 수 구현

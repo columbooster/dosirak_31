@@ -69,19 +69,15 @@
             
             //목록 버튼
             $("#weightListBtn").click(function(){
-               location.href="/health/admin/weightList?health_category_no=2"
+               location.href="/health/admin/weightList?health_category_no=1"
             })
           
          });
 </script>
 
 </head>
-	<div class="wrapper row3">
-		
-			<!-- main body -->
-			<!-- ################################################################################################ -->
+	<div class="wrapper row3">		
 			<div class="content">
-				<!-- ################################################################################################ -->
 				<div id="gallery">
 					<figure>
 						<form name="weightData" id="weightData" method="post">
@@ -102,21 +98,14 @@
 							</section>
 						</div>
 						<div>
-							<input type="button" value="글수정" id="weightUpdateFormBtn" class="btn btn-success" />
-			                <input type="button" value="글삭제" id="weightDeleteBtn" class="btn btn-success" />
-			                <input type="button" value="글쓰기" id="weightInsertFormBtn" class="btn btn-success" />
-			                <input type="button" value="목록" id="weightListBtn" class="btn btn-success" />
+							<input type="button" value="글수정" id="weightUpdateFormBtn" class="dosirakBtn1" />
+			                <input type="button" value="글삭제" id="weightDeleteBtn" class="dosirakBtn1" />
+			                <input type="button" value="글쓰기" id="weightInsertFormBtn" class="dosirakBtn1" />
+			                <input type="button" value="목록" id="weightListBtn" class="dosirakBtn1" />
 						</div>
-
 					</figure>
 				</div>
-				<!-- ################################################################################################ -->
-				<!-- ################################################################################################ -->
-
-				<!-- ################################################################################################ -->
 			</div>
-			<!-- ################################################################################################ -->
-			<!-- / main body -->
 			<div class="clear"></div>
 
 	</div>

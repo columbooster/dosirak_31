@@ -10,16 +10,8 @@
 <link href="/resources/include/dist/css/jumbotron-narrow.css"
 	rel="stylesheet">
 
-<!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
-<!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
 <script
 	src="/resources/include/dist/assets/js/ie-emulation-modes-warning.js"></script>
-
-<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-<!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
 
  <script type="text/javascript">
          $(function(){
@@ -77,11 +69,7 @@
 
 </head>
 	<div class="wrapper row3">
-		
-			<!-- main body -->
-			<!-- ################################################################################################ -->
 			<div class="content">
-				<!-- ################################################################################################ -->
 				<div id="gallery">
 					<figure>
 						<form name="cardioData" id="cardioData" method="post">
@@ -91,7 +79,6 @@
 						<header class="heading">${cardioDetail.health_title }</header>
 						<!-------------------------------------------------- 동영상 & 소개 공간 ---------------------------------------------------->
 						<div >
-
 							<section>
 								<iframe width="560" height="315"
 									src="https://www.youtube.com/embed/${cardioDetail.health_url }?mute=1&autoplay=1"></iframe>
@@ -101,24 +88,15 @@
 							</section>
 						</div>
 						<div>
-							<input type="button" value="글수정" id="cardioUpdateFormBtn" class="btn btn-success" />
-			                <input type="button" value="글삭제" id="cardioDeleteBtn" class="btn btn-success" />
-			                <input type="button" value="글쓰기" id="cardioInsertFormBtn" class="btn btn-success" />
-			                <input type="button" value="목록" id="cardioListBtn" class="btn btn-success" />
+							<input type="button" value="글수정" id="cardioUpdateFormBtn" class="dosirakBtn1" />
+			                <input type="button" value="글삭제" id="cardioDeleteBtn" class="dosirakBtn1" />
+			                <input type="button" value="글쓰기" id="cardioInsertFormBtn" class="dosirakBtn1" />
+			                <input type="button" value="목록" id="cardioListBtn" class="dosirakBtn1" />
 						</div>
-
 					</figure>
 				</div>
-				<!-- ################################################################################################ -->
-				<!-- ################################################################################################ -->
-
-				<!-- ################################################################################################ -->
 			</div>
-			<!-- ################################################################################################ -->
-			<!-- / main body -->
 			<div class="clear"></div>
-
 	</div>
-	
 </body>
 </html>

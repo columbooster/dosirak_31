@@ -17,8 +17,6 @@ import org.springframework.web.bind.annotation.SessionAttribute;
 
 import com.dosirak31.food.order.service.FoodOrderService;
 import com.dosirak31.food.order.vo.OrderDetailVO;
-import com.dosirak31.food.order.vo.PaymentVO;
-
 import lombok.AllArgsConstructor;
 
 @RestController

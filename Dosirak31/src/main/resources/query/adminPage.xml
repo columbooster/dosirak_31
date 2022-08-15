@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.dosirak31.admin.adminPage.dao.AdminPageDao">
 	<!-- 회원 list조회 -->
-	<select id="memberList" parameterType="clientVO" resultType="clientVO">
+	<select id="memberList" parameterType="orderDetail" resultType="orderDetail">
 		select client_no,client_id,client_name,client_email,client_phone,client_address,to_char(client_date,'YYYY-MM-DD') client_date,client_update
 		
 		from ( select 

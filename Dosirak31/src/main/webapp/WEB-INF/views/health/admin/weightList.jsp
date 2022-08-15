@@ -103,10 +103,7 @@
 						<!-- 히든 상세 게시판 -->
 						<form id="detailForm">
 							<input type="hidden" id="health_no" name="health_no" />
-						</form>
-						
-						<div id="weightList" class="table-height">
-						
+						</form>										
 								<!-------------------------------------------------- 웨이트 게시판 운동 리스트(이미지) 시작 ---------------------------------------------------->
 						<div id="weightList" class="table-height">
 							<table summary="헬스 게시판 리스트" class="table table-striped">
@@ -116,7 +113,7 @@
 										<c:forEach var="imgBoard" items="${weightList }" 
 											varStatus="status">								
 											<tr class="text-center" data-num="${imgBoard.health_no }">
-												<td colspan="5"><img class="goImgDetail"
+												<td colspan="5"><img class="goImgDetail admin_img_size"
 													src="/dosirak31img/health/${imgBoard.health_img }" /> 
 												</td>
 											</tr>
@@ -124,8 +121,8 @@
 											<tr>
 							                     <th data-value="health_no" class="order text-center col-md-1">글번호</th>
 							                     <th class="text-left col-md-4">글제목</th>
-							                     <th data-value="health_date" class="order col-md-1">작성일</th>
-							                     <th class="text-center col-md-2">작성자</th>
+							                     <th data-value="health_date" class="order col-md-2">작성일</th>
+							                     <th class="text-center col-md-1">작성자</th>
 							                     <th class="text-center col-md-1">조회수</th>
 							                     
 							                </tr>
@@ -156,7 +153,7 @@
 				
 				<!-------------------------------------------------- 글 쓰가 버튼 시작 ---------------------------------------------------->
 				<div class="text-right">
-					<button type="button" id="insertFormBtn" class="btn btn-primary">글쓰기</button>
+					<button type="button" id="insertFormBtn" class="dosirakBtn1">글쓰기</button>
 				</div>
 				<!-------------------------------------------------- 글 쓰가 버튼 끝 ---------------------------------------------------->
 				
@@ -180,15 +177,13 @@
 		                     <option value="health_contents">내용</option>
 		                  </select>
 		                  <input type="text" name="keyword" id="keyword" value="검색어를 입력하세요" class="form-control"/>
-		                  <button type="button" id="searchData" class="btn btn-success">검색</button>
+		                  <button type="button" id="searchData" class="dosirakBtn1">검색</button>
 		               </div>
 		            </form>
 		         </div>
          		<!-------------------------------------------------- 검색 기능 끝 ---------------------------------------------------->         		
-				</div>
-				
+				</div>	
 			<div class="clear"></div>
 	</div>
-
 </body>
 </html>

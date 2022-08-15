@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.dosirak31.common.vo.PageDTO;
+import com.dosirak31.common.vo.PageHealthDTO;
 import com.dosirak31.health.board.service.HealthBoardService;
 import com.dosirak31.health.board.vo.HealthBoardVO;
 
@@ -50,8 +51,7 @@ public class HealthClientBoardController {
 		//전체 레코드 수 구현
 		int total=healthBoardService.boardListCnt(hbvo);
 		//페이징 처리
-		model.addAttribute("pageMaker",new PageDTO(hbvo,total));
-		
+		model.addAttribute("pageMaker",new PageHealthDTO(hbvo,total));
 		
 		return "health/client/weightList";
 	}
@@ -85,7 +85,7 @@ public class HealthClientBoardController {
 		//전체 레코드 수 구현
 	    int total=healthBoardService.boardListCnt(hbvo);
 	    //페이징 처리
-	    model.addAttribute("pageMaker",new PageDTO(hbvo,total));
+	    model.addAttribute("pageMaker",new PageHealthDTO(hbvo,total));
 		
 		return "health/client/cardioList";
 	}

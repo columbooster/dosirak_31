@@ -19,8 +19,11 @@
       <link rel="stylesheet" type="text/css" href="/resources/include/dist/css/bootstrap.min.css" />
       <link rel="stylesheet" type="text/css" href="/resources/include/dist/css/bootstrap-theme.min.css" />
       
-	<!--viral관련 코드-->
-	<link href="/resources/layout/styles/layout.css" rel="stylesheet" type="text/css" media="all">
+      <!-- 헬스 css -->
+      <link rel="stylesheet" type="text/css" href="/resources/layout/styles/health/health.css" />
+      
+		<!--viral관련 코드-->
+		<link href="/resources/layout/styles/layout.css" rel="stylesheet" type="text/css" media="all">
 
     	 <script type="text/javascript" src="/resources/include/js/jquery-1.12.4.min.js"></script>
 
@@ -33,3 +36,4 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&family=IBM+Plex+Sans+KR:wght@300;400&display=swap" rel="stylesheet">
+ <link rel="stylesheet" type="text/css" href="/resources/layout/styles/health/health.css" />
