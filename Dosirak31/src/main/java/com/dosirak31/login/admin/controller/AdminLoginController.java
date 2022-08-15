@@ -30,253 +30,253 @@ import lombok.extern.log4j.Log4j;
 @AllArgsConstructor
 @Log4j
 public class AdminLoginController {
-	
-	@Setter(onMethod_= @Autowired)
-	private AdminLoginService adminloginservice;
-	
+   
+   @Setter(onMethod_= @Autowired)
+   private AdminLoginService adminloginservice;
+   
 
-	@Autowired
-	private JavaMailSender mailSender;
+   @Autowired
+   private JavaMailSender mailSender;
 
-	
-	/**************************************************
-	 	admin ·Î±×ÀÎ ¸ŞÀÎ È­¸éÀ¸·Î °¨
-	*************************************************/
-	@RequestMapping("/login")
-	public String adminLoginForm() {
-		
-		return "login/admin/adminloginmain";
-		
-	}
-	
-	/**************************************************
- 		admin ¾ÆÀÌµğ Ã£±â È­¸éÀ¸·Î °¨
-	 *************************************************/
-	@RequestMapping("/adsearchid")
-	public String adSearchId() {
-	
-		return "login/admin/adsearchid";
-	
-	}
+   
+   /**************************************************
+       admin ë¡œê·¸ì¸ ë©”ì¸ í™”ë©´ìœ¼ë¡œ ê°
+   *************************************************/
+   @RequestMapping("/login")
+   public String adminLoginForm() {
+      
+      return "login/admin/adminloginmain";
+      
+   }
+   
+   /**************************************************
+       admin ì•„ì´ë”” ì°¾ê¸° í™”ë©´ìœ¼ë¡œ ê°
+    *************************************************/
+   @RequestMapping("/adsearchid")
+   public String adSearchId() {
+   
+      return "login/admin/adsearchid";
+   
+   }
 
-	/**************************************************
-		admin ºñ¹Ğ¹øÈ£ Ã£±â È­¸éÀ¸·Î °¨
-	 *************************************************/
-	@RequestMapping("/adsearchpw")
-	public String adSearchPw() {
+   /**************************************************
+      admin ë¹„ë°€ë²ˆí˜¸ ì°¾ê¸° í™”ë©´ìœ¼ë¡œ ê°
+    *************************************************/
+   @RequestMapping("/adsearchpw")
+   public String adSearchPw() {
 
-		return "login/admin/adsearchpw";
+      return "login/admin/adsearchpw";
 
-	}
-	
-	@RequestMapping("successlogin")
-	public String successLogin() {
-		
-		return "food/admin/foodAdminBasicList";
-	}
-	
+   }
+   
+   @RequestMapping("successlogin")
+   public String successLogin() {
+      
+      return "food/admin/foodAdminBasicList";
+   }
+   
 
-	/**************************************************
-		admin ·Î±×ÀÎ
-	 *************************************************/
-	@PostMapping("/userlogin")
-	public String loginProcess(AdminLoginVO login, Model model, HttpServletRequest request,RedirectAttributes ras) {
-		//·Î±×ÀÎ ¹öÆ°À» Å¬¸¯ÇÏ¿© ·Î±×ÀÎÆûÀÌ ¿Â »óÅÂ
-		//¿©±â¼­ ·Î±×ÀÎ °úÁ¤À» Ã³¸®
-		
-		String url="";
-		
-		AdminLoginVO adminLogin = adminloginservice.loginProcess(login);
-		
-		if(adminLogin != null) { 
-			
-			model.addAttribute("admin_info",adminLogin);
-			
-			HttpSession session = request.getSession();
+   /**************************************************
+      admin ë¡œê·¸ì¸
+    *************************************************/
+   @PostMapping("/userlogin")
+   public String loginProcess(AdminLoginVO login, Model model, HttpServletRequest request,RedirectAttributes ras) {
+      //ë¡œê·¸ì¸ ë²„íŠ¼ì„ í´ë¦­í•˜ì—¬ ë¡œê·¸ì¸í¼ì´ ì˜¨ ìƒíƒœ
+      //ì—¬ê¸°ì„œ ë¡œê·¸ì¸ ê³¼ì •ì„ ì²˜ë¦¬
+      
+      String url="";
+      
+      AdminLoginVO adminLogin = adminloginservice.loginProcess(login);
+      
+      if(adminLogin != null) { 
+         
+         model.addAttribute("admin_info",adminLogin);
+         
+         HttpSession session = request.getSession();
 
-			session.setAttribute("admin_info", adminLogin); 
-			
-			url="successlogin"; //¼º°ø½Ã ·Î±×ÀÎ ¼º°øÆäÀÌÁö·Î ÀÌµ¿ 
-			
-			return "redirect:"+url;
-					
-		}else {
-			
-			ras.addFlashAttribute("errorMsg","·Î±×ÀÎ ½ÇÆĞ");
-			
-			//return "/client/loginmain";
-			
-			return "login/admin/faillogin";
-		}
-		
-			
-	}
-	
-	/**************************************************
-		admin ¾ÆÀÌµğ Ã£±â 
-	 *************************************************/
-	@PostMapping("/adidconfirm")
-	public String adminIdConfirm(AdminLoginVO avo, Model model) { // ¹Ş¾Æ¿Â °ª(ÀÌ¸§,ÀüÈ­¹øÈ£)À» avo¿¡ ÀúÀå
-	
-			AdminLoginVO adminid = adminloginservice.adidconfirm(avo);
-			
-			
-			if(adminid != null) {
-				
-				model.addAttribute("adminid",adminid);
-				
-				return "login/admin/successadidconfirm"; 
-				
-			}else {
-				
-				return "login/admin/failidsearch";
-				
-			}
+         session.setAttribute("admin_info", adminLogin); 
+         
+         url="successlogin"; //ì„±ê³µì‹œ ë¡œê·¸ì¸ ì„±ê³µí˜ì´ì§€ë¡œ ì´ë™ 
+         
+         return "redirect:"+url;
+               
+      }else {
+         
+         ras.addFlashAttribute("errorMsg","ë¡œê·¸ì¸ ì‹¤íŒ¨");
+         
+         //return "/client/loginmain";
+         
+         return "login/admin/faillogin";
+      }
+      
+         
+   }
+   
+   /**************************************************
+      admin ì•„ì´ë”” ì°¾ê¸° 
+    *************************************************/
+   @PostMapping("/adidconfirm")
+   public String adminIdConfirm(AdminLoginVO avo, Model model) { // ë°›ì•„ì˜¨ ê°’(ì´ë¦„,ì „í™”ë²ˆí˜¸)ì„ avoì— ì €ì¥
+   
+         AdminLoginVO adminid = adminloginservice.adidconfirm(avo);
+         
+         
+         if(adminid != null) {
+            
+            model.addAttribute("adminid",adminid);
+            
+            return "login/admin/successadidconfirm"; 
+            
+         }else {
+            
+            return "login/admin/failidsearch";
+            
+         }
 
-	}
-	
-	@RequestMapping("/adpwconfirm")
-	public ModelAndView sendEmail(AdminLoginVO avo, HttpSession session,HttpServletRequest request, HttpServletResponse response) throws Exception{
-	
-		
-		AdminLoginVO pwconfirm = adminloginservice.selectMember(avo); // Æû¿¡¼­ ÀÔ·Â¹ŞÀº °ªÀ» º¸³»¼­ °´Ã¼ Á¸ÀçÇÏ´ÂÁö È®ÀÎ
-		
-		if(pwconfirm != null) { //¾ÆÀÌµğ,ÀÌ¸§,ÀÌ¸ŞÀÏÀÌ ÀÏÄ¡ÇÏ´Â °´Ã¼°¡ Á¸ÀçÇÑ´Ù¸é
-			
-			Random r = new Random(); //³­¼ö °ª »ı¼ºÇÏ¿© ÀÌ¸ŞÀÏ·Î º¸³½°ÍÀÓ
-			int num = r.nextInt(999999); 
-			
-				session.setAttribute("admin_email", pwconfirm.getAdmin_email()); //Æû¿¡¼­ ÀÔ·Â¹ŞÀº ÀÌ¸ŞÀÏ ÀúÀåÇØÁÜ
-				
-				String email = pwconfirm.getAdmin_email(); 
-				
-				/*******************************************************
-				 * ÀÌ¸ŞÀÏ º¸³¾ ³»¿ë ÀÛ¼º
-				 *******************************************************/
-				String subject = "[DOSIRAK31] ºñ¹Ğ¹øÈ£ ÀÎÁõ ÀÌ¸ŞÀÏ ÀÔ´Ï´Ù";
-				
-		        String content = "¾È³çÇÏ¼¼¿ä È¸¿ø´Ô!!!<br/>"+ "dosirak31 ºñ¹Ğ¹øÈ£ ÀÎÁõ¹øÈ£´Â " + num + " ÀÔ´Ï´Ù.";
-		        
-		        String from = "dosirak31company@naver.com";
-		        
-		        String to = email;
-		        
-		        
-		        try {
-		            	MimeMessage mail = mailSender.createMimeMessage();
-		            	MimeMessageHelper mailHelper = new MimeMessageHelper(mail,true,"UTF-8");
-		            	
-		            	mailHelper.setFrom(from);
-		         
-		            	mailHelper.setTo(to);
-		            	mailHelper.setSubject(subject);
-		            	mailHelper.setText(content, true);
-		            
-		            	mailSender.send(mail); // ÀÌ¸ŞÀÏÀ» º¸³¿
-		            
-		        	}catch(Exception e) {
-		        		
-		        		e.printStackTrace(); //ÀÌ¸ŞÀÏ º¸³»±â ¿À·ù³ª¸é ¶ç¿ò
-		        	}
-		        
-		        
-	        	ModelAndView mv = new ModelAndView(); 
-	        	
-	        	mv.setViewName("login/admin/ad_pw_auth"); //ÀÌ¸ŞÀÏº¸³ÂÀ½-> È¸¿øÀº ÀÌ¸ŞÀÏÀ» ¿­¾îº½ -> ÀÎÁõ¹øÈ£ È®ÀÎÇßÀ»°ÍÀÓ -> ÀÎÁõ¹øÈ£ È®ÀÎ ÆäÀÌÁö·Î °¡ÀÚ
-	        	
-	        	mv.addObject("num", num); // ÀÎÁõ¹øÈ£ ÀÎÁõÀ» À§ÇØ ³­¼öµµ °°ÀÌ È®ÀÎ ÆäÀÌÁö·Î ³Ñ°ÜÁÜ
-	        	
-	        	return mv;
-	        		
-	        	
-	        	
-		
-			
-		}else { //ÀÌ¸§, ¾ÆÀÌµğ, ÀÌ¸ŞÀÏÀÌ ÀÏÄ¡ÇÏ´Â È¸¿øÀÌ ¾ø´Ù. -> ÀÏÄ¡ÇÏ´Â È¸¿øÀÌ ¾ø½À´Ï´Ù ¤Ì ¤Ì
-			
-			ModelAndView mv = new ModelAndView();
-			
-			mv.setViewName("login/admin/failpwsearch");
-			
-			return mv;
-		
-		}
-	}
-	
-	/**********************************************************************************************
-	  	¸ŞÀÏ·Î º¸³½ ·£´ı ÀÎÁõ¹øÈ£¿Í »ç¿ëÀÚ°¡ ÀÔ·ÂÇÑ ÀÎÁõ¹øÈ£°¡ ÀÏÄ¡ÇÏ´ÂÁö È®ÀÎ
-	 **********************************************************************************************/
-	@RequestMapping("/adpwauth")
-	public String adpwAuth(@RequestParam(value="email_injeung") String email_injeung, @RequestParam(value = "num") String num,HttpSession session, Model model){
-		
-		//ÀÎÁõ¹øÈ£-num, »ç¿ëÀÚ°¡ ÀÔ·ÂÇÑ ÀÎÁõ¹øÈ£ - email_injeung ÀÌ µµÂø
-		//¸ŞÀÏ·Î º¸³½ ÀÎÁõ¹øÈ£¿Í »ç¿ëÀÚ°¡ ÀÔ·ÂÇÑ ÀÎÁõ¹øÈ£°¡ µ¿ÀÏÇÑÁö È®ÀÎ
-		
-		String admin_email = (String)session.getAttribute("admin_email");
-		
-		model.addAttribute("admin_email",admin_email);
-		
-		if(email_injeung.equals(num)) {
-			
-			return "login/admin/adpw_new";
-			
-		}else {
-			
-			return "login/admin/ad_pw_auth_fail";
-		}
-		
-		
-		
-	}
-	
-	/**********************************************************************************************
-  		ºñ¹Ğ¹øÈ£ Àç¼³Á¤
-	 **********************************************************************************************/
-	@RequestMapping("/adpw_new")
-	public String pwNew(String first_pw, String second_pw, String admin_email, HttpSession session){
-	
-		AdminLoginVO avo = new AdminLoginVO();
-	
-		avo.setAdmin_pw(first_pw);
-		avo.setAdmin_email(admin_email);
-	
-	int result = adminloginservice.pwupdate(avo);
-	
-	if(result == 1) {
-		
-		return "login/admin/completechangepw";
-		
-	}else {
-		
-		return "login/admin/faillogin";
-	}
-	
+   }
+   
+   @RequestMapping("/adpwconfirm")
+   public ModelAndView sendEmail(AdminLoginVO avo, HttpSession session,HttpServletRequest request, HttpServletResponse response) throws Exception{
+   
+      
+      AdminLoginVO pwconfirm = adminloginservice.selectMember(avo); // í¼ì—ì„œ ì…ë ¥ë°›ì€ ê°’ì„ ë³´ë‚´ì„œ ê°ì²´ ì¡´ì¬í•˜ëŠ”ì§€ í™•ì¸
+      
+      if(pwconfirm != null) { //ì•„ì´ë””,ì´ë¦„,ì´ë©”ì¼ì´ ì¼ì¹˜í•˜ëŠ” ê°ì²´ê°€ ì¡´ì¬í•œë‹¤ë©´
+         
+         Random r = new Random(); //ë‚œìˆ˜ ê°’ ìƒì„±í•˜ì—¬ ì´ë©”ì¼ë¡œ ë³´ë‚¸ê²ƒì„
+         int num = r.nextInt(999999); 
+         
+            session.setAttribute("admin_email", pwconfirm.getAdmin_email()); //í¼ì—ì„œ ì…ë ¥ë°›ì€ ì´ë©”ì¼ ì €ì¥í•´ì¤Œ
+            
+            String email = pwconfirm.getAdmin_email(); 
+            
+            /*******************************************************
+             * ì´ë©”ì¼ ë³´ë‚¼ ë‚´ìš© ì‘ì„±
+             *******************************************************/
+            String subject = "[DOSIRAK31] ë¹„ë°€ë²ˆí˜¸ ì¸ì¦ ì´ë©”ì¼ ì…ë‹ˆë‹¤";
+            
+              String content = "ì•ˆë…•í•˜ì„¸ìš” íšŒì›ë‹˜!!!<br/>"+ "dosirak31 ë¹„ë°€ë²ˆí˜¸ ì¸ì¦ë²ˆí˜¸ëŠ” " + num + " ì…ë‹ˆë‹¤.";
+              
+              String from = "dosirak31company@naver.com";
+              
+              String to = email;
+              
+              
+              try {
+                     MimeMessage mail = mailSender.createMimeMessage();
+                     MimeMessageHelper mailHelper = new MimeMessageHelper(mail,true,"UTF-8");
+                     
+                     mailHelper.setFrom(from);
+               
+                     mailHelper.setTo(to);
+                     mailHelper.setSubject(subject);
+                     mailHelper.setText(content, true);
+                  
+                     mailSender.send(mail); // ì´ë©”ì¼ì„ ë³´ëƒ„
+                  
+                 }catch(Exception e) {
+                    
+                    e.printStackTrace(); //ì´ë©”ì¼ ë³´ë‚´ê¸° ì˜¤ë¥˜ë‚˜ë©´ ë„ì›€
+                 }
+              
+              
+              ModelAndView mv = new ModelAndView(); 
+              
+              mv.setViewName("login/admin/ad_pw_auth"); //ì´ë©”ì¼ë³´ëƒˆìŒ-> íšŒì›ì€ ì´ë©”ì¼ì„ ì—´ì–´ë´„ -> ì¸ì¦ë²ˆí˜¸ í™•ì¸í–ˆì„ê²ƒì„ -> ì¸ì¦ë²ˆí˜¸ í™•ì¸ í˜ì´ì§€ë¡œ ê°€ì
+              
+              mv.addObject("num", num); // ì¸ì¦ë²ˆí˜¸ ì¸ì¦ì„ ìœ„í•´ ë‚œìˆ˜ë„ ê°™ì´ í™•ì¸ í˜ì´ì§€ë¡œ ë„˜ê²¨ì¤Œ
+              
+              return mv;
+                 
+              
+              
+      
+         
+      }else { //ì´ë¦„, ì•„ì´ë””, ì´ë©”ì¼ì´ ì¼ì¹˜í•˜ëŠ” íšŒì›ì´ ì—†ë‹¤. -> ì¼ì¹˜í•˜ëŠ” íšŒì›ì´ ì—†ìŠµë‹ˆë‹¤ ã…œ ã…œ
+         
+         ModelAndView mv = new ModelAndView();
+         
+         mv.setViewName("login/admin/failpwsearch");
+         
+         return mv;
+      
+      }
+   }
+   
+   /**********************************************************************************************
+        ë©”ì¼ë¡œ ë³´ë‚¸ ëœë¤ ì¸ì¦ë²ˆí˜¸ì™€ ì‚¬ìš©ìê°€ ì…ë ¥í•œ ì¸ì¦ë²ˆí˜¸ê°€ ì¼ì¹˜í•˜ëŠ”ì§€ í™•ì¸
+    **********************************************************************************************/
+   @RequestMapping("/adpwauth")
+   public String adpwAuth(@RequestParam(value="email_injeung") String email_injeung, @RequestParam(value = "num") String num,HttpSession session, Model model){
+      
+      //ì¸ì¦ë²ˆí˜¸-num, ì‚¬ìš©ìê°€ ì…ë ¥í•œ ì¸ì¦ë²ˆí˜¸ - email_injeung ì´ ë„ì°©
+      //ë©”ì¼ë¡œ ë³´ë‚¸ ì¸ì¦ë²ˆí˜¸ì™€ ì‚¬ìš©ìê°€ ì…ë ¥í•œ ì¸ì¦ë²ˆí˜¸ê°€ ë™ì¼í•œì§€ í™•ì¸
+      
+      String admin_email = (String)session.getAttribute("admin_email");
+      
+      model.addAttribute("admin_email",admin_email);
+      
+      if(email_injeung.equals(num)) {
+         
+         return "login/admin/adpw_new";
+         
+      }else {
+         
+         return "login/admin/ad_pw_auth_fail";
+      }
+      
+      
+      
+   }
+   
+   /**********************************************************************************************
+        ë¹„ë°€ë²ˆí˜¸ ì¬ì„¤ì •
+    **********************************************************************************************/
+   @RequestMapping("/adpw_new")
+   public String pwNew(String first_pw, String second_pw, String admin_email, HttpSession session){
+   
+      AdminLoginVO avo = new AdminLoginVO();
+   
+      avo.setAdmin_pw(first_pw);
+      avo.setAdmin_email(admin_email);
+   
+   int result = adminloginservice.pwupdate(avo);
+   
+   if(result == 1) {
+      
+      return "login/admin/completechangepw";
+      
+   }else {
+      
+      return "login/admin/faillogin";
+   }
+   
 }
-	
-	@RequestMapping("/logout")
-	public String logout(HttpSession session) {
-		
-		String url = "";
-		
+   
+   @RequestMapping("/logout")
+   public String logout(HttpSession session) {
+      
+      String url = "";
+      
         session.invalidate();
         
         url = "completelogout";
         
-		
-		return "redirect:"+url;
-	}
-	
-	
-	@RequestMapping("completelogout")
-	public String logout() {
-		
-		return "login/admin/adminloginmain"; //     /WEB-INF/views/login/client/completelogout.jspï¿½ï¿½ ï¿½Ìµï¿½ , ï¿½ï¿½ï¿½Ìµï¿½ Ã£ï¿½ï¿½ È­ï¿½ï¿½
-	}
-	
-	
-	
-	
-	
+      
+      return "redirect:"+url;
+   }
+   
+   
+   @RequestMapping("completelogout")
+   public String logout() {
+      
+      return "login/admin/adminloginmain"; //     /WEB-INF/views/login/client/completelogout.jspå ì™ì˜™ å ì‹±ë“¸ì˜™ , å ì™ì˜™å ì‹±ë“¸ì˜™ ì°¾å ì™ì˜™ í™”å ì™ì˜™
+   }
+   
+   
+   
+   
+   
 
-	
+   
 }

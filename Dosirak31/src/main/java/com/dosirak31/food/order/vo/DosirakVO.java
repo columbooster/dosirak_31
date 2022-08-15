@@ -15,4 +15,10 @@ public class DosirakVO extends ClientVO{//도시락
 	private String food_name3;	//식품명3
 	private String food_name4;	//식품명4
 	private String food_name5;	//식품명5
+	private String food_img1;	//식품명1
+	private String food_img2;	//식품명1
+	private String food_img3;	//식품명1
+	private String food_img4;	//식품명1
+	private String food_img5;	//식품명1
+	
 }

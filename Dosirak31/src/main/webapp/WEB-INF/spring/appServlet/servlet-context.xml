@@ -28,12 +28,11 @@
 			<mapping path="/health/client/**"/>
 			<mapping path="/community/client/**"/>
 			<mapping path="/health/**"/>
-			<mapping path="/foodReview/client/**"/>
 			<exclude-mapping path="/login/**"/>
 			<exclude-mapping path="/food/**"/>
 			<exclude-mapping path="/health/admin/**"/>
+			<exclude-mapping path="/community/admin/**"/>
 			<exclude-mapping path="login"/>
-			
 			<exclude-mapping path="main"/>
 			<beans:ref bean="sessionCheckInterceptor"/>
 		</interceptor>

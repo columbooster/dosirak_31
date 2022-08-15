@@ -33,6 +33,7 @@
    
 	 #trClone{display:none;}
 	 #detailTable tr,td{border:1px solid; border-collapse:collapse;}
+	 .dosirakBtn1{float:right;}
 	 
 	</style>
 	
@@ -183,7 +184,7 @@
            		
            </table>
            	 <span class="totalPrice"></span>
-        	 <input type="button" value="닫기" id="closeBtn">
+        	 <input type="button" value="닫기" class="dosirakBtn1" id="closeBtn">
           </div> 
        </div>
 	<!-- 상세정보 팝업창 끝 -->
@@ -201,7 +202,7 @@
 							<option value="4">주문취소내역</option>
 							<option value="5">배송완료내역</option>
 						</select>
-						<button type="button" class="btn btn-default text-right" id="orderGraphBtn">매출 통계</button>
+						<button type="button" class="dosirakBtn1 text-right" id="orderGraphBtn">매출 통계</button>
 					</div>
 				</form>
 			</div>
@@ -231,7 +232,7 @@
 					   	 / ${order.payment_method }
 					   	 <c:if test="${order.order_status_no eq 4}">
 					   	 	 <c:if test="${order.payment_delete eq 0}">&nbsp;&nbsp;&nbsp;
-					   	 	 	<button type="button" class="btn btn-default paymentDelete"  data-num="${order.order_no }">결제 취소</button>
+					   	 	 	<button type="button" class="dosirakBtn1 paymentDelete"  data-num="${order.order_no }">결제 취소</button>
 					   	 	 </c:if>
 					   	 </c:if>
 					   	 
@@ -244,7 +245,7 @@
 					   <p><span>수령인 정보</span>${order.client_name} / ${order.order_client_phone}</p>
 					   <p><span>주소</span>${order.order_address }
 					   <c:if test="${order.order_status_no eq 3}">
-					   	<button type="button" class="btn btn-default deliveryBtn" data-num="${order.order_no }">배달 발송</button>				   
+					   	<button type="button" class="dosirakBtn1 deliveryBtn" data-num="${order.order_no }">배달 발송</button>				   
 					   </c:if></p>				   
 					  </div>				  
 					  </li>
