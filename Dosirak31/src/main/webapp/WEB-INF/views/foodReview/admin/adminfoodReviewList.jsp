@@ -15,7 +15,7 @@
 				
 				if($("#search").val()!='review_contents'){
 					//:contains()는 특정 텍스트를 포함한 요소반환
-					if($("#search").val()=='community_title') value = "#list tr td.goDetail";
+					if($("#search").val()=='review_contents') value = "#list tr td.goDetail";
 					else if($("#search").val()=='client_id') value="#list tr td.name";
 					console.log($(value+":contains('"+word+"')").html());
 					
@@ -48,6 +48,7 @@
 				if($("#search").val()!="all"){ // 제목 /내용/작성자 선택시 검색어 유효성 체크.
 					if(!chkData("#keyword","검색어를")) return;
 				}
+				$("#pageNum").val(1);
 				goPage();
 				
 			});
@@ -81,13 +82,13 @@
 				<h2 class="sub-header">Review 관리</h2>
 				
 			<%-- ==================== 검색 기능 ========================= --%>
-				<div class="well">
+				
 					<form id="f_search" class="form-inline">
 						<%-- 페이징 처리를 위한 파라미터 --%>
 						<input type="hidden" name="pageNum" value="${pageMaker.cvo.pageNum}">
 						<input type="hidden" name="amount" value="${pageMaker.cvo.amount}">
 						
-						<h3><span class="label label-success">검색조건</span> </h3>
+						<!-- <h3><span class="label label-success">검색조건</span> </h3>
 						<div class="form-group">
 							<select id="search" name="search" class="form-control">
 								<option value="reveiw_score">점수</option>
@@ -104,13 +105,13 @@
 							<input type="date" name="end_date" id="end_date" placeholder="종료일자" class="form-control">
 						</div>
 						<button type="button" id="searchBtn" class="btn btn-primary">Search</button>
-						<button type="button" id="allSearchBtn" class="btn btn-primary" >All Search</button>
+						<button type="button" id="allSearchBtn" class="btn btn-primary" >All Search</button> -->
 					</form>
-				</div>
+				 
 			
 			<%-- ===================== 게시판 리스트 ======================= --%>
 				<div class="table-responsive table-height">
-					<table class="table table-bordered">
+					<table class="table table-bordered" style="width: 80%;">
 						<thead>
 							<tr>
 								<th class="text-center" >글번호</th>
