@@ -23,6 +23,7 @@
 		
 		color: #222;
 		font-weight:bold;
+		
 	}
 	 
 	input[type="submit"], #comments input[type="reset"] {
@@ -40,7 +41,7 @@ tr:nth-child(even), #comments li:nth-child(even) {
 		background-repeat:no-repeat;
 		padding: 50px;
 		text-align:center;
-		width:980px;
+		width:800px;
 		height:400px;
 		overflow:auto;
 	}
@@ -49,6 +50,7 @@ tr:nth-child(even), #comments li:nth-child(even) {
 		display: inherit;
 		padding: 50px;
 		text-align:center;
+		width:800px;
 	}
 	td{color:black;}
 	#comments div {
@@ -79,7 +81,7 @@ tr:nth-child(even), #comments li:nth-child(even) {
    #update{display:none;}
    div.panel{width:750px;}
    table.table{width:750px;}
-   .form
+  
    </style>
    <script type="text/javascript">
    <!--===================도시락 메뉴 탭 기능 =========================== -->
@@ -285,7 +287,7 @@ tr:nth-child(even), #comments li:nth-child(even) {
 
 </head>
    
-<div class="wrapper row3">
+<div class="wrapper row3 ">
     <form id="selectForm">
        <input type="hidden" name="food_no" id="food_nowhat2" />
         <input type="hidden" name="food_img" id="food_imgwhat2"/>

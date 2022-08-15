@@ -1,7 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file="/WEB-INF/views/common/common.jspf" %>    
-
+<style>
+main.container.clear{width:800px;}
+</style>
 
 <script type="text/javascript">
 				$(function() {
@@ -127,8 +129,8 @@
 							<input type="date" name="start_date" id="start_date" placeholder="시작일자" class="form-control">
 							<input type="date" name="end_date" id="end_date" placeholder="종료일자" class="form-control">
 						</div>
-						<button type="button" id="searchBtn" class="dosirakBtn">Search</button>
-						<button type="button" id="allSearchBtn" class="dosirakBtn" >All Search</button>
+						<button type="button" id="searchBtn" class="dosirakBtn1">검색</button>
+						<button type="button" id="allSearchBtn" class="dosirakBtn1" >전체 검색</button>
 					</form>
 				</div>	
 					<%-- ==================== 검색 기능 종료 ========================= --%>
