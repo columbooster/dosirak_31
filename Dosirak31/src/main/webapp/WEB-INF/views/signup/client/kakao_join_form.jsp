@@ -15,7 +15,6 @@
 			display : none;
 		}
 		
-		
 .dosirakBtn3 {
    text-decoration:none;
    font-family:Arial;
