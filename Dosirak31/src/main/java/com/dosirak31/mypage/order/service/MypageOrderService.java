@@ -9,7 +9,7 @@ public interface MypageOrderService {
 	
 	   public List<OrderDetailVO> mypageOrderList(OrderDetailVO odv);
 	   
-	   public int mypageOrderDelete(int order_no);
+	   public int mypageOrderDelete(OrderDetailVO order_no);
 	   
 	   public int mypageOrderListCnt(OrderDetailVO odv);
 }

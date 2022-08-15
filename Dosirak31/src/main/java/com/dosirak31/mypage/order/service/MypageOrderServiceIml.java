@@ -32,22 +32,11 @@ public class MypageOrderServiceIml implements MypageOrderService {
       return mypageOrderDao.mypageOrderListCnt(odv);
    }
 
-	/* @Override
-	 public int mypageOrderDelete(MypageOrderVO movo) throws Exception {
-	  int result = 0;
-	  if(!movo.getFile_name().isEmpty()) {
-	     FileUploadUtil.fileDelete(movo.getFile_name());
-	     FileUploadUtil.fileDelete(movo.getFile_thumb());
-	  }
-	  
-	  result = mypageOrderDao.mypageOrderDelete(movo.getOrder_no());
-	  return result;
-	 }*/
-
 	@Override
-	public int mypageOrderDelete(int order_no) {
-		// TODO Auto-generated method stub
-		return 0;
+	public int mypageOrderDelete(OrderDetailVO odv) {
+		int result= 0;
+		result = mypageOrderDao.mypageOrderDelete(odv.getOrder_no());
+		return result;
 	}
 
 }

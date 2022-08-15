@@ -125,13 +125,22 @@
          }).fail(function(){
                alert("주문상세페이지부르기에 실패했습니다.개발자에게 문의하세요");
             })
-         
-            
-         
-          
-         
       }
       
+      // 주문 취소 버튼 클릭시 이벤트
+      $(function() {
+    	
+    	  $("#mypageOrderDeleteBtn").click(function() {
+    		  if(confirm("주문을 취소하시겠습니까?")) {
+    			  goUrl = "/mypage/client/mypageOrderDelete";
+    			  
+    			  $("#f_data").attr("action", goUrl);
+    			  $("#f_data").submit();
+    		  }
+    			  
+    		  
+    	  });
+      });
       
       
    
@@ -170,7 +179,7 @@
           <li><a href="javascript:orderList(${sessionScope.client_info.client_no })">주문 내역</a>
           <li><a href="/mypage/client/mypageReviewList">나의 리뷰</a>
             <ul>
-              <li><a href="/foodReview/client/writeForm">리뷰 입력</a></li>
+              
               
             </ul>
           </li>
@@ -230,8 +239,9 @@
             <%--페이징 처리를 위한 파라미터 --%>
             <input type="hidden" name="pageNum" value="${pageMaker.cvo.pageNum }" id="pageNum">
             <input type="hidden" name="amount" value="${pageMaker.cvo.amount }" id="amount"> <!-- ${pageMaker.cvo.amount } -->
-            <input type="hidden" id="client_no" value="${sessionScope.client_info.client_no}" name="client_no"/>   
+            <input type="hidden" id="client_no" value="${sessionScope.client_info.client_no}" name="client_no"/>  
             </form>
+            
       
         <div id="comments">
          <c:set var="previousCol1" value=""/>   
@@ -239,13 +249,15 @@
                
              <c:if test="${order.order_no ne previousCol1}">
                <section id="content">
- 
+ 					 <form name="f_data" id="f_data" method="post">
+						<input type="hidden" id="order_no" name="order_no" value="${order.order_no }"/>
+					 </form>
                 <ul class="orderList">
-                
+                	 
                  <li style="height: 250px;">      
                  <div>
                   <p><span>주문번호</span><a href="javascript:popup(${order.order_no })" class="popUpBtn">${order.order_no }</a></p>
-                  <p><span>주문상태</span><c:if test="${order.order_status_no eq 3}">주문 완료 / ${order.order_date}</c:if>
+                  <p><span>주문상태</span><c:if test="${order.order_status_no eq 3}">주문 완료 / ${order.order_date} &nbsp;<a id="mypageOrderDeleteBtn">주문취소</a> </c:if>
                   <c:if test="${order.order_status_no eq 4}">주문 취소</c:if>
                   <c:if test="${order.order_status_no eq 5}">배송 완료</c:if>
                   </p>

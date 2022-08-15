@@ -75,7 +75,7 @@
      
       <div id="comments">
 	      <h2>Reviews</h2>
-	      <p style="color: #999999; padding-bottom:10px;">※ 심한 욕이나 좋지않은 언행은 삼가주시기 바랍니다.</p>
+	      <p style="color: #999999; padding-bottom:10px;"><em>  ※ 심한 욕이나 좋지않은 언행은 삼가주시기 바랍니다.</em></p>
 	      	<!-- 페이징 처리를 위한 파라미터 -->
 	      	<form id="f_search" name="f_search" class="form-inline">
 	      		<input type="hidden" name="pageNum" value="${pageMaker.cvo.pageNum }">

@@ -102,9 +102,9 @@
 					</form>		
 				</div>
 				<div class="contentBtn text-right">
+					<input type="button" value="목록" id="mypageReviewListBtn" class="dosirakBtn2">
+					<input type="button" value="취소" id="mypageReviewCancelBtn" class="dosirakBtn2">
 					<input type="button" value="수정" id="mypageReviewUpdateBtn" class="dosirakBtn">
-					<input type="button" value="취소" id="mypageReviewCancelBtn" class="dosirakBtn">
-					<input type="button" value="목록" id="mypageReviewListBtn" class="dosirakBtn">
 				</div>
      </div>
     <div class="clear"></div>

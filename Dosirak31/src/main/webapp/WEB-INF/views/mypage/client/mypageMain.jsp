@@ -11,19 +11,13 @@
 	 section#content ul li { border:5px solid #eee; padding:first0px 20px; margin:40px 0px 0px 0px; width:500px; height:250px;}
 	 section#content .client_info span { font-size:first5px; font-weight:bold; display:inline-block; width:first00px; margin-right:first0px; }
 	 
-			 .btn{
-				float: right;
-			}
-			.btnfirst{
-				display :inline-block;
-			}
+			
+		
 
 			.btn{
 				float: right;
 			}
-			.btnfirst{
-				display :inline-block;
-			}
+			
 			
 	</style>
 	<style type="text/css">
@@ -60,6 +54,8 @@
 			font-size: 7px;
 			font-color: #FFFAFA;
 		}
+		
+		
 		
 	</style>
 	
@@ -114,7 +110,7 @@
           <li><a href="javascript:orderList(${sessionScope.client_info.client_no })">주문 내역</a>
           <li><a href="/mypage/client/mypageReviewList">나의 리뷰</a>
             <ul>
-              <li><a href="/foodReview/client/writeForm">리뷰 입력</a></li>
+              
               
             </ul>
           </li>
@@ -181,12 +177,14 @@
 					
 				
 				
-				</table>			
+				</table>
+					
 		</section>
+		<div class="btn" style="margin-right: 15%;">
+      <input type="button" value="회원정보 수정 및 탈퇴" id="client_infoUpdateBtn" class="dosirakBtn">
+      </div>		
       </div>
-      <div class="btn">
-      <input type="button" value="회원정보 수정 및 탈퇴" id="client_infoUpdateBtn" class="dosirakBtn1">
-      </div>
+      
       
       <!-- ################################################################################################ -->      
 <!-- ################################################################################################ -->

@@ -82,13 +82,13 @@
 				<h2 class="sub-header">Review 관리</h2>
 				
 			<%-- ==================== 검색 기능 ========================= --%>
-				<div class="well">
+				
 					<form id="f_search" class="form-inline">
 						<%-- 페이징 처리를 위한 파라미터 --%>
 						<input type="hidden" name="pageNum" value="${pageMaker.cvo.pageNum}">
 						<input type="hidden" name="amount" value="${pageMaker.cvo.amount}">
 						
-						<h3><span class="label label-success">검색조건</span> </h3>
+						<!-- <h3><span class="label label-success">검색조건</span> </h3>
 						<div class="form-group">
 							<select id="search" name="search" class="form-control">
 								<option value="reveiw_score">점수</option>
@@ -105,13 +105,13 @@
 							<input type="date" name="end_date" id="end_date" placeholder="종료일자" class="form-control">
 						</div>
 						<button type="button" id="searchBtn" class="btn btn-primary">Search</button>
-						<button type="button" id="allSearchBtn" class="btn btn-primary" >All Search</button>
+						<button type="button" id="allSearchBtn" class="btn btn-primary" >All Search</button> -->
 					</form>
-				</div>
+				 
 			
 			<%-- ===================== 게시판 리스트 ======================= --%>
 				<div class="table-responsive table-height">
-					<table class="table table-bordered">
+					<table class="table table-bordered" style="width: 80%;">
 						<thead>
 							<tr>
 								<th class="text-center" >글번호</th>

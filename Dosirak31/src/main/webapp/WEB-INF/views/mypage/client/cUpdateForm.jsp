@@ -188,18 +188,13 @@
 <!-- ################################################################################################ -->
 <!-- ################################################################################################ -->
 <div class="wrapper row2 bgded" style="background-image:url('/resources/images/common/modify.jpeg');">
-  <div class="overlay">
+  
     <div id="breadcrumb" class="clear"> 
       <!-- ################################################################################################ -->
-      <ul>
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Lorem</a></li>
-        <li><a href="#">Ipsum</a></li>
-        <li><a href="#">Sidebar Left</a></li>
-      </ul>
+      
       <!-- ################################################################################################ -->
     </div>
-  </div>
+  
 </div>
 <!-- ################################################################################################ -->
 <!-- ################################################################################################ -->
@@ -217,7 +212,7 @@
           <li><a href="#">주문 내역</a>
           <li><a href="/mypage/client/mypageReviewList">나의 리뷰</a>
             <ul>
-              <li><a href="/foodReview/client/writeForm">리뷰 입력</a></li>
+              
               
             </ul>
           </li>
@@ -295,7 +290,7 @@
 								</tr>
 								<tr>
 									<td>주소</td>
-									<td class="text-left"><input type="button" id="addBtn" class="form-control" value="주소검색" onclick="execDaumPostcode()" />
+									<td class="text-left"><input type="button" id="addBtn" class="dosirakBtn3" value="주소검색" onclick="execDaumPostcode()" />
 										<div style="display: none;">
 										<input type="text" id="sample6_postcode" placeholder="우편번호">
 										<input type="button" onclick="sample6_execDaumPostcode()" value="우편번호 찾기"><br>
@@ -310,8 +305,8 @@
 							</tbody>
 						</table>
 						<div class="text-right">
-							<input type="button" value="회원탈퇴" id="mypageClientDeleteBtn" class="dosirakBtn">
-							<input type="button" value="취소" id="cancleBtn" class="dosirakBtn">
+							<input type="button" value="회원탈퇴" id="mypageClientDeleteBtn" class="dosirakBtn2">
+							<!-- <input type="button" value="취소" id="cancleBtn" class="dosirakBtn"> -->
 							<input type="button" value="회원정보 수정" id="mypageClientUpdateBtn" class="dosirakBtn">
 						</div>	
 			

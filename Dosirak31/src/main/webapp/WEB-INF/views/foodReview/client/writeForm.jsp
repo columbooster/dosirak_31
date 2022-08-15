@@ -91,13 +91,10 @@
           </div>
           <div class="one_third">
             <label for="review_score">Score <span>*</span></label>
-            <input type="text" name="review_score" id="review_score" size="22" placeholder="0~5점 사이의 정수를 입력해주세요.">
+            <input type="text" name="review_score" id="review_score" size="22" placeholder="0~5점 사이의 정수를 입력해주세요."  style="width: 246px;">
           </div>
           <!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ 빼야 될것 -->
-          <div class="one_third">
-            <label for="order_no">이거 뺼꺼 (order_no) <span>*</span></label>
-            <input type="text" name="order_no" id="order_no" size="22">
-          </div>
+          
           <!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ 빼야 될것 -->
           <div class="block clear">
           	<br />
