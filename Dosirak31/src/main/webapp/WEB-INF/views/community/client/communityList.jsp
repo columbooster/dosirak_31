@@ -316,7 +316,9 @@
 											<c:if test="${community.community_closed == 0}">
 											<td class="goDetail text-left" style="text-align: left;">
 												<c:if test="${community.community_category_no == 1}"><span><img alt="qna로고" src="/resources/images/common/qna3.png" style="width:35px; height:15px;">&nbsp;&nbsp;</span></c:if>
-												${community.community_title}
+												<c:if test="${community.community_notify == 1}"><span style="color: blue; font-weight: bold;">[공지사항]
+												${community.community_title} </span></c:if> 
+												<c:if test="${community.community_notify == 0}">${community.community_title}</c:if> 
 												<c:if test="${community.reply_cnt > 0}"><span class="reply_count">[${community.reply_cnt}]</span></c:if>
 											</td>
 											</c:if>

@@ -255,11 +255,11 @@ public class AdminLoginController {
 }
    
    @RequestMapping("/logout")
-   public String logout(SessionStatus sessionStatus) {
+   public String logout(HttpSession session) {
       
       String url = "";
       
-      sessionStatus.setComplete();
+      session.invalidate();
         
         url = "completelogout";
         

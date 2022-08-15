@@ -29,7 +29,7 @@
 		}
        
         img{width:70px; height:70px;margin:5px;}
-		
+		.star{width:30px; height:30px; margin:3px;}
 
 	</style>
 		<script type="text/javascript">
@@ -100,9 +100,22 @@
 				                
 				                <div>${review.dosirak_name}</div>
 				                <address>
-				                By <a href="#">${review.review_name}</a>
+				                By <a >${review.review_name}</a>
 				                </address>
-				                <span>별점 : ${review.review_score}</span>
+				                <span>별점 : 
+				                 <c:choose>
+				                 <c:when test="${review.review_score ne 0 }">
+				                <c:forEach begin="1" end="${review.review_score}">
+				               
+				                <img  class="star" src="/resources/images/common/star.png"/>
+				                
+				                </c:forEach>
+				                </c:when>
+				                <c:when test="${review.review_score eq 0 }">
+				                 별점이 0점입니다.
+				                </c:when>
+				                </c:choose>
+				                </span>
 				                <div>${review.review_date}</div>
 				              </header>
 				              <div class="comcont">

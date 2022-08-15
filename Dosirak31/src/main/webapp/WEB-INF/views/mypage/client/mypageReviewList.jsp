@@ -34,7 +34,12 @@
              background-color: #fff;
              border: 1px solid #ddd;
          }
-			
+        
+         
+         img{width:70px; height:70px;margin:5px;}
+		.star{width:30px; height:30px; margin:3px;}
+		.review{width:900px; height:250px;}
+		.font{font-size:15px;}
 		</style>
 
 		<script type="text/javascript">
@@ -67,6 +72,10 @@
 				});
 				$("#f_search").submit();
 			}
+			
+			function orderList(client_no){
+		         location.href="/mypage/client/mypageOrderList?client_no="+client_no;
+		      }
 		</script>
 </head>
 	<body>
@@ -132,20 +141,38 @@
 		      	<c:when test="${not empty mypageReviewList}" >
 			      	<c:forEach var="mypage" items="${mypageReviewList}" varStatus="status">
 				        <ul data-num="${mypage.review_no}">
-				          <li>
+				          <li class="review">
 				            <article>
 				              <header>
-				                <figure class="avatar"><img src="/resources/images/demo/avatar.png" alt=""></figure>
+				                    <figure class="avatar">
+							<img  class="imgda1" src="/dosirak31img/food/${mypage.food_img1 }">
+			                <img  class="imgda2" src="/dosirak31img/food/${mypage.food_img2 }"><img  class="imgda3" src="/dosirak31img/food/${mypage.food_img3 }">
+			                <img  class="imgda4" src="/dosirak31img/food/${mypage.food_img4 }"><img  class="imgda5" src="/dosirak31img/food/${mypage.food_img5 }">
+			                </figure> 
+			                <div>${mypage.dosirak_name}</div>
 				                <address>
-				                By <a href="#">${mypage.review_name}</a>
+				                By <a >${mypage.review_name}</a>
 				                </address>
-				                <span>별점 : ${mypage.review_score}</span>
+				                <span>별점 : 
+				                 <c:choose>
+				                 <c:when test="${mypage.review_score ne 0 }">
+				                <c:forEach begin="1" end="${mypage.review_score}">
+				               
+				                <img  class="star" src="/resources/images/common/star.png"/>
+				                
+				                </c:forEach>
+				                </c:when>
+				                <c:when test="${mypage.review_score eq 0 }">
+				                 별점이 0점입니다.
+				                </c:when>
+				                </c:choose>
+				                </span>
 				                <div>${mypage.review_date}</div>
 				              </header>
 				              <div class="comcont">
 				                <p>${mypage.review_contents}</p>
 				              </div>
-				              <a class="goDetail" href="/mypage/client/mypageReviewDetail?review_no=${mypage.review_no }">편집</a>
+				              <a class="goDetail font" href="/mypage/client/mypageReviewDetail?review_no=${mypage.review_no }">편집</a>
 				            </article>
 				          </li>
 				        </ul> 

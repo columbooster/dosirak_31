@@ -229,7 +229,7 @@ td{border-width:0 1px;}
 
 /* Colours
 --------------------------------------------------------------------------------------------------------------- */
-body{color:#888888; background-color:#2E2E2E;}
+body{color:#888888; background-color: white;}
 a{color:#a5d610;}
 hr, .borderedbox{border-color:#D7D7D7;}
 label span{color:#a5d610; background-color:inherit;}

@@ -154,7 +154,9 @@
        })  
       })
       
-      
+      function orderList(client_no){
+	         location.href="/mypage/client/mypageOrderList?client_no="+client_no;
+	      }
    
    </script>
 

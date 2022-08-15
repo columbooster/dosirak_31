@@ -93,10 +93,13 @@
 									</c:if>
 									<c:if test="${sessionScope.admin_info.admin_id != null && sessionScope.client_info.client_id == null}">
 											<input type="text" name="admin_id" id="admin_id" class="form-control" value="<c:out value='${sessionScope.admin_info.admin_id}'/>" readonly="readonly" />
-										
 									</c:if>
 									</td>
-									<td class="text-left"><label><input type="checkbox" name="community_category_no" id="community_category_no" value="1">QnA</label></td>
+									<td class="text-left"><label><input type="checkbox" name="community_category_no" id="community_category_no" value="1">QnA</label>
+									<c:if test="${sessionScope.admin_info.admin_id != null}">
+										<label><input type="checkbox" name="community_notify" id="community_notify" value="1">Notice</label>
+									</c:if>
+									</td>
 								</tr>
 								<tr>
 									<td>글제목</td>
@@ -119,10 +122,10 @@
 							</tbody>
 						</table>
 						
-						<div class="text-right search_bar">
-							<input type="button" value="취소" id="communityCancelBtn" class="dosirakBtn2">
-							<input type="button" value="목록" id="communityListBtn" class="dosirakBtn2">
-							<input type="button" value="저장" id="communityInsertBtn" class="dosirakBtn">
+						<div class="text-right">
+							<input type="button" value="저장" id="communityInsertBtn" class="btn btn-success">
+							<input type="button" value="취소" id="communityCancelBtn" class="btn btn-success">
+							<input type="button" value="목록" id="communityListBtn" class="btn btn-success">
 						</div>	
 					</form>
 				</div>
