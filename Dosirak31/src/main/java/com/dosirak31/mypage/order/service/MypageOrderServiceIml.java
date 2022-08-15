@@ -14,17 +14,12 @@ import lombok.Setter;
 
 @Service
 public class MypageOrderServiceIml implements MypageOrderService {
+
 	
 	@Setter(onMethod_ = @Autowired)
 	private MypageOrderDao mypageOrderDao;
 	
-	// 二쇰Ц�궡�뿭 議고쉶
-	@Override
-	public List<OrderDetailVO> mypageOrderList(OrderDetailVO odv) {
-		List<OrderDetailVO> list = null;
-		list = mypageOrderDao.mypageOrderList(odv);
-		return list;
-	}
+
 	
 	// 二쇰Ц�궡�뿭 �젅肄붾뱶 �닔 議고쉶
 	@Override
@@ -32,15 +27,22 @@ public class MypageOrderServiceIml implements MypageOrderService {
 		return mypageOrderDao.mypageOrderListCnt(odv);
 	}
 
+
+   
+   // 二쇰Ц 궡 뿭 議고쉶
+   @Override
+   public List<OrderDetailVO> mypageOrderList(OrderDetailVO odv) {
+      List<OrderDetailVO> list = null;
+      list = mypageOrderDao.mypageOrderList(odv);
+      return list;
+   }
+   
+
+
 	@Override
-	public int mypageOrderDelete(MypageOrderVO movo) throws Exception {
-		int result = 0;
-		if(!movo.getFile_name().isEmpty()) {
-			FileUploadUtil.fileDelete(movo.getFile_name());
-			FileUploadUtil.fileDelete(movo.getFile_thumb());
-		}
-		
-		result = mypageOrderDao.mypageOrderDelete(movo.getOrder_no());
+	public int mypageOrderDelete(OrderDetailVO odv) {
+		int result= 0;
+		result = mypageOrderDao.mypageOrderDelete(odv.getOrder_no());
 		return result;
 	}
 

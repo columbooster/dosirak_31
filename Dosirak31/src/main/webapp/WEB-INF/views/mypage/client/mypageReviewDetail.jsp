@@ -40,29 +40,34 @@
 
 </head>
 	<body>
-		<div class="wrapper row2 bgded" style="background-image:url('/resources/images/demo/backgrounds/01.png');">
-  <div class="overlay">
+		<div class="wrapper row2 bgded" style="background-image:url('/resources/images/common/detail.jpeg'); height: 300px;">
+  
     <div id="breadcrumb" class="clear"> 
       
-      <ul>
-         <li><a href="/client/successlogin">Home</a></li>
-        <li><a href="/mypage/client/mypageMain">MYPAGE</a></li>
-        <li><a href="/mypage/client/mypageMain">MYPAGE</a></li>
-        <li><a href="/foodReview/client/foodReviewList">Review</a></li>
-      </ul>
+      
       
     </div>
-  </div>
+  
 </div>
 
 <div class="wrapper row3">
-	<main class="container clear">
-    	<div class="contentContainer container">
+	<main class="container clear" style="padding: 20px 0;">
+    	<div class="contentContainer container" style="padding: 20px 0;">
     		
     		<form name="f_data" id="f_data" method="post">
 				<input type="hidden" name="review_no" value="${detail.review_no}"/>
 			</form>
     		
+    		<div class="header-title" style="padding-bottom: 10px;">
+        		"My page"
+        	<span class="right-arrow">&gt;</span>
+        		'review'
+        	<span class="right-arrow">&gt;</span>
+        	<strong>Review_modify</strong>
+        	<br/>
+        	</div>
+       		<h3 class="title">Review Detail</h3>
+			
 			<div class="contentTB text-center">
 						<table class="table table-bordered">
 							<tbody>
@@ -73,7 +78,7 @@
 									<td class="col-md-3 text-left">${detail.review_date}</td>
 								</tr>
 								<tr>
-									<td class="col-md-4">글제목</td>
+									<td class="col-md-4">별점</td>
 									<td colspan="3" class="col-md-8 text-left">${detail.review_score}</td>
 								</tr>
 								<tr class="table-tr-height">
@@ -82,9 +87,9 @@
 								</tr>
 							</tbody>
 						</table>
-						<input type="button" value="글 수정" id="updateFormBtn" class="btn btn-success">
-						<input type="button" value="글 삭제" id="mypageReviewDeleteBtn" class="btn btn-success">
-						<input type="button" value="목록" id="mypageReviewListBtn" class="btn btn-success">
+						<input type="button" value="글 수정" id="updateFormBtn" class="dosirakBtn">
+						<input type="button" value="글 삭제" id="mypageReviewDeleteBtn" class="dosirakBtn">
+						<input type="button" value="목록" id="mypageReviewListBtn" class="dosirakBtn">
 				</div>
         </div>
     <div class="clear"></div>
