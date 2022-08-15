@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ include file="/WEB-INF/views/common/common.jspf"%>
 
+
 <script type="text/javascript">
 	$(function() {
 		//저장 버튼 클릭 시 처리 이벤트
@@ -40,11 +41,10 @@
 </script>
 </head>
 <body>
-	<div class="container">
+<div class="wrapper row3">
 		<div class="text-center">
 			<h3>게시판 글 작성</h3>
 		</div>
-
 		<form class="form-horizontal" id="h_writeForm" name="h_writeForm">
 			<div class="form-group">
 				<label for="author" class="col-sm-2 control-label">작 성 자</label>
@@ -82,15 +82,15 @@
 				</div>
 				<div class="form-group">
 					<label for="file" class="col-sm-2 control-label">이미지파일첨부</label>
-					<div class="col-sm-10">
-						<input type="file" class="form-control" id="file" name="file" />
+					<div class="col-sm-10 file_location">
+						<input type="file" class="form-control file_location1" id="file" name="file" />
 					</div>
 				</div>
 			</div>
 		</form>
 		<div class="text-right">
-			<button type="button" class="btn btn-primary" id="boardInsertBtn">저장</button>
-			<button type="button" class="btn btn-primary" id="boardCancelBtn">취소</button>
+			<button type="button" class="dosirakBtn1" id="boardInsertBtn">저장</button>
+			<button type="button" class="dosirakBtn1" id="boardCancelBtn">취소</button>
 		</div>
 	</div>
 </body>

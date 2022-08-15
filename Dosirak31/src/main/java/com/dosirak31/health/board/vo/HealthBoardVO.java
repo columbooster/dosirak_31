@@ -2,7 +2,7 @@ package com.dosirak31.health.board.vo;
 
 import org.springframework.web.multipart.MultipartFile;
 
-import com.dosirak31.common.vo.CommonVO;
+import com.dosirak31.common.vo.CommonHealthVO;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -14,7 +14,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class HealthBoardVO extends CommonVO {
+public class HealthBoardVO extends CommonHealthVO {
 	private int health_no;				// 헬스 게시글 번호
 	private String health_title;			// 헬스 게시글 제목
 	private String health_date;			// 작성 일시

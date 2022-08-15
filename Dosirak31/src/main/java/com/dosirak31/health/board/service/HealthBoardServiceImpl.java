@@ -34,10 +34,7 @@ public class HealthBoardServiceImpl implements HealthBoardService {
 	 ***************************************************************************/
 	@Override
 	public HealthBoardVO healthDetail(HealthBoardVO hbvo) {
-	HealthBoardVO weightDetail = null;
-		
-		// 조회수 증가 메서드 호출.
-		hBoardDao.healthHit(hbvo); 	
+	HealthBoardVO weightDetail = null;	
 		
 		weightDetail = hBoardDao.healthDetail(hbvo);
 		if(weightDetail!=null) {
@@ -45,9 +42,10 @@ public class HealthBoardServiceImpl implements HealthBoardService {
 	        }
 		
 		// 동영상 url 메서드
-		if(weightDetail!=null) {
-			weightDetail.setHealth_url(weightDetail.getHealth_url());
-		}
+				if(weightDetail!=null) {
+					weightDetail.setHealth_url(weightDetail.getHealth_url());
+				}
+		
 		return weightDetail;
 	}
 
