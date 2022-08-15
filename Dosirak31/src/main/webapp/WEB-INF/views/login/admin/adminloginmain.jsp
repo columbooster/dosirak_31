@@ -39,7 +39,7 @@
 
             }
             input:focus + label, label{
-                color:#f89b00;
+                color: #a5d610;
                 font-size:10pt;
                 pointer-events: none;
                 position: absolute;
@@ -56,10 +56,7 @@
                 outline:none;
             }
             input[type=submit]{
-                background-color: gray;
-                border:none;
-                color:white;
-                border-radius: 5px;
+                
                 width:37%;   
                 height:70px;
                 font-size: 16pt;
@@ -85,7 +82,6 @@
             
             .or-seperator{text-align:center; }
             
-            hr{border: 0; background: #d3d3d3; height: 3px; width: 550px;}
 			
 			body{background-color:white;}
 		</style>
@@ -122,7 +118,7 @@
             </div>
             
             <div id="btn"> 
-            	<input type="submit" id="loginBtn" value="로그인">
+            	<input type="submit" id="loginBtn" value="로그인" class="dosirakBtn">
 			</div>
 			
         </form>

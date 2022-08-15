@@ -27,23 +27,20 @@
                 margin:10px 500px;
             }
 			#emphasize{
-				color: #f89b00;
+				color: #72aa00;
 			}
 			
-			 input[type=button]{
-                background-color: gray;
-                border:none;
-                color:white;
-                border-radius: 5px;
+			  input[type=button]{
+               
                 width:37%;   
                 height:70px;
                 font-size: 16pt;
                 font-weight:bold;
                 margin-top:40px;
-                text-align: center;
                 display:inline-block;
                 text-align:center;
-                 margin-bottom: 50px;
+                margin-bottom: 50px;
+                
             }
             
             .loginmain{
@@ -77,7 +74,7 @@
     	
    
         <div id="btn"> 
-            <input type="button" id="searchPw" value="비밀번호 찾기" onClick="location.href='/admin/adsearchpw'">
+            <input type="button" id="searchPw" value="비밀번호 찾기" onClick="location.href='/admin/adsearchpw'" class="dosirakBtn">
 		</div>
 		
 	

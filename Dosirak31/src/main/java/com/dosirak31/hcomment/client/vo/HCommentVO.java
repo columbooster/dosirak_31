@@ -1,9 +1,11 @@
 package com.dosirak31.hcomment.client.vo;
 
+import com.dosirak31.common.vo.CommonVO;
+
 import lombok.Data;
 
 @Data
-public class HCommentVO {
+public class HCommentVO extends CommonVO{
 	
 	private Integer health_comment_no; // 댓글번호
 	private Integer health_no;	//	헬스 게시물 번호
@@ -15,5 +17,5 @@ public class HCommentVO {
 	
 	private String health_title = "";
 	
-
+	
 }

@@ -38,7 +38,7 @@
 
             }
             input:focus + label, label{
-                color:#f89b00;
+                color:#a5d610;
                 font-size:10pt;
                 pointer-events: none;
                 position: absolute;
@@ -55,10 +55,7 @@
                 outline:none;
             }
             input[type=submit]{
-                background-color: gray;
-                border:none;
-                color:white;
-                border-radius: 5px;
+               
                 width:37%;   
                 height:70px;
                 font-size: 16pt;
@@ -158,7 +155,7 @@
             </div>
             
             <div id="btn"> 
-            	<input type="submit" value="아이디 찾기" id="idsearchBtn">
+            	<input type="submit" value="아이디 찾기" id="idsearchBtn" class="dosirakBtn">
 			</div>
 			
         </form>

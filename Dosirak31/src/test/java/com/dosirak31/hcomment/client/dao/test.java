@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import com.dosirak31.common.vo.CommonVO;
 import com.dosirak31.food.basic.dao.FoodBasicDao;
 import com.dosirak31.food.review.vo.FoodReviewVO;
 import com.dosirak31.hcomment.client.vo.HCommentVO;
@@ -27,17 +28,20 @@ public class test {
 	@Test
 	public void test() {
 		
-		List<HCommentVO> list = null;
+		HCommentVO hvo = new HCommentVO();
+		hvo.setPageNum(1);
+		hvo.setAmount(20); 
 		
-		list = hcommentDao.select();
+		List<HCommentVO> list = null;
+		list = hcommentDao.select(hvo);
 		
 		for(HCommentVO vo : list) { 
 			log.info(vo); 
 		}
 		
-		
-		
+		log.info("레코드 수 : " +hcommentDao.hcommentListCnt());
 		
 	}
+	
 
 }
