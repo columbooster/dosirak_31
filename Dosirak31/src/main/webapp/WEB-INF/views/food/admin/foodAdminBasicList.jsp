@@ -297,8 +297,8 @@
 		         		<!-- <img src="/dosirak31img/food/이미지이름"/> --> 
 				  		<img alt="식품이미지" class="img-thumbnail">
 			     		<div class="menuList"></div>
-			     		<button type="button" class="btn btn-default foodUpdateBtn" >식품 수정</button>
-			     		<button type="button" class="btn btn-default foodDeleteBtn" >식품 삭제</button>
+			     		<button type="button" class="dosirakBtn1 foodUpdateBtn" >식품 수정</button>
+			     		<button type="button" class="dosirakBtn1 foodDeleteBtn" >식품 삭제</button>
 			     		</li>
 			     	</ul>   			
 			</div>
@@ -313,7 +313,7 @@
       <div class="scrollable">
       	
       	<div >
-			<button type="button" class="btn btn-default" id="foodAddBtn">식품 추가 양식</button>
+			<button type="button" class="dosirakBtn1" id="foodAddBtn">식품 추가 양식</button>
 		</div>
 		<%--==============식품 추가 화면 =========================--%>
       	<div id="add">
@@ -372,7 +372,7 @@
          				 <tr>
 			               <td>이미지 파일 첨부</td>
 			               <td colspan="2" class="text-left"><input type="file" name="food_file" id="food_file" /></td>
-			           			<td><button type="button" class="btn btn-default" id="foodAdd">새로운 식품 추가</button></td>         		
+			           			<td><button type="button" class="dosirakBtn1" id="foodAdd">새로운 식품 추가</button></td>         		
 			            </tr>	
          			</tbody>
          		</table>
@@ -441,7 +441,7 @@
          				 <tr>
 			               <td>이미지 파일 첨부</td>
 			                <td colspan="2" class="text-left"><input type="file" name="food_file" id="food_file2" /></td>
-			            	<td><button type="button" class="btn btn-default" id="foodUpdate">수정하기</button></td>
+			            	<td><button type="button" class="dosirakBtn1" id="foodUpdate">수정하기</button></td>
 			            </tr>	
          			</tbody>
          		</table>

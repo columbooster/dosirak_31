@@ -52,37 +52,7 @@
 	<body>
 		<body id="top">
 <!-- ################################################################################################ -->
-<div class="wrapper row1">
-  <header id="header" class="clear"> 
 
-    <div id="logo" class="fl_left">
-      <h1><a href="/resources/index.html">DOSIRAK31</a></h1>
-    </div>
-    <nav id="mainav" class="fl_right">
-      <ul class="clear">
-        <li class="active"><a href="/resources/index.html">Home</a></li>
-        <li><a href="/health/hBoardList">WORKOUT</a>  
-        </li>
-        <li><a class="drop" href="/food/foodNoClientBasicList">FOOD</a>
-          <ul>
-            <li><a href="/food/foodNoClientBasicList">FOOD</a>
-            <li><a href="/foodReview/client/foodReviewList">FOOD REVIEW</a>
-            </li>
-          </ul>
-        </li>
-        <li><a href="/community/client/communityList">COMMUNITY</a></li>
-        <li><a class="drop" href="/client/loginmain">LOGIN</a>
-       	 <ul>
-            <li><a href="/client/loginmain">CLIENT LOGIN</a></li>
-            <li><a href="/food/foodAdminBasicList">ADMIN LOGIN</a></li>
-          </ul>
-        </li>
-        <li><a href="/signup/client/signupForm">SIGN UP</a></li>
-        <li><a href="/mypage/client/mypage">MY PAGE</a></li>
-      </ul>
-    </nav>
-  </header>
-</div>
 <!-- ################################################################################################ -->
 <!-- ################################################################################################ -->
 <div class="wrapper row2 bgded" style="background-image:url('/resources/images/demo/backgrounds/01.png');">
@@ -91,9 +61,9 @@
       <!-- ################################################################################################ -->
       <ul>
         <li><a href="#">Home</a></li>
-          <li><a href="/client/successlogin">Home</a></li>
-        <li><a href="/mypage/client/mypageMain">MYPAGE</a></li>
-        <li><a href="/mypage/client/mypageMain">MYPAGE</a></li>
+        <li><a href="#">Lorem</a></li>
+        <li><a href="#">Ipsum</a></li>
+        <li><a href="#">Sidebar Left</a></li>
       </ul>
       <!-- ################################################################################################ -->
     </div>
@@ -113,7 +83,7 @@
         <ul>
           <li><a href="#">회원정보</a></li>
           <li><a href="#">주문 내역</a>
-          <li><a href="/foodReview/client/foodReviewDetail">나의 리뷰</a>
+          <li><a href="/mypage/client/mypageReviewList">나의 리뷰</a>
             <ul>
               <li><a href="/foodReview/client/writeForm">리뷰 입력</a></li>
             </ul>
@@ -123,6 +93,7 @@
       </nav>
       </div>
       <!-- ################################################################################################ -->
+      <div class="content three_quarter">
       <div class="content">
 	 <div id="comments">
 	      <h2>Comments</h2>
@@ -153,7 +124,7 @@
 				                <address>
 				                By <a href="#">${mypage.review_name}</a>
 				                </address>
-				                <span>${mypage.review_score}</span>
+				                <span>별점 : ${mypage.review_score}</span>
 				                <div>${mypage.review_date}</div>
 				              </header>
 				              <div class="comcont">
@@ -169,89 +140,21 @@
 		        	<div>등록된 게시글이 존재하지 않습니다.</div>
 		        </c:otherwise>
 	        </c:choose>
+        </div>
+	       <%-- ===================페이징 출력=================== --%>
+     <tag:pagination pageNum="${pageMaker.cvo.pageNum }" amount="${pageMaker.cvo.amount }"
+     startPage="${pageMaker.startPage }" endPage="${pageMaker.endPage }" prev="${pageMaker.prev }" next="${pageMaker.next }" />
 	        
-	        <%-- ======== 페이징 처리를 커스텀태그(pagination)를 정의============ --%>
-				<tag:pagination endPage="${pageMaker.endPage}" startPage="${pageMaker.startPage}" amount="${pageMaker.cvo.amount}" 
-				prev="${pageMaker.prev}" pageNum="${pageMaker.cvo.pageNum}" next="${pageMaker.next}" />
-	        
+	        </div>
+      
       </div>
-      </div>
-      
-      
-      
-      
-      
-      
-      
-   		 
+
 	 	</main>
-		</div>	
+	</div>	
 		
 		<!-- ################################################################################################ -->
 		<!-- ################################################################################################ -->
-		<div class="wrapper row5">
-  <footer id="footer" class="clear"> 
-    <!-- ################################################################################################ -->
-    <div class="one_quarter first">
-      <h6 class="title">Dosirak31</h6>
-      <address class="btmspace-15">
-      Company Name<br>
-      Street Name &amp; Number<br>
-      Town<br>
-      Postcode/Zip
-      </address>
-      <ul class="nospace">
-        <li class="btmspace-10"><span class="fa fa-phone"></span> +00 (123) 456 7890</li>
-        <li><span class="fa fa-envelope-o"></span> info@domain.com</li>
-      </ul>
-    </div>
-    <div class="one_quarter">
-      <h6 class="title">Quick Links</h6>
-      <ul class="nospace linklist">
-        <li><a href="#">Home Page</a></li>
-        <li><a href="#">Blog</a></li>
-        <li><a href="#">Gallery</a></li>
-        <li><a href="#">Portfolio</a></li>
-        <li><a href="#">Contact Us</a></li>
-      </ul>
-    </div>
-    <div class="one_quarter">
-      <h6 class="title">From The Blog</h6>
-      <article>
-        <h2 class="nospace"><a href="#">Praesent Vestibulum</a></h2>
-        <time class="smallfont" datetime="2045-04-06">Friday, 6<sup>th</sup> April 2045</time>
-        <p>Vestibulumaccumsan egestibulum eu justo convallis augue estas aenean elit intesque sed.</p>
-      </article>
-    </div>
-    <div class="one_quarter">
-      <h6 class="title">Grab Our Newsletter</h6>
-      <form method="post" action="#">
-        <fieldset>
-          <legend>Newsletter:</legend>
-          <input class="btmspace-15" type="text" value="" placeholder="Name">
-          <input class="btmspace-15" type="text" value="" placeholder="Email">
-          <button type="submit" value="submit">Submit</button>
-        </fieldset>
-      </form>
-    </div>
-    <!-- ################################################################################################ -->
-  </footer>
-</div>
-<!-- ################################################################################################ -->
-<!-- ################################################################################################ -->
-<!-- ################################################################################################ -->
-<div class="wrapper row6">
-  <div id="copyright" class="clear"> 
-    <!-- ################################################################################################ -->
-    <p class="fl_left">Copyright &copy; 2018 - All Rights Reserved - <a href="#">Domain Name</a></p>
-    <p class="fl_right">Template by <a target="_blank" href="https://www.os-templates.com/" title="Free Website Templates">OS Templates</a></p>
-    <!-- ################################################################################################ -->
-  </div>
-</div>
-<!-- ################################################################################################ -->
-<!-- ################################################################################################ -->
-<!-- ################################################################################################ -->
-<a id="backtotop" href="#top"><i class="fa fa-chevron-up"></i></a> 
+		 
 <!-- JAVASCRIPTS -->
 <script src="/resources/layout/scripts/jquery.min.js"></script>
 <script src="/resources/layout/scripts/jquery.backtotop.js"></script>

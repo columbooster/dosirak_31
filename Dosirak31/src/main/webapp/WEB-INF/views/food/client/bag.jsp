@@ -3,15 +3,17 @@
  <%@ include file="/WEB-INF/views/common/common.jspf" %> 
  
 	<style type="text/css">
-		img{width:50px; height:50px;}
+		img{width:70px; height:70px;margin:5px;}
 		input.order_quantity{width:80px;}
 		
 		#bagLi{display:none;}
 		.quantity{font-size:15px;}
 		.price{font-weight:bold; }
-		
+		.minusBtn,.plusBtn{background-color:}
 		/*테이블설정*/
 		#total{width: 500px;}
+		td,label,span{color:black;}
+		#totalPrice{height:60px; font-size:20px; vertical-align:middle;}
 	</style>
 	<script type="text/javascript">
 		$(function(){
@@ -98,11 +100,18 @@
 		               let order_quantity=this.order_quantity;
 		               let dosirak_no=this.dosirak_no;
 		               let order_no=this.order_no;
-		               
+		               let food_img1=this.food_img1;
+		               let food_img2=this.food_img2;
+		               let food_img3=this.food_img3;
+		               let food_img4=this.food_img4;
+		               let food_img5=this.food_img5;
+
 		  
 		               totalPrice+=this.order_price;
 		               
-		               template(dosirak_name,order_price,order_quantity,dosirak_no,order_no,i);
+		               template(dosirak_name,order_price,order_quantity,dosirak_no,order_no,i,food_img1,food_img2,
+		            		   food_img3,food_img4,food_img5
+		            		   );
 		               i++;
 		            });
 		            $("#totalPrice").html(totalPrice);
@@ -148,13 +157,25 @@
 	         
 	        	
 	       		//장바구니를 화면에 보여주기 위한 함수
-		      function template(dosirak_name,order_price,order_quantity,dosirak_no,order_no,i){
+		      function template(dosirak_name,order_price,order_quantity,dosirak_no,order_no,i,food_img1,food_img2,
+           		   food_img3,food_img4,food_img5){
 		         /////////////////////여기서부터
 		    	 let $ul=$("#bagUl");
-		         
+		         //<img src="/dosirak31img/food/이미지이름"/>
 		         let $li=$("#bagLi").clone().removeAttr("id");
 		         //$element.attr("data-num",r_num);
 		         $li.addClass("bag");
+		         $li.find(".food_img1").val(food_img1);
+		         $li.find(".food_img2").val(food_img2);
+		         $li.find(".food_img3").val(food_img3);
+		         $li.find(".food_img4").val(food_img4);
+		         $li.find(".food_img5").val(food_img5);
+		         $li.find(".imgda1").attr("src","/dosirak31img/food/"+food_img1);
+		         $li.find(".imgda2").attr("src","/dosirak31img/food/"+food_img2);
+		         $li.find(".imgda3").attr("src","/dosirak31img/food/"+food_img3);
+		         $li.find(".imgda4").attr("src","/dosirak31img/food/"+food_img4);
+		         $li.find(".imgda5").attr("src","/dosirak31img/food/"+food_img5);
+		        
 		         $li.find(".dataNum").attr("data-dosirak",dosirak_no);
 		         $li.find(".dataNum").attr("data-order",order_no);
 		         $li.find(".name").html(dosirak_name);
@@ -166,6 +187,13 @@
 		         $li.find(".orderlist_name").attr("name","orderlist["+i+"].dosirak_name").val(dosirak_name);
 		         $li.find(".orderlist_quantity").attr("name","orderlist["+i+"].order_quantity").val(order_quantity);
 		         $li.find(".orderlist_price").attr("name","orderlist["+i+"].order_price").val(order_price);
+		         $li.find(".food_img1").attr("name","orderlist["+i+"].food_img1").val(food_img1);
+		         $li.find(".food_img2").attr("name","orderlist["+i+"].food_img2").val(food_img2);
+		         $li.find(".food_img3").attr("name","orderlist["+i+"].food_img3").val(food_img3);
+		         $li.find(".food_img4").attr("name","orderlist["+i+"].food_img4").val(food_img4);
+		         $li.find(".food_img5").attr("name","orderlist["+i+"].food_img5").val(food_img5);
+		         
+		         
 		         
 		         $ul.append($li);
 		        
@@ -181,7 +209,11 @@
 				})
 				
 				$("#orderForm").submit();
-			})	         
+			})	     
+			
+			$("#foodBtn").click(function(){
+				location.href="/food/foodClientBasicList";
+			})
 	         
 		});//최상위함수
 		
@@ -199,14 +231,22 @@
     <!-- main body -->
     <!-- ################################################################################################ -->
     <div class="content"> 
-      <form id="orderForm">
+      <form id="orderForm" name="OrderDetailVO" >
       	<div id="comments">
         	<h2>장바구니 목록</h2>
 					<ul id="bagUl">
 			          <li id="bagLi">
+			          <input type="hidden" class="food_img1" />
+			          <input type="hidden" class="food_img2" />
+			          <input type="hidden" class="food_img3" />
+			          <input type="hidden" class="food_img4" />
+			          <input type="hidden" class="food_img5" />
 			            <article>
 			              <header>
-			                <figure class="avatar"><img src="/resources/img/common/dosirak.jpg" alt="도시락"></figure>
+			                <figure class="avatar"><img  class="imgda1" >
+			                <img  class="imgda2" ><img  class="imgda3" >
+			                <img  class="imgda4" ><img  class="imgda5" >
+			                </figure>
 			                <address>
 			               	<label>도시락: </label><span class="name"></span>
 			               	<input type="hidden" class="orderlist_orderno"/>
@@ -231,14 +271,14 @@
 			                		<tr class="text-center dataNum">
 			                			<td class="dosirak_price"></td>
 			                			<td>X</td>
-										<td><button type="button" class="btn btn-default minusBtn">-</button><span class="quantity"></span><button type="button" class="btn btn-default plusBtn">+</button></td>
+										<td><button type="button" class="dosirakBtn3 minusBtn">-</button><span class="quantity"></span><button type="button" class="dosirakBtn3 plusBtn">+</button></td>
 										<input type="hidden" class="orderlist_quantity"/>
 										<td>+</td>
 										<td>[무료배송] 0원</td>
 										<td>=</td>
 										<td class="price"></td>
 										<input type="hidden" class="orderlist_price"/>
-										<td><button type="button" class="btn btn-default deleteBtn">삭제하기</button></td>
+										<td><button type="button" class="dosirakBtn3 deleteBtn">삭제하기</button></td>
 			                		</tr>
 			                	</table>                
 			                
@@ -256,7 +296,8 @@
 							</tr>
 						</table>
 					<div class="text-right">	
-						<button type="button" class="btn btn-default text-right" id="orderBtn">바로 구매하기</button>
+						<button type="button" class="dosirakBtn2 text-right" id="foodBtn">계속 쇼핑하기</button>
+						<button type="button" class="dosirakBtn text-right" id="orderBtn">바로 구매하기</button>
         			</div>
 
       	</div>

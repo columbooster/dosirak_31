@@ -16,5 +16,6 @@ public class FoodReviewVO extends CommonVO {
 	private int client_no				=0;		// 회원 일련번호
 	private int order_no				=0;		// 주문 일련번호
 	private String review_name			="";	// 리뷰 작성자
-	
+	private String dosirak_name			="";
+	private int dosirak_no				=0;
 }

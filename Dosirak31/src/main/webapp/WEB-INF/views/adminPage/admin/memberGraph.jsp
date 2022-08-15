@@ -4,7 +4,6 @@
 <%@page import="java.text.SimpleDateFormat" %>
  <%@ include file="/WEB-INF/views/common/common.jspf" %> 
  	<style type="text/css">
-	 #chart{width:400;}
 	</style>
 	 <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
 	<!-- 부트스트랩 -->
@@ -49,21 +48,21 @@
      	 
      	 
    
-        <div class="row my-3">
+        
             <div class="col">
                 <h4>회원 성별 비율</h4>
             </div>
-        </div>
+       
 		<div class="row py-2">
             <div class="col-md-4 py-1">
                 <div class="card">
                     <div class="card-body">
-                        <canvas id="chDonut1"></canvas>
+                        <canvas id="chDonut1" style="display: block; width: 400px; height: 250px;"></canvas>
                     </div>
                 </div>
             </div>
 		</div>
-  		 <canvas id="chart" width="600" height="350" style="display: block; width: 400px; height: 200px;" class="chartjs-render-monitor"></canvas>
+  		 <canvas id="chart" width="600" width="600" height="350" style="display: block; width: 400px; height: 200px; padding-right:200px; margin-top: 80px;"  class="chartjs-render-monitor"></canvas>
    <!-- 차트 -->
   <script>
   // chart colors

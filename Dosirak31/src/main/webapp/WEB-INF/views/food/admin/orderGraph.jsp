@@ -4,7 +4,7 @@
 <%@page import="java.text.SimpleDateFormat" %>
  <%@ include file="/WEB-INF/views/common/common.jspf" %> 
  	<style type="text/css">
-	 #chart{width:400;}
+	.orderGraphLeft{padding-right: 100px}
 	</style>
 	 <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
 	<!-- 부트스트랩 -->
@@ -24,7 +24,7 @@
 	
 </head>
 	<body>
-	<div class="wrapper row3">
+	<div class="wrapper row3 orderGraphLeft">
 	<%Date now = new Date();%>
 	<% SimpleDateFormat sf= new SimpleDateFormat("yyyy년MM월dd일 E요일 a hh:mm:ss");
 	String today = sf.format(now);
@@ -52,9 +52,9 @@
      	 
      	 
      	 
-    <canvas id="chart2" width="600" height="350" style="display: block; width: 400px; height: 200px;" class="chartjs-render-monitor"></canvas> 	 
-    <canvas id="chart" width="600" height="350" style="display: block; width: 400px; height: 200px;" class="chartjs-render-monitor"></canvas>
-    <canvas id="myChart"></canvas>
+    <canvas id="chart2" width="600" height="350" style="display: block; width: 400px; height: 200px; padding-right:200px; margin-bottom: 80px;" class="chartjs-render-monitor"></canvas> 	 
+    <canvas id="chart" width="600" height="350" style="display: block; width: 400px; height: 200px; padding-right:200px; margin-bottom: 80px;" class="chartjs-render-monitor"></canvas>
+    <canvas id="myChart" style="display: block; width: 400px; height: 200px; padding-right:200px; margin-bottom: 80px;" class="chartjs-render-monitor"></canvas>
   	
   	</div>
 

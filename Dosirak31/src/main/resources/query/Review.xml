@@ -73,4 +73,7 @@
      	 on r.order_no=o.order_no
      	 WHERE o.order_status_no = 3 and review_no = #{review_no}
 	</select>
+	
+	
+	
 </mapper>
