@@ -7,9 +7,11 @@ import com.dosirak31.mypage.order.vo.MypageOrderVO;
 
 public interface MypageOrderService {
 	
-	public List<OrderDetailVO> mypageOrderList(OrderDetailVO odv);
-	
-	public int mypageOrderDelete(MypageOrderVO movo) throws Exception;
-	
-	public int mypageOrderListCnt(OrderDetailVO odv);
+
+	   public List<OrderDetailVO> mypageOrderList(OrderDetailVO odv);
+	   
+	   public int mypageOrderDelete(OrderDetailVO order_no);
+	   
+	   public int mypageOrderListCnt(OrderDetailVO odv);
+
 }

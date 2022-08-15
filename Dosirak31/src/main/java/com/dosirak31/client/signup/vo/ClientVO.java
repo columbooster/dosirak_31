@@ -8,8 +8,8 @@ import lombok.Data;
 public class ClientVO {
 	private int client_no = 0;
 	private String client_id ="";
-	private String client_pw = "";
 	private String client_name = "";
+	private String client_pw = "";
 	private String client_email = "";
 	private String client_phone = "";
 	private String client_address = "";

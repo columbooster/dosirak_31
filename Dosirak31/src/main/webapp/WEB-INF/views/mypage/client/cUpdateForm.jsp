@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ include file="/WEB-INF/views/common/common.jspf" %> 
 
+
 	<style type="text/css">
 			.btn{
 				float: right;
@@ -37,6 +38,8 @@
 					alert('비밀번호와 비밀번호 재입력 값이 같아야 합니다.');
 					return false;
 				}
+				
+				
 				
 				// 비밀번호 제한 정규식
 				let pwdval = $('#client_pw').val()
@@ -81,13 +84,26 @@
 			
 			// 취소 버튼 클릭 시 처리 이벤트
 			$("#cancleBtn").click(function() {
-				$("#signupForm").each(function() {
+				
 					this.reset();
-				});
+				
+				let password = "${sessionScope.client_info_client_pw}";
+				console.log(password);
+
 			});
 			
 			// 회원 탈퇴 버튼 클릭시 처리 이벤트
 			$("#mypageClientDeleteBtn").click(function() {
+				
+				// 비밀번호 일치 체크
+				var client_pw=$('input[name=client_pw]').val();
+				var client_pw_re=$('input[name=client_pw_re]').val();
+				
+				if(client_pw!=client_pw_re){
+					alert('비밀번호와 비밀번호 재입력 값이 같아야 합니다.');
+					return false;
+				}
+				
 				if(!chkData("#client_pw", "비밀번호를")) {
 					return;
 				} else	if(confirm("정말 탈퇴하시겠습니까?\n(다시는 되돌릴수 없습니다.)")) {
@@ -171,19 +187,14 @@
 
 <!-- ################################################################################################ -->
 <!-- ################################################################################################ -->
-<div class="wrapper row2 bgded" style="background-image:url('/resources/images/demo/backgrounds/01.png');">
-  <div class="overlay">
+<div class="wrapper row2 bgded" style="background-image:url('/resources/images/common/modify.jpeg');">
+  
     <div id="breadcrumb" class="clear"> 
       <!-- ################################################################################################ -->
-      <ul>
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Lorem</a></li>
-        <li><a href="#">Ipsum</a></li>
-        <li><a href="#">Sidebar Left</a></li>
-      </ul>
+      
       <!-- ################################################################################################ -->
     </div>
-  </div>
+  
 </div>
 <!-- ################################################################################################ -->
 <!-- ################################################################################################ -->
@@ -201,7 +212,7 @@
           <li><a href="#">주문 내역</a>
           <li><a href="/mypage/client/mypageReviewList">나의 리뷰</a>
             <ul>
-              <li><a href="/foodReview/client/writeForm">리뷰 입력</a></li>
+              
               
             </ul>
           </li>
@@ -215,7 +226,12 @@
     <!-- ################################################################################################ -->
     <div class="content three_quarter"> 
       <!-- ################################################################################################ -->
-     
+     	<div class="header-title" style="padding-bottom: 10px;">
+        		"My page"
+        	<span class="right-arrow">&gt;</span>
+        	<strong>Client_info</strong>
+        	</div>
+       		<h3 class="title">회원정보 수정</h3>
       
       <form name="f_data" id="f_data" method="post">
 		<input type="hidden" name="client_no" value="${sessionScope.client_info.client_no}"/>
@@ -237,7 +253,18 @@
 									<div><span class="id_input_re_1">사용 가능한 아이디입니다.</span>
 										<span class="id_input_re_2">아이디가 이미 존재합니다.</span></div>
 									</td>
-									
+								<tr>
+									<td>이름</td>
+									<td class="text-left"><input type="text" name="client_name" id="client_name" class="form-control" readonly="readonly"
+									value="<c:out value='${sessionScope.client_info.client_name}'/>"/></td>
+								</tr>
+								<tr>
+									<td>주민등록번호</td>
+									<td class="text-left"><input type="text" name="client_rrn" id="client_rrn" class="form-control" maxlength="8" 
+									placeholder="ex) 9*****-1" readonly="readonly"
+									value="<c:out value='${sessionScope.client_info.client_rrn}'/>"/>
+									</td>
+								</tr>	
 								<tr>
 									<td>패스워드</td>
 									<td class="text-left"><input type="password" name="client_pw" id="client_pw" class="form-control" 
@@ -248,18 +275,7 @@
 									<td class="text-left"><input type="password" name="client_pw_re" id="client_pw_re" class="form-control" 
 									value="<c:out value='${sessionScope.client_info.client_pw}'/>"/></td>
 								</tr>
-								<tr>
-									<td>이름</td>
-									<td class="text-left"><input type="text" name="client_name" id="client_name" class="form-control" 
-									value="<c:out value='${sessionScope.client_info.client_name}'/>"/></td>
-								</tr>
-								<tr>
-									<td>주민등록번호</td>
-									<td class="text-left"><input type="text" name="client_rrn" id="client_rrn" class="form-control" maxlength="8" 
-									placeholder="ex) 951026-1" 
-									value="<c:out value='${sessionScope.client_info.client_rrn}'/>"/>
-									</td>
-								</tr>
+
 								<tr>
 									<td>이메일</td>
 									<td class="text-left"><input type="text" name="client_email" id="client_email" class="form-control" 
@@ -274,7 +290,7 @@
 								</tr>
 								<tr>
 									<td>주소</td>
-									<td class="text-left"><input type="button" id="addBtn" class="form-control" value="주소검색" onclick="execDaumPostcode()" />
+									<td class="text-left"><input type="button" id="addBtn" class="dosirakBtn3" value="주소검색" onclick="execDaumPostcode()" />
 										<div style="display: none;">
 										<input type="text" id="sample6_postcode" placeholder="우편번호">
 										<input type="button" onclick="sample6_execDaumPostcode()" value="우편번호 찾기"><br>
@@ -289,8 +305,8 @@
 							</tbody>
 						</table>
 						<div class="text-right">
-							<input type="button" value="회원탈퇴" id="mypageClientDeleteBtn" class="dosirakBtn">
-							<input type="button" value="취소" id="cancleBtn" class="dosirakBtn">
+							<input type="button" value="회원탈퇴" id="mypageClientDeleteBtn" class="dosirakBtn2">
+							<!-- <input type="button" value="취소" id="cancleBtn" class="dosirakBtn"> -->
 							<input type="button" value="회원정보 수정" id="mypageClientUpdateBtn" class="dosirakBtn">
 						</div>	
 			
@@ -298,6 +314,12 @@
 		</section>
      
     </div>
+    
+    
+
+
+
+		
     
     
     
@@ -309,4 +331,4 @@
 <a id="backtotop" href="#top"><i class="fa fa-chevron-up"></i></a> 
 
 </body>
-</html>s
+</html>
