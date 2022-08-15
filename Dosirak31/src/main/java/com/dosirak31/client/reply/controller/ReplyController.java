@@ -49,7 +49,7 @@ public class ReplyController {
 	
 	
 	/***************************************************************************************
-	 * 댓글 글목록 구현하기
+	 * 댓글 입력 구현하기
 	***************************************************************************************/
 	 @PostMapping(value = "/replyInsert", consumes = "application/json", produces = MediaType.TEXT_PLAIN_VALUE)
 		public String replyList(@RequestBody ReplyVO rvo){

@@ -14,6 +14,60 @@
 			color : red;
 			display : none;
 		}
+		
+		
+.dosirakBtn3 {
+   text-decoration:none;
+   font-family:Arial;
+   box-shadow:inset #787878 0px 5px 8px -1px;
+   o-box-shadow:inset #787878 0px 5px 8px -1px;
+   -moz-box-shadow:inset #787878 0px 5px 8px -1px;
+   -webkit-box-shadow:inset #787878 0px 5px 8px -1px;
+   background:#4f4f4f;
+   background:-o-linear-gradient(90deg, #4f4f4f, #5e5e5e);
+   background:-moz-linear-gradient( center top, #4f4f4f 5%, #5e5e5e 100% );
+   background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #4f4f4f), color-stop(1, #5e5e5e) );
+   filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#4f4f4f', endColorstr='#5e5e5e');
+   background:-webkit-linear-gradient(#4f4f4f, #5e5e5e);
+   background:-ms-linear-gradient(#4f4f4f, #5e5e5e);
+   background:linear-gradient(#4f4f4f, #5e5e5e);
+   text-indent:0px;
+   line-height:23px;
+   -moz-border-radius:6px;
+   -webkit-border-radius:6px;
+   border-radius:6px;
+   text-align:center;
+   vertical-align:middle;
+   display:inline-block;
+   font-size:14px;
+   color:#ffffff;
+   width:100%;
+   height:34px;
+   padding:7px;
+   text-shadow:#7d7d7d 0px 1px 0px;
+   border-color:#ffffff;
+   border-width:0px;
+   border-style:solid;
+}
+
+.dosirakBtn3:active {
+   position:relative;
+   top:5px
+}
+
+.dosirakBtn3:hover {
+   background:#5e5e5e;
+   background:-o-linear-gradient(90deg, #5e5e5e, #4f4f4f);
+   background:-moz-linear-gradient( center top, #5e5e5e 5%, #4f4f4f 100% );
+   background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #5e5e5e), color-stop(1, #4f4f4f) );
+   filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#5e5e5e', endColorstr='#4f4f4f');
+   background:-webkit-linear-gradient(#5e5e5e, #4f4f4f);
+   background:-ms-linear-gradient(#5e5e5e, #4f4f4f);
+   background:linear-gradient(#5e5e5e, #4f4f4f);
+}
+				
+				
+				
       </style>
       <script type="text/javascript">
 		$(function() {
@@ -68,9 +122,9 @@
 				
 				// 비밀번호 제한 정규식
 				let pwdval = $('#client_pw').val()
-		        let pwdcheck = /^[a-zA-Z0-9]+$/
+		        let pwdcheck = /^(?=.*[a-zA-z])(?=.*[0-9])(?=.*[$`~!@$!%*#^?&\\(\\)\-_=+]).{8,16}$/;
 		        if (!pwdcheck.test(pwdval) || pwdval.length<8){
-		        	alert('비밀번호는 영대소문자,숫자로 구성된 8글자 이상으로 조합하시오.')
+		        	alert('비밀번호는 8 ~ 16자 영문, 숫자, 특수문자를 최소 한가지씩 조합해야합니다.')
 		        	$('#client_pw').focus();
 		        	return false;
 		        } 
@@ -85,7 +139,7 @@
 				let rrncheck = /^(?:[0-9]{2}(?:0[1-9]|1[0-2])(?:0[1-9]|[1,2][0-9]|3[0,1]))-[1-4]{1}$/;
 				
 					if (!rrncheck.test(rrnval)){
-			        	alert('예시에 맞추어 생년월일과 주민번호 첫자리까지 입력해주세요.');
+			        	alert('예시에 맞추어 생년월일과 주민번호 첫자리까지 입력해야합니다.');
 			        	$('#client_rrn').focus();
 			        	return false;
 			        } 
@@ -115,9 +169,9 @@
 			});
 			
 			// 로그인 화면으로 클릭 시 처리 이벤트
-			$("#loginBtn").click(function() {
+			/* $("#loginBtn").click(function() {
 				location.href = "/client/loginmain";
-			});
+			}); */
 		});
 		
 		$(document).ready(function(){  //한글입력 안되게 처리 
@@ -187,18 +241,11 @@
       
 </head>
 	<body>
-	<div class="wrapper row2 bgded"
-	style="background-image: url('/resources/images/demo/backgrounds/01.png');">
-	<div class="overlay">
-		<div id="breadcrumb" class="clear">
-			
-			<ul>
-				<li><a href="/resources/index.html">Home</a></li>
-				<li><a href="/signup/client/kakao_join_form">Social-SignUp</a></li>
-			</ul>
-			
-		</div>
-	</div>
+	<div id="hBoardList_board_img" class="wrapper row2 bgded"
+   style="background-image: url('/resources/images/common/signup.jpg');">
+   <div class=" hBoardList_name_location">
+      <div id="breadcrumb" class="hBoard_Name">Social - Sign Up</div>
+   </div>
 </div>
 
 <div class="wrapper row3">
@@ -208,24 +255,23 @@
 				<table class="table table-bordered">
 							<colgroup>
 								<col width="20%" />
-								<col width="70%" />
-								<col width="10"  />
+								<col width="80%" />
 							</colgroup>
 							<tbody>
 								<tr>
 									<td>아이디</td>
-									<td class="text-left"><input type="text" name="client_id" id="client_id" class="form-control" />
+									<td class="text-left"><input type="text" name="client_id" id="client_id" class="form-control" placeholder="아이디는 영소문자,숫자로 구성된 6글자 이상으로 작성해주세요." />
 									<div><span class="id_input_re_1">사용 가능한 아이디입니다.</span>
 										<span class="id_input_re_2">아이디가 이미 존재합니다.</span></div>
 									</td>
 								</tr>
 								<tr>
 									<td>패스워드</td>
-									<td class="text-left"><input type="password" name="client_pw" id="client_pw" class="form-control" /></td>
+									<td class="text-left"><input type="password" name="client_pw" id="client_pw" class="form-control" placeholder="비밀번호는 영대소문자,숫자로 구성된 8글자 이상으로 작성해주세요" /></td>
 								</tr>
 								<tr>
 									<td>패스워드 확인</td>
-									<td class="text-left"><input type="password" name="client_pw_re" id="client_pw_re" class="form-control" /></td>
+									<td class="text-left"><input type="password" name="client_pw_re" id="client_pw_re" class="form-control" placeholder="비밀번호는 아이디와 중복될 수 없습니다." /></td>
 								</tr>
 								<tr>
 									<td>이름</td>
@@ -246,7 +292,7 @@
 								</tr>
 								<tr>
 									<td>주소</td>
-									<td class="text-left" ><input type="button" id="addBtn" class="form-control" value="주소검색" onclick="execDaumPostcode()"/>
+									<td class="text-left" ><input type="button" id="addBtn" class="dosirakBtn3" value="주소검색" onclick="execDaumPostcode()"/>
 										<div style="display: none;">
 										<input type="text" id="sample6_postcode" placeholder="우편번호">
 										<input type="button" onclick="sample6_execDaumPostcode()" value="우편번호 찾기"><br>
@@ -259,11 +305,13 @@
 								</tr>
 							</tbody>
 						</table>
-						<div class="text-right">
-							<input type="button" value="회원가입" id="signupBtn" class="btn btn-success">
-							<input type="button" value="취소" id="cancleBtn" class="btn btn-success">
+						<div class="text-center">
+							<input type="button" value="회원가입" id="signupBtn" class="dosirakBtn">&nbsp;&nbsp;
+							<input type="button" value="취소" id="cancleBtn" class="dosirakBtn2">
+						</div>
+						<!-- <div class="text-right">
 							<input type="button" value="로그인" id="loginBtn" class="btn btn-success">
-						</div>	
+						</div>	 -->	
 			
 			</form>
 		</section>
