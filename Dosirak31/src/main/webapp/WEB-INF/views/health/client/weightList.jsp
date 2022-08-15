@@ -167,8 +167,7 @@
 							<option value="all">전체</option>
 							<option value="health_title">제목</option>
 							<option value="health_contents">내용</option>
-						</select> <input type="text" name="keyword" id="keyword" value="검색어를 입력하세요"
-							class="form-control search_space" />
+						</select> <input type="text" name="keyword" id="keyword" value="전체 데이터를 조회합니다." class="form-control" readonly="readonly"/>
 						<button type="button" id="searchData" class="dosirakBtn1">검색</button>
 					</div>
 				</form>

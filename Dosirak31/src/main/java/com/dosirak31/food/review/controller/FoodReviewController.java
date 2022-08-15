@@ -26,12 +26,12 @@ public class FoodReviewController {
 	private FoodReviewService foodReviewService;
 	
 	/**************************************************
-	 * 리뷰 목록 
+	 * 由щ럭 紐⑸줉 
 	 **************************************************/
 	/*
 	 * @RequestMapping(value = "/foodReviewList", method = RequestMethod.GET) public
 	 * String foodReviewList(@ModelAttribute FoodReviewVO rvo, Model model) {
-	 * log.info("foodReviewList 호출 성공"); List<FoodReviewVO> foodReviewList =
+	 * log.info("foodReviewList �샇異� �꽦怨�"); List<FoodReviewVO> foodReviewList =
 	 * foodReviewService.foodReviewList(rvo); model.addAttribute("foodReviewList",
 	 * foodReviewList);
 	 * 
@@ -40,39 +40,54 @@ public class FoodReviewController {
 	
 	
 	/**************************************************
-	 * 리뷰 목록 (페이징 처리 까지)
+	 * 由щ럭 紐⑸줉 (�럹�씠吏� 泥섎━ 源뚯�)
 	 **************************************************/
 	@RequestMapping(value = "/foodReviewList", method = RequestMethod.GET)
 	public String foodReviewList(@ModelAttribute FoodReviewVO rvo, Model model) {
-		log.info("foodReviewList 호출 성공");
-		//전체 레코드 조회
+		log.info("foodReviewList �샇異� �꽦怨�");
+		//�쟾泥� �젅肄붾뱶 議고쉶
 		List<FoodReviewVO> foodReviewList = foodReviewService.foodReviewList(rvo);
 		model.addAttribute("foodReviewList", foodReviewList);
 		
-		//전체 레코드 수 구현
+		//�쟾泥� �젅肄붾뱶 �닔 援ы쁽
 		int total = foodReviewService.foodReviewListCnt(rvo);
-		//페이징 처리
+		//�럹�씠吏� 泥섎━
 		model.addAttribute("pageMaker", new PageDTO(rvo, total));
 		
 		return "foodReview/client/foodReviewList";
 	}
 	
+	@RequestMapping(value = "/foodNoClientReviewList", method = RequestMethod.GET)
+	public String foodNoClientReviewList(@ModelAttribute FoodReviewVO rvo, Model model) {
+		log.info("foodReviewList �샇異� �꽦怨�");
+		//�쟾泥� �젅肄붾뱶 議고쉶
+		List<FoodReviewVO> foodReviewList = foodReviewService.foodReviewList(rvo);
+		model.addAttribute("foodReviewList", foodReviewList);
+		
+		//�쟾泥� �젅肄붾뱶 �닔 援ы쁽
+		int total = foodReviewService.foodReviewListCnt(rvo);
+		//�럹�씠吏� 泥섎━
+		model.addAttribute("pageMaker", new PageDTO(rvo, total));
+		
+		return "foodReview/noclient/foodReviewList";
+	}
+	
 	
 	/**************************************************
-	 * 리뷰 글쓰기 폼
+	 * 由щ럭 湲��벐湲� �뤌
 	 **************************************************/
 	@RequestMapping(value = "/writeForm",method=RequestMethod.GET)
 	public String writeForm(@ModelAttribute("data") MypageReviewVO mrvo) {
-		log.info("writeForm 호출 성공");
+		log.info("writeForm �샇異� �꽦怨�");
 		return "foodReview/client/writeForm";
 	}
 	
 	/**************************************************
-	 * 리뷰 글쓰기 구현 
+	 * 由щ럭 湲��벐湲� 援ы쁽 
 	 **************************************************/
 	@RequestMapping(value = "/foodReviewInsert", method=RequestMethod.POST)
 	public String foodReviewInsert(FoodReviewVO rvo, Model model) throws Exception {
-		log.info("foodReviewInsert 호출 성공");
+		log.info("foodReviewInsert �샇異� �꽦怨�");
 		int result=0;
 		String url ="";
 		
@@ -86,11 +101,11 @@ public class FoodReviewController {
 	}
 	
 	/**************************************************
-	 * 리뷰 수정 폼
+	 * 由щ럭 �닔�젙 �뤌
 	 **************************************************/
 	@RequestMapping(value="/updateForm")
 	public String updateForm(@ModelAttribute("data") FoodReviewVO rvo, Model model) {
-		log.info("updateForm 호출 성공");
+		log.info("updateForm �샇異� �꽦怨�");
 		log.info("review_no = " + rvo.getReview_no());
 		
 		FoodReviewVO updateData = foodReviewService.updateForm(rvo);
@@ -99,11 +114,11 @@ public class FoodReviewController {
 	}
 	
 	/**************************************************
-	 * 리뷰 수정 구현
+	 * 由щ럭 �닔�젙 援ы쁽
 	 **************************************************/
 	@RequestMapping(value="/foodReviewUpdate", method=RequestMethod.POST)
 	public String foodReviewUpdate(@ModelAttribute FoodReviewVO rvo, RedirectAttributes ras) {
-		log.info("foodReviewUpdate 호출 성공");
+		log.info("foodReviewUpdate �샇異� �꽦怨�");
 		int result = 0;
 		String url ="";
 		
@@ -119,11 +134,11 @@ public class FoodReviewController {
 	}
 	
 	/**************************************************
-	 * 리뷰 삭제 구현
+	 * 由щ럭 �궘�젣 援ы쁽
 	 **************************************************/
 	@RequestMapping(value = "/foodReviewDelete")
 	public String foodReviewDelete(@ModelAttribute FoodReviewVO rvo, RedirectAttributes ras) {
-		log.info("foodReviewDelete 호출 성공");
+		log.info("foodReviewDelete �샇異� �꽦怨�");
 		int result = 0;
 		String url = "";
 		
@@ -140,11 +155,11 @@ public class FoodReviewController {
 	
 	
 	/**************************************************
-	 * 리뷰 상세 페이지
+	 * 由щ럭 �긽�꽭 �럹�씠吏�
 	 **************************************************/
 	@RequestMapping(value = "/foodReviewDetail", method=RequestMethod.GET)
 	public String foodReviewDetail(@ModelAttribute("data") FoodReviewVO rvo, Model model) {
-		log.info("foodReviewDetail 호출 성공");
+		log.info("foodReviewDetail �샇異� �꽦怨�");
 		
 		FoodReviewVO detail = foodReviewService.foodReviewDetail(rvo);
 		model.addAttribute("detail", detail);

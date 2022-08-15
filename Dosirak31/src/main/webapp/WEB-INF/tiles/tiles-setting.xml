@@ -44,7 +44,9 @@
  		<put-attribute name="body" value="/WEB-INF/views/foodReview/client/{1}.jsp"/>
  	</definition>
  	<definition name="foodReview/noclient/*" extends="content">
+ 		<put-attribute name="header" value="/WEB-INF/views/template/client/headerNoLogin.jsp"/>
  		<put-attribute name="body" value="/WEB-INF/views/foodReview/noclient/{1}.jsp"/>
+ 		<put-attribute name="footer" value="/WEB-INF/views/template/client/footerNoLogin.jsp"/>
  	</definition>
  	<!-- 로그인 전 끝-->
  	<definition name="login/success/*" extends="content">
