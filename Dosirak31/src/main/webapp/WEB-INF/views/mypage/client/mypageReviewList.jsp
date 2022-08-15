@@ -15,6 +15,26 @@
 				float: right;
 			}
 			
+			.pagination>.active>a, .pagination>.active>a:focus, .pagination>.active>a:hover, .pagination>.active>span, .pagination>.active>span:focus, .pagination>.active>span:hover {
+             z-index: 2;
+             color: #fff;
+             cursor: default;
+             background-color: #a5d610;
+             border-color: #a5d610;
+         }
+         
+         .pagination>li>a, .pagination>li>span {
+             position: relative;
+             float: left;
+             padding: 6px 12px;
+             margin-left: -1px;
+             line-height: 1.42857143;
+             color: #337ab7;
+             text-decoration: none;
+             background-color: #fff;
+             border: 1px solid #ddd;
+         }
+			
 		</style>
 
 		<script type="text/javascript">
@@ -144,20 +164,18 @@
 	        
 	        
 	        </div>
+	        <%-- ===================페이징 출력=================== --%>
+     <tag:pagination pageNum="${pageMaker.cvo.pageNum }" amount="${pageMaker.cvo.amount }"
+     startPage="${pageMaker.startPage }" endPage="${pageMaker.endPage }" prev="${pageMaker.prev }" next="${pageMaker.next }" />
       </div>
 
 	 	</main>
 	</div>	
-	       <%-- ===================페이징 출력=================== --%>
-     <tag:pagination pageNum="${pageMaker.cvo.pageNum }" amount="${pageMaker.cvo.amount }"
-     startPage="${pageMaker.startPage }" endPage="${pageMaker.endPage }" prev="${pageMaker.prev }" next="${pageMaker.next }" />
+	       
 		
 		<!-- ################################################################################################ -->
 		<!-- ################################################################################################ -->
 		 
-<!-- JAVASCRIPTS -->
-<script src="/resources/layout/scripts/jquery.min.js"></script>
-<script src="/resources/layout/scripts/jquery.backtotop.js"></script>
-<script src="/resources/layout/scripts/jquery.mobilemenu.js"></script>
+
 	</body>
 </html>

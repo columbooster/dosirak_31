@@ -84,7 +84,7 @@
 		<div>
         <form  id="f_writeForm" name="f_writeForm">
         	<input type="hidden" name="client_no" value="${sessionScope.client_info.client_no }">
-        	
+        	<input type="hidden" id="order_no" name="order_no" value="${data.order_no}" />
           <div class="one_third">
             <label for="review_name">Name <span>*</span></label>
             <input type="text" name="review_name" id="review_name" value="<c:out value='${sessionScope.client_info.client_id}'/>" size="22" readonly="readonly">

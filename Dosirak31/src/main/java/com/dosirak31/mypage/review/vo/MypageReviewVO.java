@@ -33,4 +33,6 @@ public class MypageReviewVO extends CommonVO{
 	private int dosirak_no				=0;		// 도시락 번호
 	
 	
+	
+	
 }

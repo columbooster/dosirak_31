@@ -69,7 +69,7 @@
 		<div class="contentTB text-center">
 					<form id="f_updateForm" name="f_updateForm">
 						<input type="hidden" id="review_no" name="review_no" value="${updateData.review_no}" />
-						
+						<input type="hidden" id="order_no" name="order_no" value="${data.order_no}" />
 						<table class="table table-bordered">
 							<tbody>
 								<tr>

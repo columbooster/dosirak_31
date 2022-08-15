@@ -130,17 +130,27 @@
       // 주문 취소 버튼 클릭시 이벤트
       $(function() {
     	
-    	  $("#mypageOrderDeleteBtn").click(function() {
+    	  $(".mypageOrderDeleteBtn").click(function() {
     		  if(confirm("주문을 취소하시겠습니까?")) {
-    			  goUrl = "/mypage/client/mypageOrderDelete";
-    			  
-    			  $("#f_data").attr("action", goUrl);
-    			  $("#f_data").submit();
+    			
+    			  let order_no=$(this).attr("data-num");
+    	    	location.href = "/mypage/client/mypageOrderDelete?order_no="+order_no;
     		  }
     			  
     		  
     	  });
       });
+      
+      
+      // 리뷰쓰기 버튼 클릭시 이벤트
+      $(function() {
+    	$(".writeForm").click(function() {
+    		let order_no=$(this).attr("data-num");
+    		location.href = "/foodReview/client/writeForm?order_no="+order_no;
+    		
+    		
+    	})  
+      })
       
       
    
@@ -249,15 +259,15 @@
                
              <c:if test="${order.order_no ne previousCol1}">
                <section id="content">
- 					 <form name="f_data" id="f_data" method="post">
-						<input type="hidden" id="order_no" name="order_no" value="${order.order_no }"/>
+ 					 <form name="f_data" class="f_data" method="post">
+						<input type="hidden" class="order_no" name="order_no" value="${order.order_no }"/>
 					 </form>
                 <ul class="orderList">
                 	 
                  <li style="height: 250px;">      
                  <div>
                   <p><span>주문번호</span><a href="javascript:popup(${order.order_no })" class="popUpBtn">${order.order_no }</a></p>
-                  <p><span>주문상태</span><c:if test="${order.order_status_no eq 3}">주문 완료 / ${order.order_date} &nbsp;<a id="mypageOrderDeleteBtn">주문취소</a> </c:if>
+                  <p><span>주문상태</span><c:if test="${order.order_status_no eq 3}">주문 완료 / ${order.order_date} &nbsp;<a class="mypageOrderDeleteBtn" data-num="${order.order_no }">주문취소</a> </c:if>
                   <c:if test="${order.order_status_no eq 4}">주문 취소</c:if>
                   <c:if test="${order.order_status_no eq 5}">배송 완료</c:if>
                   </p>
@@ -280,7 +290,7 @@
                   <p><span>수령인 정보</span>${order.order_client_name} / ${order.order_client_phone}</p>
                   <p><span>주소</span>${order.order_address }
                   </p>               
-                  <p style="text-align:right;"><a href="/foodReview/client/writeForm">리뷰 쓰기</a></p>
+                  <p style="text-align:right;"><a class="writeForm" data-num="${order.order_no }">리뷰 쓰기</a></p>
                  </div>              
                  </li>
                 </ul>            

@@ -10,6 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.dosirak31.common.vo.PageDTO;
@@ -50,7 +51,7 @@ public class MypageOrderController {
    /***********************************************
     * 주문 취소
     ***********************************************/
-   @RequestMapping(value = "/mypageOrderDelete")
+   @RequestMapping(value = "/mypageOrderDelete",method=RequestMethod.GET)
    public String mypageOrderDelete(@ModelAttribute OrderDetailVO odv, RedirectAttributes ras) {
 	   log.info("mypageOrderDelete 호출 성공");
 	   

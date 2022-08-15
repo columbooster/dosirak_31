@@ -15,7 +15,9 @@
             join dosirak d on d.dosirak_no=od.dosirak_no 
             join payment p on p.order_no=o.order_no 
             join client c on c.client_no=o.client_no where]]>
-                
+                order_status_no = 3 or
+                order_status_no = 4 or
+                order_status_no = 5 and
                  c.client_no=#{client_no} and
               
            <![CDATA[ rownum<=#{pageNum} *#{amount}
@@ -30,13 +32,18 @@
    <select id="mypageOrderListCnt" parameterType="orderDetail" resultType="int">
       select count(*) from orders
       <if test="order_status_no != ''"> <!-- 비어있지 않다면 -->
-            where order_status_no=#{order_status_no} and c.client_no=#{client_no}
+            where  c.client_no=#{client_no} and order_status_no in (3,4,5)
       </if>
    
    </select>
 	
 	
 	<!-- 주문취소 -->
+	<update id="mypageOrderDelete" parameterType="orderDetail">
+		update orders 
+		set order_status_no=4 
+		where order_no=#{order_no}
+	</update>
 	
 
 	

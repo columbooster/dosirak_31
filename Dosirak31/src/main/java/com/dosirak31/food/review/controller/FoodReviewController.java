@@ -12,6 +12,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.dosirak31.common.vo.PageDTO;
 import com.dosirak31.food.review.service.FoodReviewService;
 import com.dosirak31.food.review.vo.FoodReviewVO;
+import com.dosirak31.mypage.review.vo.MypageReviewVO;
 
 import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j;
@@ -60,8 +61,8 @@ public class FoodReviewController {
 	/**************************************************
 	 * 리뷰 글쓰기 폼
 	 **************************************************/
-	@RequestMapping(value = "/writeForm")
-	public String writeForm() {
+	@RequestMapping(value = "/writeForm",method=RequestMethod.GET)
+	public String writeForm(@ModelAttribute("data") MypageReviewVO mrvo) {
 		log.info("writeForm 호출 성공");
 		return "foodReview/client/writeForm";
 	}
