@@ -2,7 +2,8 @@
     pageEncoding="UTF-8"%>
 <%@ include file="/WEB-INF/views/common/common.jspf" %> 
  
-      <style type="text/css"></style>
+      <style type="text/css">
+      </style>
       <script type="text/javascript">
 				let buttonCheck = 0; // 수정버튼과 삭제버튼을 구별하기 위한 변수
 				$(function() {
@@ -20,6 +21,16 @@
 						$("#pwdChk").css("visibility","visible");
 						$("#msg").text("작성시 입력한 비밀번호를 입력해 주세요.").css("color","#000099");
 						buttonCheck = 2;
+						
+						let adminName = "${sessionScope.admin_info.admin_id}";
+						if(adminName != ""){
+						if(confirm("정말 삭제하시겠습니까?")){
+							goUrl = "/community/client/communityDelete";
+							$("#f_data").attr("action",goUrl);
+							$("#f_data").submit();
+						}
+						}
+						
 					}); 
 					
 					
@@ -44,6 +55,9 @@
 								}
 							}
 						});
+				
+						
+						
 					});
 					
 					
@@ -76,6 +90,14 @@
 					//비밀번호 확인 버튼 클릭시 실질적인 처리 함수
 					function communityPwdConfirm(){
 						//if (!chkData("#community_pw","비밀번호를")) return;
+						let loginName = "${sessionScope.client_info.client_id}";
+						let adminName = "${sessionScope.admin_info.admin_id}";
+						console.log(loginName);
+						console.log(adminName);
+						
+						
+						
+						
 						if(!formCheck($('#community_pw'),$('#msg'),"비밀번호를")) return;
 						else{
 							$.ajax({
@@ -108,27 +130,20 @@
 								}
 							});
 						}
-					}
 					
 					
+				}
 					
 				});	
 			</script>
       
 </head>
 	<body>
-	<div class="wrapper row2 bgded"
-	style="background-image: url('/resources/images/demo/backgrounds/01.png');">
-	<div class="overlay">
-		<div id="breadcrumb" class="clear">
-			
-			<ul>
-				<li><a href="/resources/index.html">Home</a></li>
-				<li><a href="/community/client/communityList">Community</a></li>
-			</ul>
-			
-		</div>
-	</div>
+	<div id="hBoardList_board_img" class="wrapper row2 bgded"
+   style="background-image: url('/resources/images/common/detail2.jpg');">
+   <div class=" hBoardList_name_location">
+      <div id="breadcrumb" class="hBoard_Name">Detail</div>
+   </div>
 </div>
 
 <div class="wrapper row3">
@@ -137,7 +152,7 @@
 		<div class="contentContainer container">
 			<!-- 	<div class="contentTit page-header"><h3 class="text-center">게시판 상세보기</h3></div>  -->
 				
-				<form name="f_date" id="f_data" method="post">
+				<form name="f_data" id="f_data" method="post">
 					<input type="hidden" name="community_no" value="${detail.community_no}"/>
 					<input type="hidden" name="file_no" value="${detail.file_name}" />
 					<input type="hidden" name="b_thumb" value="${detail.file_thumb}" />
@@ -158,12 +173,12 @@
 					</div>
 				
 					<div class="text-right">
-						<c:if test="${sessionScope.client_info.client_id == detail.client_id}">
-							<input type="button" value="글수정" id="updateFormBtn" class="btn btn-success">
-							<input type="button" value="글삭제" id="communityDeleteBtn" class="btn btn-success">
+						<c:if test="${sessionScope.client_info.client_id == detail.client_id || sessionScope.admin_info.admin_id !=null}">
+							<input type="button" value="글수정" id="updateFormBtn" class="dosirakBtn">
+							<input type="button" value="글삭제" id="communityDeleteBtn" class="dosirakBtn">
 						</c:if>
-						<input type="button" value="글쓰기" id="insertFormBtn" class="btn btn-success">
-						<input type="button" value="목록" id="communityListBtn" class="btn btn-success">
+						<input type="button" value="글쓰기" id="insertFormBtn" class="dosirakBtn">
+						<input type="button" value="목록" id="communityListBtn" class="dosirakBtn2">
 					</div>	
 				</div>
 				

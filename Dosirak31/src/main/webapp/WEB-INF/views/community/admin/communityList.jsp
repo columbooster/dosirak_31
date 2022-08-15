@@ -117,7 +117,6 @@
 							<select id="search" name="search" class="form-control">
 								<option value="community_title">제목</option>
 								<option value="client_id">작성자</option>
-								<option value="community_contents">내용</option>
 								<option value="community_date">작성일자</option>
 							</select>
 						</div>
@@ -128,8 +127,8 @@
 							<input type="date" name="start_date" id="start_date" placeholder="시작일자" class="form-control">
 							<input type="date" name="end_date" id="end_date" placeholder="종료일자" class="form-control">
 						</div>
-						<button type="button" id="searchBtn" class="btn btn-primary">Search</button>
-						<button type="button" id="allSearchBtn" class="btn btn-primary" >All Search</button>
+						<button type="button" id="searchBtn" class="dosirakBtn">Search</button>
+						<button type="button" id="allSearchBtn" class="dosirakBtn" >All Search</button>
 					</form>
 				</div>	
 					<%-- ==================== 검색 기능 종료 ========================= --%>
@@ -154,7 +153,12 @@
 											<td>${count - status.index}</td>
 											<td class="goDetail tal">${community.community_title}</td>
 											<td>${community.community_date}</td>
+											<c:if test="${community.client_id != null && community.admin_id == null}">
 											<td class="name">${community.client_id}</td>
+											</c:if>
+											<c:if test="${community.admin_id != null && community.client_id == null}">
+											<td class="name">${community.admin_id}</td>
+											</c:if>
 										</tr>
 									</c:forEach>
 								</c:when>

@@ -2,7 +2,18 @@
     pageEncoding="UTF-8"%>
 <%@ include file="/WEB-INF/views/common/common.jspf" %> 
  
-      <style type="text/css"></style>
+      <style type="text/css">
+      
+      .container {
+		    padding: 0;
+		}
+   
+      .main_contents {
+		    height: 100px;
+		}
+
+      
+      </style>
       <script type="text/javascript">
 				$(function() {
 					
@@ -43,25 +54,27 @@
       
 </head>
 	<body>
-<div class="wrapper row2 bgded"
-	style="background-image: url('/resources/images/demo/backgrounds/01.png');">
-	<div class="overlay">
-		<div id="breadcrumb" class="clear">
-			
-			<ul>
-				<li><a href="/resources/index.html">Home</a></li>
-				<li><a href="/community/client/communityList">Community</a></li>
-			</ul>
-			
-		</div>
-	</div>
+<div id="hBoardList_board_img" class="wrapper row2 bgded"
+   style="background-image: url('/resources/images/common/write.jpg');">
+   <div class=" hBoardList_name_location">
+      <div id="breadcrumb" class="hBoard_Name">Write</div>
+   </div>
 </div>
 
 <div class="wrapper row3">
 	<main class="container clear"> 		
 	
 		<div class="contentContainer container">
-				<div class="contentTit page-header"><h3 class="text-center">게시판 글작성</h3></div>
+				<!-- <div class="contentTit page-header"><h3 class="text-center">게시판 글작성</h3></div> -->
+			 <div class="main_contents">
+            
+            <hr class="main_contents_hr">
+            <div class="head"><span class="bold">게시판 글작성</span></div>
+            <hr class="main_contents_hr">
+            
+         </div>
+				
+				
 				
 				<div class="contentTB text-center">
 					<form id="f_writeForm" name="f_writeForm" class="form-horizontal">
@@ -74,7 +87,15 @@
 							<tbody>
 								<tr>
 									<td>작성자</td>
-									<td class="text-left"><input type="text" name="client_id" id="client_id" class="form-control" value="<c:out value='${sessionScope.client_info.client_id}'/>" readonly="readonly" /></td>
+									<td class="text-left">
+									<c:if test="${sessionScope.client_info.client_id != null && sessionScope.admin_info.admin_id == null}">
+											<input type="text" name="client_id" id="client_id" class="form-control" value="<c:out value='${sessionScope.client_info.client_id}'/>" readonly="readonly" />
+									</c:if>
+									<c:if test="${sessionScope.admin_info.admin_id != null && sessionScope.client_info.client_id == null}">
+											<input type="text" name="admin_id" id="admin_id" class="form-control" value="<c:out value='${sessionScope.admin_info.admin_id}'/>" readonly="readonly" />
+										
+									</c:if>
+									</td>
 									<td class="text-left"><label><input type="checkbox" name="community_category_no" id="community_category_no" value="1">QnA</label></td>
 								</tr>
 								<tr>

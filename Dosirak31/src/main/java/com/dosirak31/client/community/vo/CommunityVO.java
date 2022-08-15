@@ -13,7 +13,7 @@ public class CommunityVO extends CommonVO{
 	
 	private int community_no;	//게시글일련번호 not null 시퀀스 처리
 	private String client_id;		//회원일련번호 	null
-	private int admin_id;		//관리자 아이디 null
+	private String admin_id;		//관리자 아이디 null
 	private String community_title;	//게시글제목  not null
 	private String community_pw;	//게시글비밀번호 null
 	private String community_date;	//작성일시 

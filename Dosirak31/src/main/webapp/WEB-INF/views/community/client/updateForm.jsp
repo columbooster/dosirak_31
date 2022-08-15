@@ -2,7 +2,8 @@
     pageEncoding="UTF-8"%>
 <%@ include file="/WEB-INF/views/common/common.jspf" %> 
  
-      <style type="text/css"></style>
+      <style type="text/css">
+      </style>
       <script type="text/javascript">
 				$(function() {
 					// 수정 버튼 클릭 시 처리 이벤트
@@ -41,18 +42,11 @@
       
 </head>
 	<body>
-	<div class="wrapper row2 bgded"
-	style="background-image: url('/resources/images/demo/backgrounds/01.png');">
-	<div class="overlay">
-		<div id="breadcrumb" class="clear">
-			
-			<ul>
-				<li><a href="/resources/index.html">Home</a></li>
-				<li><a href="/community/client/communityList">Community</a></li>
-			</ul>
-			
-		</div>
-	</div>
+	<div id="hBoardList_board_img" class="wrapper row2 bgded"
+   style="background-image: url('/resources/images/common/update.jpg');">
+   <div class=" hBoardList_name_location">
+      <div id="breadcrumb" class="hBoard_Name">Update</div>
+   </div>
 </div>
 
 <div class="wrapper row3">
@@ -109,9 +103,9 @@
 				
 				
 				<div class="contentBtn text-right">
-					<input type="button" value="수정" id="communityUpdateBtn" class="btn btn-success">
-					<input type="button" value="취소" id="communityCancelBtn" class="btn btn-success">
-					<input type="button" value="목록" id="communityListBtn" class="btn btn-success">
+					<input type="button" value="수정" id="communityUpdateBtn" class="dosirakBtn1">
+					<input type="button" value="취소" id="communityCancelBtn" class="dosirakBtn1">
+					<input type="button" value="목록" id="communityListBtn" class="dosirakBtn3">
 				</div>	
 			</div>
 		</main>

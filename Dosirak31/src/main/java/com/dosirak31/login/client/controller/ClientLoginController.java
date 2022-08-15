@@ -114,7 +114,7 @@ public class ClientLoginController {
 			
 			//return "/client/loginmain";
 			
-			return "/login/client/faillogin";
+			return "login/client/faillogin";
 		}
 		
 			
@@ -158,7 +158,7 @@ public class ClientLoginController {
 													//카카占쏙옙 占싸깍옙占쏙옙 占쏙옙 占쏙옙占쏙옙 占쏙옙占쌕몌옙, 
 			model.addAttribute("kakaoclient", cvo); //카카占쏙옙 占썩본占쏙옙占쏙옙(占싱몌옙, 占싱몌옙占쏙옙)占쏙옙 占쏙옙占� 占쏙옙체占쏙옙 카카占쏙옙 회占쏙옙占쏙옙占쏙옙 占쏙옙占쏙옙占쏙옙占쏙옙 占싼곤옙占쌔댐옙.
 			
-			return "/signup/client/kakao_join_form"; //카카占쏙옙 회占쏙옙占쏙옙占쏙옙 占쏙옙占쏙옙占쏙옙占쏙옙 占쏙옙占쏙옙
+			return "signup/client/kakao_join_form"; //카카占쏙옙 회占쏙옙占쏙옙占쏙옙 占쏙옙占쏙옙占쏙옙占쏙옙 占쏙옙占쏙옙
 			
 		}else {
 			

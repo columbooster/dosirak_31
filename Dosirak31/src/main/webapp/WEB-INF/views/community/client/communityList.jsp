@@ -3,13 +3,123 @@
 <%@ include file="/WEB-INF/views/common/common.jspf" %> 
  
       <style type="text/css">
-      /*이미지를 위한*/
-	
-		.overlay{
-	   height:350px;
-	   background-color:rgba(0,0,0,0);
-	}
-	 /*이미지를 위한 끝*/
+  			
+  			
+ 			
+  	
+  		
+			table,table-striped{
+				border-left: none;
+	 			border-right: none;
+			}
+	 	
+	 		.table>tbody>tr>td, 
+	 		.table>tbody>tr>th {
+			    text-align: center;
+			    vertical-align: middle;
+			    border-left: none;
+	 			border-right: none;
+			}
+	 
+	 
+	 		th{
+	 			color: #000000;
+	 			background: ghostwhite;
+	 			border-left: none;
+	 			border-right: none;
+	 			
+	 			}
+	 			
+	 		td{
+	 			background-color: #FFFFFF;
+	 			font-size: 15px;
+	 		}
+	 			
+	 		.container {
+	 			color: #000000;
+			    padding-top: 0px;
+			    padding-right: 0px;
+			    padding-bottom: 40px;
+			    padding-left: 0px;
+			}
+			
+			.pagination>.active>a, .pagination>.active>a:focus, .pagination>.active>a:hover, .pagination>.active>span, .pagination>.active>span:focus, .pagination>.active>span:hover {
+			    z-index: 2;
+			    color: #fff;
+			    cursor: default;
+			    background-color: #a5d610;
+			    border-color: #a5d610;
+			}
+			
+			.pagination>li>a, .pagination>li>span {
+			    position: relative;
+			    float: left;
+			    padding: 6px 12px;
+			    margin-left: -1px;
+			    line-height: 1.42857143;
+			    color: #337ab7;
+			    text-decoration: none;
+			    background-color: #fff;
+			    border: 1px solid #ddd;
+			}
+			 
+			 
+			 
+			.dosirakBtn1{
+   text-decoration:none;
+   font-family:Arial;
+   box-shadow:inset #a4d610 0px 5px 8px -1px;
+   o-box-shadow:inset #a4d610 0px 5px 8px -1px;
+   -moz-box-shadow:inset #a4d610 0px 5px 8px -1px;
+   -webkit-box-shadow:inset #a4d610 0px 5px 8px -1px;
+   background:#99c40e;
+   background:-o-linear-gradient(90deg, #99c40e, #88ad10);
+   background:-moz-linear-gradient( center top, #99c40e 5%, #88ad10 100% );
+   background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #99c40e), color-stop(1, #88ad10) );
+   filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#99c40e', endColorstr='#88ad10');
+   background:-webkit-linear-gradient(#99c40e, #88ad10);
+   background:-ms-linear-gradient(#99c40e, #88ad10);
+   background:linear-gradient(#99c40e, #88ad10);
+   text-indent:0px;
+   line-height:23px;
+   -moz-border-radius:6px;
+   -webkit-border-radius:6px;
+   border-radius:6px;
+   text-align:center;
+   vertical-align:middle;
+   display:inline-block;
+   font-size:12px;
+   color:#ffffff;
+   width:auto;
+   height:auto;
+   padding:5.2px;
+   text-shadow:#7d7d7d 0px 1px 0px;
+   border-color:#ffffff;
+   border-width:0px;
+   border-style:solid;
+}
+
+.dosirakBtn1:active {
+   box-shadow:inset #a4d610 0px 5px 8px -1px,#658205 0px 0 0px;
+   o-box-shadow:inset #a4d610 0px 5px 8px -1px,#658205 0px 0 0px;
+   -moz-box-shadow:inset #a4d610 0px 5px 8px -1px,#658205 0px 0 0px;
+   -webkit-box-shadow:inset #a4d610 0px 5px 8px -1px,#658205 0px 0 0px;
+   position:relative;
+   top:5px
+}
+
+.dosirakBtn1:hover {
+   background:#88ad10;
+   background:-o-linear-gradient(90deg, #88ad10, #99c40e);
+   background:-moz-linear-gradient( center top, #88ad10 5%, #99c40e 100% );
+   background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #88ad10), color-stop(1, #99c40e) );
+   filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#88ad10', endColorstr='#99c40e');
+   background:-webkit-linear-gradient(#88ad10, #99c40e);
+   background:-ms-linear-gradient(#88ad10, #99c40e);
+   background:linear-gradient(#88ad10, #99c40e);
+} 
+			 
+			
       </style>
       <script type="text/javascript">
 				$(function() {
@@ -68,7 +178,8 @@
 						location.href = "/community/client/writeForm";
 					});
 					
-					// 제목 클릭시 상세 페이지 이동을 위한 처린 이벤트
+					
+					// 제목 클릭시 상세 페이지 이동을 위한 처리 이벤트
 					$(".goDetail").click(function() {
 						let community_no = $(this).parents("tr").attr("data-num");
 						$("#community_no").val(community_no);
@@ -103,7 +214,7 @@
 					$("#f_search").attr({
 						"method":"get",
 						"action":"/community/client/communityList"
-					});
+					});	
 					$("#f_search").submit();
 				}
 				
@@ -115,22 +226,48 @@
 </head>
 <body>
 <!-- 이미지를 위한-->		
-<div class="wrapper row2 bgded"
-      style="background-image: url('/resources/images/common/community.jpg');">
+<!-- <div class="wrapper row2 bgded"
+      style="background-image: url('/resources/images/common/community3.jpg');">
       <div class="overlay">
          
       </div>
+   </div>  -->
+   <div id="hBoardList_board_img" class="wrapper row2 bgded"
+   style="background-image: url('/resources/images/common/community3.jpg');">
+   <div class=" hBoardList_name_location">
+      <div id="breadcrumb" class="hBoard_Name">커뮤니티</div>
    </div>
+</div>
 <!-- 이미지를 위한 끝-->		
 <div class="wrapper row3">
 	<main class="container clear">
 	
 		<div class="contentContainer container">
 			<c:if test="${pageMaker.cvo.community_category_no == 0}">
-				<div class="contentTit page-header"><h3 class="text-center">게시판 리스트</h3></div>
+			
+			
+         <div class="main_contents">
+            
+            <hr class="main_contents_hr">
+            <div class="head"><span class="bold">자유 게시판</span></div>
+            <hr class="main_contents_hr">
+            
+            <div class="hBoardListContents">Dosirak31과 함께 <span class="bold">건강한 삶</span> 을 공유하세요.</div>
+         </div>
+			
 			</c:if>
 			<c:if test="${pageMaker.cvo.community_category_no == 1}">
-				<div class="contentTit page-header"><h3 class="text-center">Q n A 리스트</h3></div>
+				
+         <div class="main_contents">
+            
+            <hr class="main_contents_hr">
+            <div class="head"><span class="bold">Q & A 게시판</span></div>
+            <hr class="main_contents_hr">
+            
+            <div class="hBoardListContents">Dosirak31은 <span class="bold"> 최상의 서비스 </span> 를 제공해드리기 위해</div>
+            <div class="hBoardListContents">고객님의 <span class="bold"> 작은 목소리에도 귀 기울이겠습니다.</span></div>
+         </div>
+			
 			</c:if>		
 				<form id="detailForm">
 					<input type="hidden" id="community_no" name="community_no" />
@@ -147,10 +284,9 @@
 								<th data-value="community_no" class="order text-center col-md-1" >글번호</th>
 								<th class="text-center col-md-4">글제목</th>
 								<th class="text-center col-md-2">작성자</th>
-								<th data-value="community_date" class="order col-md-1">작성일</th>
+								<th data-value="community_date" class="order col-md-2 text-center">작성일</th>
 								<th class="text-center col-md-1">조회수</th>
 								<th class="text-center col-md-4">이미지</th>
-								<th class="text-center col-md-1">카테고리넘버</th>
 							</tr>
 						</thead>
 						<tbody id="list" class="table-striped">
@@ -161,34 +297,45 @@
 										<tr class="text-center" data-num="${community.community_no}" data-numc="${community.community_category_no}">
 											<td>${community.community_no}</td>
 											<c:if test="${community.community_closed == 1}">
-											<td class="goDetail text-left">
+											
 												<c:choose>
 													<c:when test="${community.client_id eq sessionScope.client_info.client_id || sessionScope.admin_info.admin_id != null}">
+														<td class="goDetail text-left" style="text-align: left;">
 														<c:out value="${community.community_title}" />	
 														<c:if test="${community.reply_cnt > 0}"><span class="reply_count">[${community.reply_cnt}]</span></c:if>
+														</td>
 													</c:when>
-													<c:otherwise>[비밀글]비밀글은 작성자와 관리자만 볼 수 있습니다.</c:otherwise>
+													<c:otherwise>
+													<td class="text-left" style="text-align: left;">
+													<span><img alt="비밀글로고" src="/resources/images/common/secret.png" style="width:20px; height:20px;">&nbsp;&nbsp;&nbsp;</span>해당 게시물은 비밀글입니다.
+													</td>
+													</c:otherwise>
 												</c:choose>
-											</td>
+											
 											</c:if>
 											<c:if test="${community.community_closed == 0}">
-											<td class="goDetail text-left">
+											<td class="goDetail text-left" style="text-align: left;">
+												<c:if test="${community.community_category_no == 1}"><span><img alt="qna로고" src="/resources/images/common/qna3.png" style="width:35px; height:15px;">&nbsp;&nbsp;</span></c:if>
 												${community.community_title}
 												<c:if test="${community.reply_cnt > 0}"><span class="reply_count">[${community.reply_cnt}]</span></c:if>
 											</td>
 											</c:if>
+											<c:if test="${community.client_id != null && community.admin_id == null}">
 											<td class="name">${community.client_id}</td>
-											<td class="text-left">${community.community_date}</td>
+											</c:if>
+											<c:if test="${community.admin_id != null && community.client_id == null}">
+											<td class="name">${community.admin_id}</td>
+											</c:if>
+											<td class="text-center">${community.community_date}</td>
 											<td class="text-center">${community.community_hits}</td>
 											<td>
 												<c:if test="${not empty community.file_thumb}">
-													<img src="/dosirak31img/community/thumbnail/${community.file_thumb}" />
+													<img src="/dosirak31img/community/thumbnail/${community.file_thumb}" style="height: 100px;"/>
 												</c:if>
 												<c:if test="${empty community.file_thumb}">
-													<img src="/resources/images/common/noimage.png" />
+													<img src="/resources/images/common/noimage.png" style="height: 100px;" />
 												</c:if>
 											</td>
-											<td class="text-center">${community.community_category_no}</td>
 										</tr>
 									</c:forEach>
 								</c:when>
@@ -205,8 +352,8 @@
 					
 					<%-- ==================== 글쓰기 버튼 출력 시작 ========================= --%>
 				<div class="contentBtn text-right">
-					<c:if test="${sessionScope.client_info.client_id != null}">
-						<input type="button" value="글쓰기" id="insertFormBtn" class="btn btn-success">
+					<c:if test="${sessionScope.client_info.client_id != null || sessionScope.admin_info.admin_id != null}">
+						<input type="button" value="글쓰기" id="insertFormBtn" class="dosirakBtn">
 					</c:if>
 				</div>
 					<%-- ==================== 글쓰기 버튼 출력 종료 ========================= --%>
@@ -231,7 +378,7 @@
 								<option value="client_id">작성자</option>
 							</select>
 							<input type="text" name="keyword" id="keyword" value="검색어를 입력하세요" class="form-control">
-							<button type="button" id="searchData" class="btn btn-success">검색</button>
+							<button type="button" id="searchData" class="dosirakBtn1">검색</button>
 						</div>
 					</form>
 				</div>	

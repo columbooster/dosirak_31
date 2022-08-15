@@ -9,6 +9,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.HandlerInterceptor;
 
+import com.dosirak31.login.admin.vo.AdminLoginVO;
 import com.dosirak31.login.client.vo.ClientLoginVO;
 
 import lombok.extern.slf4j.Slf4j;
@@ -23,7 +24,8 @@ public class SessionCheckInterceptor implements HandlerInterceptor {
 		response.setContentType("text/html;charset=UTF-8");
 		HttpSession session =request.getSession();
 		ClientLoginVO client_info=(ClientLoginVO) session.getAttribute("client_info");
-		if(client_info==null) {
+		AdminLoginVO admin_info=(AdminLoginVO) session.getAttribute("admin_info");
+		if(client_info==null && admin_info==null) {
 			PrintWriter out = response.getWriter(); 
 	        out.println("<script>alert('로그인해주세요'); location.href='/client/loginmain';</script>"); 
 			out.flush();

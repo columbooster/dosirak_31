@@ -44,11 +44,11 @@
 	<select id="communityList" parameterType="community" resultType="community">
 		<![CDATA[
 		SELECT 
-				community_no, client_id, community_title, to_char(community_date, 'YYYY-MM-DD') as community_date, community_hits, file_thumb, file_name,community_closed, community_category_no,
+				community_no, client_id, community_title, to_char(community_date, 'YYYY-MM-DD') as community_date, community_hits, file_thumb, file_name,community_closed, community_category_no, admin_id,
 				(select count(reply_no) from reply where community_no = communitylist.community_no) as reply_cnt
 		FROM(
 				 select /*+ index_desc(community PK_community_no) */
-             	  	rownum as rnum, community_no, client_id, community_title, community_date, community_hits, file_thumb, file_name,community_closed, community_category_no
+             	  	rownum as rnum, community_no, client_id, community_title, community_date, community_hits, file_thumb, file_name,community_closed, community_category_no, admin_id
         		 from community 
         		 where community_category_no = #{community_category_no} and ]]>
         		 <trim prefix="(" suffix=") AND " prefixOverrides="AND">
@@ -79,8 +79,8 @@
 			select community_seq.nextval from dual
 		</selectKey>
 		
-		INSERT INTO community(community_no, client_id, community_title, community_contents, community_pw, file_name, file_thumb, community_closed, community_category_no)
-		VALUES(#{community_no}, #{client_id}, #{community_title}, #{community_contents}, #{community_pw}, #{file_name}, #{file_thumb}, #{community_closed}, ${community_category_no})
+		INSERT INTO community(community_no, client_id, community_title, community_contents, community_pw, file_name, file_thumb, community_closed, community_category_no, admin_id ) 
+		VALUES(#{community_no}, #{client_id,jdbcType=VARCHAR}, #{community_title}, #{community_contents}, #{community_pw}, #{file_name}, #{file_thumb}, #{community_closed}, #{community_category_no}, #{admin_id,jdbcType=VARCHAR} )
 		
 		
 	</insert>
@@ -92,9 +92,9 @@
 		/* community - communityDetail */
 		SELECT
 				community_no, client_id, community_title, community_contents,
-				TO_CHAR(community_date,'YYYY-MM-DD HH24:MI:SS') AS community_date, community_hits, file_name, file_thumb, community_closed, community_category_no
+				TO_CHAR(community_date,'YYYY-MM-DD HH24:MI:SS') AS community_date, community_hits, file_name, file_thumb, community_closed, community_category_no, admin_id
 		FROM community
-		WHERE community_no = ${community_no} and community_category_no = ${community_category_no}
+		WHERE community_no = #{community_no} and community_category_no = #{community_category_no}
 	</select>
 	
 	<update id="readCntUpdate" parameterType="community">

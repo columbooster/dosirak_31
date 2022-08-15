@@ -83,8 +83,10 @@ public class CommunityController {
 		
 		result = communityService.communityInsert(cvo);
 		
-		if(result == 1) {
-			url = "/community/client/communityList"; 
+		if(result == 1 && cvo.getCommunity_category_no() == 0) {
+			url = "/community/client/communityList?community_category_no=0"; 
+		} else if(result == 1 && cvo.getCommunity_category_no() == 1) {
+			url = "/community/client/communityList?community_category_no=1"; 
 		} else { 
 			 url = "/community/client/writeForm"; }
 		
