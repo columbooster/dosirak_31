@@ -2,16 +2,16 @@
     pageEncoding="UTF-8"%>
  <%@ include file="/WEB-INF/views/common/common.jspf" %> 
 
-		<style type="text/css">
-			header{
+      <style type="text/css">
+         header{
                 display:flex;
                 justify-content: center;
                 margin-top: 50px;
             }
             h2{
-            	font-weight: bold;
-            	color: black;
-            	font-weight: bolder;
+               font-weight: bold;
+               color: black;
+               font-weight: bolder;
             }
             form{
                 padding:10px;
@@ -72,28 +72,28 @@
                 margin:10px 0px;
             }
             #btn{
-            	text-align: center;
+               text-align: center;
             }
             #error{ color : red; font-size: 3px; text-align:center;}
             
             body{background-color:white;}
-			
-		</style>
-		
-		
-		<script type="text/javascript" src="/resources/include/js/jquery-1.12.4.min.js"></script>
-		<script type="text/javascript" src="/resources/include/js/common.js"></script>
-		<script type="text/javascript" src="/resources/include/dist/js/bootstrap.min.js"></script>
+         
+      </style>
+      
+      
+      <script type="text/javascript" src="/resources/include/js/jquery-1.12.4.min.js"></script>
+      <script type="text/javascript" src="/resources/include/js/common.js"></script>
+      <script type="text/javascript" src="/resources/include/dist/js/bootstrap.min.js"></script>
 
-		 <script type="text/javascript">
+       <script type="text/javascript">
       $(function(){
-    	  
-    	  
+         
+         
          $("#newpwBtn").click(function(){
-        	 
+            
 
-       	  let first_pw = $('input[name=first_pw]').val();
-       	  let second_pw = $('input[name=second_pw]').val();
+            let first_pw = $('input[name=first_pw]').val();
+            let second_pw = $('input[name=second_pw]').val();
             
             if($("#first_pw").val().replace(/\s/g, "") == ""){
                
@@ -111,7 +111,7 @@
                return false;
                
             }else if($("#second_pw").val().replace(/\s/g, "") == ""){
-            	
+               
                let result = "새비밀번호 확인은 필수 입력 항목 입니다.";
                
                $("#error").show();
@@ -126,10 +126,10 @@
                return false;
                
             }else if(first_pw != second_pw){
-            	
-            	let result = "비밀번호가 일치하지 않습니다.";
-            	
-            	$("#error").show();
+               
+               let result = "비밀번호가 일치하지 않습니다.";
+               
+               $("#error").show();
                 $("#error").html(result);
                 
                 $("#first_pw").click(function(){
@@ -144,16 +144,32 @@
                   
                })
                 
-            	return false;
-            	
-            }else{
-            
-            	$("#NewPwForm").submit();
+               return false;
+               
             }
+            
+            
+               
+               let pwdval = $("#first_pw").val()
+              let pwdcheck =  /^(?=.*[a-zA-z])(?=.*[0-9])(?=.*[$`~!@$!%*#^?&\\(\\)\-_=+]).{8,16}$/;
+              
+              if (!pwdcheck.test(pwdval) || pwdval.length<8){
+                 
+                 alert('비밀번호는 8 ~ 16자 영문, 숫자, 특수문자를 최소 한가지씩 조합해야합니다.')
+                 
+                 $("#first_pw").focus();
+                 
+                 return false;
+              } 
+               
+           
+            
+               $("#NewPwForm").submit();
+            
          });
-      });	
+      });   
 
-		
+      
       </script>
 </head>
 <body>
@@ -179,8 +195,8 @@
             <input type="hidden" name="client_email" value= "${client_email}" />
             
             <div id="btn"> 
-            	<input type="submit" id="newpwBtn" value="비밀번호 변경" class="dosirakBtn">
-         	</div>
+               <input type="submit" id="newpwBtn" value="비밀번호 변경" class="dosirakBtn">
+            </div>
             
             
         </form>

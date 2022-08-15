@@ -115,10 +115,12 @@
       </script>
 </head>
 <body> 
-   <div id="container">
+   <div id="container" style="text-align:center;">
             <header>
-            <h2>비밀번호 찾기</h2>
+            <h2>비밀번호 찾기</h2><br />
+           
            </header><br/>
+            <div >가입된 이메일로 인증번호를 발송하였습니다.</div>
            <p id = "error"></p>
    		
         <form action="/client/pwauth" method="POST" id="PwAhthForm">

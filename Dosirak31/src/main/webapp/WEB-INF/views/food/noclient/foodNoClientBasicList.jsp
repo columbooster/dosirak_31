@@ -12,6 +12,7 @@
 	input[name='gender']{width:30px;height:30px;font-size:20pt}
 	.fdImg{display:none;}
 	.black{color:black;}
+	#totalprice{color:black;}
 	/*radio button */
 	 .test_obj input[type="radio"] {
         display: none;

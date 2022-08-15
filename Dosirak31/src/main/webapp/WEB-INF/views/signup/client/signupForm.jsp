@@ -265,7 +265,9 @@
 						"method":"post",
 						"action":"/signup/client/signup"
 					});
+					alert('Dosirak31의 회원이 되어주셔서 감사합니다.');
 					$("#signupForm").submit();
+					
 				}
 			});
 			

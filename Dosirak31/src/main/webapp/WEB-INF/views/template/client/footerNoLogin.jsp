@@ -48,7 +48,7 @@
         <li class="active"><a href="/">HOME</a></li>
         <li><a href="/health/hBoardList">WORKOUT</a>  
         <li><a class="drop" href="/food/foodNoClientBasicList">FOOD</a>
-        <li><a href="/foodReview/noclient/foodNoClientReviewList">FOOD REVIEW</a>
+        <li><a href="/foodReview/client/foodNoClientReviewList">FOOD REVIEW</a>
         <li><a href="/community/communityList">COMMUNITY</a></li>
       </ul>
     </div>
