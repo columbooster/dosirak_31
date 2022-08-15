@@ -45,12 +45,7 @@
                <div class="col-md-4">
                 ${weightDetail.health_contents }
                 </div>
-               <div class="row marketing">
-                  <div class="col-lg-6">
-                     <jsp:include page="hcomment.jsp" />
-                  </div>
-               </div>
-                  
+              
                   <div class="row marketing">
                      <div class="col-lg-6">
                         <jsp:include page="hcomment2.jsp" />

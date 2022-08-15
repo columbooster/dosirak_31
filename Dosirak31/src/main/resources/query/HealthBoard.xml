@@ -46,7 +46,6 @@
 		<trim prefix="and(" suffix=")">
 			<include refid="boardSearch"></include>
 		</trim>
-
 	</select>
 
 	<!-- 웨이트 & 유산소 동영상 상세 페이지를 위한 게시물 조회 -->
