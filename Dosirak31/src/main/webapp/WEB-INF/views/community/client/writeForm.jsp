@@ -119,7 +119,7 @@
 							</tbody>
 						</table>
 						
-						<div class="text-right">
+						<div class="text-right search_bar">
 							<input type="button" value="저장" id="communityInsertBtn" class="btn btn-success">
 							<input type="button" value="취소" id="communityCancelBtn" class="btn btn-success">
 							<input type="button" value="목록" id="communityListBtn" class="btn btn-success">

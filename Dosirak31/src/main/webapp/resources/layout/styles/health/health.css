@@ -1,4 +1,9 @@
 @charset "UTF-8";
+
+*{
+	table-layout: fixed;
+}
+
 /******************************* 페이지 버튼 처리 *******************************/
 .pagination>.active>a, .pagination>.active>a:focus, .pagination>.active>a:hover,
 	.pagination>.active>span, .pagination>.active>span:focus, .pagination>.active>span:hover

@@ -76,17 +76,27 @@
 				            <input type="hidden" name="health_no" value="${cardioDetail.health_no }"/>
 				            <input type="hidden" name="health_category_no" value="${cardioDetail.health_category_no }"/>
 				         </form>
-						<header class="heading">${cardioDetail.health_title }</header>
+						
 						<!-------------------------------------------------- 동영상 & 소개 공간 ---------------------------------------------------->
-						<div >
-							<section>
-								<iframe width="560" height="315"
-									src="https://www.youtube.com/embed/${cardioDetail.health_url }?mute=1&autoplay=1"></iframe>
-								<div>
-								${cardioDetail.health_contents }
-								</div>	
-							</section>
-						</div>
+						<div>
+                  <iframe width="930" height="500"
+                     src="https://www.youtube.com/embed/${cardioDetail.health_url }?mute=1&autoplay=1"></iframe>
+               </div>
+               <div class="health_title2">${cardioDetail.health_title }</div>
+               <div>
+                  <div class="health_board_info2">
+                     <img class="health_logoImg2"
+                        src="/resources/images/common/Logo.png" />
+                  </div>
+                  <div class="health_writer_hits2">${cardioDetail.admin_id }</div>
+                  <div class="health_writer_hits2">${cardioDetail.health_hits }views</div>
+               </div>
+
+               <hr class="health_hr" />
+               <div class="health_comments_part">
+                  <h3>Detail</h3>
+                  <div>${cardioDetail.health_contents }</div>
+                  </div>
 						<div>
 							<input type="button" value="글수정" id="cardioUpdateFormBtn" class="dosirakBtn1" />
 			                <input type="button" value="글삭제" id="cardioDeleteBtn" class="dosirakBtn1" />
