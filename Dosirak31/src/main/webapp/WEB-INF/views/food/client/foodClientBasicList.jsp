@@ -140,6 +140,7 @@ tr:nth-child(even), #comments li:nth-child(even) {
 	 	line-height:70px;
 	 	display:inline-block;
 	 	float:left;
+	 	margin:5px;
 	 	
 	 }
 	 

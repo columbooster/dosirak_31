@@ -109,7 +109,6 @@
                  let order_name="";
                  let price=0;
                  let order_no=0; 
-             $("#iampayment").unbind('click');//한번만 클릭하도록
              if($("#isForm").val()!=null){
             	 
                 //원래 있던것 delete하고 실행
@@ -124,7 +123,7 @@
                         alert("주문 insert에 실패하였습니다.");
                      }, 
                      success: function(data){//객체 타입이니까/////고민해보기
-                        
+                    	 $("#iampayment").unbind('click');//한번만 클릭하도록
                            let please=JSON.parse(data);
                            order_no=please.order_no;
                            dosirak_no=please.dosirak_no;
@@ -164,7 +163,7 @@
                IMP.request_pay({ // param
                   pg : "kakaopay.TC0ONETIME", // 결제
                   pay_method: "card",
-                  merchant_uid :"f"+order_no, // 주문 번호
+                  merchant_uid :"d"+order_no, // 주문 번호
                   name : order_name, //상품명
                   amount : price, //가격
                   buyer_email : email, //이메일
@@ -331,7 +330,7 @@
                          
                            <table id="delivery">
                                <form id="orderAfterBtn" action="/food/orderConfirmation" method="get">
-                          
+                          			<input type="hidden" name="client_no" value="${sessionScope.client_info.client_no }"/>
                                  <tr>
                                     <td>이름</td>
                                  <td><input type="text" id="order_client_name" name="order_client_name"/></td>
@@ -385,12 +384,14 @@
                            <article>
                              <header>
                                <address>
-                                 <label><h3>최종 선택 상품</h3></label>
-                               </address>
+                               
                                 <figure class="avatar"><img  class="imgda1" src="/dosirak31img/food/${order1.food_img1 }">
 			                <img  class="imgda2" src="/dosirak31img/food/${order1.food_img2 }"><img  class="imgda3" src="/dosirak31img/food/${order1.food_img3 }">
 			                <img  class="imgda4" src="/dosirak31img/food/${order1.food_img4 }"><img  class="imgda5" src="/dosirak31img/food/${order1.food_img5 }">
 			                </figure> 
+                                 <label><h3>최종 선택 상품</h3></label>
+                              
+			                 </address>
                              </header>
                              <div class="comcont">
                             
