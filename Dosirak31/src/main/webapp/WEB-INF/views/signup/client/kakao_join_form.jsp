@@ -14,8 +14,6 @@
 			color : red;
 			display : none;
 		}
-		 
-		 
 		
 .dosirakBtn3 {
    text-decoration:none;
