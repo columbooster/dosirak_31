@@ -7,6 +7,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
@@ -28,7 +29,6 @@ import lombok.extern.log4j.Log4j;
 @AllArgsConstructor
 public class HCommentController {
 
-
 	private HCommentService hcommentService;
 	
 	@GetMapping("/hcomment")
@@ -37,14 +37,12 @@ public class HCommentController {
 		return "hcomment/hcomment";
 	}
 	
-	
 	//지정된 게시물의 모든 댓글을 가져오는 메서드
 	 @ResponseBody
 	 @GetMapping("/comments")  // /comments/health_no=1 GET방식
 	    public ResponseEntity<List<HCommentVO>> list(Integer health_no) {
 		 
 	        List<HCommentVO> list = null;
-	        
 	        try {
 	        	
 	            list = hcommentService.selectAll(health_no);
@@ -93,7 +91,6 @@ public class HCommentController {
 		    @PostMapping("/comments")   // /ch4/comments?bno=1085
 		    public ResponseEntity<String> write(@RequestBody HCommentVO hvo, Integer health_no, HttpSession session) {
 		    	
-		    	
 		    	String client_id = (String)session.getAttribute("client_id"); 
 		        
 		        hvo.setClient_id(client_id);
@@ -136,6 +133,9 @@ public class HCommentController {
 		            return new ResponseEntity<String>("MOD_ERR", HttpStatus.BAD_REQUEST);
 		        }
 		    }
+		    
 	 
+		    
+		    
 }
 

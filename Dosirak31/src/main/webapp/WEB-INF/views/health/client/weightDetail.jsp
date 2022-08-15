@@ -15,22 +15,22 @@
 <script
    src="/resources/include/dist/assets/js/ie-emulation-modes-warning.js"></script>
 
-	<style>
-		a{color:#FF8D2C;}
-	</style>
+   <style>
+      a{color:#FF8D2C;}
+   </style>
 </head>
   <div class="wrapper row2 bgded"
-		style="background-image: url('/resources/images/demo/backgrounds/01.png');">
-		<div class="overlay">
-			<div id="breadcrumb" class="clear">
-				<ul>
-					<li><a href="/client/successlogin">Home</a></li>
-					<li><a href="/health/hBoardList">WORKOUT</a></li>
-					<li><a href="/health/weightList?health_category_no=1">WEIGHT WORKOUT</a></li>
-				</ul>
-			</div>
-		</div>
-	</div>
+      style="background-image: url('/resources/images/demo/backgrounds/01.png');">
+      <div class="overlay">
+         <div id="breadcrumb" class="clear">
+            <ul>
+               <li><a href="/client/successlogin">Home</a></li>
+               <li><a href="/health/hBoardList">WORKOUT</a></li>
+               <li><a href="/health/weightList?health_category_no=1">WEIGHT WORKOUT</a></li>
+            </ul>
+         </div>
+      </div>
+   </div>
    <div class="wrapper row3">
       <main class="container clear">
          <div class="content">

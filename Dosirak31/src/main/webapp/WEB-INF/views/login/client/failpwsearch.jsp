@@ -39,7 +39,7 @@
 	<h1>아이디,이름,이메일을 다시 확인해주세요</h1>
 	
 	<div class ="forgot">
-         <span><a href="/admin/adsearchpw">이전 페이지</a></span>
+         <span><a href="/client/searchpw">이전 페이지</a></span>
     </div>
 	
 	

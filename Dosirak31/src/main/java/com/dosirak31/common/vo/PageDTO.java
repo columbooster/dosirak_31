@@ -7,12 +7,12 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-public class PageDTO {
+public class PageDTO { 
 	private int startPage;//화면에서 보여지는 페이지의 시작 번호
 	private int endPage;//화면에서 보여지는 페이지의 끝번호
 	private boolean prev,next;//이전과 다음으로 이동한 링크의 표시 여부
 	
-	private int total;
+	private int total; //전체 데이터의 갯수
 	private CommonVO cvo;
 	
 	public PageDTO(CommonVO cvo, int total) {
@@ -20,7 +20,7 @@ public class PageDTO {
 		this.total=total;
 		
 		/*페이징의 끈번호 (endPage)구하기
-		 * this.endPage=(int) (Math.ceil(페이지번소/10.0))*10; */
+		 * this.endPage=(int) (Math.ceil(페이지번호/10.0))*10; */
 		 this.endPage=(int) (Math.ceil(cvo.getPageNum()/10.0))*10;
 		 /*1페이지의 경우 :Math.ceil(0.1)*10=10
 		  *2페이지의 경우: Math.ceil(0.2)*10=10

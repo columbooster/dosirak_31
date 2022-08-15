@@ -22,7 +22,7 @@ import lombok.extern.log4j.Log4j;
 /*
  * 요청 URL을 어떤 method가 처리할지 mapping해주는 Annotation이다. 요청을 받는 형식인 GET, POST, PATCH,
  * PUT, DELETE 를 정의하기도 한다. 디폴트는 GET으로 설정된다.
- */
+ */ 
 @AllArgsConstructor /* 모든 필드 값을 파라미터로 받는 생성자를 추가한다. */
 public class HealthClientBoardController {
 
@@ -70,6 +70,7 @@ public class HealthClientBoardController {
 
 		return "health/client/weightDetail";
 	}
+	
 	/****************************************************************************
 	 * 유산소 게시판 구현
 	 ***************************************************************************/

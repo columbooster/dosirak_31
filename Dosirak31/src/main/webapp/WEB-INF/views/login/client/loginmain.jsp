@@ -39,7 +39,7 @@
 
             }
             input:focus + label, label{
-                color:#f89b00;
+                color: #a5d610;
                 font-size:10pt;
                 pointer-events: none;
                 position: absolute;
@@ -56,10 +56,7 @@
                 outline:none;
             }
             input[type=submit]{
-                background-color: gray;
-                border:none;
-                color:white;
-                border-radius: 5px;
+                
                 width:37%;   
                 height:70px;
                 font-size: 16pt;
@@ -80,13 +77,15 @@
             }
             #error{ color : red; font-size: 3px; text-align:center;}
             
-            #kakao {display: block; margin: 0px auto;width:250px; height: 40px; margin-bottom: 50px;}
+            #kakao {display: block; margin: 0px auto;width:510px; height: 70px; margin-bottom: 50px;
+            		border-radius:12px;
+            		}
             
             .or-seperator{text-align:center; }
             
-            hr{border: 0; background: #d3d3d3; height: 3px; width: 550px;}
-			
 			body{background-color:white;}
+			
+			
 		</style>
 		
 		
@@ -95,10 +94,8 @@
 		<script type="text/javascript" src="/resources/include/dist/js/bootstrap.min.js"></script>
 		<script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
 	</head>
-	<body> 
+<body> 
 
-
-	
 		<div id="containers" >
             <header>
             <h2>Login</h2>
@@ -125,15 +122,13 @@
             	<span><a href="/client/searchid">아이디 찾기</a> | </span><span><a href="/client/searchpw">비밀번호 찾기</a></span>
             </div>
             <div id="btn"> 
-            <input type="submit" id="loginBtn" value="로그인">
-			</div><br/>
+            <input type="submit" id="loginBtn" value="로그인" class="dosirakBtn">
+			</div>
 			
 			<div class="form-group row">
 			<div class="or-seperator">
-				<hr width="300px">
 			</div>
 			
-			<h2>SNS 간편 로그인</h2>
 		</div>
 		
 		<!-- 카카오 정보를 넘기기 위한 숨겨진 태그 -->
@@ -142,7 +137,7 @@
 				<input type="hidden" name="kakaoemail" id="kakaoemail" /> <!-- 카카오 이메일 -->
 				<input type="hidden" name="kakaoname" id="kakaoname" /> <!-- 카카오 이름 -->
 				<a href="javascript:kakaoLogin();"> 
-					<img src="/resources/img/common/kakao_login_medium_narrow.png" id="kakao" />
+					<img src="/resources/img/common/kakao_login.png" id="kakao" />
 				</a>
 			</div>
 		</div>
@@ -159,6 +154,7 @@
 				if($("#client_id").val().replace(/\s/g, "") == ""){ //아이디 값이 공백일 때
 					
 					let result = "아이디는 필수 입력 항목 입니다.";
+				
 					$("#error").show();
 					$("#error").html(result);
 					
@@ -178,6 +174,7 @@
 				if($("#client_pw").val().replace(/\s/g, "") == ""){
 					
 					let result = "비밀번호는 필수 입력 항목 입니다.";
+					
 					$("#error").show();
 					$("#error").html(result);
 					

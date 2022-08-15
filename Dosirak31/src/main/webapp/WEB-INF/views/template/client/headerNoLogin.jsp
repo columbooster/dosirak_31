@@ -1,9 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
  <%@ page trimDirectiveWhitespaces="true" %>
-  <style>
+ <style>
  	.logo{width:70px; height:40px;}
- 	.size{width:50px; height:40px;}
  </style>
  <div class="wrapper row1">
   <header id="header" class="clear"> 
@@ -24,7 +23,9 @@
           </ul>
         </li>
         <li><a href="/community/client/communityList">COMMUNITY</a></li>
+
         <li><a href="/client/loginmain">LOGIN</a>     
+
         </li>
         <li><a href="/signup/client/signupForm">SIGN UP</a></li>
       </ul>

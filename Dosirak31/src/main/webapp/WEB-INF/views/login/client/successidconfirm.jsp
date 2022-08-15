@@ -15,14 +15,11 @@
                 margin:10px 500px;
             }
 			#emphasize{
-				color: #f89b00;
+				color: #72aa00;
 			}
 			
 			 input[type=button]{
-                background-color: gray;
-                border:none;
-                color:white;
-                border-radius: 5px;
+               
                 width:37%;   
                 height:70px;
                 font-size: 16pt;
@@ -44,7 +41,11 @@
              #btn{
             	text-align: center
             }
+            
             body{background-color:white;}
+            
+            span{color:#a5d610;}
+            
 		</style>
 		
 		
@@ -66,7 +67,7 @@
     	
    
         <div id="btn"> 
-            <input type="button" id="searchPw" value="비밀번호 찾기" onClick="location.href='/client/searchpw'">
+            <input type="button" id="searchPw" value="비밀번호 찾기" onClick="location.href='/client/searchpw'" class="dosirakBtn">
 		</div>
 		
 	

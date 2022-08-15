@@ -13,7 +13,9 @@
               <li><a href="/food/foodAdminBasicList">식품 목록 관리</a></li>
               <li><a href="/health/admin/hBoardList">운동 영상 관리</a></li>
                <li><a href="/community/admin/communityList">커뮤니티 관리</a></li>
+
                <li><a href="/foodReview/admin/adminfoodReviewList">식품 리뷰 관리</a></li>
+               
                <li><a href="/adminhreplies/hcommentManage">운동 댓글 관리</a></li>
             </ul>
           </li>

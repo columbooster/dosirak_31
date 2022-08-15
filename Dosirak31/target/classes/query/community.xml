@@ -60,6 +60,8 @@
         	]]>
 	</select> 
 	
+	
+	
 	<!--  전체 레코드 수 조회 -->
 	<select id="communityListCnt" parameterType="community" resultType="int">
 		SELECT count(*) FROM community
