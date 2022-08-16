@@ -9,9 +9,14 @@
          .btn1{
             display :inline-block;
          }
-         div.one_third {
-            margin: auto;
-         }
+         
+         input {
+            display: block;
+            margin: 0 auto;
+            text-align: center;
+         }   
+      
+         
       </style>
       
       
@@ -57,7 +62,7 @@
 
 <!-- ################################################################################################ -->
 <!-- ################################################################################################ -->
-<div class="wrapper row2 bgded" style="background-image:url('/resources/images/common/writeForm.jpeg'); height: 270px;">
+<div class="wrapper row2 bgded" style="background-image:url('/resources/images/common/writeForm1.jpg'); height: 320px;">
   
     <div id="breadcrumb" class="clear"> 
       <!-- ################################################################################################ -->
@@ -71,7 +76,7 @@
    
    <main class="container clear" style="padding-top: 30px;"> 
    <hr/>
-    <div class="content" >
+    <div class="content" style="text-align:center;">
      <div class="header-title" style= "padding-bottom: 10px;">
               "My page"
            <span class="right-arrow">&gt;</span>
@@ -85,18 +90,18 @@
         <form  id="f_writeForm" name="f_writeForm">
            <input type="hidden" name="client_no" value="${sessionScope.client_info.client_no }">
            <input type="hidden" id="order_no" name="order_no" value="${data.order_no}" />
-          <div class="one_third">
+          <div>
             <label for="review_name">Name <span>*</span></label>
             <input type="text" name="review_name" id="review_name" value="<c:out value='${sessionScope.client_info.client_id}'/>" size="22" readonly="readonly">
           </div>
-          <div class="one_third">
+          <div>
             <label for="review_score">Score <span>*</span></label>
             <input type="text" name="review_score" id="review_score" size="22" placeholder="0~5점 사이의 정수를 입력해주세요."  style="width: 246px;">
           </div>
-          <div class="block clear">
+          <div>
              <br />
             <label for="review_contents">Text</label>
-            <textarea name="review_contents" id="review_contents" cols="80" rows="10" class="text" placeholder="자유로운 의견을 남겨주세요."></textarea>
+            <textarea name="review_contents" id="review_contents" cols="100" rows="10" class="text" placeholder="자유로운 의견을 남겨주세요."  style="text-align: center; margin: 0 auto;"></textarea>
           </div>
           <div class="btn">
             <input type="button" id="foodReviewListBtn" value="목록으로" class="dosirakBtn2">

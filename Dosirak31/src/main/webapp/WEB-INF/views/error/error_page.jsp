@@ -43,6 +43,6 @@
          </p>
          
          <div class ="forgot">
-               <span><a href="/client/loginmain">메인 화면으로 가기</a></span>
+               <span><a href="/">메인 화면으로 가기</a></span>
             </div>
 </body>

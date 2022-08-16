@@ -263,7 +263,7 @@
                         <tr>
                            <td>주민등록번호</td>
                            <td class="text-left"><input type="text" name="client_rrn" id="client_rrn" class="form-control" maxlength="8" 
-                           placeholder="ex) 9*****-1"
+                           placeholder="ex) 9*****-1" readonly="readonly"
                            value="<c:out value='${sessionScope.client_info.client_rrn}'/>"/>
                            </td>
                         </tr>   

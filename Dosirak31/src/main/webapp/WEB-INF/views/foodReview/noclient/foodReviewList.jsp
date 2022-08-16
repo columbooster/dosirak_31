@@ -28,8 +28,8 @@
 	  		 background-color:rgba(0,0,0,0);
 		}
        
-       
-		
+        img{width:70px; height:70px;margin:5px;}
+		.star{width:30px; height:30px; margin:3px;}
 
 	</style>
 		<script type="text/javascript">
@@ -75,7 +75,7 @@
      
       <div id="comments">
 	      <h2>Reviews</h2>
-	      <p style="color: #999999; padding-bottom:10px;"><em>  ※ 심한 욕이나 좋지않은 언행은 삼가주시기 바랍니다.</em></p>
+	      <p style="color: #999999; padding-bottom:10px;">※ 심한 욕이나 좋지않은 언행은 삼가주시기 바랍니다.</p>
 	      	<!-- 페이징 처리를 위한 파라미터 -->
 	      	<form id="f_search" name="f_search" class="form-inline">
 	      		<input type="hidden" name="pageNum" value="${pageMaker.cvo.pageNum }">
@@ -90,12 +90,32 @@
 				          <li>
 				            <article>
 				              <header>
-				                <figure class="avatar"><img src="/resources/images/demo/avatar.png" alt=""></figure>
+				                <figure class="avatar">
+							<img  class="imgda1" src="/dosirak31img/food/${review.food_img1 }">
+			                <img  class="imgda2" src="/dosirak31img/food/${review.food_img2 }"><img  class="imgda3" src="/dosirak31img/food/${review.food_img3 }">
+			                <img  class="imgda4" src="/dosirak31img/food/${review.food_img4 }"><img  class="imgda5" src="/dosirak31img/food/${review.food_img5 }">
+			                </figure> 
+				                
+				                
+				                
 				                <div>${review.dosirak_name}</div>
 				                <address>
-				                By <a href="#">${review.review_name}</a>
+				                By <a >${review.review_name}</a>
 				                </address>
-				                <span>별점 : ${review.review_score}</span>
+				                <span>별점 : 
+				                 <c:choose>
+				                 <c:when test="${review.review_score ne 0 }">
+				                <c:forEach begin="1" end="${review.review_score}">
+				               
+				                <img  class="star" src="/resources/images/common/star.png"/>
+				                
+				                </c:forEach>
+				                </c:when>
+				                <c:when test="${review.review_score eq 0 }">
+				                 별점이 0점입니다.
+				                </c:when>
+				                </c:choose>
+				                </span>
 				                <div>${review.review_date}</div>
 				              </header>
 				              <div class="comcont">

@@ -38,7 +38,7 @@
       <div style="margin-bottom: 100px;">
          <h2>그동안 Dosirak31을 이용해주셔서 감사합니다.</h2>
          <h2>보다 나은 서비스로 찾아뵙도록 하겠습니다.</h2>
-         <input type="button" value="Main으로 가기" class="dosirakBtn1" onclick="location.href='main.jsp'">
+         <input type="button" value="Main으로 가기" class="dosirakBtn1" onclick="location.href='/'">
       </div>
       
       

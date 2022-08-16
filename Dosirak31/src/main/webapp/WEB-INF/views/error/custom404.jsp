@@ -39,6 +39,6 @@
          <p class="errorfont">페이지가 존재하지 않거나, 사용할 수 없는 페이지 입니다.</p>
          
          <div class ="forgot">
-               <span><a href="/client/loginmain">메인 화면으로 가기</a></span>
+               <span><a href="/">메인 화면으로 가기</a></span>
             </div>
 </body>

@@ -291,7 +291,11 @@
                   <p><span>수령인 정보</span>${order.order_client_name} / ${order.order_client_phone}</p>
                   <p><span>주소</span>${order.order_address }
                   </p>               
-                  <p style="text-align:right;"><a class="writeForm" data-num="${order.order_no }">리뷰 쓰기</a></p>
+                  <p style="text-align:right;">
+                   <c:if test="${order.order_status_no eq 5}">
+                  <a class="writeForm" data-num="${order.order_no }">리뷰 쓰기</a>
+                  </c:if>
+                  </p>
                  </div>              
                  </li>
                 </ul>            

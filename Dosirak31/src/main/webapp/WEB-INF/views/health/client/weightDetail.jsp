@@ -6,7 +6,7 @@
 <div id="hBoardList_board_img" class="wrapper row2 bgded"
    style="background-image: url('/resources/images/common/running.jpg');">
    <div class=" hBoardList_name_location">
-      <div id="breadcrumb" class="hBoard_Name">유산소 운동</div>
+      <div id="breadcrumb" class="hBoard_Name">무산소 운동</div>
    </div>
 </div>
 <div class="wrapper row3">
