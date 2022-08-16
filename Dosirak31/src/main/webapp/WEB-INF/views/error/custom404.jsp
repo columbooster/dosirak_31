@@ -6,12 +6,10 @@
       <style type="text/css">
          body{background-color: white;}
          #errorimg{ text-align:center;
-                  margin-top:150px;
-     }
+                  margin-top:150px;}
          h2{font-weight:bold;
             font-size: 40px;}
-       
-       
+            
          .errorfont{text-align:center;}
          
          .forgot{
@@ -35,12 +33,10 @@
 <body>      
          <div id="errorimg">
             <img src="/resources/img/common/errorimg.jpg"/>
-            <img src="/resources/img/common/error.jpg"/>
+            <img src="/resources/img/common/error404.jpg"/>
          </div>
-         <h2 class="errorfont">예상하지 못한 오류가 발생했습니다.</h2>
-         <p class="errorfont">일시적인 현상이거나 네트워크 문제일 수 있으니, 잠시 후 다시 시도해 주세요.<br />
-         계속 발생하는 경우 홈페이지를 통해 문의해 주세요.<br />
-         </p>
+         <h2 class="errorfont">페이지를 찾을 수 없습니다.</h2>
+         <p class="errorfont">페이지가 존재하지 않거나, 사용할 수 없는 페이지 입니다.</p>
          
          <div class ="forgot">
                <span><a href="/client/loginmain">메인 화면으로 가기</a></span>

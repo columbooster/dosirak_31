@@ -235,5 +235,14 @@
 }
 
 .file_location1 {
-   width: 596px;
+   width: 562px;
+}
+
+.youtube_main{
+   display:inline-flex;
+   padding-bottom: 15px;
+}
+
+.youtube{
+   width:425px;
 }
