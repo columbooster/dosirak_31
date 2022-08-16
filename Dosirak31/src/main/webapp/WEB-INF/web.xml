@@ -57,19 +57,19 @@ xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/
    <!-- 에러 발생 시 보여주고자 하는 파일 설정(개발 완료 후 주석해제)-->
 	<error-page>
 		<error-code>403</error-code>
-		<location>/views/error/error_page.jsp</location>
+		<location>/error</location>
 	</error-page>
 	<error-page>
 		<error-code>404</error-code>
-		<location>/views/error/error/custom404.jsp</location>
+		<location>/error404</location>
 	</error-page>
 	<error-page>
 		<error-code>405</error-code>
-		<location>/views/error/error_page.jsp</location>
+		<location>/error</location>
 	</error-page>
 	<error-page>
 		<error-code>500</error-code>
-		<location>/views/error/error_page.jsp</location>
+		<location>/error</location>
 	</error-page>
 	
 

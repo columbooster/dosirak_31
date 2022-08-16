@@ -207,7 +207,7 @@
       <div class="content three_quarter"> 
       <!-- ################################################################################################ -->
          <div class="header-title" style="padding-bottom: 10px;">
-              "My page"
+              My page
            <span class="right-arrow">&gt;</span>
            <strong>Order_history</strong>
            </div>

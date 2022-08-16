@@ -34,8 +34,8 @@
 </head>
 <body>      
          <div id="errorimg">
-            <img src="/resources/img/common/errorimg.jpg"/>
-            <img src="/resources/img/common/error.jpg"/>
+            <img src="/resources/images/common/errorimg.jpg"/>
+            <img src="/resources/images/common/error.jpg"/>
          </div>
          <h2 class="errorfont">예상하지 못한 오류가 발생했습니다.</h2>
          <p class="errorfont">일시적인 현상이거나 네트워크 문제일 수 있으니, 잠시 후 다시 시도해 주세요.<br />

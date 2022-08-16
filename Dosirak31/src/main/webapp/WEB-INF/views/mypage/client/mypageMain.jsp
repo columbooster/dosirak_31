@@ -114,7 +114,7 @@
       <div id="comments">
         <section id="content">
         	<div class="header-title">
-        		"My page"
+        		My page
         	<span class="right-arrow">&gt;</span>
         	<strong>Client_info</strong>
         	</div>

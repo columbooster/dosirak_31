@@ -79,7 +79,7 @@
                   
                   <!-------------------------------------------------- 동영상 & 소개 공간 ---------------------------------------------------->
                   <div>
-                  <iframe width="930" height="500"
+                  <iframe width="600" height="500"
                      src="https://www.youtube.com/embed/${cardioDetail.health_url }?mute=1&autoplay=1"></iframe>
                      <input type="hidden" name="health_url" value="${weightDetail.health_url }"/>
                </div>

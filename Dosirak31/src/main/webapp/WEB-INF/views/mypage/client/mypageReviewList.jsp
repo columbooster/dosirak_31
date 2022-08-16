@@ -116,7 +116,7 @@
       <div class="content">
 	 <div id="comments">
 	      <div class="header-title">
-        		"My page"
+        		My page
         	<span class="right-arrow">&gt;</span>
         	<strong>Reviews</strong>
         	</div>

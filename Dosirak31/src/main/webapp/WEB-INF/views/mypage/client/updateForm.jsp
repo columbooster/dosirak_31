@@ -1,7 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file="/WEB-INF/views/common/common.jspf" %>
-
+		<style>
+			/* input[name='review_score']{float:left;} */
+			.bt{display:inline; }
+  		 input[type='radio']{width: 7%; height: 1.5em; font-size:15px;}
+		</style>
 
 
 		<script type="text/javascript">
@@ -39,6 +43,14 @@
 				$("#mypageReviewListBtn").click(function() {
 					location.href="/mypage/client/mypageReviewList";
 				});
+				
+				let review_score=$("#review_score").val();
+				$(".review_score").each(function(){
+                    if($(this).val()==review_score){
+                       $(this).attr("checked",true);
+                    }
+                 })
+				
 			});
 		</script>
 </head>
@@ -61,7 +73,7 @@
 	<main class="container clear"> 
     <div class="content">
     	<div class="header-title">
-        		"My page"
+        		My page
         	<span class="right-arrow">&gt;</span>
         	<strong>Client_info</strong>
         	</div>
@@ -84,9 +96,13 @@
 								</tr>
 								<tr>
 									<td>별점</td>
-									<td colspan="1" class="text-left">
-										<input type="text" name="review_score" id="review_score" value="${updateData.review_score}" 
-										class="form-control" placeholder="0~5점 사이의 정수를 입력해주세요."/>
+									<td colspan="3" class="text-left">
+									<input type="radio" name="review_score" class="review_score bt" value="1"/>1
+									<input type="radio" name="review_score" class="review_score bt" value="2"/>2
+									<input type="radio" name="review_score" class="review_score bt" value="3"/>3
+									<input type="radio" name="review_score" class="review_score bt" value="4"/>4
+									<input type="radio" name="review_score" class="review_score bt" value="5"/>5	
+									<input type="hidden" id="review_score" value="${updateData.review_score}"/>								
 									</td>
 								</tr>
 								<tr class="table-tr-height">

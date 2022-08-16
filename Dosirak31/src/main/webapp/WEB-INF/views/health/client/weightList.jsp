@@ -20,6 +20,7 @@
                let word="<c:out value='${data.keyword}'/>";
                let value="";
                if(word!=""){
+                  $("#keyword").attr("readonly",false);
                   $("#keyword").val("<c:out value='${data.keyword}'/>");
                   $("#search").val("<c:out value='${data.search}'/>");
                   
@@ -122,7 +123,7 @@
                                     src="/dosirak31img/health/${imgBoard.health_img }" />
                               </div>
                               <div data-num="${imgBoard.health_no }" class="all_contents">
-                                 <div class="goDetail health_title">${imgBoard.health_title }</div>
+                                 <div class="goDetail health_title white_space">${imgBoard.health_title }</div>
                                  <div>
                                     <div class="health_board_info">
                                        <img class="health_logoImg"
@@ -136,9 +137,7 @@
                         </c:forEach>
                      </c:when>
                      <c:otherwise>
-                        <div>
-                           <div>유산소 동영상(이미지) 게시물이 존재하지 않습니다</div>
-                        </div>
+                           <div class="no_page">등록된 게시물이 없습니다.</div>
                      </c:otherwise>
                   </c:choose>
                </div>

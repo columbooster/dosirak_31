@@ -32,8 +32,8 @@
 </head>
 <body>      
          <div id="errorimg">
-            <img src="/resources/img/common/errorimg.jpg"/>
-            <img src="/resources/img/common/error404.jpg"/>
+            <img src="/resources/images/common/errorimg.jpg"/>
+            <img src="/resources/images/common/error404.jpg"/>
          </div>
          <h2 class="errorfont">페이지를 찾을 수 없습니다.</h2>
          <p class="errorfont">페이지가 존재하지 않거나, 사용할 수 없는 페이지 입니다.</p>

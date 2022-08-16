@@ -87,7 +87,7 @@
                      </form>
                   <!-------------------------------------------------- 동영상 & 소개 공간 ---------------------------------------------------->
                   <div>
-                  <iframe width="560" height="315"
+                  <iframe width="600" height="500"
                      src="https://www.youtube.com/embed/${weightDetail.health_url }?mute=1&autoplay=1"></iframe>
                </div>
                <div class="health_title2">${weightDetail.health_title }</div>
