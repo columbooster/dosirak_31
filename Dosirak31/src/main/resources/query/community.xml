@@ -114,6 +114,7 @@
       FROM dual
    </select>
    
+   
    <!-- 게시물 수정 -->
    <update id="communityUpdate" parameterType="community">
       /* community - communityUpdate*/
@@ -130,7 +131,7 @@
          <if test="file_thumb !=''">
             , file_thumb = #{file_thumb}
          </if>  
-      WHERE community_no = #{community_no}
+      WHERE community_no = #{community_no} And community_category_no = #{community_category_no}
    </update>
    
    <!-- 게시물 삭제 -->

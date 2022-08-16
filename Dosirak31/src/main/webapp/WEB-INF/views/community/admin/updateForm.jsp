@@ -33,7 +33,14 @@
                
                // 목록 버튼 클릭 시 처리 이벤트
                $("#communityListBtn").click(function() {
-                  location.href="/community/admin/communityList";
+                  let list_no ="${updateData.community_category_no}";
+                  console.log(list_no);
+                  
+                  if(list_no == 0){
+                     location.href="/community/admin/communityList?community_category_no=0";
+                  } else if(list_no == 1){
+                     location.href="/community/admin/communityList?community_category_no=1";
+                  }
                });
                
                
@@ -55,6 +62,7 @@
                   <input type="hidden" id="community_no" name="community_no" value="${updateData.community_no}" />
                   <input type="hidden" id="b_file" name="b_file" vale="${updateData.file_name}" />
                   <input type="hidden" id="b_thumb" name="b_thumb" vale="${updateData.file_thumb}" />
+                  <input type="hidden" id="community_category_no" name="community_category_no" value="${updateData.community_category_no}" />
                   
                   <table class="table table-bordered">
                      <tbody>

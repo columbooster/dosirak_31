@@ -20,18 +20,13 @@
             // submit 버튼 클릭시 처리 이벤트
             $("#foodReviewInsertBtn").click(function() {
                
-               // 점수 제한 정규식
-               let scoreval = $('#review_score').val()
-               let scorecheck = /^[0-5]$/
-               if (!scorecheck.test(scoreval)){
-                  alert('점수는 0~5점 사이의 정수를 입력해주세요.')
-                  $('review_score').focus();
-                  return false
-               }
-               
-               // 입력값 체크
-               if(!chkData("#review_name", "작성자를")) return;
-               else if(!chkData("#review_score", "점수를")) return;
+              
+            	 // 입력값 체크 
+                if($("input[name='review_score']:radio:checked").length<1){
+                    alert("점수를 선택하세요");
+                    return;
+                 }
+
                else if(!chkData("#review_contents", "내용을")) return;
                else {
                   $("#f_writeForm").attr({
@@ -49,6 +44,10 @@
                
                });
          });
+         
+     	function orderList(client_no){
+	         location.href="/mypage/client/mypageOrderList?client_no="+client_no;
+	      }
          
       </script>
 </head>

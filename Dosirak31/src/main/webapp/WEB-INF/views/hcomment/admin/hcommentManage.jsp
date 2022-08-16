@@ -18,6 +18,10 @@ th, td {
    margin: auto;
    text-align: center;
 }
+
+#here{
+   display:none;
+}
 </style>
 
 
@@ -43,7 +47,7 @@ th, td {
       <table class="table table-condensed">
          <thead>
             <tr>   
-               <th class="text-center col-md-1">댓글번호</th>
+               <th class="text-center col-md-1" style="visibility: hidden;" id="here">댓글번호</th>
                <th class="text-center col-md-3" >글제목</th>
                <th class="text-center col-md-4">글내용</th>
                <th class="text-center col-md-1">아이디</th>
@@ -57,7 +61,7 @@ th, td {
                   <c:forEach var="hcomment" items="${list}" varStatus="status">
                      <tr id="item-template">
                      <td class="health_comment_no"
-                           data-health_comment_no="${hcomment.health_comment_no}">${hcomment.health_comment_no}</td>
+                           data-health_comment_no="${hcomment.health_comment_no}" style="visibility: hidden;" id="here">${hcomment.health_comment_no}</td>
                         <td class="health_title" style="white-space:nowarp;">${hcomment.health_title}</td>
                         <td class="health_comment_contents">${hcomment.health_comment_contents}</td>
                         <td class="client_id">${hcomment.client_id}</td>

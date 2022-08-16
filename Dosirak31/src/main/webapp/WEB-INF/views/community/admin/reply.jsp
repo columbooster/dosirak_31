@@ -14,7 +14,7 @@
       
          // 글 입력을 위한 Ajax 연동 처리
          //$("#replyInsertBtn").click(function() {
-         /* $(document).on("click", "#replyInsertBtn", function(){   // 댓글 수정도 함꼐하기 위해 동적으로
+          $(document).on("click", "#replyInsertBtn", function(){   // 댓글 수정도 함꼐하기 위해 동적으로
             let insertUrl = "/replies/client/replyInsert";
             
             // JSON.stringify() : JavaScript 값이나 객체를 JSON 문자열로 변환
@@ -50,7 +50,7 @@
                }
             });
             
-         }); */
+         }); 
          /* 비밀번호 확인없이 수정버튼 제어 */
          $(document).on("click", "button[data-btn='upBtn']", function() {
             let panel = $(this).parents("div.panel")
@@ -202,6 +202,34 @@
    <body>
       <div id="replyContainer">
          
+         <%-- 댓글 입력 화면 --%>
+         <form id="replyForm" name="replyForm">
+            <div class="panel panel-default">
+               <table class="table">
+                  <tbody>
+                     <tr>
+                        <td class="col-md-1">작성자</td>
+                        <td class="col-md-3 text-left">
+                           <input type="text" name="client_id" id="client_id" value="<c:out value='${sessionScope.admin_info.admin_id}'/>" readonly="readonly" />
+                        </td>
+                        <td class="col-md-1">비밀번호</td>
+                        <td class="col-md-3 text-left">
+                           <input type="password" name="reply_pw" id="reply_pw" maxlength="18" class="form-control" />
+                        </td>   
+                        <td class="col-md-4">
+                           <button type="button" id="replyInsertBtn" class="dosirakBtn1">저장</button>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="col-md-1">댓글내용</td>
+                        <td colspan="4" class="col-md-11 text-left">
+                           <textarea name="reply_contents" id="reply_contents" class="form-control" rows="3"></textarea>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </div>
+         </form>
          
          
          <%-- 리스트 영역 --%>

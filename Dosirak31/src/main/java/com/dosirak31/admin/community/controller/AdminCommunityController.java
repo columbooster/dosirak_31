@@ -159,14 +159,13 @@ public class AdminCommunityController {
       result = adminCommunityService.communityUpdate(cvo);
       ras.addFlashAttribute("data", cvo);
       
-      if(result == 1) {
-         // 아래 url은 수정 후 상세 페이지로 이동
-         // url = "/board/boardDetail?b_num="+bvo.getB_num();
-         url="/community/admin/communityDetail";
-      }else {
-         // url = "/board/updateForm?b_num="+bvo.getB_num();
-         url="/community/admin/updateForm";
-      }
+      if(result == 1 && cvo.getCommunity_category_no() == 0) {
+         url = "/community/admin/communityDetail?community_category_no=0"; 
+      } else if(result == 1 && cvo.getCommunity_category_no() == 1) {
+         url = "/community/admin/communityDetail?community_category_no=1"; 
+      } else { 
+          url = "/community/admin/updateForm"; }
+      
       return "redirect:"+url; 
    }
    

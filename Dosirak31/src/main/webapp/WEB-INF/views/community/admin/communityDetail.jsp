@@ -84,7 +84,15 @@
                
                // 목록 버튼 클릭 시 처리 이벤트
                $("#communityListBtn").click(function() {
-                  location.href = "/community/admin/communityList";
+                  let list_no ="${detail.community_category_no}";
+                  console.log(list_no);
+                  
+                  if(list_no == 0){
+                     location.href="/community/admin/communityList?community_category_no=0";
+                  } else if(list_no == 1){
+                     location.href="/community/admin/communityList?community_category_no=1";
+                  }
+                  
                });
                
                //비밀번호 확인 버튼 클릭시 실질적인 처리 함수
@@ -151,6 +159,7 @@
                <input type="hidden" name="community_no" value="${detail.community_no}"/>
                <input type="hidden" name="file_no" value="${detail.file_name}" />
                <input type="hidden" name="b_thumb" value="${detail.file_thumb}" />
+               <input type="hidden" name="community_category_no" value="${detail.community_category_no}" />
             </form>
             
             <%-- 비밀번호 확인 버튼 및 버튼 추가 시작--%>

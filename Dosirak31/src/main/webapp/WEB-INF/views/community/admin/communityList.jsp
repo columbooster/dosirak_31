@@ -1,8 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file="/WEB-INF/views/common/common.jspf" %>    
-<style>
-</style>
+
+      <style type="text/css">
+            
+
+        
+      </style>
 
 <script type="text/javascript">
             $(function() {
@@ -162,6 +166,7 @@
                                           <td class="goDetail text-left" style="text-align: left;">
                                           <c:out value="${community.community_title}" />   
                                           <c:if test="${community.reply_cnt > 0}"><span class="reply_count">[${community.reply_cnt}]</span></c:if>
+                                          <c:if test="${community.reply_cnt > 0 && community.community_category_no == 1}"><span> [답변완료]</span></c:if>
                                           </td>
                                        </c:when>
                                        <c:otherwise>
@@ -179,6 +184,7 @@
                                     ${community.community_title} </span></c:if> 
                                     <c:if test="${community.community_notify == 0}">${community.community_title}</c:if> 
                                     <c:if test="${community.reply_cnt > 0}"><span class="reply_count">[${community.reply_cnt}]</span></c:if>
+                                    <c:if test="${community.reply_cnt > 0 && community.community_category_no == 1}"><span> [답변완료]</span></c:if>
                                  </td>
                                  </c:if>
                                  <c:if test="${community.client_id != null && community.admin_id == null}">
