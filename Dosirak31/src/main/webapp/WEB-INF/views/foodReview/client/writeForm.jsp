@@ -106,7 +106,9 @@
                      <tbody>
                         <tr>
                            <td>작성자</td>
-                           <td colspan="3" class="text-left">${sessionScope.client_info.client_id}</td>
+                           <td colspan="3" >
+                           <input type="text" name="review_name" value="
+                           ${sessionScope.client_info.client_id}" readonly="readonly"></td>
                         </tr>
                         <tr>
                            <td>별점</td>

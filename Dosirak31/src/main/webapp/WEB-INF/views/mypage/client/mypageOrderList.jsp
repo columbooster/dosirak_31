@@ -276,7 +276,7 @@
                   </p>
                   <input type="hidden" id="status" value="${order.order_status_no }"/>
                   <p><span>결제상태</span><c:if test="${order.payment_delete eq 0}">결제 완료</c:if>
-                     
+                     <c:if test="${order.payment_delete eq 1}">결제 취소</c:if>
                       / ${order.payment_method }
                       <c:if test="${order.order_status_no eq 4}">
                           <c:if test="${order.payment_delete eq 0}">&nbsp;&nbsp;&nbsp;

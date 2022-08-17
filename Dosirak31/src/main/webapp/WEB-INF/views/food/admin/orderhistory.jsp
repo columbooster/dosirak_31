@@ -241,8 +241,8 @@
 					   
 					 
      		
-					   <p><span>주문자 정보</span>${order.order_client_name} / ${order.client_phone}</p>
-					   <p><span>수령인 정보</span>${order.client_name} / ${order.order_client_phone}</p>
+					   <p><span>주문자 정보</span>${order.client_name} / ${order.client_phone}</p>
+					   <p><span>수령인 정보</span>${order.order_client_name} / ${order.order_client_phone}</p>
 					   <p><span>주소</span>${order.order_address }
 					   <c:if test="${order.order_status_no eq 3}">
 					   	<button type="button" class="dosirakBtn1 deliveryBtn" data-num="${order.order_no }">배달 발송</button>				   

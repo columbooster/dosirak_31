@@ -100,7 +100,7 @@
          where ]]>
          <![CDATA[ 
          rownum <= #{pageNum} * #{amount} 
-         order by review_no desc
+         
          
           )
          
