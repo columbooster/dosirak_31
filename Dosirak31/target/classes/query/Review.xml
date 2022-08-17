@@ -84,11 +84,17 @@
     
     <!-- 리뷰 게시판 리스트 조회 (페이징 처리) 1. -->
 	<select id="foodReviewList" parameterType="review" resultType="review">
-	    <![CDATA[
-    	select review_no, review_contents, review_name, review_score,  to_char(review_date, 'YYYY-MM-DD HH24:MI:ss') as review_date, client_no, order_no,
-        dosirak_no, dosirak_name, food_img1, food_img2, food_img3, food_img4, food_img5
-        FROM ( SELECT /*+ index_desc(review pk_review_no) */
-                    rownum as rnum, review_no, review_contents, review_name, review_score, review_date, r.client_no as client_no, r.order_no as order_no, 
+ <![CDATA[    
+		SELECT 
+                    review_no, review_contents, review_name, review_score, review_date,  client_no, order_no, 
+                     dosirak_no, dosirak_name, food_img1,food_img2, food_img3,
+                      food_img4, food_img5
+         from (  SELECT 
+                    rownum as rnum, review_no, review_contents, review_name, review_score, review_date,  client_no,  order_no, 
+                     dosirak_no, dosirak_name, food_img1,food_img2, food_img3,
+                      food_img4, food_img5
+         from (  SELECT 
+                     review_no, review_contents, review_name, review_score, review_date, r.client_no as client_no, r.order_no as order_no, 
                     d.dosirak_no as dosirak_no, d.dosirak_name as dosirak_name, d.food_img1 as food_img1, d.food_img2 as food_img2, d.food_img3 as food_img3,
                      d.food_img4 as food_img4, d.food_img5 as food_img5
         FROM review r
@@ -97,24 +103,20 @@
          join dosirak d 		 on d.dosirak_no=od.dosirak_no 
          join payment p          on p.order_no=o.order_no 
          join client c 			 on c.client_no=o.client_no 
-         where ]]>
-         <![CDATA[ 
-         rownum <= #{pageNum} * #{amount} 
-         
-         
-          )
-         
-         
-          reviewList
-         WHERE rnum > (#{pageNum} - 1) * #{amount}
-    	]]>
+              order by review_no desc
+        
+        ) reviewList where 
+         rownum<=#{pageNum} *#{amount}
+         )reviewList2
+        where rnum>(#{pageNum}-1)*#{amount}   
+  		]]>
 
     </select>
     
     <!-- 전체 레코드 수 조회 -->
     <select id="foodReviewListCnt" parameterType="review" resultType="int">
     	select count(review_no) 
-        FROM ( SELECT /*+ index_desc(review PK_review_no) */
+        FROM ( SELECT 
                     rownum as rnum, review_no, review_contents, review_name, review_score, review_date, r.client_no as client_no, r.order_no as order_no, 
                     d.dosirak_no as dosirak_no, d.dosirak_name as dosirak_name, d.food_img1 as food_img1, d.food_img2 as food_img2, d.food_img3 as food_img3,
                      d.food_img4 as food_img4, d.food_img5 as food_img5
