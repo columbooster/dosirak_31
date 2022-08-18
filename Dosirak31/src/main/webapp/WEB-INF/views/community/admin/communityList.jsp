@@ -134,7 +134,7 @@
                   <div class="form-group" id="textCheck">
                      <input type="text" name="keyword" id="keyword" placeholder="검색어를 입력하세요" class="form-control">
                   </div>
-                  <button type="button" id="searchBtn" class="dosirakBtn">Search</button>
+                  <button type="button" id="searchBtn" class="dosirakBtn1">&nbsp;&nbsp;검색&nbsp;&nbsp;</button>
                </form>
             </div>   
                <%-- ==================== 검색 기능 종료 ========================= --%>
@@ -220,7 +220,7 @@
                <%-- ==================== 글쓰기 버튼 출력 시작 ========================= --%>
             <div class="contentBtn text-right">
                <c:if test="${sessionScope.client_info.client_id != null || sessionScope.admin_info.admin_id != null}">
-                  <input type="button" value="글쓰기" id="insertFormBtn" class="dosirakBtn">
+                  <input type="button" value="글쓰기" id="insertFormBtn" class="dosirakBtn1">
                </c:if>
             </div>
                <%-- ==================== 글쓰기 버튼 출력 종료 ========================= --%>

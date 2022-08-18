@@ -13,7 +13,7 @@
 </div>
 <div class="wrapper row3">
 
-	<main class="container clear">
+	<main class="container clear" style="padding-bottom:80px;">
 		<div class="content">
 			<div class="main_contents">
 				

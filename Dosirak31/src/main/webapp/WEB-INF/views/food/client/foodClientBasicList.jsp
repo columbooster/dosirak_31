@@ -291,7 +291,7 @@ tr:nth-child(even), #comments li:nth-child(even) {
 							$tr.find(".ji").html(food_fat);
 							$tr.find(".price").html(food_price);
 							$tr.find(".fdImg").html(food_img);
-							$tr.find(".delete").html("<input type='button' value='삭제' class='foodDelete dosirakBtn'/>");
+							$tr.find(".delete").html("<input type='button' value='삭제' class='foodDelete dosirakBtn1'/>");
 							i++;
 							$tbody.append($tr);
 						
@@ -483,7 +483,7 @@ tr:nth-child(even), #comments li:nth-child(even) {
       <div id="breadcrumb" class="hBoard_Name">DOSIRAK31 도시락 만들기</div>
    </div>
    </div>
-<div class="wrapper row3">
+<div class="wrapper row3" style="padding-top:50px;">
   <main class="container clear"> 
     <!-- 장바구니 insert해주기 위한 값들 -->
 	<form id="bagForm" >
@@ -536,7 +536,7 @@ tr:nth-child(even), #comments li:nth-child(even) {
 		    <input type="text" class="form-control" id="age" name="age" placeholder="예:36"  onlyNumber>
 		  </div>
 		  <div class="block clear searchBtn">
-		  	<button type="submit" id="submitBtn" class="dosirakBtn text-right"> &nbsp;&nbsp;  계산하기 &nbsp;&nbsp;</button>
+		  	<button type="submit" id="submitBtn" class="dosirakBtn1 text-right"> &nbsp;&nbsp;  계산하기 &nbsp;&nbsp;</button>
 		  </div>
           <div class="form-group">
          	
@@ -567,8 +567,8 @@ tr:nth-child(even), #comments li:nth-child(even) {
   </main>
 </div>
 
-<div class="wrapper row4">
-  <section id="info" class="clear"> 
+<div class="wrapper row4" style="padding-bottom:45px;">
+  <section id="info" class="clear" > 
     <!-- ################################################################################################ -->
   
    <div id="comments"> 

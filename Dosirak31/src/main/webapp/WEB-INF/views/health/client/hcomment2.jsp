@@ -122,13 +122,16 @@
          <span class="up_date"></span>
          <button type="button" data-btn ="replyBtn" class="btn-write">답글쓰기</button>
          <button type="button" data-btn ="modBtn" class="btn-modify">수정</button>
-         <button type="button" data-btn="delBtn" class="btn-write">삭제</button>
+         <button type="button" data-btn="delBtn" class="btn-delete">삭제</button>
        </li>
     </ul>
+    
+    
     <div id="replyForm" style="display:none" class="form-group">
        <input type="text" name="replyComment" class="form-control" id="exampleInputName2" placeholder="답글을 입력하세요"/>
        <button type="button" id="wrtRepBtn">답글 등록</button><br/>
     </div>
+    
     
     <div class="form-group">
        <input type="text" name ="comment" class="form-control" placeholder="댓글을 입력하세요"/><br/>
@@ -273,7 +276,7 @@
                   
             });
              
-               /*********************************************************************
+              /*********************************************************************
                 답글 달기
              **********************************************************************/
              $(document).on("click", "#wrtRepBtn", function(){   // 보내기 버튼을 눌렀을 때
@@ -353,6 +356,10 @@
           
           let $element = $('#item-template').clone().removeAttr('id'); //<li>를 id삭제한채로 그대로 복사
           
+         let loginName = "${sessionScope.client_info.client_id}";
+          
+          
+          
           $element.addClass("reply");
           $element.attr("data-health_comment_no",health_comment_no); //<li>에 속성 추가 1
           $element.attr("data-parent_health_comment_no",parent_health_comment_no); //<li>에 속성 추가 2
@@ -362,10 +369,18 @@
              $element.find('.client_id').text(client_id);
           }else{
              $element.find('.client_id').text("ㄴ"+client_id);
+             $element.find('.btn-write').detach();
           }
           
           $element.find('.health_comment_contents').text(health_comment_contents);
           $element.find('.up_date').text(up_date);
+          
+        if(loginName != client_id){
+             
+              $element.find('.btn-modify').detach();
+              $element.find('.btn-delete').detach();
+              
+           }
           
           $ul.append($element);
           

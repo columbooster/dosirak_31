@@ -2,12 +2,15 @@ package com.dosirak31.mypage.client.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.dosirak31.mypage.client.service.MypageClientService;
@@ -102,9 +105,55 @@ public class MypageClientController {
       if(result == 1) {
          url ="/mypage/client/mypageMain";
       } else {
-         url ="/mypage/client/cUpdateForm";
+         url ="mypage/client/cUpdateForm";
       }
       
       return "redirect:"+url;
    }
+   
+   /********************************************************
+    * 마이페이지 비밀번호 체크 폼
+    ********************************************************/ 
+   @RequestMapping(value = "/mypageCheckForm")
+   public String mypageCheckForm(@ModelAttribute("data") MypageClientVO mcvo, Model model)  {
+      log.info("mypageCheckForm 호출 성공");
+      
+      MypageClientVO CheckPw = mypageClientService.mypageCheckForm(mcvo);
+         
+      model.addAttribute("CheckPw", CheckPw);
+      
+      return "mypage/client/mypageCheckForm";
+   }
+   
+   /********************************************************
+    * 마이페이지 비밀번호 체크
+    ********************************************************/
+    @RequestMapping(value = "/mypageCheck", method=RequestMethod.POST)
+    public String mypageCheck(MypageClientVO mcvo,HttpServletRequest httpServletRequest, Model model) throws Exception {
+       log.info("mypageCheck 호출 성공");
+        
+       String pw = httpServletRequest.getParameter("client_pw");
+        model.addAttribute("client_pw", pw);
+        
+        return "mypage/client/cUpdateForm";
+    }
+    
+       
+   
+  
+   
+   
+   
+   
+   
+   
+   
+   
 }
+
+
+
+
+
+
+

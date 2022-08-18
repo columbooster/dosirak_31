@@ -70,7 +70,7 @@
    </div>
 <!-- 이미지를 위한 끝-->		
 <!-- main body @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
-<div class="wrapper row3">
+<div class="wrapper row3" style="padding-bottom:45px; padding-top:20px;">
 	<main class="container clear" style="padding: 40px 0;"> 
     <div class="content"> 
     

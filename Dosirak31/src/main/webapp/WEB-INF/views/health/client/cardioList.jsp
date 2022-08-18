@@ -99,9 +99,9 @@
    </div>
 </div>
 <div>
-   <main id="health_main">
+   <main id="health_main" style="padding-top:60px; padding-bottom:40px">
       <!-- main body -->
-      <div>
+      <div >
          <div>
             <figure>
                
@@ -153,7 +153,7 @@
          <tag:pagination pageNum="${pageMaker.cvo.pageNum }"
             amount="${pageMaker.cvo.amount }"
             startPage="${pageMaker.startPage }" endPage="${pageMaker.endPage }"
-            prev="${pageMaker.prev }" next="${pageMaker.next }" />
+            prev="${pageMaker.prev }" next="${pageMaker.next }"  />
 
          <!-------------------------------------------------- 게시판 페이지 바 끝 ---------------------------------------------------->
 

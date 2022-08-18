@@ -240,7 +240,7 @@
    </div>
 </div>
 <!-- 이미지를 위한 끝-->      
-<div class="wrapper row3">
+<div class="wrapper row3" style="padding-bottom:45px; padding-top:50px;">
    <main class="container clear">
    
       <div class="contentContainer container">
@@ -386,7 +386,7 @@
                         <option value="client_id">작성자</option>
                      </select>
                      <input type="text" name="keyword" id="keyword" value="검색어를 입력하세요" class="form-control">
-                     <button type="button" id="searchData" class="dosirakBtn1">검색</button>
+                     <button type="button" id="searchData" class="dosirakBtn1">&nbsp;&nbsp;검색&nbsp;&nbsp;</button>
                   </div>
                </form>
             </div>   

@@ -61,7 +61,7 @@
    </div>
 </div>
 
-<div class="wrapper row3">
+<div class="wrapper row3" style="padding-bottom:100px; padding-top:50px; ">
    <main class="container clear">       
    
       <div class="contentContainer container">
@@ -75,7 +75,7 @@
          </div>
             
             
-            
+           
             <div class="contentTB text-center">
                <form id="f_writeForm" name="f_writeForm" class="form-horizontal">
                   <table class="table table-bordered">
@@ -123,9 +123,9 @@
                   </table>
                   
                   <div class="text-right">
-                     <input type="button" value="저장" id="communityInsertBtn" class="btn btn-success">
-                     <input type="button" value="취소" id="communityCancelBtn" class="btn btn-success">
-                     <input type="button" value="목록" id="communityListBtn" class="btn btn-success">
+                     <input type="button" value="저장" id="communityInsertBtn" class="dosirakBtn" style="width:45px; height:33px;">
+                     <input type="button" value="취소" id="communityCancelBtn" class="dosirakBtn" style="width:45px; height:33px;">
+                     <input type="button" value="목록" id="communityListBtn" class="dosirakBtn" style="width:45px; height:33px;">
                   </div>   
                </form>
             </div>

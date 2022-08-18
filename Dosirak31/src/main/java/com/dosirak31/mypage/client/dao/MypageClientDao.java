@@ -5,12 +5,15 @@ import java.util.List;
 import com.dosirak31.mypage.client.vo.MypageClientVO;
 
 public interface MypageClientDao {
-		
-	public List<MypageClientVO> mypageClientList(MypageClientVO mcvo);		// íšŒì›ì •ë³´
-	
-	public MypageClientVO mypageClientDetail(MypageClientVO mcvo);			// íšŒì› ì •ë³´ ìƒì„¸í˜ì´ì§€
-	
-	public int mypageClientUpdate(MypageClientVO mcvo);						// íšŒì›ì •ë³´ ìˆ˜ì •
-	
-	public int mypageClientDelete(int client_no);							// íšŒì›ì •ë³´ ì‚­ì œ(íƒˆí‡´)
+      
+   public List<MypageClientVO> mypageClientList(MypageClientVO mcvo);      // È¸¿øÁ¤º¸
+   
+   public MypageClientVO mypageClientDetail(MypageClientVO mcvo);         // È¸¿ø Á¤º¸ »ó¼¼ÆäÀÌÁö
+   
+   public int mypageClientUpdate(MypageClientVO mcvo);                  // È¸¿øÁ¤º¸ ¼öÁ¤
+   
+   public int mypageClientDelete(int client_no);                     // È¸¿øÁ¤º¸ »èÁ¦(Å»Åğ)
+
+   public int mypageCheck(MypageClientVO mcvo);                     // ºñ¹Ğ¹øÈ£ Ã¼Å©
+   
 }

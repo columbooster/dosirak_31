@@ -63,7 +63,7 @@
 				</form>
 			</div>
 			 <%--=======회원 목록 시작============--%>
-       		<button type="button" class="dosirakBtn1 text-right" id="memberGraphBtn">회원 통계</button>
+       		<button type="button" class="dosirakBtn1 text-right" id="memberGraphBtn" style="font-size:15px;">회원 통계</button>
 	
        <div id="comments">
    	

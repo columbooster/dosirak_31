@@ -97,7 +97,7 @@
    </div>
 </div>
 <div>
-   <main id="health_main">
+   <main id="health_main" style="padding-top:60px; padding-bottom:40px">
       <!-- main body -->
       <div>
          <div>

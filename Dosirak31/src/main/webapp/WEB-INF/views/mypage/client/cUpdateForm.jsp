@@ -114,6 +114,7 @@
             
             if(!chkData("#client_pw", "비밀번호를")) {
                return;
+           
             } else   if(confirm("정말 탈퇴하시겠습니까?\n(다시는 되돌릴수 없습니다.)")) {
                   goUrl = "/mypage/client/mypageClientDelete";
                   
@@ -189,7 +190,7 @@
           
       }
       
-  	function orderList(client_no){
+     function orderList(client_no){
         location.href="/mypage/client/mypageOrderList?client_no="+client_no;
      }
   </script>
@@ -241,6 +242,9 @@
       
       <form name="f_data" id="f_data" method="post">
       <input type="hidden" name="client_no" value="${sessionScope.client_info.client_no}"/>
+      <input type="hidden" name="client_pw" value="${sessionScope.client_info.client_pw}"/>
+      <input type="hidden" name="client_pw" value="${pw.client_pw}"/>
+      <input type="hidden" name="client_pw" value="${updateData.client_pw}"/>
      </form>
       
       <section id="container" style="width : 80%;">

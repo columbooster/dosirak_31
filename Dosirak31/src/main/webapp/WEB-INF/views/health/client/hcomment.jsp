@@ -121,7 +121,9 @@
          <span class="up_date"></span>
          <button type="button" data-btn ="replyBtn" class="btn-write">답글쓰기</button>
          <button type="button" data-btn ="modBtn" class="btn-modify">수정</button>
-         <button type="button" data-btn="delBtn" class="btn-write">삭제</button>
+         <button type="button" data-btn="delBtn" class="btn-delete">삭제</button>
+       
+         
        </li>
     </ul>
     <div id="replyForm" style="display:none" class="form-group">
@@ -246,7 +248,6 @@
           });
                 
           
-          
              /*********************************************************************
                    댓글 삭제
              *******************************************************************/
@@ -273,7 +274,7 @@
                   
             });
              
-               /*********************************************************************
+             /*********************************************************************
                 답글 달기
              **********************************************************************/
              $(document).on("click", "#wrtRepBtn", function(){   // 보내기 버튼을 눌렀을 때
@@ -310,7 +311,7 @@
                        $("#replyForm").appendTo("body"); // 특정 댓글 밑이 아닌 원래 위치로 되돌림
                     
                 
-            });
+            }); 
               
         });   //최상위 함수
        
@@ -343,7 +344,7 @@
                   alert("게시물에 달린 댓글이 없습니다.");
             });
          } 
-   
+      
         
        /*********************************************************************
           댓글 틀 및 내용을 집어넣어주는 함수(받아온 값들을 셋팅)
@@ -354,6 +355,8 @@
           
           let $element = $('#item-template').clone().removeAttr('id'); //<li>를 id삭제한채로 그대로 복사
           
+          let loginName = "${sessionScope.client_info.client_id}";
+          
           $element.addClass("reply");
           $element.attr("data-health_comment_no",health_comment_no); //<li>에 속성 추가 1
           $element.attr("data-parent_health_comment_no",parent_health_comment_no); //<li>에 속성 추가 2
@@ -361,16 +364,25 @@
           
           
              if(health_comment_no == parent_health_comment_no){
+                
                 $element.find('.client_id').text(client_id);
+                
              }else{
+                
                 $element.find('.client_id').text("ㄴ"+client_id);
+                $element.find('.btn-write').detach();
+                
              }
-         
-            
-         
-         
+          
           $element.find('.health_comment_contents').text(health_comment_contents);
           $element.find('.up_date').text(up_date);
+          
+          if(loginName != client_id){
+             
+              $element.find('.btn-modify').detach();
+              $element.find('.btn-delete').detach();
+              
+           }
           
           $ul.append($element);
           

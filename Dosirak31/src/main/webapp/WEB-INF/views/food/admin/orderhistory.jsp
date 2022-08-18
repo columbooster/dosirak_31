@@ -163,7 +163,7 @@
 	<body>
 	<div class="wrapper row3">
 	<!-- 상세정보 팝업창 -->
-       <div id="popup">
+       <div id="popup" style="padding-left:0px;">
            <h2 align="center" id="on"></h2>
           
            <div align="right" id="detailDiv">        
@@ -183,8 +183,8 @@
            		</tr>
            		
            </table>
-           	 <span class="totalPrice"></span>
-        	 <input type="button" value="닫기" class="dosirakBtn1" id="closeBtn">
+           	 <span class="totalPrice" style="padding-right:20px;"></span>
+        	 <input type="button" value="닫기" class="dosirakBtn1" id="closeBtn" style="margin-top:-7px;">
           </div> 
        </div>
 	<!-- 상세정보 팝업창 끝 -->
@@ -202,7 +202,7 @@
 							<option value="4">주문취소내역</option>
 							<option value="5">배송완료내역</option>
 						</select>
-						<button type="button" class="dosirakBtn1 text-right" id="orderGraphBtn">매출 통계</button>
+						<button type="button" class="dosirakBtn1 text-right" id="orderGraphBtn" style="margin-left:10px;">매출 통계</button>
 					</div>
 				</form>
 			</div>
