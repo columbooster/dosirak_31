@@ -1,19 +1,19 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+   pageEncoding="UTF-8"%>
 <%@ include file="/WEB-INF/views/common/common.jspf"%>
 
 <!-- Bootstrap core CSS -->
 <link href="/resources/include/dist/css/bootstrap.min.css"
-	rel="stylesheet">
+   rel="stylesheet">
 
 <!-- Custom styles for this template -->
 <link href="/resources/include/dist/css/jumbotron-narrow.css"
-	rel="stylesheet">
+   rel="stylesheet">
 
 <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
 <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
 <script
-	src="/resources/include/dist/assets/js/ie-emulation-modes-warning.js"></script>
+   src="/resources/include/dist/assets/js/ie-emulation-modes-warning.js"></script>
 
 <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 <!--[if lt IE 9]>
@@ -25,14 +25,14 @@
          $(function(){
             /*수정 버튼 클릭 시 처리 이벤트*/
             $("#weightUpdateFormBtn").click(function(){
-            	goUrl = "/health/admin/healthUpdateForm";
+               goUrl = "/health/admin/healthUpdateForm";
                 $("#weightData").attr("action",goUrl);
                 $("#weightData").submit();
             })
             
             /* 삭제 버튼 */
             $("#weightDeleteBtn").click(function(){
-            	if(confirm("정말 삭제하시겠습니까?")){
+               if(confirm("정말 삭제하시겠습니까?")){
                     goUrl = "/health/admin/healthBoardDelete";
                     $("#weightData").attr("action",goUrl);
                     $("#weightData").submit();
@@ -76,39 +76,47 @@
 </script>
 
 </head>
-	<div class="wrapper row3">		
-			<div class="content">
-				<div id="gallery">
-					<figure>
-						<form name="weightData" id="weightData" method="post">
-				            <input type="hidden" name="health_no" value="${weightDetail.health_no }"/>
-				   			<input type="hidden" name="health_category_no" value="${weightDetail.health_category_no }"/>
-				            
-				         </form>
-						<header class="heading">${weightDetail.health_title }</header>
-						<!-------------------------------------------------- 동영상 & 소개 공간 ---------------------------------------------------->
-						<div >
+   <div class="wrapper row3">      
+         <div class="content">
+            <div id="gallery">
+               <figure>
+                  <form name="weightData" id="weightData" method="post">
+                        <input type="hidden" name="health_no" value="${weightDetail.health_no }"/>
+                        <input type="hidden" name="health_category_no" value="${weightDetail.health_category_no }"/>
+                      
+                     </form>
+                  <!-------------------------------------------------- 동영상 & 소개 공간 ---------------------------------------------------->
+                  <div>
+                  <iframe width="600" height="500"
+                     src="https://www.youtube.com/embed/${weightDetail.health_url }?mute=1&autoplay=1"></iframe>
+               </div>
+               <div class="health_title2">${weightDetail.health_title }</div>
+               <div>
+                  <div class="health_board_info2">
+                     <img class="health_logoImg2"
+                        src="/resources/images/common/Logo.png" />
+                  </div>
+                  <div class="health_writer_hits2">${weightDetail.admin_id }</div>
+                  <div class="health_writer_hits2">${weightDetail.health_hits }views</div>
+               </div>
 
-							<section>
-								<iframe width="560" height="315"
-									src="https://www.youtube.com/embed/${weightDetail.health_url }?mute=1&autoplay=1"></iframe>
-								<div>
-								${weightDetail.health_contents }
-								</div>	
-							</section>
-						</div>
-						<div>
-							<input type="button" value="글수정" id="weightUpdateFormBtn" class="dosirakBtn1" />
-			                <input type="button" value="글삭제" id="weightDeleteBtn" class="dosirakBtn1" />
-			                <input type="button" value="글쓰기" id="weightInsertFormBtn" class="dosirakBtn1" />
-			                <input type="button" value="목록" id="weightListBtn" class="dosirakBtn1" />
-						</div>
-					</figure>
-				</div>
-			</div>
-			<div class="clear"></div>
+               <hr class="health_hr" />
+               <div class="health_comments_part">
+                  <h3>Detail</h3>
+                  <div>${weightDetail.health_contents }</div>
+                  </div>
+                  <div>
+                     <input type="button" value="글수정" id="weightUpdateFormBtn" class="dosirakBtn1" />
+                         <input type="button" value="글삭제" id="weightDeleteBtn" class="dosirakBtn1" />
+                         <input type="button" value="글쓰기" id="weightInsertFormBtn" class="dosirakBtn1" />
+                         <input type="button" value="목록" id="weightListBtn" class="dosirakBtn1" />
+                  </div>
+               </figure>
+            </div>
+         </div>
+         <div class="clear"></div>
 
-	</div>
-	
+   </div>
+   
 </body>
 </html>

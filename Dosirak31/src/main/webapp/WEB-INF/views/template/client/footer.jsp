@@ -47,7 +47,7 @@
         또한 OECD의 개인정보 보호 가이드라인 등 국제 기준을 준수하여 서비스를 제공합니다.</p>
       </article>
     </div>
-    <div class="one_quarter ceter">
+    <div class="one_quarter center">
       <h6 class="title">고객센터</h6>
       <hr/>
       <article>

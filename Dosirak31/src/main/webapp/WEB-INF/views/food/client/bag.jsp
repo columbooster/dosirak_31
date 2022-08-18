@@ -225,7 +225,7 @@
 
 </head>
 
-<div class="wrapper row3">
+<div class="wrapper row3" style="padding-bottom:80px; padding-top:20px;">
 <input type="hidden" id="client_no" value="${sessionScope.client_info.client_no}"/>	
   <main class="container clear"> 
     <!-- main body -->
@@ -271,7 +271,7 @@
 			                		<tr class="text-center dataNum">
 			                			<td class="dosirak_price"></td>
 			                			<td>X</td>
-										<td><button type="button" class="dosirakBtn3 minusBtn">-</button><span class="quantity"></span><button type="button" class="dosirakBtn3 plusBtn">+</button></td>
+										<td><button type="button" class="dosirakBtn3 minusBtn">-</button><span class="quantity" style="padding:0px 10px;"></span><button type="button" class="dosirakBtn3 plusBtn">+</button></td>
 										<input type="hidden" class="orderlist_quantity"/>
 										<td>+</td>
 										<td>[무료배송] 0원</td>

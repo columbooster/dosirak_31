@@ -9,7 +9,7 @@
 	 section#content div.goodsName { padding:10px 0; text-align:center; }
 	 section#content div.goodsName a { color:#000; }
 	section#content ul.memberList{margin:0px 0px;}
-	 section#content ul li { border:5px solid #eee; padding:10px 20px; margin:40px 0px 0px 0px; width:500px; height:250px;}
+	 section#content ul li { border:5px solid #eee; padding:10px 20px; margin:40px 0px 0px 0px; width:600px; height:auto;}
 	 section#content .memberList span { font-size:15px; font-weight:bold; display:inline-block; width:100px; margin-right:10px; }
 	 
 	</style>
@@ -63,7 +63,7 @@
 				</form>
 			</div>
 			 <%--=======회원 목록 시작============--%>
-       		<button type="button" class="dosirakBtn1 text-right" id="memberGraphBtn">회원 통계</button>
+       		<button type="button" class="dosirakBtn1 text-right" id="memberGraphBtn" style="font-size:15px;">회원 통계</button>
 	
        <div id="comments">
    	

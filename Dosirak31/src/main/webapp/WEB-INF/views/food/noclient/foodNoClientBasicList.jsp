@@ -477,7 +477,7 @@ tr:nth-child(even), #comments li:nth-child(even) {
 	</script>
 
 </head>
-<div class="wrapper row2 bgded"
+<div id="hBoardList_board_img" class="wrapper row2 bgded"
       style="background-image: url('/resources/images/common/lunchbox3.jpg');">
       <div class=" hBoardList_name_location">
       <div id="breadcrumb" class="hBoard_Name">DOSIRAK31 도시락 만들기</div>
@@ -581,7 +581,7 @@ tr:nth-child(even), #comments li:nth-child(even) {
 				<li class="tab-link current" data-tab="tab-1" >메뉴<br/></li>
 				<li class="tab-link " data-tab="tab-2" data-value="야채" id="menu1">야채<br/></li>
 				<li class="tab-link" data-tab="tab-3" data-value="토핑" id="menu2">토핑<br/></li>
-				<li class="tab-link" data-tab="tab-4" data-value="사이드" id="menu3">사이드메뉴<br/></li>
+				<li class="tab-link" data-tab="tab-4" data-value="사이드" id="menu3">사이드<br/></li>
 				<li class="tab-link " data-tab="tab-5" data-value="과일" id="menu4">과일<br/></li>
 			</ul>
 			<div id="tab-1" class="tab-content current">

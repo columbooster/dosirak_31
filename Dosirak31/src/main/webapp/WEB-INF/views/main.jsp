@@ -40,7 +40,7 @@
 <div class="wrapper row2 bgded" style="background-image:url('/resources/images/common/main.jpg');">
   <div class="overlay">
     <section id="pageintro" class="clear"> 
-      <!-- ################################################################################################ -->
+      
       <div class="center btmspace-80">
         <h2 class="heading xxl uppercase btmspace-30"></h2>
         <p class="xl nospace capitalise"><br/><br/><br/><br/><br/><br/><br/>
@@ -50,13 +50,13 @@
   </div>
 </div>
 
-<!-- ################################################################################################ -->
-<!-- ################################################################################################ -->
-<!-- ################################################################################################ -->
+
+
+
 <div class="wrapper row3">
   <main class="container clear">
     <!-- main body -->
-    <!-- ################################################################################################ -->
+    
     <div class="group">
       <div class="one_third first"><img class="ht" src="/resources/images/common/foodProduct.jpg" alt=""></div>
       <div class="two_third">
@@ -83,14 +83,14 @@
       </div>
     
     </div>
-    <!-- ################################################################################################ -->
+    
     <!-- / main body -->
     <div class="clear"></div>
   </main>
 </div>
 <div class="wrapper row4">
   <section id="info" class="clear"> 
-    <!-- ################################################################################################ -->
+    
   
    <div id="comments"> 
    <div style="vertical-align:middle;">
@@ -151,7 +151,7 @@
 		</div>
 	</div>
      </div> 
-    <!-- ################################################################################################ -->
+    
     <div class="clear"></div>
   </section>
 </div>
@@ -160,7 +160,7 @@
 <!-- 하단 -->
 
 <!-- 하단 끝 -->
-<!-- ################################################################################################ -->
+
 <a id="backtotop" href="#top"><i class="fa fa-chevron-up"></i></a> 
 
 </body>

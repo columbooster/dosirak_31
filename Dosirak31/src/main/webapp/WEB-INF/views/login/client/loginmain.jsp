@@ -122,7 +122,7 @@
             	<span><a href="/client/searchid">아이디 찾기</a> | </span><span><a href="/client/searchpw">비밀번호 찾기</a></span>
             </div>
             <div id="btn"> 
-            <input type="submit" id="loginBtn" value="로그인" class="dosirakBtn">
+            <input type="submit" id="loginBtn" value="로그인" class="dosirakBtn1" style="width:510px;">
 			</div>
 			
 			<div class="form-group row">

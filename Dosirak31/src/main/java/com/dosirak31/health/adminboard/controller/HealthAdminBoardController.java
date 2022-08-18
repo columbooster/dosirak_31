@@ -129,7 +129,11 @@ public class HealthAdminBoardController {
 	      
 	      result=healthBoardService.healthBoardInsert(hbvo);
 	      if(result==1) {
-	         url="/health/admin/weightList?health_category_no="+hbvo.getHealth_category_no();
+	    	  if(hbvo.getHealth_category_no()==1) {
+	    		  url="/health/admin/weightList?health_category_no="+hbvo.getHealth_category_no();
+	    	  } else {
+	    		  url="/health/admin/cardioList?health_category_no="+hbvo.getHealth_category_no();
+	    	  }	  
 	      }else {
 	         url="/health/admin/healthWriteForm";
 	      }
@@ -164,7 +168,12 @@ public class HealthAdminBoardController {
 
 		      if(result==1) {
 		    	  if(hbvo.getHealth_category_no()==1) {
-		    		  url="/health/admin/weightDetail?health_no="+hbvo.getHealth_no();
+		    		  if(hbvo.getHealth_category_no()==1) {
+			    		  url="/health/admin/weightDetail?health_no="+hbvo.getHealth_no();
+			    	  } else {
+			    		  url="/health/admin/cardioDetail?health_no="+hbvo.getHealth_no();
+			    	  }	 
+
 		    	  } else {
 		    		  url="/health/admin/cardioDetail?health_no="+hbvo.getHealth_no();
 		    	  }	         

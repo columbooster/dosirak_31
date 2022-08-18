@@ -291,7 +291,7 @@ tr:nth-child(even), #comments li:nth-child(even) {
 							$tr.find(".ji").html(food_fat);
 							$tr.find(".price").html(food_price);
 							$tr.find(".fdImg").html(food_img);
-							$tr.find(".delete").html("<input type='button' value='삭제' class='foodDelete dosirakBtn'/>");
+							$tr.find(".delete").html("<input type='button' value='삭제' class='foodDelete dosirakBtn1'/>");
 							i++;
 							$tbody.append($tr);
 						
@@ -477,13 +477,13 @@ tr:nth-child(even), #comments li:nth-child(even) {
 	</script>
 
 </head>
-<div class="wrapper row2 bgded"
+<div id="hBoardList_board_img" class="wrapper row2 bgded"
       style="background-image: url('/resources/images/common/lunchbox3.jpg');">
       <div class=" hBoardList_name_location">
       <div id="breadcrumb" class="hBoard_Name">DOSIRAK31 도시락 만들기</div>
    </div>
    </div>
-<div class="wrapper row3">
+<div class="wrapper row3" style="padding-top:50px;">
   <main class="container clear"> 
     <!-- 장바구니 insert해주기 위한 값들 -->
 	<form id="bagForm" >
@@ -536,7 +536,7 @@ tr:nth-child(even), #comments li:nth-child(even) {
 		    <input type="text" class="form-control" id="age" name="age" placeholder="예:36"  onlyNumber>
 		  </div>
 		  <div class="block clear searchBtn">
-		  	<button type="submit" id="submitBtn" class="dosirakBtn text-right"> &nbsp;&nbsp;  계산하기 &nbsp;&nbsp;</button>
+		  	<button type="submit" id="submitBtn" class="dosirakBtn1 text-right"> &nbsp;&nbsp;  계산하기 &nbsp;&nbsp;</button>
 		  </div>
           <div class="form-group">
          	
@@ -567,8 +567,8 @@ tr:nth-child(even), #comments li:nth-child(even) {
   </main>
 </div>
 
-<div class="wrapper row4">
-  <section id="info" class="clear"> 
+<div class="wrapper row4" style="padding-bottom:45px;">
+  <section id="info" class="clear" > 
     <!-- ################################################################################################ -->
   
    <div id="comments"> 
@@ -581,7 +581,7 @@ tr:nth-child(even), #comments li:nth-child(even) {
 				<li class="tab-link current" data-tab="tab-1" >메뉴<br/></li>
 				<li class="tab-link " data-tab="tab-2" data-value="야채" id="menu1">야채<br/></li>
 				<li class="tab-link" data-tab="tab-3" data-value="토핑" id="menu2">토핑<br/></li>
-				<li class="tab-link" data-tab="tab-4" data-value="사이드" id="menu3">사이드메뉴<br/></li>
+				<li class="tab-link" data-tab="tab-4" data-value="사이드" id="menu3">사이드<br/></li>
 				<li class="tab-link " data-tab="tab-5" data-value="과일" id="menu4">과일<br/></li>
 			</ul>
 			<div id="tab-1" class="tab-content current">

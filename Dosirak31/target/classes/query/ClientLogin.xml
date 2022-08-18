@@ -4,7 +4,7 @@
 
 	
 	<select id="loginProcess" parameterType="clientLogin" resultType="clientLogin">
-		select client_no,client_id,client_name,client_email,client_phone,client_address,client_date,client_update
+		select client_no,client_id,client_name,client_email,client_phone,client_address,client_date,client_update,client_rrn
 		from client
 		where client_id = #{client_id} and client_pw = #{client_pw}
 	</select>

@@ -163,7 +163,7 @@
                IMP.request_pay({ // param
                   pg : "kakaopay.TC0ONETIME", // 결제
                   pay_method: "card",
-                  merchant_uid :"d"+order_no, // 주문 번호
+                  merchant_uid :"da"+order_no, // 주문 번호
                   name : order_name, //상품명
                   amount : price, //가격
                   buyer_email : email, //이메일
@@ -253,7 +253,7 @@
 
 </head>
 
-<div class="wrapper row3">
+<div class="wrapper row3" style="padding-bottom:80px; padding-top:20px;">
 <input type="hidden" id="client_no" value="${sessionScope.client_info.client_no}"/>   
 <!-- 주문 상태 2번 insert -->
 <c:choose>

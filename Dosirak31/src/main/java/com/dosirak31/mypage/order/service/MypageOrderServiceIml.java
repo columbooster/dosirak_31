@@ -14,20 +14,9 @@ import lombok.Setter;
 
 @Service
 public class MypageOrderServiceIml implements MypageOrderService {
-
-	
-	@Setter(onMethod_ = @Autowired)
-	private MypageOrderDao mypageOrderDao;
-	
-
-	
-	// 二쇰Ц�궡�뿭 �젅肄붾뱶 �닔 議고쉶
-	@Override
-	public int mypageOrderListCnt(OrderDetailVO odv) {
-		return mypageOrderDao.mypageOrderListCnt(odv);
-	}
-
-
+   
+   @Setter(onMethod_ = @Autowired)
+   private MypageOrderDao mypageOrderDao;
    
    // 二쇰Ц 궡 뿭 議고쉶
    @Override
@@ -37,13 +26,17 @@ public class MypageOrderServiceIml implements MypageOrderService {
       return list;
    }
    
+   // 二쇰Ц 궡 뿭  젅肄붾뱶  닔 議고쉶
+   @Override
+   public int mypageOrderListCnt(OrderDetailVO odv) {
+      return mypageOrderDao.mypageOrderListCnt(odv);
+   }
 
-
-	@Override
-	public int mypageOrderDelete(OrderDetailVO odv) {
-		int result= 0;
-		result = mypageOrderDao.mypageOrderDelete(odv.getOrder_no());
-		return result;
-	}
+   @Override
+   public int mypageOrderDelete(OrderDetailVO odv) {
+      int result= 0;
+      result = mypageOrderDao.mypageOrderDelete(odv.getOrder_no());
+      return result;
+   }
 
 }

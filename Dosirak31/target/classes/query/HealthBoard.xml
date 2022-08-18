@@ -22,7 +22,7 @@
 				health_no,admin_id, health_title, to_char(health_date,'YYYY-MM-DD') as health_date, health_closed, health_hits,
 		  health_contents, health_url, health_img, health_category_no
 		FROM(
-				 select 
+				 select /*+ index_desc(health pk_health) */
              	  	 rownum as rnum, health_no,admin_id, health_title, health_date, health_closed, health_hits,
 		  health_contents, health_url, health_img, health_category_no
            from health
@@ -32,7 +32,7 @@
 		</trim>
 		health_category_no = #{health_category_no} and
         	<![CDATA[ 	rownum <= #{pageNum} * #{amount}
-        	order by health_no desc
+        		
         		) healthList
         	WHERE rnum > (#{pageNum} - 1) * #{amount}
         	]]>
