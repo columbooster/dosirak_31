@@ -1,1 +1,1 @@
-Welbeing Life Community site
+Well-being Life Community site
