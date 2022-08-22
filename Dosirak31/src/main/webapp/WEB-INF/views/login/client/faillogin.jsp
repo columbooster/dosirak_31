@@ -39,7 +39,7 @@
 	<h1>아이디, 비밀번호를 다시 확인해주세요</h1>
 	
 	<div class ="forgot">
-         </span><span><a href="/client/searchid">아이디 찾기</a> | </span><span><a href="/client/searchpw">비밀번호 찾기</a></span>
+         <span><a href="/client/loginmain">로그인 하기</a> | <a href="/client/searchid">아이디 찾기</a> | </span><span><a href="/client/searchpw">비밀번호 찾기</a></span>
     </div>
 	
 	

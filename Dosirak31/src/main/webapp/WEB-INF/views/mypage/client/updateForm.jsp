@@ -77,12 +77,12 @@
 	<div class="wrapper row3">
 	<main class="container clear"> 
     <div class="content">
-    	<div class="header-title">
+    	<div class="header-title" style="padding-bottom: 10px;">
         		My page
         	<span class="right-arrow">&gt;</span>
         	<strong>Client_info</strong>
         	</div>
-       		<h3 class="title">회원정보 수정</h3>
+       		<h3 class="title">리뷰 수정</h3>
 		<div class="contentTB text-center">
 					<form id="f_updateForm" name="f_updateForm">
 						<input type="hidden" id="review_no" name="review_no" value="${updateData.review_no}" />

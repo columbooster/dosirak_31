@@ -119,8 +119,8 @@
                      </tbody>
                   </table>
                   </section>
-                  <div class="btn">
-                   <input type="button" value="목록" id="mypageReviewListBtn" class="dosirakBtn2"  >
+                  <div style=" float: right;">
+                   <input type="button" value="목록" id="mypageReviewListBtn" class="dosirakBtn2" >
                      <input type="button" value="글 수정" id="updateFormBtn" class="dosirakBtn">
                      
                      <input type="button" value="글 삭제" id="mypageReviewDeleteBtn" class="dosirakBtn" >

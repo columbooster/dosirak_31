@@ -11,8 +11,7 @@
    
    <!-- 상세페이지 -->
    <select id="mypageClientDetail" parameterType="mypageClient" resultType="mypageClient">
-      SELECT
-            client_no, client_id, client_name, client_pw, client_address, client_date, client_phone
+      SELECT *
       FROM client
       WHERE client_no = ${client_no}
    </select>
@@ -37,8 +36,8 @@
    
    <!-- 비밀번호 확인 -->
    <select id="mypageCheck" parameterType="mypageClient" resultType="mypageClient">
-      SELECT client_no
+      SELECT *
       FROM client
-      WHERE client_pw = #{client_pw}
+      WHERE client_no = #{client_no}
    </select>
 </mapper>

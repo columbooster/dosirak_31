@@ -124,6 +124,7 @@ th, td {
 
                      $("#comment_no_date").attr("action",
                            "/adminhreplies/remove");
+                     
                      $("#comment_no_date").submit();
                   }
 

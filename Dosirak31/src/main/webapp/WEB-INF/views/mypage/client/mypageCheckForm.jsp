@@ -10,7 +10,6 @@
             
             $("#updatePw").click(function() {
                if ($('input[name=client_pw]').val() != '${CheckPw.client_pw}'){
-                  console.log($('input[name=client_pw]').val());
                   alert('입력하신 비밀번호를 확인해주세요.');
                   return false;
                } else {
@@ -70,7 +69,7 @@
             <form id="p_data" name="p_data">
         <section id="content">
            <div class="header-title">
-              "My page"
+              My page
            <span class="right-arrow">&gt;</span>
            <strong>Client_info</strong>
            </div>
@@ -92,7 +91,7 @@
             </table>
                
       </section>
-      <div class="btn" style="margin-right: 15%;">
+      <div style="margin-right: 20%; float: right" >
       <input type="button" value="회원정보 수정" id="updatePw" class="dosirakBtn">
       </div>      
             </form>   
