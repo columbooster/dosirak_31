@@ -4,23 +4,37 @@
 
 
    <script type="text/javascript">
+   
+   
+   
+      
+   
       $(function() {
          
          // 삭제버튼 클릭시 삭제 처리
-         $("#DeleteBtn").click(function() {
+         $(".dosirakBtn3").click(function() {
             if(confirm("삭제 하시겠습니까?")) {
+            	
+               let review_no = $(this).parents().parents().attr("data-num");
+               
                goUrl = "/foodReview/admin/adminReviewDelete";
                
+               $("#review_no").attr("value",review_no);
+               
                $("#del").attr("action",goUrl);
+               
                $("#del").submit();
+               
                alert("삭제되었습니다.");
+               
             } else {
                alert("취소되었습니다.");
             }
             
-            })
+            });
+      
          
-         //  검색 후 검색 대상과 검색 단어 출력
+         /* //  검색 후 검색 대상과 검색 단어 출력
          let word ="<c:out value='${AdminReviewVO.keyword}' />";
          let value="";
          if(word!=""){
@@ -65,7 +79,7 @@
             $("#pageNum").val(1);
             goPage();
             
-         });
+         }); */
          
          $(".paginate_button a").click(function(e) {
             e.preventDefault();
@@ -75,18 +89,16 @@
          
       });
       
-      /* // 검색을 위한 실질적인 처리 함수
+       /* // 검색을 위한 실질적인 처리 함수
       function goPage(){
-         if($("#search").val()=="all"){
-            $("#keyword").val("");
-         }
+        
          $("#f_search").attr({
             "method":"get",
             "action":"/foodReview/admin/adminfoodReviewList"
          });
          $("#f_search").submit();
-      } */
-      
+      } 
+       */
    </script>
 
 </head>
@@ -101,7 +113,7 @@
                   <%-- 페이징 처리를 위한 파라미터 --%>
                   <input type="hidden" name="pageNum" value="${pageMaker.cvo.pageNum}">
                   <input type="hidden" name="amount" value="${pageMaker.cvo.amount}">
-                  
+               </form>
                   <!-- <h3><span class="label label-success">검색조건</span> </h3>
                   <div class="form-group">
                      <select id="search" name="search" class="form-control">
@@ -120,10 +132,16 @@
                   </div>
                   <button type="button" id="searchBtn" class="btn btn-primary">Search</button>
                   <button type="button" id="allSearchBtn" class="btn btn-primary" >All Search</button> -->
-               </form>
+               
              
          
          <%-- ===================== 게시판 리스트 ======================= --%>
+         
+          <form id="del" name="del" method="get">
+                <input type="hidden" id="review_no" name="review_no" />
+          </form>
+                                 
+                                 
             <div class="table-responsive table-height">
                <table class="table table-bordered" style="width: 80%;">
                   <thead>
@@ -141,16 +159,18 @@
                      <c:choose>
                         <c:when test="${not empty adminReviewList }">
                            <c:forEach var="adminReview" items="${adminReviewList}" varStatus="status">
+                                 
                               <tr class="text-center" data-num="${adminReview.review_no}">
+                              
                                  <td>${count - status.index}</td>
                                  <td class="goDetail tal">${adminReview.review_date}</td>
                                  <td>${adminReview.review_contents}</td>
                                  <td class="name">${adminReview.review_score}</td>
-                                 <td class="name">${adminReview.review_name}
-                                 <form id="del">
-                                 <input type="hidden" id="review_no" name="review_no" value="${adminReview.review_no}" />
-                                 </form></td>
-                                 <td><input type="button" value="삭제" name="review_no" class="dosirakBtn3" id="DeleteBtn"></td>
+                                 <td class="name">${adminReview.review_name}</td>
+                                 <td>
+                                 	<input type="button" value="삭제" name="review_no" class="dosirakBtn3" id="DeleteBtn">
+                                 </td>
+                              
                               </tr>
                            </c:forEach>
                         </c:when>

@@ -47,7 +47,7 @@
                
                // 목록 버튼 클릭 시 처리 이벤트
                $("#communityListBtn").click(function() {
-                  location.href = "/community/admin/communityList";
+                  location.href = "/community/client/communityList";
                });
             });
          </script>

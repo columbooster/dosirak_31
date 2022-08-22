@@ -21,7 +21,7 @@
             $("#foodReviewInsertBtn").click(function() {
                
               
-            	 // 입력값 체크 
+                // 입력값 체크 
                 if($("input[name='review_score']:radio:checked").length<1){
                     alert("점수를 선택하세요");
                     return;
@@ -35,6 +35,7 @@
                   });
                   $("#f_writeForm").submit();
                   }
+                alert("리뷰등록이 완료되었습니다.");
                });
                
                // 목록 버튼 클릭시 처리 이벤트
@@ -45,9 +46,9 @@
                });
          });
          
-     	function orderList(client_no){
-	         location.href="/mypage/client/mypageOrderList?client_no="+client_no;
-	      }
+        function orderList(client_no){
+            location.href="/mypage/client/mypageOrderList?client_no="+client_no;
+         }
          
       </script>
 </head>
@@ -107,13 +108,12 @@
                         <tr>
                            <td>작성자</td>
                            <td colspan="5" >
-                           <input type="text" name="review_name" value="
-                           ${sessionScope.client_info.client_id}" readonly="readonly" style="width:220px"></td>
+                           <input type="text" name="review_name" value="${sessionScope.client_info.client_id}" readonly="readonly" style="width:170px; text-align: left"></td>
                         </tr>
                         <tr>
                            <td>별점</td>
                            <td colspan="3" class="text-left disflex">
-                               		<input type="radio" style="margin:0px 7px;" name="review_score" class="review_score bt" value="1"/>1
+                                     <input type="radio" style="margin:0px 7px;" name="review_score" class="review_score bt" value="1"/>1
                                       <input type="radio" style="margin:0px 7px;" name="review_score" class="review_score bt" value="2"/>2
                                       <input type="radio" style="margin:0px 7px;" name="review_score" class="review_score bt" value="3"/>3
                                       <input type="radio" style="margin:0px 7px;" name="review_score" class="review_score bt" value="4"/>4

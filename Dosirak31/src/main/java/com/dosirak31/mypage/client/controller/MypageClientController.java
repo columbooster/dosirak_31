@@ -3,6 +3,7 @@ package com.dosirak31.mypage.client.controller;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -79,9 +80,13 @@ public class MypageClientController {
     * @return : MypageClientVO
     ********************************************************/
    @RequestMapping(value= "/cUpdateForm")
-   public String cUpdateForm(@ModelAttribute("data") MypageClientVO mcvo, Model model) {
+   public String cUpdateForm(@ModelAttribute("data") MypageClientVO mcvo, Model model, HttpSession session) {
       log.info("cUpdateForm 호출 성공");
       log.info("client_no = " + mcvo.getClient_no());
+      
+      int client_no = (int) session.getAttribute("client_no"); //세션에서 client_id값을 가져옴(수정 불가능한 고정값)
+      mcvo.setClient_no(client_no);
+      
       MypageClientVO updateData = mypageClientService.cUpdateForm(mcvo);
       
       model.addAttribute("updateData", updateData);
@@ -103,7 +108,7 @@ public class MypageClientController {
       ras.addFlashAttribute("data", mcvo);
       
       if(result == 1) {
-         url ="/mypage/client/mypageMain";
+         url ="mypageMain";
       } else {
          url ="mypage/client/cUpdateForm";
       }
@@ -129,9 +134,14 @@ public class MypageClientController {
     * 마이페이지 비밀번호 체크
     ********************************************************/
     @RequestMapping(value = "/mypageCheck", method=RequestMethod.POST)
-    public String mypageCheck(MypageClientVO mcvo,HttpServletRequest httpServletRequest, Model model) throws Exception {
+    public String mypageCheck(MypageClientVO mcvo,HttpServletRequest httpServletRequest, Model model, HttpSession session) throws Exception {
        log.info("mypageCheck 호출 성공");
         
+       int client_no = (int) session.getAttribute("client_no"); //세션에서 client_id값을 가져옴(수정 불가능한 고정값)
+       mcvo.setClient_no(client_no);
+       MypageClientVO updateData = mypageClientService.cUpdateForm(mcvo);
+       model.addAttribute("updateData", updateData);
+       
        String pw = httpServletRequest.getParameter("client_pw");
         model.addAttribute("client_pw", pw);
         

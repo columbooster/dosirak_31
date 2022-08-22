@@ -16,15 +16,17 @@ public class MypageReviewServiceImpl implements MypageReviewService {
 	@Setter(onMethod_ = @Autowired)
 	private MypageReviewDao mypageReviewDao;
 
-	// 마이페이지 회원정보 구현
+	// 留덉씠�럹�씠吏� �쉶�썝�젙蹂� 援ы쁽
 	@Override
-	public List<MypageReviewVO> mypageList(MypageReviewVO mrvo) {
-		List<MypageReviewVO> list = null;
+	public MypageReviewVO mypageList(MypageReviewVO mrvo) {
+		
+		MypageReviewVO list = null;
 		list = mypageReviewDao.mypageList(mrvo);
+		
 		return list;
 	}
 	
-	// 마이페이지 리뷰 목록 구현
+	// 留덉씠�럹�씠吏� 由щ럭 紐⑸줉 援ы쁽
 	@Override
 	public List<MypageReviewVO> mypageReviewList(MypageReviewVO mrvo) {
 		List<MypageReviewVO> reviewlist = null;
@@ -32,7 +34,7 @@ public class MypageReviewServiceImpl implements MypageReviewService {
 		return reviewlist;
 	}
 
-	// 마이페이지 리뷰 삭제 
+	// 留덉씠�럹�씠吏� 由щ럭 �궘�젣 
 	@Override
 	public int mypageReviewDelete(MypageReviewVO mrvo) {
 		int result = 0;
@@ -40,7 +42,7 @@ public class MypageReviewServiceImpl implements MypageReviewService {
 		return result;
 	}
 	
-	// 마이페이지 리뷰 상세페이지
+	// 留덉씠�럹�씠吏� 由щ럭 �긽�꽭�럹�씠吏�
 	@Override
 	public MypageReviewVO mypageReviewDetail(MypageReviewVO mrvo) {
 		MypageReviewVO detail = null;
@@ -53,7 +55,7 @@ public class MypageReviewServiceImpl implements MypageReviewService {
 		return detail;
 	}
 	
-	// 마이페이지 업데이트 폼
+	// 留덉씠�럹�씠吏� �뾽�뜲�씠�듃 �뤌
 	@Override
 	public MypageReviewVO updateForm(MypageReviewVO mrvo) {
 		MypageReviewVO detail = null;
@@ -61,7 +63,7 @@ public class MypageReviewServiceImpl implements MypageReviewService {
 		return detail;
 	}
 	
-	// 마이페이지 리뷰 수정
+	// 留덉씠�럹�씠吏� 由щ럭 �닔�젙
 	@Override
 	public int mypageReviewUpdate(MypageReviewVO mrvo) {
 		int result = 0;
@@ -69,7 +71,7 @@ public class MypageReviewServiceImpl implements MypageReviewService {
 		return result;
 	}
 
-	// 전체 레코드수 구현
+	// �쟾泥� �젅肄붾뱶�닔 援ы쁽
 	@Override
 	public int mypageReviewListCnt(MypageReviewVO mrvo) {
 		return mypageReviewDao.mypageReviewListCnt(mrvo);

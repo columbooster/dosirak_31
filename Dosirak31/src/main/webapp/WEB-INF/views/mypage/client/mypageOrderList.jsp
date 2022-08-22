@@ -34,7 +34,12 @@
         }
    
     #trClone{display:none;}
-    #detailTable tr,td{border:1px solid; border-collapse:collapse;}
+    #detailTable tr,td{border:1px solid; border-collapse:collapse; vertical-align: middle}
+    	
+    	img {
+    	width: 75px; 
+    	height: 75px;
+    	}
     
    </style>
    
@@ -156,9 +161,9 @@
        })  
       })
       
-  	function orderList(client_no){
-	         location.href="/mypage/client/mypageOrderList?client_no="+client_no;
-	      }
+     function orderList(client_no){
+            location.href="/mypage/client/mypageOrderList?client_no="+client_no;
+         }
    
    </script>
 
@@ -225,7 +230,7 @@
                     <td>도시락</td>
                     <td>수량</td>
                     <td>가격</td>
-                    <td colspan="5">상품 내용</td>
+                    <td colspan="5" style="text-align: center">상품 내용</td>
                     
                     
                     
@@ -267,7 +272,7 @@
                 </form>
                 <ul class="orderList">
                     
-                 <li style="height: 250px;">      
+                 <li style="height: 300px;">      
                  <div>
                   <p><span>주문번호</span><a href="javascript:popup(${order.order_no })" class="popUpBtn">${order.order_no }</a></p>
                   <p><span>주문상태</span><c:if test="${order.order_status_no eq 3}">주문 완료 / ${order.order_date} &nbsp;<a class="mypageOrderDeleteBtn" data-num="${order.order_no }">주문취소</a> </c:if>
@@ -291,8 +296,8 @@
            
                   <p><span>주문자 정보</span>${order.client_name} / ${order.client_phone}</p>
                   <p><span>수령인 정보</span>${order.order_client_name} / ${order.order_client_phone}</p>
-                  <p><span>주소</span>${order.order_address }
-                  </p>               
+                  <p><span>주소</span>${order.order_address }</p>
+                  <p><span>주문일시</span>${order.order_date }</p>             
                   <p style="text-align:right;">
                    <c:if test="${order.order_status_no eq 5}">
                   <a class="writeForm" data-num="${order.order_no }">리뷰 쓰기</a>

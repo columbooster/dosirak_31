@@ -56,7 +56,7 @@
          
          // 회원수정,삭제 버튼 클릭시 처리 이벤트
          $("#client_infoUpdateBtn").click(function() {
-            let client_no = "${sessionScope.client_info.client_no }"
+            let client_no = "${mypageList.client_no }"
             location.href = "/mypage/client/mypageCheckForm?client_no="+client_no;
          });
       });
@@ -128,15 +128,15 @@
             <table>
                <tr>  
                   <td class="apple" id="top">아이디</td>
-                  <td class="second" id="top">${client_info.client_id }</td>
+                  <td class="second" id="top">${mypageList.client_id }</td>
                </tr>
                <tr>  
                   <td class="apple" style="width: 100px;">이름</td>
-                  <td class="second">${client_info.client_name }</td>
+                  <td class="second">${mypageList.client_name }</td>
                </tr>
                <tr>  
                   <td class="apple" id="bottom">주민번호</td>
-                  <td class="second" id="bottom">${client_info.client_rrn }</td>
+                  <td class="second" id="bottom">${mypageList.client_rrn }</td>
                </tr>
                
             </table>
@@ -144,29 +144,26 @@
             <table>
                <tr>  
                   <td class="apple" id="top">비밀번호</td>
-                  <td class="second" id="top"><a href="javascript:CheckForm(${sessionScope.client_info.client_no })">변경</a></td>
+                  <td class="second" id="top"><a href="javascript:CheckForm(${mypageList.client_no })">변경</a></td>
                </tr>
                <tr>  
                   <td class="apple">이메일</td>
-                  <td class="second">${client_info.client_email }</td>
+                  <td class="second">${mypageList.client_email }</td>
                </tr>
                <tr>  
                   <td class="apple">휴대폰</td>
-                  <td class="second">${client_info.client_phone }</td>
+                  <td class="second">${mypageList.client_phone }</td>
                </tr>
                <tr>  
                   <td class="apple">주소</td>
-                  <td class="second">${client_info.client_address }</td>
+                  <td class="second">${mypageList.client_address }</td>
                </tr>
                <tr>  
                   <td class="apple" id="bottom">가입일자</td>
-                  <td class="second" id="bottom">${client_info.client_date }</td>
+                  <td class="second" id="bottom">${mypageList.client_date }</td>
                </tr>
                
                
-               
-            
-            
             </table>
                
       </section>

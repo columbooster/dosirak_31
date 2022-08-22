@@ -80,15 +80,18 @@
             else if(!chkData("#client_address","주소를")) return;
             else if(!chkData("#client_rrn","생년월일을")) return;
             else {
-               alert('회원정보 수정이 완료되었습니다.');
+               if(confirm("수정하시겠습니까?")) {
                $("#updateForm").attr({
                   "method":"post",
                   "action":"/mypage/client/mypageClientUpdate"
                });
                $("#updateForm").submit();
+            } else {
+               alert("취소되었습니다.");
+               }
             }
          });
-         
+ 
          
          // 취소 버튼 클릭 시 처리 이벤트
          $("#cancleBtn").click(function() {
@@ -102,6 +105,7 @@
          
          // 회원 탈퇴 버튼 클릭시 처리 이벤트
          $("#mypageClientDeleteBtn").click(function() {
+            
             
             // 비밀번호 일치 체크
             var client_pw=$('input[name=client_pw]').val();
@@ -241,10 +245,8 @@
              <h3 class="title">회원정보 수정</h3>
       
       <form name="f_data" id="f_data" method="post">
-      <input type="hidden" name="client_no" value="${sessionScope.client_info.client_no}"/>
-      <input type="hidden" name="client_pw" value="${sessionScope.client_info.client_pw}"/>
-      <input type="hidden" name="client_pw" value="${pw.client_pw}"/>
-      <input type="hidden" name="client_pw" value="${updateData.client_pw}"/>
+      	<input type="hidden" name="client_no" value="${sessionScope.client_info.client_no}"/>
+      
      </form>
       
       <section id="container" style="width : 80%;">
@@ -259,48 +261,48 @@
                         <tr>
                            <td>아이디</td>
                            <td class="text-left"><input type="text" name="client_id" id="client_id" class="form-control" 
-                           value="<c:out value='${sessionScope.client_info.client_id}'/>" readonly="readonly"/>
+                           value="<c:out value='${updateData.client_id}'/>" readonly="readonly"/>
                            <div><span class="id_input_re_1">사용 가능한 아이디입니다.</span>
                               <span class="id_input_re_2">아이디가 이미 존재합니다.</span></div>
                            </td>
                         <tr>
                            <td>이름</td>
                            <td class="text-left"><input type="text" name="client_name" id="client_name" class="form-control" readonly="readonly"
-                           value="<c:out value='${sessionScope.client_info.client_name}'/>"/></td>
+                           value="<c:out value='${updateData.client_name}'/>"/></td>
                         </tr>
                         <tr>
                            <td>주민등록번호</td>
                            <td class="text-left"><input type="text" name="client_rrn" id="client_rrn" class="form-control" maxlength="8" 
                            placeholder="ex) 9*****-1" readonly="readonly"
-                           value="<c:out value='${sessionScope.client_info.client_rrn}'/>"/>
+                           value="<c:out value='${updateData.client_rrn}'/>"/>
                            </td>
                         </tr>   
                         <tr>
                            <td>패스워드</td>
-                           <td class="text-left"><input type="password" name="client_pw" id="client_pw" class="form-control" 
-                           value="<c:out value='${sessionScope.client_info.client_pw}'/>"/></td>
+                           <td class="text-left"><input type="password" name="client_pw" id="client_pw" class="form-control"
+                           value="<c:out value='${updateData.client_pw}'/>"/></td>
                         </tr>
                         <tr>
                            <td>패스워드 확인</td>
                            <td class="text-left"><input type="password" name="client_pw_re" id="client_pw_re" class="form-control" 
-                           value="<c:out value='${sessionScope.client_info.client_pw}'/>"/></td>
+                           value="<c:out value='${updateData.client_pw}'/>"/></td>
                         </tr>
 
                         <tr>
                            <td>이메일</td>
                            <td class="text-left"><input type="text" name="client_email" id="client_email" class="form-control" 
                            placeholder="ex) javauser@gamil.com" 
-                           value="<c:out value='${sessionScope.client_info.client_email}'/>"/></td>
+                           value="<c:out value='${updateData.client_email}'/>"/></td>
                         </tr>
                         <tr>
                            <td>핸드폰번호</td>
                            <td class="text-left"><input type="text" name="client_phone" id="client_phone" class="form-control" 
                            placeholder="ex) 010-1234-5678" 
-                           value="<c:out value='${sessionScope.client_info.client_phone}'/>"/></td>
+                           value="<c:out value='${updateData.client_phone}'/>"/></td>
                         </tr>
                         <tr>
                            <td>주소</td>
-                           <td class="text-left"><input type="button" id="addBtn" class="dosirakBtn3" value="주소검색" onclick="execDaumPostcode()" />
+                           <td class="text-left"><input type="button" id="addBtn" style="width: 100%;" class="dosirakBtn3" value="주소검색" onclick="execDaumPostcode()" />
                               <div style="display: none;">
                               <input type="text" id="sample6_postcode" placeholder="우편번호">
                               <input type="button" onclick="sample6_execDaumPostcode()" value="우편번호 찾기"><br>
@@ -308,7 +310,7 @@
                               </div>
                               <input type="text" name="client_address" id="client_address" class="form-control" 
                               placeholder="주소검색 후 상세주소를 입력해주세요." 
-                              value="<c:out value='${sessionScope.client_info.client_address}'/>"/>
+                              value="<c:out value='${updateData.client_address}'/>"/>
                               <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
                            </td>
                         </tr>

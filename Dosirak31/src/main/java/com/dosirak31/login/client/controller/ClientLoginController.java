@@ -172,6 +172,10 @@ public class ClientLoginController {
 			//회원 정보를 세션에 저장한다.
 			session.setAttribute("client_info", clientLogin);
 			
+			session.setAttribute("client_no", clientLogin.getClient_no());
+			
+			session.setAttribute("client_id", clientLogin.getClient_id());//추후 헬스게시판 댓글에서 이용할 session값
+			
 			url = "successlogin";
 			
 			return "redirect:"+url;

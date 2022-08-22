@@ -30,7 +30,7 @@ public class FoodBasicFileUploadUtil {
 
 	      // 파일명 변경(중복되지않게)
 	      if (org_name != null && (!org_name.equals(""))) {
-	         real_name = fileName + "_" + System.currentTimeMillis()+ "_" +org_name;// 저장할 파일 이름
+	         real_name = org_name;// 저장할 파일 이름
 
 	         String docRoot = "C://dosirak31img//" + fileName;
 	         makeDir(docRoot); // 폴더 만드는 작업
@@ -54,10 +54,10 @@ public class FoodBasicFileUploadUtil {
 	   
 	      boolean result = false;
 	      String startDirName = "", docRoot = "";
-	      String dirName = fileName.substring(0, fileName.indexOf("_"));
+	     
 	                              // 0번째 부터 시작해서 _ 위치까지 -> board
 	    
-	         docRoot = "C://dosirak31img//" + dirName; 
+	         docRoot = "C://dosirak31img//" + fileName; 
 	         // docRoot = C://uploadStorage//board
 	    
 	      File fileDelete = new File(docRoot + "/" + fileName);

@@ -94,7 +94,7 @@
       </style>
       
       <style>
-            a{color:#FF8D2C;}
+            a{color:#a5d610;}
       </style>
    
       <script type="text/javascript" src="/resources/include/js/jquery-1.12.4.min.js"></script>
