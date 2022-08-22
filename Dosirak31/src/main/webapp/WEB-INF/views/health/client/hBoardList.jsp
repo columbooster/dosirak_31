@@ -13,7 +13,7 @@
 </div>
 <div class="wrapper row3">
 
-	<main class="container clear">
+	<main class="container clear" style="padding-bottom:80px;">
 		<div class="content">
 			<div class="main_contents">
 				
@@ -34,7 +34,7 @@
 							</span></a></li>
 					<li class="li"><a href="/health/cardioList?health_category_no=2"><img
 							class="img"
-							src="/dosirak31img/health/health_cardio_cardioMain.JPG" alt=""><br /><br />
+							src="/dosirak31img/health/health_cardio_cardioMain1.JPG" alt=""><br /><br />
 							<span class="span">
 							유산소 트레이닝 동영상 자세히 보기
 							</span></a></li>

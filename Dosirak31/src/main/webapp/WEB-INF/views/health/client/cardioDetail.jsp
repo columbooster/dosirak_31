@@ -1,7 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
    pageEncoding="UTF-8"%>
 <%@ include file="/WEB-INF/views/common/common.jspf"%>
-
+<style>
+a{color:#a5d610}
+</style>
 </head>
 <div id="hBoardList_board_img" class="wrapper row2 bgded"
    style="background-image: url('/resources/images/common/running.jpg');">

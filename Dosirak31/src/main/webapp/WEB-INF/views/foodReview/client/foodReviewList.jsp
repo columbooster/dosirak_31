@@ -28,8 +28,8 @@
 	  		 background-color:rgba(0,0,0,0);
 		}
        
-       
-		
+        img{width:70px; height:70px;margin:5px;}
+		.star{width:30px; height:30px; margin:3px;}
 
 	</style>
 		<script type="text/javascript">
@@ -51,7 +51,9 @@
 			}
 			
 			
-
+			function orderList(client_no){
+		         location.href="/mypage/client/mypageOrderList?client_no="+client_no;
+		      }
 		</script>
 </head>
 	<body>
@@ -68,7 +70,7 @@
    </div>
 <!-- 이미지를 위한 끝-->		
 <!-- main body @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
-<div class="wrapper row3">
+<div class="wrapper row3" style="padding-bottom:45px; padding-top:20px;">
 	<main class="container clear" style="padding: 40px 0;"> 
     <div class="content"> 
     
@@ -90,12 +92,32 @@
 				          <li>
 				            <article>
 				              <header>
-				                <figure class="avatar"><img src="/resources/images/demo/avatar.png" alt=""></figure>
+				                <figure class="avatar">
+							<img  class="imgda1" src="/dosirak31img/food/${review.food_img1 }">
+			                <img  class="imgda2" src="/dosirak31img/food/${review.food_img2 }"><img  class="imgda3" src="/dosirak31img/food/${review.food_img3 }">
+			                <img  class="imgda4" src="/dosirak31img/food/${review.food_img4 }"><img  class="imgda5" src="/dosirak31img/food/${review.food_img5 }">
+			                </figure> 
+				                
+				                
+				                
 				                <div>${review.dosirak_name}</div>
 				                <address>
-				                By <a href="#">${review.review_name}</a>
+				                By <a >${review.review_name}</a>
 				                </address>
-				                <span>별점 : ${review.review_score}</span>
+				                <span>별점 : 
+				                 <c:choose>
+				                 <c:when test="${review.review_score ne 0 }">
+				                <c:forEach begin="1" end="${review.review_score}">
+				               
+				                <img  class="star" src="/resources/images/common/star.png"/>
+				                
+				                </c:forEach>
+				                </c:when>
+				                <c:when test="${review.review_score eq 0 }">
+				                 별점이 0점입니다.
+				                </c:when>
+				                </c:choose>
+				                </span>
 				                <div>${review.review_date}</div>
 				              </header>
 				              <div class="comcont">

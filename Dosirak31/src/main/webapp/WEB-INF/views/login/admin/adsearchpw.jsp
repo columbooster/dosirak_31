@@ -2,17 +2,17 @@
     pageEncoding="UTF-8"%>
  <%@ include file="/WEB-INF/views/common/common.jspf" %> 
  
-		<style type="text/css">
-		
-			header{
+      <style type="text/css">
+      
+         header{
                 display:flex;
                 justify-content: center;
                 margin-top: 50px;
             }
             h2{
-            	font-weight: bold;
-            	color: black;
-            	font-weight: bolder;
+               font-weight: bold;
+               color: black;
+               font-weight: bolder;
             }
             form{
                 padding:10px;
@@ -73,92 +73,92 @@
                 margin:10px 0px;
             }
             #btn{
-            	text-align: center
+               text-align: center
             }
              #error{ color : red; font-size: 3px; text-align:center;}
              
               body{background-color:white;}
-			
-			
-		</style>
-		
-		
-		<script type="text/javascript" src="/resources/include/js/jquery-1.12.4.min.js"></script>
-		<script type="text/javascript" src="/resources/include/js/common.js"></script>
-		<script type="text/javascript" src="/resources/include/dist/js/bootstrap.min.js"></script>
+         
+         
+      </style>
+      
+      
+      <script type="text/javascript" src="/resources/include/js/jquery-1.12.4.min.js"></script>
+      <script type="text/javascript" src="/resources/include/js/common.js"></script>
+      <script type="text/javascript" src="/resources/include/dist/js/bootstrap.min.js"></script>
 
-		<script type="text/javascript">
-		$(function(){
-			$("#searchPwBtn").click(function(){
-				
-				if($("#admin_id").val().replace(/\s/g, "") == ""){
-					
-					let result = "아이디는 필수 입력 항목 입니다.";
-					$("#error").show();
-					$("#error").html(result);
-					
+      <script type="text/javascript">
+      $(function(){
+         $("#searchPwBtn").click(function(){
+            
+            if($("#admin_id").val().replace(/\s/g, "") == ""){
+               
+               let result = "아이디는 필수 입력 항목 입니다.";
+               $("#error").show();
+               $("#error").html(result);
+               
 
-					$("#admin_id").click(function(){
-						
-						$("#error").html("");
-						
-					})
-					
-					
-					return false;
-					
-				}
-				
-				if($("#admin_name").val().replace(/\s/g, "") == ""){
-					
-					let result = "이름은 필수 입력 항목 입니다.";
-					$("#error").show();
-					$("#error").html(result);
-					
+               $("#admin_id").click(function(){
+                  
+                  $("#error").html("");
+                  
+               })
+               
+               
+               return false;
+               
+            }
+            
+            if($("#admin_name").val().replace(/\s/g, "") == ""){
+               
+               let result = "이름은 필수 입력 항목 입니다.";
+               $("#error").show();
+               $("#error").html(result);
+               
 
-					$("#admin_name").click(function(){
-						
-						$("#error").html("");
-						
-					})
-					
-					
-					return false;
-					
-				}
-				
-				if($("#admin_email").val().replace(/\s/g, "") == ""){
-					let result = "이메일은 필수 입력 항목 입니다.";
-					$("#error").show();
-					$("#error").html(result);
-					
+               $("#admin_name").click(function(){
+                  
+                  $("#error").html("");
+                  
+               })
+               
+               
+               return false;
+               
+            }
+            
+            if($("#admin_email").val().replace(/\s/g, "") == ""){
+               let result = "이메일은 필수 입력 항목 입니다.";
+               $("#error").show();
+               $("#error").html(result);
+               
 
-					$("#admin_email").click(function(){
-						
-						$("#error").html("");
-						
-					})
-					
-					
-					return false;
-					
-				}
-				
-				$("#pwSearchForm").submit();
-			});
-		});
-		 
-		 
-		
-		</script>
+               $("#admin_email").click(function(){
+                  
+                  $("#error").html("");
+                  
+               })
+               
+               
+               return false;
+               
+            }
+            
+            $("#pwSearchForm").submit();
+         });
+      });
+       
+       
+      
+      </script>
 </head>
 <body>
-	<div id="container">
+   <div id="container">
             <header>
             <h2>Admin 비밀번호 찾기</h2>
-        	</header><br/>
-        	<p id = "error"></p>
-	
+           </header><br/>
+           <p id = "error"></p>
+   
         <form action="/admin/adpwconfirm" method="POST" id="pwSearchForm">
 
             <div class="input-box">
@@ -176,14 +176,14 @@
                 <label for="admin_email">이메일</label>
             </div><br/><br/>
             
-			<div class ="return">
-            	<span><a href="/admin/adsearchid">아이디 찾기</a></span> | <span><a href="/admin/adminloginmain">로그인 하기</a></span>
+         <div class ="return">
+               <span><a href="/admin/adsearchid">아이디 찾기</a></span> | <span><a href="/admin/login">로그인 하기</a></span>
             </div>
             
             <div id="btn"> 
             <input type="submit" value="비밀번호 찾기" id="searchPwBtn" class="dosirakBtn">
-			</div>
-			
+         </div>
+         
         </form>
         </div>
 </body>

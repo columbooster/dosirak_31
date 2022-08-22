@@ -2,8 +2,9 @@
     pageEncoding="UTF-8"%>
  <%@ page trimDirectiveWhitespaces="true" %>
  <style>
- 	.logo{width:70px; height:40px;}
- 	.size{width:50px; height:40px;}
+ 	  .logo{width:80px; height:55px;}
+    .size{width:40px; height:40px;}
+
  </style>
  <div class="wrapper row1">
   <header id="header" class="clear"> 

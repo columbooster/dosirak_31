@@ -15,7 +15,7 @@
 							<li class="first healthList_img_size"><a href="/health/admin/weightList?health_category_no=1"><img id="weightImg"
 									src="/dosirak31img/health/health_weight_weightMain1.JPG" alt="">웨이트 트레이닝</a></li>
 							<li class="healthList_img_size"><a href="/health/admin/cardioList?health_category_no=2"><img id="cardioImg"
-									src="/dosirak31img/health/health_cardio_cardioMain.JPG" alt="">유산소 트레이닝</a></li>
+									src="/dosirak31img/health/health_cardio_cardioMain1.JPG" alt="">유산소 트레이닝</a></li>
 						</ul>	
 					</figure>
 				</div>

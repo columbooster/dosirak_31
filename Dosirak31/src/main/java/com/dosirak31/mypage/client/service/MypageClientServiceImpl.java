@@ -12,48 +12,64 @@ import lombok.Setter;
 
 @Service
 public class MypageClientServiceImpl implements MypageClientService {
-	
-	@Setter(onMethod_ = @Autowired)
-	private MypageClientDao mypageClientDao;
-	
-	// íšŒì›ì •ë³´
-	@Override
-	public List<MypageClientVO> mypageClientList(MypageClientVO mcvo) {
-		List<MypageClientVO> list = null;
-		list = mypageClientDao.mypageClientList(mcvo);
-		return list;
-	}
-	
-	// íšŒì›ì •ë³´ ë””í…Œì¼
-	@Override
-	public MypageClientVO mypageClientDetail(MypageClientVO mcvo) {
-		MypageClientVO detail = null;
-		
-		detail = mypageClientDao.mypageClientDetail(mcvo);
-		return detail;
-	}
-	
-	// íšŒì›ì •ë³´ ìˆ˜ì •
-	@Override
-	public int mypageClientUpdate(MypageClientVO mcvo) {
-		int result = 0;
-		result = mypageClientDao.mypageClientUpdate(mcvo);
-		return result;
-	}
-	
-	// íšŒì›ì •ë³´ ìˆ˜ì •í¼
-	@Override
-	public MypageClientVO cUpdateForm(MypageClientVO mcvo) {
-		MypageClientVO detail = null;
-		detail = mypageClientDao.mypageClientDetail(mcvo);
-		return detail;
-	}
-	
-	// íšŒì›ì •ë³´ ì‚­ì œ
-	@Override
-	public int mypageClientDelete(MypageClientVO mcvo) {
-		int result =0;
-		result = mypageClientDao.mypageClientDelete(mcvo.getClient_no());
-		return result;
-	}
+   
+   @Setter(onMethod_ = @Autowired)
+   private MypageClientDao mypageClientDao;
+   
+   // È¸¿øÁ¤º¸
+   @Override
+   public List<MypageClientVO> mypageClientList(MypageClientVO mcvo) {
+      List<MypageClientVO> list = null;
+      list = mypageClientDao.mypageClientList(mcvo);
+      return list;
+   }
+   
+   // È¸¿øÁ¤º¸ µğÅ×ÀÏ
+   @Override
+   public MypageClientVO mypageClientDetail(MypageClientVO mcvo) {
+      MypageClientVO detail = null;
+      
+      detail = mypageClientDao.mypageClientDetail(mcvo);
+      return detail;
+   }
+   
+   // È¸¿øÁ¤º¸ ¼öÁ¤
+   @Override
+   public int mypageClientUpdate(MypageClientVO mcvo) {
+      int result = 0;
+      result = mypageClientDao.mypageClientUpdate(mcvo);
+      return result;
+   }
+   
+   // È¸¿øÁ¤º¸ ¼öÁ¤Æû
+   @Override
+   public MypageClientVO cUpdateForm(MypageClientVO mcvo) {
+      MypageClientVO detail = null;
+      detail = mypageClientDao.mypageClientDetail(mcvo);
+      return detail;
+   }
+   
+   // È¸¿øÁ¤º¸ »èÁ¦
+   @Override
+   public int mypageClientDelete(MypageClientVO mcvo) {
+      int result =0;
+      result = mypageClientDao.mypageClientDelete(mcvo.getClient_no());
+      return result;
+   }
+
+   // ºñ¹Ğ¹øÈ£ Ã¼Å©
+   @Override
+   public int mypageCheck(MypageClientVO mcvo) {
+      int result = 0;
+      result = mypageClientDao.mypageCheck(mcvo);
+      return result;
+   }
+   
+   // ºñ¹Ğ¹øÈ£ Ã¼Å© Æû
+   @Override
+   public MypageClientVO mypageCheckForm(MypageClientVO mcvo) {
+      MypageClientVO detail = null;
+      detail = mypageClientDao.mypageClientDetail(mcvo);
+      return detail;
+   }
 }

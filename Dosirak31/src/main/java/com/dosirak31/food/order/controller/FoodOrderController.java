@@ -80,7 +80,7 @@ public class FoodOrderController {
 	public String orderConfirmation(@ModelAttribute("order2") OrderDetailVO odv, RedirectAttributes ras) {
 		foodOrderService.orderUpdate(odv);//주문 상태 및 배달 정보 update
 		
-		return "mypage/client/mypageMain";
+		return "redirect:/mypage/client/mypageOrderList?client_no="+odv.getClient_no();
 	}
 	
 

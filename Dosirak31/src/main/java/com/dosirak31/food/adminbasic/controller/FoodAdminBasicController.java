@@ -19,7 +19,7 @@ public class FoodAdminBasicController {
 	private FoodBasicService foodBasicService;
 	
 	/*식품 관리자 페이지로 이동 */
-	@RequestMapping(value="/foodAdminBasicList")
+	@RequestMapping(value="/admin/foodAdminBasicList")
 	public String foodBasicList() {
 		
 		return "food/admin/foodAdminBasicList";//foodList로 조회하면됨
